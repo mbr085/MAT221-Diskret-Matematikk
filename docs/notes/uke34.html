@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; MAT221 uke 34 – MAT221 Diskret matematikk</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-24371cd7c856fc855d792c282114372c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/uke34.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MAT221 Diskret matematikk</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Om kurset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/uke34.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#basale-prinsipper" id="toc-basale-prinsipper" class="nav-link active" data-scroll-target="#basale-prinsipper"><span class="header-section-number">3</span> 1.1 Basale prinsipper</a>
+  <ul class="collapse">
+  <li><a href="#multiplikasjonsprinsippet." id="toc-multiplikasjonsprinsippet." class="nav-link" data-scroll-target="#multiplikasjonsprinsippet."><span class="header-section-number">3.1</span> Multiplikasjonsprinsippet.</a>
+  <ul class="collapse">
+  <li><a href="#eksempel" id="toc-eksempel" class="nav-link" data-scroll-target="#eksempel"><span class="header-section-number">3.1.1</span> Eksempel</a></li>
+  <li><a href="#eksempel-1" id="toc-eksempel-1" class="nav-link" data-scroll-target="#eksempel-1"><span class="header-section-number">3.1.2</span> Eksempel</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#fakultet" id="toc-fakultet" class="nav-link" data-scroll-target="#fakultet"><span class="header-section-number">4</span> 1.2 Fakultet</a>
+  <ul class="collapse">
+  <li><a href="#teorem" id="toc-teorem" class="nav-link" data-scroll-target="#teorem"><span class="header-section-number">4.1</span> Teorem</a></li>
+  <li><a href="#korollar" id="toc-korollar" class="nav-link" data-scroll-target="#korollar"><span class="header-section-number">4.2</span> Korollar</a></li>
+  <li><a href="#kombinatorisk-eksplosjon" id="toc-kombinatorisk-eksplosjon" class="nav-link" data-scroll-target="#kombinatorisk-eksplosjon"><span class="header-section-number">4.3</span> Kombinatorisk eksplosjon</a>
+  <ul class="collapse">
+  <li><a href="#eksempel-2" id="toc-eksempel-2" class="nav-link" data-scroll-target="#eksempel-2"><span class="header-section-number">4.3.1</span> Eksempel</a></li>
+  <li><a href="#oppgave" id="toc-oppgave" class="nav-link" data-scroll-target="#oppgave"><span class="header-section-number">4.3.2</span> Oppgave</a></li>
+  </ul></li>
+  <li><a href="#teorem-1" id="toc-teorem-1" class="nav-link" data-scroll-target="#teorem-1"><span class="header-section-number">4.4</span> Teorem</a>
+  <ul class="collapse">
+  <li><a href="#oppgave-1" id="toc-oppgave-1" class="nav-link" data-scroll-target="#oppgave-1"><span class="header-section-number">4.4.1</span> Oppgave</a></li>
+  <li><a href="#oppgave-2" id="toc-oppgave-2" class="nav-link" data-scroll-target="#oppgave-2"><span class="header-section-number">4.4.2</span> Oppgave:</a></li>
+  </ul></li>
+  <li><a href="#addisjonsprinsippet" id="toc-addisjonsprinsippet" class="nav-link" data-scroll-target="#addisjonsprinsippet"><span class="header-section-number">4.5</span> Addisjonsprinsippet</a>
+  <ul class="collapse">
+  <li><a href="#eksempel-3" id="toc-eksempel-3" class="nav-link" data-scroll-target="#eksempel-3"><span class="header-section-number">4.5.1</span> Eksempel</a></li>
+  <li><a href="#oppgave-3" id="toc-oppgave-3" class="nav-link" data-scroll-target="#oppgave-3"><span class="header-section-number">4.5.2</span> Oppgave</a></li>
+  <li><a href="#spørsmål" id="toc-spørsmål" class="nav-link" data-scroll-target="#spørsmål"><span class="header-section-number">4.5.3</span> Spørsmål</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#utvalg" id="toc-utvalg" class="nav-link" data-scroll-target="#utvalg"><span class="header-section-number">5</span> 1.3 Utvalg</a>
+  <ul class="collapse">
+  <li><a href="#oppgave-4" id="toc-oppgave-4" class="nav-link" data-scroll-target="#oppgave-4"><span class="header-section-number">5.0.1</span> Oppgave</a></li>
+  <li><a href="#teorem-1.4" id="toc-teorem-1.4" class="nav-link" data-scroll-target="#teorem-1.4"><span class="header-section-number">5.1</span> Teorem 1.4</a>
+  <ul class="collapse">
+  <li><a href="#begrunnelse" id="toc-begrunnelse" class="nav-link" data-scroll-target="#begrunnelse"><span class="header-section-number">5.1.1</span> Begrunnelse:</a></li>
+  </ul></li>
+  <li><a href="#teorem-2" id="toc-teorem-2" class="nav-link" data-scroll-target="#teorem-2"><span class="header-section-number">5.2</span> Teorem</a>
+  <ul class="collapse">
+  <li><a href="#begrunnelse-1" id="toc-begrunnelse-1" class="nav-link" data-scroll-target="#begrunnelse-1"><span class="header-section-number">5.2.1</span> Begrunnelse:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#binomialkoeffisienter-og-pascals-trekant" id="toc-binomialkoeffisienter-og-pascals-trekant" class="nav-link" data-scroll-target="#binomialkoeffisienter-og-pascals-trekant"><span class="header-section-number">6</span> 1.4 Binomialkoeffisienter og Pascals trekant</a>
+  <ul class="collapse">
+  <li><a href="#utdrag-av-pascals-trekant" id="toc-utdrag-av-pascals-trekant" class="nav-link" data-scroll-target="#utdrag-av-pascals-trekant"><span class="header-section-number">6.0.1</span> Utdrag av Pascals trekant</a></li>
+  <li><a href="#pascals-trekant-for-potenser-av-x-y" id="toc-pascals-trekant-for-potenser-av-x-y" class="nav-link" data-scroll-target="#pascals-trekant-for-potenser-av-x-y"><span class="header-section-number">6.0.2</span> Pascals trekant for potenser av <span class="math inline">\(x + y\)</span></a></li>
+  <li><a href="#oppgave-5" id="toc-oppgave-5" class="nav-link" data-scroll-target="#oppgave-5"><span class="header-section-number">6.0.3</span> Oppgave</a></li>
+  <li><a href="#teorem-1.5" id="toc-teorem-1.5" class="nav-link" data-scroll-target="#teorem-1.5"><span class="header-section-number">6.1</span> Teorem 1.5</a></li>
+  <li><a href="#korollar-1.6" id="toc-korollar-1.6" class="nav-link" data-scroll-target="#korollar-1.6"><span class="header-section-number">6.2</span> Korollar 1.6</a>
+  <ul class="collapse">
+  <li><a href="#oppgave-6" id="toc-oppgave-6" class="nav-link" data-scroll-target="#oppgave-6"><span class="header-section-number">6.2.1</span> Oppgave</a></li>
+  <li><a href="#diagonaler-av-pascals-trekant" id="toc-diagonaler-av-pascals-trekant" class="nav-link" data-scroll-target="#diagonaler-av-pascals-trekant"><span class="header-section-number">6.2.2</span> Diagonaler av Pascals trekant</a></li>
+  <li><a href="#oppgave-7" id="toc-oppgave-7" class="nav-link" data-scroll-target="#oppgave-7"><span class="header-section-number">6.2.3</span> Oppgave</a></li>
+  </ul></li>
+  <li><a href="#teorem-1.8" id="toc-teorem-1.8" class="nav-link" data-scroll-target="#teorem-1.8"><span class="header-section-number">6.3</span> Teorem 1.8</a>
+  <ul class="collapse">
+  <li><a href="#oppgave-8" id="toc-oppgave-8" class="nav-link" data-scroll-target="#oppgave-8"><span class="header-section-number">6.3.1</span> Oppgave</a></li>
+  <li><a href="#oppgave-9" id="toc-oppgave-9" class="nav-link" data-scroll-target="#oppgave-9"><span class="header-section-number">6.3.2</span> Oppgave</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#utvalg-med-repetisjoner" id="toc-utvalg-med-repetisjoner" class="nav-link" data-scroll-target="#utvalg-med-repetisjoner"><span class="header-section-number">7</span> 1.5 Utvalg med repetisjoner</a>
+  <ul class="collapse">
+  <li><a href="#eksempel-4" id="toc-eksempel-4" class="nav-link" data-scroll-target="#eksempel-4"><span class="header-section-number">7.1</span> Eksempel</a></li>
+  <li><a href="#teorem-3" id="toc-teorem-3" class="nav-link" data-scroll-target="#teorem-3"><span class="header-section-number">7.2</span> Teorem</a></li>
+  <li><a href="#oppgave-10" id="toc-oppgave-10" class="nav-link" data-scroll-target="#oppgave-10"><span class="header-section-number">7.3</span> Oppgave</a>
+  <ul class="collapse">
+  <li><a href="#hint" id="toc-hint" class="nav-link" data-scroll-target="#hint"><span class="header-section-number">7.3.1</span> Hint:</a></li>
+  </ul></li>
+  <li><a href="#teorem-1.10" id="toc-teorem-1.10" class="nav-link" data-scroll-target="#teorem-1.10"><span class="header-section-number">7.4</span> Teorem 1.10</a></li>
+  <li><a href="#teorem-4" id="toc-teorem-4" class="nav-link" data-scroll-target="#teorem-4"><span class="header-section-number">7.5</span> Teorem</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Ukens pensum: Kapittel 1 i <a href="https://link.springer.com/book/10.1007/978-0-85729-315-2">Ian Anderson: A first course in discrete mathematics, Springer Verlag, 2002.</a></p>
+<div id="f1f1dcdc" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Math, Latex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="basale-prinsipper" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 1.1 Basale prinsipper</h1>
+<section id="multiplikasjonsprinsippet." class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="multiplikasjonsprinsippet."><span class="header-section-number">3.1</span> Multiplikasjonsprinsippet.</h2>
+<p>La oss si at en aktivitet består av <span class="math inline">\(k\)</span> hendelser <span class="math inline">\(H_1, H_2, \dots, H_k\)</span>.</p>
+<p>Dersom hendelsene <span class="math inline">\(H_1, H_2, \dots, H_k\)</span> har henholdsvis <span class="math inline">\(\alpha_1, \alpha_2, \dots, \alpha_{k}\)</span> uavhengige utfall i følgende forstand:</p>
+<p>For alle de <span class="math inline">\(\alpha_1\)</span> utfallene som skjer i hendelse <span class="math inline">\(H_1\)</span> kan alle de <span class="math inline">\(\alpha_2\)</span> utfallene i hendelse <span class="math inline">\(H_2\)</span> skje og så videre.</p>
+<p>Da kan aktiviteten utføres på <span class="math inline">\(\alpha_1 \alpha_2 \cdots \alpha_k\)</span> måter.</p>
+<section id="eksempel" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="eksempel"><span class="header-section-number">3.1.1</span> Eksempel</h3>
+<p>Du vil plassere tre personer på tre forskjellige markerte plasser.</p>
+<p>Tenk på hendelse <span class="math inline">\(H_1\)</span> som at du plasserer den første personen, <span class="math inline">\(H_2\)</span> at du plasserer den andre personen og <span class="math inline">\(H_3\)</span> at du plasserer siste personen.</p>
+<p>Da har <span class="math inline">\(H_1\)</span> tre utfall, og uavhengig av disse har <span class="math inline">\(H_2\)</span> to utfall og <span class="math inline">\(H_3\)</span> har ett utfall.</p>
+<p>Du kan altså utføre denne aktiviteten på seks forskjellige måter.</p>
+<p>Samme tankemåte viser at du kan plasserer fire personer på fire forskjellige plasser på <span class="math inline">\(4! = 4 \cdot 3 \cdot 2 \cdot 1\)</span> måter.</p>
+</section>
+<section id="eksempel-1" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="eksempel-1"><span class="header-section-number">3.1.2</span> Eksempel</h3>
+<p>Du vil plassere to personer på fire forskjellige plasser. Tenker vi på plassering av første personen som et utfall <span class="math inline">\(H_1\)</span> og plassering av andre personen som et utfall <span class="math inline">\(H_2\)</span> har vi fire utfall for <span class="math inline">\(H_1\)</span> og tre utfall for <span class="math inline">\(H_2\)</span>.</p>
+<p>Denne aktiviteten kan altså utføres på <span class="math inline">\(4 \cdot 3 = 12\)</span> forskjellige måter.</p>
+</section>
+</section>
+</section>
+<section id="fakultet" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> 1.2 Fakultet</h1>
+<p>Gitt et positivt heltall <span class="math inline">\(n\)</span> er tallet <span class="math inline">\(n\)</span>-fakultet gitt ved <span class="math display">\[n! = n(n-1)(n-2) \dots 2 \cdot 1\]</span></p>
+<section id="teorem" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="teorem"><span class="header-section-number">4.1</span> Teorem</h2>
+<p>Aktiviteten å plassere <span class="math inline">\(n\)</span> forskjellige objekter på <span class="math inline">\(n\)</span> markerte plasser kan utføres på <span class="math inline">\(n!\)</span> forskjellige måter.</p>
+</section>
+<section id="korollar" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="korollar"><span class="header-section-number">4.2</span> Korollar</h2>
+<p>Aktiviteten å plassere <span class="math inline">\(n\)</span> forskjellige objekter i rekkefølge kan utføres på <span class="math inline">\(n!\)</span> forskjellige måter.</p>
+</section>
+<section id="kombinatorisk-eksplosjon" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="kombinatorisk-eksplosjon"><span class="header-section-number">4.3</span> Kombinatorisk eksplosjon</h2>
+<p>Tallet <span class="math inline">\(n!\)</span> vokser veldig fort med <span class="math inline">\(n\)</span>:</p>
+<div id="217cfa59" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">8</span>), math.factorial(<span class="dv">18</span>), math.factorial(<span class="dv">28</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>(40320, 6402373705728000, 304888344611713860501504000000)</code></pre>
+</div>
+</div>
+<section id="eksempel-2" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="eksempel-2"><span class="header-section-number">4.3.1</span> Eksempel</h3>
+<p>Fire personer plasseres på hver sin plass. Det er 20 markerte plasser å velge mellom.</p>
+<p>La oss analysere hvor mange måter det kan gjøres på. Første person kan plasseres på 20 forskjellige plasser. Andre personer på 19 plasser, tredje person på 18 plasser og siste person på 17 plasser. Resultatet blir</p>
+<p><span class="math inline">\(20 \cdot 19 \cdot 18 \cdot 17 = \frac{20!}{16!}\)</span></p>
+<div id="e995f2dc" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ss">f"Fire ut av tyve markerte plasser kan velges på </span><span class="sc">{</span>math<span class="sc">.</span>factorial(<span class="dv">20</span>) <span class="op">//</span> math<span class="sc">.</span>factorial(<span class="dv">16</span>)<span class="sc">}</span><span class="ss"> forskjellige måter."</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>'Fire ut av tyve markerte plasser kan velges på 116280 forskjellige måter.'</code></pre>
+</div>
+</div>
+</section>
+<section id="oppgave" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="oppgave"><span class="header-section-number">4.3.2</span> Oppgave</h3>
+<p>I en kortstokk er det 52 kort som alle er forskjellige. I hvor mange forskjellige rekkefølger kan kortene plasseres? Kan du skrive tallet ut ved hjelp av et dataverktøy?</p>
+</section>
+</section>
+<section id="teorem-1" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="teorem-1"><span class="header-section-number">4.4</span> Teorem</h2>
+<p>Antallet av måter vi kan velge <span class="math inline">\(r\)</span> objekter fra en samling bestående av <span class="math inline">\(n\)</span> forskjellige objekter er: <span class="math display">\[n (n-1) \cdots (n-r+1) = \frac{n!}{(n-r)!}\]</span></p>
+<section id="oppgave-1" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="oppgave-1"><span class="header-section-number">4.4.1</span> Oppgave</h3>
+<p>På hvor mange måter kan vi velge to kort fra en kortstokk med 52 kort som alle er forskjellige? (Du husker rekkefølgen kortene er trukket i.)</p>
+</section>
+<section id="oppgave-2" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="oppgave-2"><span class="header-section-number">4.4.2</span> Oppgave:</h3>
+<p>Hvor mange forskjellige fargekombinasjoner kan du oppnå ved å trekke to kort fra en kortstokk med <span class="math inline">\(52\)</span> kort hvor halvparten av kortene er svarte og halvparten er røde? Også her husker du rekkefølgen kortene er trukket i.</p>
+</section>
+</section>
+<section id="addisjonsprinsippet" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="addisjonsprinsippet"><span class="header-section-number">4.5</span> Addisjonsprinsippet</h2>
+<p>La oss si at en aktivitet består av et utfall i presis én av <span class="math inline">\(k\)</span> adskilte hendelser <span class="math inline">\(H_1 \dots H_k\)</span>. Dersom <span class="math inline">\(H_1, H_2, \dots, H_k\)</span> som har henholdsvis <span class="math inline">\(\alpha_1, \alpha_2, \dots, \alpha_{k}\)</span> mulige utfall, da kan aktiviteten utføres på <span class="math inline">\(\alpha_1 + \alpha_2 + \dots + \alpha_k\)</span> forskjellige måter.</p>
+<section id="eksempel-3" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="eksempel-3"><span class="header-section-number">4.5.1</span> Eksempel</h3>
+<p>I en kortstokk er det <span class="math inline">\(26\)</span> forskjellige svarte kort, <span class="math inline">\(26\)</span> forskjellige røde kort og <span class="math inline">\(3\)</span> identiske jokere.</p>
+<p>La oss analysere hvor mange utfall aktiviteten å trekke ett kort fra kortstokken har.</p>
+<p>Vi kan dele denne aktiviteten opp i tre adskilte hendelser: <span class="math inline">\(H_1\)</span> å trekke et svart kort, <span class="math inline">\(H_2\)</span> å trekke et rødt kort og <span class="math inline">\(H_3\)</span> å trekke en joker. Hendelsene <span class="math inline">\(H_1\)</span> og <span class="math inline">\(H_2\)</span> har hver <span class="math inline">\(26\)</span> mulige utfall mens hendelsen <span class="math inline">\(H_3\)</span> har presis ett mulig utfall.</p>
+<p>Vi konkluderer at vi kan trekke <span class="math inline">\(53\)</span> forskjellige kort fra kortstokken.</p>
+</section>
+<section id="oppgave-3" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="oppgave-3"><span class="header-section-number">4.5.2</span> Oppgave</h3>
+<p>Du trekker tre kort fra en kortstokk med tre røde og tre svarte kort. Hvor mange fargekombinasjoner kan du trekke når du ser bort fra rekkefølgen kortene er trukket i?</p>
+</section>
+<section id="spørsmål" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="spørsmål"><span class="header-section-number">4.5.3</span> Spørsmål</h3>
+<p>På hvor mange måter kan vi trekke to kort fra kortstokken når vi husker rekkefølgen de ble trukket i?</p>
+</section>
+</section>
+</section>
+<section id="utvalg" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> 1.3 Utvalg</h1>
+<p>Hvis vi i stedet for å plassere fire personer velger å markere fire av tyve plasser med identiske merkelapper kan vi tenke at vi først husker rekkefølgen av plasseringen av merkelappene og deretter glemmer den.</p>
+<p>Når vi husker rekkefølgen blir det like mange måter å utføre aktiviteten på som hvis vi hadde plassert personer.</p>
+<p>Når vi glemmer rekkefølgen er det <span class="math inline">\(4!\)</span> forskjellige rekkefølger som gir samme plasseringen av lappene fordi fire lapper kan plasseres i rekkefølge på <span class="math inline">\(4!\)</span> måter.</p>
+<p>Det vil si at hvis <span class="math inline">\(A\)</span> er antallet måter merkelappene kan plasseres på, så er <span class="math inline">\(A\)</span> ganger antallet rekkefølger av merkelappene lik antallet måter fire personer kan plasseres på tyve stoler. Skriver vi dette ut som en formel får vi <span class="math display">\[A \cdot 4! = \frac{20!}{16!}\]</span></p>
+<p>Resultatet blir altså <span class="math display">\[A = \frac{20!}{4! 16!}.\]</span></p>
+<div id="8732aca5" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>display(Latex(<span class="vs">r'Dette tallet </span><span class="dv">$</span><span class="vs">A</span><span class="dv">$</span><span class="vs"> kaller vi "tyve-velg-fire" og vi skriver </span><span class="dv">$</span><span class="vs">A = </span><span class="dv">\b</span><span class="vs">inom</span><span class="op">{20}{4}</span><span class="vs"> = '</span> <span class="op">+</span> <span class="ss">f'</span><span class="sc">{</span>math<span class="sc">.</span>comb(<span class="dv">20</span>, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">$.'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;IPython.core.display.Latex object&gt;</code></pre>
+</div>
+</div>
+<section id="oppgave-4" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="oppgave-4"><span class="header-section-number">5.0.1</span> Oppgave</h3>
+<p>På hvor mange måter kan du velge fem plasser ut av <span class="math inline">\(20\)</span>?</p>
+<p>Bruk gjerne et elektronisk verktøy til å finne dette tallet.</p>
+</section>
+<section id="teorem-1.4" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="teorem-1.4"><span class="header-section-number">5.1</span> Teorem 1.4</h2>
+<p>La <span class="math inline">\(\binom nr\)</span> være antallet av måter vi kan velge en samling av <span class="math inline">\(r\)</span> objekter fra en samling bestående av <span class="math inline">\(n\)</span> forskjellige objekter.</p>
+<p>Da er</p>
+<ol type="1">
+<li><span class="math inline">\(\binom nr = \binom n{n-r}\)</span></li>
+<li><span class="math inline">\(\binom {n+1}r = \binom nr + \binom n{r-1}\)</span></li>
+</ol>
+<section id="begrunnelse" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="begrunnelse"><span class="header-section-number">5.1.1</span> Begrunnelse:</h3>
+<p>Jeg vil først begrunne dette med et eksempel. Deretter vil jeg skrive en mere formell begrunnelse.</p>
+<p>La oss si at vi velger ut fire plasser blant tyve markerte plasser.</p>
+<ol type="1">
+<li><p>Jeg kan gjøre dette ved å velge ut <span class="math inline">\(16\)</span> plasser og si at de utvalgte plassene er de fire resterende plassene.</p></li>
+<li><p>Jeg kan sette meg på en plass.</p>
+<p>Jeg kan enten velge fire plasser ut av de <span class="math inline">\(19\)</span> plassene som jeg ikke sitter på eller jeg kan velge den plassen jeg sitter på sammen med tre av de <span class="math inline">\(19\)</span> plassene jeg ikke sitter på.</p>
+<p>I formler gir dette at tyve-velg-fire er lik summen av nitten-velg-fire og nitten-velg-tre.</p>
+<p><span class="math display">\[\binom {20}{4} = \binom{19}{4} + \binom{19}{3}\]</span></p></li>
+</ol>
+<section id="mere-formell-begrunnelse" class="level4" data-number="5.1.1.1">
+<h4 data-number="5.1.1.1" class="anchored" data-anchor-id="mere-formell-begrunnelse"><span class="header-section-number">5.1.1.1</span> Mere formell begrunnelse:</h4>
+<ol type="1">
+<li><p>Objektene som er med i samlingen vi velger ut er entydig bestemt av objektene som ikke er med i denne samlingen.</p></li>
+<li><p>La <span class="math inline">\(x\)</span> være et spesielt utvalgt objekt blant de <span class="math inline">\(n+1\)</span> objektene. Da er det <span class="math inline">\(n\)</span> objekter som er forskjellige fra <span class="math inline">\(x\)</span>. Vi anvender addisjonsprinsippet på</p>
+<p><span class="math inline">\(H_1:\)</span> <span class="math inline">\(x\)</span> er blant de <span class="math inline">\(r+1\)</span> objektene vi velger ut.</p>
+<p><span class="math inline">\(H_2:\)</span> <span class="math inline">\(x\)</span> er <strong>ikke</strong> blant de <span class="math inline">\(r+1\)</span> objektene vi velger ut.</p>
+<p>For <span class="math inline">\(H_1\)</span> er det <span class="math inline">\(\binom n{r-1}\)</span> muligheter for valg av de <span class="math inline">\(r-1\)</span> objektene som ikke er <span class="math inline">\(x\)</span>.</p>
+<p>For <span class="math inline">\(H_2\)</span> er det <span class="math inline">\(\binom nr\)</span> muligheter for valg av objektene vi velger ut. (De er alle forskjellige fra <span class="math inline">\(x\)</span>.)</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="teorem-2" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="teorem-2"><span class="header-section-number">5.2</span> Teorem</h2>
+<p>La <span class="math inline">\(\binom nr\)</span> være antallet av måter vi kan velge en samling av <span class="math inline">\(r\)</span> forskjellige objekter fra en samling bestående av <span class="math inline">\(n\)</span> forskjellige objekter.</p>
+<p>Da er <span class="math display">\[\binom nr = \frac{n!}{r!(n-r)!}\]</span></p>
+<section id="begrunnelse-1" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="begrunnelse-1"><span class="header-section-number">5.2.1</span> Begrunnelse:</h3>
+<p>Vi forklarte egentlig dette med eksemplet der vi valgte fire ut av tyve plasser.</p>
+<section id="mere-formell-begrunnelse-1" class="level4" data-number="5.2.1.1">
+<h4 data-number="5.2.1.1" class="anchored" data-anchor-id="mere-formell-begrunnelse-1"><span class="header-section-number">5.2.1.1</span> Mere formell begrunnelse:</h4>
+<p>Hvis vi vet at teoremet holder for <span class="math inline">\(n\)</span> da kan vi forklare hvorfor det også må holde for <span class="math inline">\(n+1\)</span>:</p>
+<p><span class="math display">\[\binom{n+1}r = \binom nr + \binom n{r-1} = \frac{n!}{r!(n-r)!} + \frac{n!}{(r-1)!(n-r+1)!}\]</span></p>
+<p>Som på side 6 i læreboken kan dette uttrykket algebraisk reduseres til <span class="math inline">\(\frac{(n+1)!}{r!(n+1-r)!}\)</span>.</p>
+<p><strong>Trekanten til Pascal kan brukes til å sjekke dette teoremet for noen tall</strong></p>
+</section>
+</section>
+</section>
+</section>
+<section id="binomialkoeffisienter-og-pascals-trekant" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> 1.4 Binomialkoeffisienter og Pascals trekant</h1>
+<p>Skriver jeg en rekke med tallene</p>
+<p><span class="math display">\[\binom 40 \ \binom 41 \ \binom 42 \ \binom 43 \ \binom 44\]</span></p>
+<p>det vil si</p>
+<p><span class="math display">\[
+\begin{matrix}
+&amp;1 &amp;&amp; 4 &amp;&amp; 6 &amp;&amp; 4 &amp;&amp; 1 &amp;
+\end{matrix}
+\]</span></p>
+<p>Kan jeg bruke disse til ved hjelp av Teorem 1.4 å regne ut tallene</p>
+<p><span class="math display">\[\binom 50 \ \binom 51 \ \binom 52 \ \binom 53 \ \binom 54 \ \binom 55\]</span></p>
+<p>til å bli</p>
+<p><span class="math display">\[
+\begin{matrix}
+1 &amp;&amp; 5 &amp;&amp; 10 &amp;&amp; 10 &amp;&amp; 5 &amp;&amp; 1
+\end{matrix}
+\]</span></p>
+<p>Dette kan illustreres ved å skrive linjene over hverandre:</p>
+<p><span class="math display">\[
+\begin{matrix}
+&amp;1 &amp;&amp; 4 &amp;&amp; 6 &amp;&amp; 4 &amp;&amp; 1 &amp; \\
+1 &amp;&amp; 5 &amp;&amp; 10 &amp;&amp; 10 &amp;&amp; 5 &amp;&amp; 1
+\end{matrix}
+\]</span></p>
+<p>De indre tallene i den nederste linjen er gitt ved summen av de to tallene til venstre og til høyre for dem i linjen over.</p>
+<div id="2c4af045" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kode som kan produsere Pascals trekant. Koden er ikke viktig å forstå!</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pascal(n):</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Yield up to row ``n`` of Pascal's triangle, one row at a time.</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    The first row is row 0.</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span> (n, <span class="bu">int</span>):</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span> (<span class="st">'n must be an integer'</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span> (<span class="st">'n must be an integer &gt;= 0'</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> newrow(row):</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">"Calculate a row of Pascal's triangle given the previous one."</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        prev <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> x <span class="kw">in</span> row:</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">yield</span> prev <span class="op">+</span> x</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            prev <span class="op">=</span> x</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> <span class="dv">1</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    prevrow <span class="op">=</span> [<span class="dv">1</span>]</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">yield</span> prevrow</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        prevrow <span class="op">=</span> <span class="bu">list</span>(newrow(prevrow))</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> prevrow</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pascal_latex(n):</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">    Generate a Pascal triangle for LaTeX embedding.</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="vs">r'</span><span class="dv">\b</span><span class="vs">egin{matrix}'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, row <span class="kw">in</span> <span class="bu">enumerate</span>(pascal(n)):</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="st">'&amp;'</span> <span class="op">*</span> (n<span class="op">-</span>i)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="st">' &amp;&amp; '</span>.join (<span class="st">'</span><span class="sc">%2d</span><span class="st">'</span> <span class="op">%</span> coeff <span class="cf">for</span> coeff <span class="kw">in</span> row)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> (<span class="vs">r'</span><span class="ch">\\</span><span class="vs">'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    res <span class="op">+=</span> (<span class="vs">r'</span><span class="er">\</span><span class="vs">end{matrix}'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="utdrag-av-pascals-trekant" class="level3" data-number="6.0.1">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="utdrag-av-pascals-trekant"><span class="header-section-number">6.0.1</span> Utdrag av Pascals trekant</h3>
+<div id="394571ea" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>display(Math(pascal_latex(<span class="dv">7</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\displaystyle \begin{matrix}
+&amp;&amp;&amp;&amp;&amp;&amp;&amp; 1\\
+&amp;&amp;&amp;&amp;&amp;&amp; 1 &amp;&amp;  1\\
+&amp;&amp;&amp;&amp;&amp; 1 &amp;&amp;  2 &amp;&amp;  1\\
+&amp;&amp;&amp;&amp; 1 &amp;&amp;  3 &amp;&amp;  3 &amp;&amp;  1\\
+&amp;&amp;&amp; 1 &amp;&amp;  4 &amp;&amp;  6 &amp;&amp;  4 &amp;&amp;  1\\
+&amp;&amp; 1 &amp;&amp;  5 &amp;&amp; 10 &amp;&amp; 10 &amp;&amp;  5 &amp;&amp;  1\\
+&amp; 1 &amp;&amp;  6 &amp;&amp; 15 &amp;&amp; 20 &amp;&amp; 15 &amp;&amp;  6 &amp;&amp;  1\\
+1 &amp;&amp;  7 &amp;&amp; 21 &amp;&amp; 35 &amp;&amp; 35 &amp;&amp; 21 &amp;&amp;  7 &amp;&amp;  1\\
+\end{matrix}\)</span></p>
+</div>
+</div>
+<div id="3905d903" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kode for ny figur. Ignorer koden...</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> xyterm(i, j, coeff):</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> j <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="ss">f'x^</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">'1'</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> j <span class="op">==</span> i:</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f'y^</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>coeff<span class="sc">:2d}</span><span class="ss"> x^</span><span class="sc">{</span>i<span class="op">-</span>j<span class="sc">}</span><span class="ss">y^</span><span class="sc">{</span>j<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pascal_xplusy(n):</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Generate a Pascal triangle for powers of x + y</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="vs">r'</span><span class="dv">\b</span><span class="vs">egin{matrix}'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, row <span class="kw">in</span> <span class="bu">enumerate</span>(pascal(n)):</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="ss">f'(x + y)^</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> &amp; = &amp;'</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="st">'&amp;'</span> <span class="op">*</span> (n<span class="op">-</span>i)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="st">' &amp;+&amp; '</span>.join (xyterm(i, j, coeff) <span class="cf">for</span> j, coeff <span class="kw">in</span> <span class="bu">enumerate</span>(row))</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> (<span class="vs">r'</span><span class="ch">\\</span><span class="vs">'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    res <span class="op">+=</span> (<span class="vs">r'</span><span class="er">\</span><span class="vs">end{matrix}'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> res.replace(<span class="st">"(x + y)^1"</span>, <span class="st">"x + y"</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> res.replace(<span class="st">"^1"</span>, <span class="st">""</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> res.replace(<span class="st">"(x + y)^0"</span>, <span class="st">"1"</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="pascals-trekant-for-potenser-av-x-y" class="level3" data-number="6.0.2">
+<h3 data-number="6.0.2" class="anchored" data-anchor-id="pascals-trekant-for-potenser-av-x-y"><span class="header-section-number">6.0.2</span> Pascals trekant for potenser av <span class="math inline">\(x + y\)</span></h3>
+<div id="088c0f36" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>display(Math(pascal_xplusy(<span class="dv">7</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><span class="math inline">\(\displaystyle \begin{matrix}
+1 &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1\\
+x + y &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;x &amp;+&amp; y\\
+(x + y)^2 &amp; = &amp;&amp;&amp;&amp;&amp;&amp;x^2 &amp;+&amp;  2 xy &amp;+&amp; y^2\\
+(x + y)^3 &amp; = &amp;&amp;&amp;&amp;&amp;x^3 &amp;+&amp;  3 x^2y &amp;+&amp;  3 xy^2 &amp;+&amp; y^3\\
+(x + y)^4 &amp; = &amp;&amp;&amp;&amp;x^4 &amp;+&amp;  4 x^3y &amp;+&amp;  6 x^2y^2 &amp;+&amp;  4 xy^3 &amp;+&amp; y^4\\
+(x + y)^5 &amp; = &amp;&amp;&amp;x^5 &amp;+&amp;  5 x^4y &amp;+&amp; 10 x^3y^2 &amp;+&amp; 10 x^2y^3 &amp;+&amp;  5 xy^4 &amp;+&amp; y^5\\
+(x + y)^6 &amp; = &amp;&amp;x^6 &amp;+&amp;  6 x^5y &amp;+&amp; 15 x^4y^2 &amp;+&amp; 20 x^3y^3 &amp;+&amp; 15 x^2y^4 &amp;+&amp;  6 xy^5 &amp;+&amp; y^6\\
+(x + y)^7 &amp; = &amp;x^7 &amp;+&amp;  7 x^6y &amp;+&amp; 21 x^5y^2 &amp;+&amp; 35 x^4y^3 &amp;+&amp; 35 x^3y^4 &amp;+&amp; 21 x^2y^5 &amp;+&amp;  7 xy^6 &amp;+&amp; y^7\\
+\end{matrix}\)</span></p>
+</div>
+</div>
+<p>Bemerk at tallene her er de samme som i Pascals trekant.</p>
+<p>At tallene i raden for <span class="math inline">\((x+y)^7\)</span> er binomialkoffisientene en-velg-syv, to-velg-syv og så videre kan forklares ved hjelp av Teorem 1.4 og at</p>
+<p><span class="math display">\[(x+y)^7 = x(x+y)^6 + y(x+y)^6:\]</span></p>
+<p><span class="math display">\[
+\begin{matrix}
+x(x + y)^6 &amp; = &amp;x^7 &amp;+&amp;  6 x^6y &amp;+&amp; 15 x^5y^2 &amp;+&amp; 20 x^4y^3 &amp;+&amp; 15 x^3y^4 &amp;+&amp;  6 x^2y^5 &amp;+&amp; xy^6\\
+% &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;\\
+y(x + y)^6 &amp; = &amp;&amp;&amp;x^6y &amp;+&amp;  6 x^5y^2 &amp;+&amp; 15 x^4y^3 &amp;+&amp; 20 x^3y^4 &amp;+&amp; 15 x^2y^5 &amp;+&amp;  6 xy^6 &amp;+&amp; y^7\\
+&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;\\
+(x + y)^7 &amp; = &amp;x^7 &amp;+&amp;  7 x^6y &amp;+&amp; 21 x^5y^2 &amp;+&amp; 35 x^4y^3 &amp;+&amp; 35 x^3y^4 &amp;+&amp; 21 x^2y^5 &amp;+&amp;  7 xy^6 &amp;+&amp; y^7\\
+\end{matrix}
+\]</span></p>
+</section>
+<section id="oppgave-5" class="level3" data-number="6.0.3">
+<h3 data-number="6.0.3" class="anchored" data-anchor-id="oppgave-5"><span class="header-section-number">6.0.3</span> Oppgave</h3>
+<p>Skriv ut <span class="math inline">\((x + y)^8\)</span> som en sum på samme måten som vi gjorde for <span class="math inline">\((x + y)^7\)</span>.</p>
+</section>
+<section id="teorem-1.5" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="teorem-1.5"><span class="header-section-number">6.1</span> Teorem 1.5</h2>
+<p>Pascals trekant for potenser av <span class="math inline">\(x + y\)</span> kan fortsettes til <span class="math inline">\((x+y)^n\)</span> for alle positive heltall <span class="math inline">\(n\)</span>.</p>
+<p>Koeffisienten foran <span class="math inline">\(x^iy^j\)</span> er <span class="math inline">\(\binom{i+j}{i}\)</span>, så <span class="math display">\[(x + y)^n = \sum_{r=0}^n \binom nr x^r y^{n-r}.\]</span></p>
+<p>Bemerk at koeffisientene foran <span class="math inline">\(x^iy^j\)</span> og <span class="math inline">\(x^jy^i\)</span> er like, og at dette stemmer med at <span class="math inline">\(\binom{i+j}{i} = \binom{i+j}{j}\)</span>.</p>
+<p>Ved å sette <span class="math inline">\(x = 1\)</span> fås:</p>
+</section>
+<section id="korollar-1.6" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="korollar-1.6"><span class="header-section-number">6.2</span> Korollar 1.6</h2>
+<p><span class="math display">\[(1 + y)^n = \sum_{r = 0}^n \binom nr y^r\]</span></p>
+<p>Settes ytterligere <span class="math inline">\(y = 1\)</span> fås:</p>
+<p><span class="math display">\[2^n = \sum_{r = 0}^n \binom nr\]</span></p>
+<section id="oppgave-6" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="oppgave-6"><span class="header-section-number">6.2.1</span> Oppgave</h3>
+<p>Sett <span class="math inline">\(x=-1\)</span> og <span class="math inline">\(y=1\)</span> i Teorem 1.5. Skriv ut den formelen du finner.</p>
+</section>
+<section id="diagonaler-av-pascals-trekant" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="diagonaler-av-pascals-trekant"><span class="header-section-number">6.2.2</span> Diagonaler av Pascals trekant</h3>
+<p>La oss beregne tallet <span class="math inline">\(\binom 74\)</span> på en ny måte.</p>
+<p>For å være konkret vil jeg trekke fire tall blant tallene <span class="math inline">\(1, 2, 3, 4, 5, 6, 7\)</span>.</p>
+<p>Av mulighetene for å gjøre dette er der <span class="math inline">\(\binom 63\)</span> kombinasjoner hvor tallet <span class="math inline">\(1\)</span> er blant tallene som blir trukket.</p>
+<p>Hvis jeg vet at <span class="math inline">\(1\)</span> ikke blir trukket men at <span class="math inline">\(2\)</span> blir trukket er der <span class="math inline">\(\binom 53\)</span> muligheter.</p>
+<p>Hvis jeg vet at verken <span class="math inline">\(1\)</span> og <span class="math inline">\(2\)</span> blir trukket men at <span class="math inline">\(3\)</span> blir trukket er der <span class="math inline">\(\binom 43\)</span> muligheter.</p>
+<p>Hvis jeg vet at verken <span class="math inline">\(1, 2\)</span> eller <span class="math inline">\(3\)</span> blir trukket, så må de resterende fire tallene <span class="math inline">\(4,5,6, 7\)</span> bli trukket. Det gjenstår altså <span class="math inline">\(\binom 33\)</span> muligheter.</p>
+<p>Ved addisjonsprinsippet er</p>
+<p><span class="math display">\[\binom 74 = \binom {3+3+1}{4} = \binom 33 + \binom 43 + \binom 53 + \binom 63\]</span></p>
+</section>
+<section id="oppgave-7" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="oppgave-7"><span class="header-section-number">6.2.3</span> Oppgave</h3>
+<p>Forklar formelen <span class="math display">\[\binom 63 = \binom {2 + 3 + 1}{3} = \binom 22 + \binom 32 + \binom 42 + \binom 52.\]</span></p>
+</section>
+</section>
+<section id="teorem-1.8" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="teorem-1.8"><span class="header-section-number">6.3</span> Teorem 1.8</h2>
+<p><span class="math display">\[\binom {m+n+1}{m+1} = \binom mm + \binom{m+1}{m} + \dots + \binom{m+n}{m}\]</span></p>
+<section id="oppgave-8" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="oppgave-8"><span class="header-section-number">6.3.1</span> Oppgave</h3>
+<p>Vi vet fra Teorem 1.4 at <span class="math display">\[(1 + x)^4 = x^4 + 4x^3 + 6x^2 + 4x + 1.\]</span></p>
+<p>Bruk dette til å se at koeffisienten til <span class="math inline">\(x^4\)</span> i <span class="math inline">\((1 + x)^4 (1 + x)^4\)</span> er <span class="math display">\[ 1 \cdot 1 + 4 \cdot 4 + 6 \cdot 6 + 4 \cdot 4 + 1 \cdot 1\]</span> som er lik <span class="math display">\[\binom 44 \binom 40 + \binom 43 \binom 41 + \binom 42 \binom 42 + \binom 41 \binom 43 + \binom 40 \binom 44\]</span> og som også er lik <span class="math display">\[\binom 44^2 + \binom 43^2 + \binom 42^2  + \binom 41^2  + \binom 40^2 \]</span></p>
+<p>Fra Teorem 1.4 er <span class="math display">\[(1 + x)^4 (1 + x)^4 = (1 + x)^8 = \binom 80 x^8 + \binom 81 x^7 + \binom 82 x^6 + \binom 83 x^5 + \binom 84 x^4 + \dots.\]</span></p>
+<p>Bruk dette til å skrive en ny formel for <span class="math inline">\(\binom 84\)</span>.</p>
+</section>
+<section id="oppgave-9" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="oppgave-9"><span class="header-section-number">6.3.2</span> Oppgave</h3>
+<p>Forklar hvorfor <span class="math display">\[\binom n0^2 + \binom n1^2 + \dots + \binom nn^2 = \binom {2n}{n}.\]</span></p>
+</section>
+</section>
+</section>
+<section id="utvalg-med-repetisjoner" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> 1.5 Utvalg med repetisjoner</h1>
+<section id="eksempel-4" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="eksempel-4"><span class="header-section-number">7.1</span> Eksempel</h2>
+<p>Multiplikasjonsprinsippet gir oss at det finnes <span class="math inline">\(2^n\)</span> binære sekvenser av lengde <span class="math inline">\(n\)</span>.</p>
+<p>En delmengde <span class="math inline">\(A\)</span> av mengden <span class="math inline">\(\{1,2,3\}\)</span> gir oss en binær sekvens <span class="math inline">\(x_1x_2x_3\)</span>av lengde <span class="math inline">\(3\)</span>, der <span class="math inline">\(x_1=1\)</span> hvis <span class="math inline">\(1 \in A\)</span> og <span class="math inline">\(x_1=0\)</span> hvis <span class="math inline">\(1 \notin A\)</span>. Tilsvarende med <span class="math inline">\(x_2\)</span> og <span class="math inline">\(x_3\)</span>. Det finnes derfor <span class="math inline">\(8 = 2^3\)</span> delmengder av mengden <span class="math inline">\(\{1,2,3\}\)</span> med tre elementer.</p>
+<p>Generellt finnes det <span class="math inline">\(2^n\)</span> delmengder av en mengde med <span class="math inline">\(n\)</span> elementer.</p>
+</section>
+<section id="teorem-3" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="teorem-3"><span class="header-section-number">7.2</span> Teorem</h2>
+<p>Det er <span class="math inline">\(n^r\)</span> måter <span class="math inline">\(r\)</span> objekter kan velges i rekkefølge fra <span class="math inline">\(n\)</span> objekter dersom repetisjon er tillatt.</p>
+</section>
+<section id="oppgave-10" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="oppgave-10"><span class="header-section-number">7.3</span> Oppgave</h2>
+<p>Du har en kortstokk med <span class="math inline">\(5\)</span> kort som alle er forskjellige. På hvor mange måter kan du velge syv kort fra kortstokken, når repetisjon er tillat og du ser bort fra rekkefølgen på kortene?</p>
+<section id="hint" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="hint"><span class="header-section-number">7.3.1</span> Hint:</h3>
+<p>Oversett problemet til et problem der du velger 5 plasser fra 11 mulige plasser!</p>
+<p>Ideen er å lage en bitstreng med 11 siffer med 7 nuller og 4 ettaller…</p>
+<p>La oss si at kortene i stokken er en joker, en knekt, en dame, en konge og et ess.</p>
+<p>For å illustrere ideen, la oss si at vi har trukket to jokere, en knekt, to damer, og to ess.</p>
+<p>Da vil jeg skrive bitstrengen <span class="math display">\[00101001100\]</span></p>
+<p>Dette er en kode for at - det er to jokere fordi det er to nuller foran det første ettall. - det er en knekt fordi det er ett null mellom første og andre ettall. - det er to damer fordi det er to nuller mellom andre og tredje ettall. - det er ingen konger fordi det er ingen nuller mellom tredje og fjerde ettall - det er to ess fordi det er to nuller etter det fjerde ettall</p>
+<section id="spørsmål-1" class="level4" data-number="7.3.1.1">
+<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="spørsmål-1"><span class="header-section-number">7.3.1.1</span> Spørsmål</h4>
+<p>Hvilken kombinasjon av kort er følgende bittstreng kode for? <span class="math display">\[10001100010\]</span></p>
+</section>
+</section>
+</section>
+<section id="teorem-1.10" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="teorem-1.10"><span class="header-section-number">7.4</span> Teorem 1.10</h2>
+<p>Antallet av uordnede utvalg av <span class="math inline">\(r\)</span> objekter med repetisjon tillat, fra en samling av <span class="math inline">\(n\)</span> objekter som alle er forskjellige, er <span class="math display">\[\binom {n+r -1}{r}\]</span></p>
+<p>Lar vi i koden over <span class="math inline">\(x_1\)</span> være antallet av nuller før det første ettallet og så videre fram til <span class="math inline">\(x_n\)</span> er antallet av nuller etter det siste ettallet, kan vi se at:</p>
+</section>
+<section id="teorem-4" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="teorem-4"><span class="header-section-number">7.5</span> Teorem</h2>
+<p>Antallet av løsninger til ligningen <span class="math inline">\(x_1 + \dots + x_n = r\)</span> for ikke-negative heltall <span class="math inline">\(x_1, \dots, x_n\)</span> er <span class="math display">\[\binom {n+r -1}{r}\]</span></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Om kurset">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Om kurset</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

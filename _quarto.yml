@@ -7,7 +7,7 @@ book:
   author: "Morten Brun"
   chapters:
     - index.qmd
-    - notes/01-introduksjon.qmd
+    - notes/uke34.qmd
 
 format:
   html:
@@ -17,6 +17,9 @@ format:
   pdf:
     documentclass: scrreprt
     number-sections: true
+    include-in-header:
+      text: |
+        \setcounter{MaxMatrixCols}{30}
 
 execute:
   freeze: auto

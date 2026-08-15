@@ -40,8 +40,7 @@ quarto check jupyter
 
 ```bash
 make preview
-make html
-make pdf
+make render
 make colab
 make check
 ```

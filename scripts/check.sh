@@ -31,8 +31,8 @@ print("networkx:", networkx.__version__)
 PY
 
 echo
-echo "== Render HTML =="
-quarto render --to html
+echo "== Render book (HTML + PDF) =="
+quarto render
 
 echo
 echo "== Export Colab notebooks =="
