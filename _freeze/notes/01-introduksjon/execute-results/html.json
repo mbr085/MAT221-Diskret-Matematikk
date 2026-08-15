@@ -1,0 +1,12 @@
+{
+  "hash": "bc7a2e06a760d4acae8e98b8cff796e6",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "# Introduksjon\n\nDette kapitlet er en liten teknisk prøve av Quarto-oppsettet.\n\n## Matematikk\n\nFor eksempel gjelder\n\n$$\n\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}.\n$$\n\n## Python\n\nDenne cellen kjøres gjennom Python/Jupyter-miljøet fra\n`TeachingEnvironment`.\n\n::: {#b0ab0387 .cell execution_count=1}\n``` {.python .cell-code}\nimport networkx as nx\n\nG = nx.cycle_graph(6)\n\nprint(\"Vertices:\", list(G.nodes))\nprint(\"Edges:\", list(G.edges))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nVertices: [0, 1, 2, 3, 4, 5]\nEdges: [(0, 1), (0, 5), (1, 2), (2, 3), (3, 4), (4, 5)]\n```\n:::\n:::\n\n\n## En enkel figur\n\n::: {#edc712ea .cell execution_count=2}\n``` {.python .cell-code}\nimport matplotlib.pyplot as plt\nimport networkx as nx\n\nG = nx.cycle_graph(6)\nnx.draw_circular(G, with_labels=True)\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](01-introduksjon_files/figure-html/cell-3-output-1.png){width=691 height=499}\n:::\n:::\n\n\n",
+    "supporting": [
+      "01-introduksjon_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

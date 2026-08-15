@@ -1,0 +1,36 @@
+# Introduksjon
+
+Dette kapitlet er en liten teknisk prøve av Quarto-oppsettet.
+
+## Matematikk
+
+For eksempel gjelder
+
+$$
+\sum_{k=1}^{n} k = \frac{n(n+1)}{2}.
+$$
+
+## Python
+
+Denne cellen kjøres gjennom Python/Jupyter-miljøet fra
+`TeachingEnvironment`.
+
+```{python}
+import networkx as nx
+
+G = nx.cycle_graph(6)
+
+print("Vertices:", list(G.nodes))
+print("Edges:", list(G.edges))
+```
+
+## En enkel figur
+
+```{python}
+import matplotlib.pyplot as plt
+import networkx as nx
+
+G = nx.cycle_graph(6)
+nx.draw_circular(G, with_labels=True)
+plt.show()
+```

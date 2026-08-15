@@ -1,0 +1,13 @@
+# Om kurset
+
+Dette er undervisningsnotater for **MAT221 Diskret matematikk**.
+
+Notatene skrives i Quarto (`.qmd`). Samme kilder kan brukes til
+
+- en navigerbar HTML-bok,
+- PDF,
+- og utvalgte Jupyter-notebooks for Google Colab.
+
+Quarto og LaTeX leveres av forfatterens Home Manager-oppsett.
+Python/Jupyter-miljøet leveres av den felles flaken
+[`mbr085/TeachingEnvironment`](https://github.com/mbr085/TeachingEnvironment).

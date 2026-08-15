@@ -1,0 +1,3 @@
+# Én .qmd-fil per linje.
+# Bare disse filene eksporteres til colab/.
+notes/01-introduksjon.qmd

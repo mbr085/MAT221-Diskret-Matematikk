@@ -1,0 +1,42 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MAT221 Diskret matematikk",
+    "section": "",
+    "text": "1 Om kurset\nDette er undervisningsnotater for MAT221 Diskret matematikk.\nNotatene skrives i Quarto (.qmd). Samme kilder kan brukes til\n\nen navigerbar HTML-bok,\nPDF,\nog utvalgte Jupyter-notebooks for Google Colab.\n\nQuarto og LaTeX leveres av forfatterens Home Manager-oppsett. Python/Jupyter-miljøet leveres av den felles flaken mbr085/TeachingEnvironment.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Om kurset</span>"
+    ]
+  },
+  {
+    "objectID": "notes/01-introduksjon.html",
+    "href": "notes/01-introduksjon.html",
+    "title": "2  Introduksjon",
+    "section": "",
+    "text": "2.1 Matematikk\nDette kapitlet er en liten teknisk prøve av Quarto-oppsettet.\nFor eksempel gjelder\n\\[\n\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}.\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduksjon</span>"
+    ]
+  },
+  {
+    "objectID": "notes/01-introduksjon.html#python",
+    "href": "notes/01-introduksjon.html#python",
+    "title": "2  Introduksjon",
+    "section": "2.2 Python",
+    "text": "2.2 Python\nDenne cellen kjøres gjennom Python/Jupyter-miljøet fra TeachingEnvironment.\n\nimport networkx as nx\n\nG = nx.cycle_graph(6)\n\nprint(\"Vertices:\", list(G.nodes))\nprint(\"Edges:\", list(G.edges))\n\nVertices: [0, 1, 2, 3, 4, 5]\nEdges: [(0, 1), (0, 5), (1, 2), (2, 3), (3, 4), (4, 5)]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduksjon</span>"
+    ]
+  },
+  {
+    "objectID": "notes/01-introduksjon.html#en-enkel-figur",
+    "href": "notes/01-introduksjon.html#en-enkel-figur",
+    "title": "2  Introduksjon",
+    "section": "2.3 En enkel figur",
+    "text": "2.3 En enkel figur\n\nimport matplotlib.pyplot as plt\nimport networkx as nx\n\nG = nx.cycle_graph(6)\nnx.draw_circular(G, with_labels=True)\nplt.show()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduksjon</span>"
+    ]
+  }
+]

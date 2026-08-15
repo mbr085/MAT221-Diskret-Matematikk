@@ -1,0 +1,22 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "MAT221 Diskret matematikk"
+  author: "Morten Brun"
+  chapters:
+    - index.qmd
+    - notes/01-introduksjon.qmd
+
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-copy: true
+  pdf:
+    documentclass: scrreprt
+    number-sections: true
+
+execute:
+  freeze: auto
