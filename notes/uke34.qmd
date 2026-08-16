@@ -29,6 +29,17 @@ Til slutt skal vi kunne skille mellom fire grunnsituasjoner:
 
 Dette er et kart over stoffet, ikke en liste som skal pugges. Målet er å forstå hvorfor de fire situasjonene er forskjellige, og å kunne kjenne dem igjen i nye problemer.
 
+::: {.callout-note title="Om KI-oppgavene"}
+Noen oppgaver er merket **KI**. I disse oppgavene er målet ikke bare å få et svar fra en språkmodell. Gjør i stedet følgende:
+
+1. Ta vare på spørsmålet eller prompten du brukte.
+2. Vurder om KI-svaret faktisk svarer på det matematiske spørsmålet.
+3. Kontroller minst ett viktig steg selv, for eksempel med et lite eksempel, en annen tellemetode eller en beregning.
+4. Skriv til slutt din egen korte konklusjon med egne ord.
+
+En overbevisende formulering fra en KI er ikke i seg selv en matematisk begrunnelse.
+:::
+
 ## Basale prinsipper {#sec-basale-prinsipper}
 
 De to viktigste telleprinsippene er svært enkle. Vi **multipliserer** når en aktivitet består av flere trinn som alle skal utføres, og vi **adderer** når vi deler mulighetene opp i adskilte tilfeller.
@@ -92,6 +103,27 @@ Vi kan kode en delmengde med en binær sekvens $x_1x_2\cdots x_n$, der $x_i=1$ d
 Finn to situasjoner der multiplikasjonsprinsippet kan brukes. Prøv å finne ett eksempel der antallet muligheter er det samme i hvert trinn, og ett der det endrer seg underveis.
 :::
 
+::: {#exr-kode-multiplikasjon name="En kode med bokstaver og sifre"}
+
+En kode består av to bokstaver fra det norske alfabetet med $29$ bokstaver, etterfulgt av tre sifre. Repetisjon er tillatt.
+
+1. Hvor mange koder finnes det?
+2. Hvilke fem trinn bruker du i multiplikasjonsprinsippet?
+3. Hva ville endret seg dersom de to bokstavene måtte være forskjellige?
+:::
+
+::: {#exr-ki-to-telleproblemer name="KI: Lag og kontroller telleproblemer"}
+
+Be en KI lage to korte telleproblemer: ett som bør løses med multiplikasjonsprinsippet og ett som **ikke** bør løses ved bare å multiplisere antall muligheter i flere trinn. Be KI-en om å ikke fortelle deg hvilket som er hvilket.
+
+For hvert problem:
+
+1. avgjør selv hvilken telleidé som passer,
+2. løs problemet,
+3. be deretter KI-en om sin løsning,
+4. vurder om KI-en har modellert problemet på samme måte som deg, og forklar eventuelle forskjeller.
+:::
+
 ### Addisjonsprinsippet {#sec-addisjonsprinsippet}
 
 Noen telleproblemer deles naturlig opp i **adskilte tilfeller**. Anta at hvert mulig utfall ligger i nøyaktig ett av tilfellene $H_1,\dots,H_k$, og at tilfellene har henholdsvis $\alpha_1,\dots,\alpha_k$ mulige utfall. Da finnes det totalt
@@ -115,6 +147,15 @@ $$
 $$
 
 mulige emner.
+:::
+
+::: {#exr-addisjon-eller-multiplikasjon name="Addere eller multiplisere?"}
+
+Forklar om du vil bruke addisjonsprinsippet, multiplikasjonsprinsippet eller begge i hver situasjon. Regn deretter ut svaret.
+
+1. Du skal velge enten én av $6$ romaner eller én av $4$ diktsamlinger.
+2. Du skal velge én av $6$ romaner **og** én av $4$ diktsamlinger.
+3. En kafé har $3$ varme retter og $5$ kalde retter. Hver rett kan bestilles med én av $4$ drikker. Hvor mange kombinasjoner av én rett og én drikk finnes det?
 :::
 
 Multiplikasjons- og addisjonsprinsippet er byggesteinene i resten av kapitlet. Ofte bruker vi begge i samme argument: først deler vi et problem i tilfeller, og så teller vi hvert tilfelle trinn for trinn.
@@ -203,6 +244,17 @@ Her er to ting avgjørende: vi kan ikke velge samme objekt to ganger, og vi skil
 ::: {#exr-kortstokk name="To kort med rekkefølge"}
 
 På hvor mange måter kan vi trekke to forskjellige kort fra en vanlig kortstokk uten tilbakelegging når vi husker rekkefølgen kortene ble trukket i?
+:::
+
+::: {#exr-medaljer name="Gull, sølv og bronse"}
+
+Åtte løpere deltar i et løp uten delt plassering.
+
+1. På hvor mange måter kan gull, sølv og bronse fordeles?
+2. Hvor i regnestykket ser du at rekkefølgen betyr noe?
+3. Hvordan ville svaret endret seg dersom vi bare skulle velge tre løpere til en dopingkontroll, uten ulike roller?
+
+Du trenger ikke løse punkt 3 med en ferdig formel ennå; forklar bare hvorfor dette er et annet telleproblem.
 :::
 
 Vi har nå fylt ut den første av de fire grunnsituasjonene: **rekkefølgen teller, uten repetisjon**. I neste avsnitt beholder vi forbudet mot repetisjon, men slutter å bry oss om rekkefølgen.
@@ -315,6 +367,42 @@ De samme fire studentene gir altså $4!$ forskjellige resultat når rollene skil
 På hvor mange måter kan du velge fem plasser ut av $20$ når rekkefølgen ikke teller? Sammenlign svaret med antallet ordnede valg av fem plasser.
 :::
 
+::: {#exr-prosjektgruppe-roller name="Prosjektgruppe eller roller"}
+
+I en klasse med $12$ studenter skal tre studenter velges.
+
+1. Hvor mange forskjellige prosjektgrupper på tre studenter finnes det?
+2. Hvor mange måter kan man velge en leder, en referent og en presentatør blant de $12$ studentene?
+3. Forklar hvorfor svarene skiller seg med en faktor $3!$.
+:::
+
+::: {#exr-komplementvalg name="Velge med eller velge bort"}
+
+Ti studenter skal fordeles slik at tre deltar på en workshop og de syv andre blir igjen på campus.
+
+Forklar uten å bruke fakultetsformelen hvorfor
+
+$$
+\binom{10}{3}=\binom{10}{7}.
+$$
+
+Beskriv konkret hvordan et valg av tre studenter bestemmer et valg av syv studenter, og omvendt.
+:::
+
+::: {#exr-ki-feil-binomial name="KI: Finn feilen i en telleformel"}
+
+En KI gir følgende svar på spørsmålet «Hvor mange måter kan vi velge tre studenter blant ti når rekkefølgen ikke teller?»:
+
+> Vi har 10 valg for den første studenten, 9 for den andre og 8 for den tredje. Siden rekkefølgen ikke teller, deler vi på 3. Svaret er derfor $10\cdot9\cdot8/3=240$.
+
+Undersøk svaret.
+
+1. Hvilken del av argumentet er riktig?
+2. Hvorfor er det feil å dele på $3$?
+3. Hva skal vi dele på i stedet, og hvorfor?
+4. Be en KI forklare feilen på nytt. Vurder om forklaringen faktisk sier **hvor mange ganger hvert uordnet utvalg ble telt**.
+:::
+
 ### To identiteter for binomialkoeffisienter
 
 Binomialkoeffisienter kan forstås på flere måter. Det er ofte bedre å forklare en identitet ved å beskrive **hva begge sider teller** enn å starte med fakultetsformelen.
@@ -346,6 +434,23 @@ $$
 :::
 
 Den andre identiteten kalles ofte **Pascals identitet**. Den gjør det mulig å beregne binomialkoeffisientene uten å bruke fakulteter.
+
+::: {#exr-ki-pascalbevis name="KI: Algebraisk eller kombinatorisk forklaring?"}
+
+Be en KI forklare Pascals identitet
+
+$$
+\binom{n+1}{r}=\binom nr+\binom n{r-1}.
+$$
+
+Hvis KI-en bare manipulerer fakultetsuttrykk, be uttrykkelig om en **kombinatorisk forklaring**.
+
+Sammenlign de to typene forklaring:
+
+1. Hvilket argument viser bare at uttrykkene er algebraisk like?
+2. Hvilket argument forklarer hvorfor begge sider teller samme samling av objekter?
+3. Skriv den kombinatoriske forklaringen med dine egne ord uten å se på KI-svaret.
+:::
 
 ## Binomialkoeffisienter og Pascals trekant {#sec-binomialkoeffisienter}
 
@@ -417,6 +522,19 @@ display(Math(pascal_latex(7)))
 
 Pascals trekant er ikke bare en effektiv måte å beregne binomialkoeffisienter på. De samme tallene dukker også opp når vi regner med potenser av $x+y$.
 
+::: {#exr-pascal-neste-rader name="Bygg videre på Pascals trekant"}
+
+Start med raden
+
+$$
+1\quad5\quad10\quad10\quad5\quad1.
+$$
+
+1. Finn de to neste radene i Pascals trekant uten å bruke fakultetsformelen.
+2. Kontroller at summen av tallene i rad $6$ er $2^6$ og summen i rad $7$ er $2^7$.
+3. Forklar hvorfor denne kontrollen er naturlig ut fra @cor-binomialteoremet-x-en når du kommer til den nedenfor.
+:::
+
 ### Pascals trekant og potenser av $x+y$ {#sec-pascal-potenser}
 
 ```{python}
@@ -483,6 +601,16 @@ $$
 Koeffisienten $6=\binom42$ foran $x^2y^2$ teller for eksempel hvilke to av de fire faktorene som bidrar med $y$.
 :::
 
+::: {#exr-koeffisient-uten-utvidelse name="Finn en koeffisient uten å gange ut"}
+
+Finn koeffisienten foran $x^7y^5$ i $(x+y)^{12}$ uten å gange ut hele uttrykket.
+
+Forklar både
+
+1. hvilken binomialkoeffisient som gir svaret, og
+2. hva denne binomialkoeffisienten teller blant de tolv faktorene $(x+y)$.
+:::
+
 Ved å sette inn spesielle verdier for $x$ og $y$ får vi identiteter for binomialkoeffisientene.
 
 **Læreboken: Korollar 1.6.**
@@ -503,6 +631,27 @@ $$
 :::
 
 Den siste identiteten har også en direkte kombinatorisk forklaring: venstresiden teller alle delmengder av en mengde med $n$ elementer, mens høyresiden teller dem etter størrelse — først de med $0$ elementer, så de med $1$ element, og så videre.
+
+::: {#exr-ki-to-begrunnelser name="KI: Sammenlign to begrunnelser"}
+
+Be en KI forklare identiteten
+
+$$
+2^n=\sum_{r=0}^n\binom nr
+$$
+
+på to måter:
+
+- ved å bruke binomialteoremet,
+- ved å telle delmengder.
+
+Kontroller begge forklaringene. Svar deretter selv:
+
+1. Hva teller $2^n$ i den kombinatoriske forklaringen?
+2. Hva teller $\binom nr$?
+3. Hvorfor må summen over alle $r$ gi samme tall?
+4. Hvilken av de to forklaringene synes du gir mest innsikt, og hvorfor?
+:::
 
 ::: {#exr-binomial-minus-en name="Sett inn spesielle verdier"}
 
@@ -618,6 +767,16 @@ Det er $n^r$ ordnede utvalg av lengde $r$ fra $n$ forskjellige objekttyper når 
 
 Dette er multiplikasjonsprinsippet: ved hvert av de $r$ valgene har vi $n$ muligheter.
 
+::: {#exr-pin-uten-repetisjon name="Sammenlign med en PIN uten gjentakelser"}
+
+Sammenlign to regler for en firesifret PIN-kode:
+
+1. Sifre kan gjentas.
+2. Ingen siffer kan brukes mer enn én gang.
+
+Finn antallet koder i begge tilfeller og forklar hvorfor den første situasjonen gir $10^4$, mens den andre gir et produkt med færre valg for hvert nytt siffer.
+:::
+
 ### Når rekkefølgen ikke teller
 
 Det siste tilfellet er mer subtilt. Hvis repetisjon er tillatt, men rekkefølgen ikke teller, er det ikke nok å dele $n^r$ på $r!$: noen utvalg har mange like elementer og derfor færre enn $r!$ forskjellige rekkefølger.
@@ -713,6 +872,81 @@ $$
 $$
 
 Kontroller først at strengen faktisk inneholder syv nuller og fire skilletegn.
+:::
+
+::: {#exr-heltallsloesninger name="Ikke-negative heltallsløsninger"}
+
+Hvor mange løsninger finnes til
+
+$$
+x_1+x_2+x_3=8
+$$
+
+når $x_1,x_2,x_3$ er ikke-negative heltall?
+
+1. Oversett problemet til en skilletegnskode.
+2. Bruk @thm-ikke-negative-losninger.
+3. Kontroller svaret ved å løse det mindre problemet $x_1+x_2+x_3=3$ ved å liste opp alle løsningene.
+:::
+
+::: {#exr-positive-loesninger name="Når alle må få minst én"}
+
+Hvor mange løsninger finnes til
+
+$$
+x_1+x_2+x_3=8
+$$
+
+når $x_1,x_2,x_3$ er **positive** heltall?
+
+Hint: Sett $y_i=x_i-1$. Hvilken ligning får du for de ikke-negative heltallene $y_1,y_2,y_3$?
+:::
+
+::: {#exr-ki-godteri name="KI: Hva er egentlig et godteriproblem?"}
+
+Gi en KI dette spørsmålet:
+
+> På hvor mange måter kan åtte godterier fordeles mellom tre barn?
+
+Ikke gi mer informasjon først. Undersøk om KI-en oppdager at problemet er tvetydig. Diskuter minst disse spørsmålene:
+
+- Er godteriene forskjellige eller identiske?
+- Er barna forskjellige?
+- Kan et barn få null godterier?
+- Teller rekkefølgen som godteriene deles ut i?
+
+Skriv deretter om problemet slik at svaret **entydig** skal finnes med stars-and-bars-metoden, og løs den presise versjonen selv.
+:::
+
+### Blandede oppgaver
+
+::: {#exr-fire-grunnsituasjoner name="Kjenn igjen de fire grunnsituasjonene"}
+
+For hvert problem nedenfor skal du først svare på de to spørsmålene «Teller rekkefølgen?» og «Er repetisjon tillatt?». Velg deretter riktig tellemetode og finn antallet.
+
+1. Tre forskjellige medaljer skal fordeles blant $10$ deltakere.
+2. Fire studenter skal velges til en gruppe blant $15$ studenter.
+3. Et passord består av seks tegn valgt fra $26$ bokstaver; bokstaver kan gjentas.
+4. Du velger åtte iskuler fra fire smaker med ubegrenset mengde av hver smak; rekkefølgen spiller ingen rolle.
+
+Forklar med én setning for hvert problem hvorfor det havner i den grunnsituasjonen du valgte.
+:::
+
+::: {#exr-ki-lag-problempar name="KI: Lag nesten like problemer"}
+
+Be en KI lage et **par** telleproblemer som ser nesten like ut, men der
+
+- det ene problemet skal løses som et uordnet utvalg uten repetisjon,
+- det andre som et ordnet utvalg uten repetisjon.
+
+KI-en skal ikke oppgi løsningene med en gang.
+
+Gjør så følgende:
+
+1. Identifiser den lille språklige forskjellen som gjør at tellemetoden endres.
+2. Løs begge problemene selv.
+3. Be KI-en vise sine løsninger og kontroller dem.
+4. Hvis problemene ikke faktisk skiller de to situasjonene tydelig, forbedre formuleringene selv.
 :::
 
 Vi har nå kommet tilbake til kartet fra starten. Før du bruker en formel i et telleproblem, spør:
