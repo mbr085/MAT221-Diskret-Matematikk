@@ -2,6 +2,8 @@ project:
   type: book
   output-dir: docs
 
+lang: nb
+
 book:
   title: "MAT221 Diskret matematikk"
   author: "Morten Brun"
