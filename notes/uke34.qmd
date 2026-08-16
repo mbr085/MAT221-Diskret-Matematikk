@@ -15,9 +15,9 @@ import math
 from IPython.display import display, Math, Latex
 ```
 
-# Basale prinsipper {#sec-basale-prinsipper}
+## Basale prinsipper {#sec-basale-prinsipper}
 
-## Multiplikasjonsprinsippet {#sec-multiplikasjonsprinsippet}
+### Multiplikasjonsprinsippet {#sec-multiplikasjonsprinsippet}
 
 La oss si at en aktivitet består av $k$ hendelser $H_1, H_2, \dots, H_k$.
 
@@ -51,7 +51,7 @@ Denne aktiviteten kan altså utføres på $4 \cdot 3 = 12$ forskjellige måter.
 Finn eksempler på situasjoner der multiplikasjonsprinsippet kan brukes. Diskuter med de som sitter i nærheten.
 
 :::
-# Fakultet {#sec-fakultet}
+## Fakultet {#sec-fakultet}
 
 Gitt et positivt heltall $n$ er tallet $n$-fakultet gitt ved
 $$n! = n(n-1)(n-2) \dots 2 \cdot 1$$
@@ -66,7 +66,7 @@ Aktiviteten å plassere $n$ forskjellige objekter i rekkefølge kan utføres på
 :::
 
 
-## Kombinatorisk eksplosjon {#sec-kombinatorisk-eksplosjon}
+### Kombinatorisk eksplosjon {#sec-kombinatorisk-eksplosjon}
 
 Tallet $n!$ vokser veldig fort med $n$:
 
@@ -110,7 +110,7 @@ Hvor mange forskjellige fargekombinasjoner kan du oppnå ved å trekke to kort f
 
 :::
 
-## Addisjonsprinsippet {#sec-addisjonsprinsippet}
+### Addisjonsprinsippet {#sec-addisjonsprinsippet}
 
 La oss si at en aktivitet består av et utfall i presis én av $k$ adskilte hendelser $H_1 \dots H_k$. Dersom $H_1, H_2, \dots, H_k$ som har henholdsvis $\alpha_1, \alpha_2, \dots, \alpha_{k}$ mulige utfall, da kan aktiviteten utføres på $\alpha_1 + \alpha_2 + \dots + \alpha_k$ forskjellige måter.
 
@@ -138,7 +138,7 @@ På hvor mange måter kan vi trekke to kort fra kortstokken når vi husker rekke
 
 :::
 
-# Utvalg {#sec-utvalg}
+## Utvalg {#sec-utvalg}
 
 *Læreboken: §1.3.*
 
@@ -235,7 +235,7 @@ Som på side 6 i læreboken kan dette uttrykket algebraisk reduseres til $\frac{
 
 :::
 
-# Binomialkoeffisienter og Pascals trekant {#sec-binomialkoeffisienter}
+## Binomialkoeffisienter og Pascals trekant {#sec-binomialkoeffisienter}
 
 *Læreboken: §1.4.*
 
@@ -318,7 +318,7 @@ def pascal_latex(n):
     
 ```
 
-## Utdrag av Pascals trekant {#sec-pascals-trekant-utdrag}
+### Utdrag av Pascals trekant {#sec-pascals-trekant-utdrag}
 
 ```{python}
 #| echo: false
@@ -359,7 +359,7 @@ def pascal_xplusy(n):
     return res
 ```
 
-## Pascals trekant for potenser av $x + y$ {#sec-pascal-potenser}
+### Pascals trekant for potenser av $x + y$ {#sec-pascal-potenser}
 
 ```{python}
 #| echo: false
@@ -422,7 +422,7 @@ Sett $x=-1$ og $y=1$ i Teorem 1.5. Skriv ut den formelen du finner.
 
 :::
 
-## Diagonaler av Pascals trekant {#sec-pascal-diagonaler}
+### Diagonaler av Pascals trekant {#sec-pascal-diagonaler}
 
 La oss beregne tallet $\binom 74$ på en ny måte. 
 
@@ -481,7 +481,7 @@ $$\binom n0^2 + \binom n1^2 + \dots + \binom nn^2 = \binom {2n}{n}.$$
 
 :::
 
-# Utvalg med repetisjoner {#sec-utvalg-med-repetisjoner}
+## Utvalg med repetisjoner {#sec-utvalg-med-repetisjoner}
 
 *Læreboken: §1.5.*
 
