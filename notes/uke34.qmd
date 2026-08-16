@@ -22,6 +22,8 @@ To spørsmål kommer derfor tilbake gjennom hele notatet:
 
 Til slutt skal vi kunne skille mellom fire grunnsituasjoner:
 
+Her er $n$ antallet tilgjengelige objekter eller objekttyper, og $r$ antallet valg vi gjør.
+
 - **Rekkefølgen teller, uten repetisjon:** $\dfrac{n!}{(n-r)!}$.
 - **Rekkefølgen teller, med repetisjon:** $n^r$.
 - **Rekkefølgen teller ikke, uten repetisjon:** $\binom nr$.
@@ -237,6 +239,8 @@ La $0\le r\le n$. Antallet **ordnede** utvalg av $r$ forskjellige objekter fra e
 $$
 n(n-1)\cdots(n-r+1)=\frac{n!}{(n-r)!}.
 $$
+
+Når $r=0$, tolker vi produktet på venstresiden som det tomme produktet $1$.
 :::
 
 Her er to ting avgjørende: vi kan ikke velge samme objekt to ganger, og vi skiller mellom forskjellige rekkefølger. Utvalgene $(a,b,c)$ og $(b,a,c)$ regnes altså som forskjellige.
@@ -359,7 +363,7 @@ $$
 
 muligheter.
 
-De samme fire studentene gir altså $4!$ forskjellige resultat når rollene skiller dem fra hverandre. Dette er akkurat forskjellen mellom ordnede og uordnede utvalg.
+De samme fire studentene gir altså $4!$ forskjellige resultater når rollene skiller dem fra hverandre. Dette er akkurat forskjellen mellom ordnede og uordnede utvalg.
 :::
 
 ::: {#exr-fem-av-tjue-plasser name="Fem av tjue plasser"}
@@ -411,10 +415,10 @@ Binomialkoeffisienter kan forstås på flere måter. Det er ofte bedre å forkla
 
 ::: {#thm-binomialidentiteter name="Identiteter for binomialkoeffisienter"}
 
-For $0\le r\le n$ gjelder
+Vi bruker følgende to identiteter:
 
-1. $\displaystyle \binom nr=\binom n{n-r}$,
-2. $\displaystyle \binom{n+1}r=\binom nr+\binom n{r-1}$.
+1. For $0\le r\le n$ gjelder $\displaystyle \binom nr=\binom n{n-r}$.
+2. For $1\le r\le n$ gjelder $\displaystyle \binom{n+1}r=\binom nr+\binom n{r-1}$.
 :::
 
 ::: {.proof name="Kombinatorisk begrunnelse"}
@@ -924,7 +928,7 @@ Skriv deretter om problemet slik at svaret **entydig** skal finnes med stars-and
 
 For hvert problem nedenfor skal du først svare på de to spørsmålene «Teller rekkefølgen?» og «Er repetisjon tillatt?». Velg deretter riktig tellemetode og finn antallet.
 
-1. Tre forskjellige medaljer skal fordeles blant $10$ deltakere.
+1. Gull, sølv og bronse skal fordeles til tre forskjellige deltakere blant $10$.
 2. Fire studenter skal velges til en gruppe blant $15$ studenter.
 3. Et passord består av seks tegn valgt fra $26$ bokstaver; bokstaver kan gjentas.
 4. Du velger åtte iskuler fra fire smaker med ubegrenset mengde av hver smak; rekkefølgen spiller ingen rolle.
