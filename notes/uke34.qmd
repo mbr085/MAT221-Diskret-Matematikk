@@ -1,5 +1,6 @@
 ---
-title: MAT221 uke 34
+title: "MAT221 uke 34"
+lang: nb
 jupyter: python3
 ---
 
@@ -8,13 +9,15 @@ jupyter: python3
 Ukens pensum: Kapittel 1 i [Ian Anderson: A first course in discrete mathematics, Springer Verlag, 2002.](https://link.springer.com/book/10.1007/978-0-85729-315-2)
 
 ```{python}
+#| include: false
+
 import math
 from IPython.display import display, Math, Latex
 ```
 
-## Basale prinsipper
+# Basale prinsipper {#sec-basale-prinsipper}
 
-### Multiplikasjonsprinsippet.
+## Multiplikasjonsprinsippet {#sec-multiplikasjonsprinsippet}
 
 La oss si at en aktivitet består av $k$ hendelser $H_1, H_2, \dots, H_k$.
 
@@ -24,7 +27,7 @@ For alle de $\alpha_1$ utfallene som skjer i hendelse $H_1$ kan alle de $\alpha_
 
 Da kan aktiviteten utføres på $\alpha_1 \alpha_2 \cdots \alpha_k$ måter.
 
-::: {#exm-trepersonertreplasser}
+::: {#exm-trepersonertreplasser name="Tre personer på tre plasser"}
 
 Du vil plassere tre personer på tre forskjellige markerte plasser. 
 
@@ -37,33 +40,33 @@ Du kan altså utføre denne aktiviteten på seks forskjellige måter.
 
 Samme tankemåte viser at du kan plasserer fire personer på fire forskjellige plasser på $4! = 4 \cdot 3 \cdot 2 \cdot 1$ måter.
 
-::: {#exm-trepersonerfireplasser}
+::: {#exm-trepersonerfireplasser name="To personer på fire plasser"}
 
 Du vil plassere to personer på fire forskjellige plasser. Tenker vi på plassering av første personen som et utfall $H_1$ og plassering av andre personen som et utfall $H_2$ har vi fire utfall for $H_1$ og tre utfall for $H_2$.
 
 Denne aktiviteten kan altså utføres på $4 \cdot 3 = 12$ forskjellige måter.
 :::
 
-::: {#exr-finneeksemplermultiplikasjonsprinsippet}
+::: {#exr-finneeksemplermultiplikasjonsprinsippet name="Finn egne eksempler"}
 Finn eksempler på situasjoner der multiplikasjonsprinsippet kan brukes. Diskuter med de som sitter i nærheten.
 
 :::
-## Fakultet
+## Fakultet {#sec-fakultet}
 
 Gitt et positivt heltall $n$ er tallet $n$-fakultet gitt ved
 $$n! = n(n-1)(n-2) \dots 2 \cdot 1$$
 
-::: {#thm-plasseren}
+::: {#thm-plasseren name="Plassering på markerte plasser"}
 
 Aktiviteten å plassere $n$ forskjellige objekter på $n$ markerte plasser kan utføres på $n!$ forskjellige måter.
 :::
 
-::: {#cor-nirekkefølge}
+::: {#cor-nirekkefolge name="Plassering i rekkefølge"}
 Aktiviteten å plassere $n$ forskjellige objekter i rekkefølge kan utføres på $n!$ forskjellige måter.
 :::
 
 
-## Kombinatorisk eksplosjon
+## Kombinatorisk eksplosjon {#sec-kombinatorisk-eksplosjon}
 
 Tallet $n!$ vokser veldig fort med $n$:
 
@@ -71,7 +74,7 @@ Tallet $n!$ vokser veldig fort med $n$:
 math.factorial(8), math.factorial(18), math.factorial(28)
 ```
 
-::: {#exm-firepersonertyveplasser}
+::: {#exm-firepersonertyveplasser name="Fire personer på tjue plasser"}
 
 Fire personer plasseres på hver sin plass. Det er 20 markerte plasser å velge mellom. 
 
@@ -84,30 +87,34 @@ f"Fire ut av tyve markerte plasser kan velges på {math.factorial(20) // math.fa
 ```
 :::
 
-::: {#exr-kortstokk}
+::: {#exr-kortstokk name="Rekkefølger i en kortstokk"}
 
 I en kortstokk er det 52 kort som alle er forskjellige. I hvor mange forskjellige rekkefølger kan kortene plasseres?
 Kan du skrive tallet ut ved hjelp av et dataverktøy?
 :::
 
-::: {#thm-ravn}
+::: {#thm-ravn name="Ordnet utvalg uten repetisjon"}
 
 Antallet av måter vi kan velge $r$ objekter fra en samling bestående av $n$ forskjellige objekter er:
 $$n (n-1) \cdots (n-r+1) = \frac{n!}{(n-r)!}$$
 :::
 
-### Oppgave
+::: {#exr-to-kort-med-rekkefolge name="To kort med rekkefølge"}
 
 På hvor mange måter kan vi velge to kort fra en kortstokk med 52 kort som alle er forskjellige? (Du husker rekkefølgen kortene er trukket i.)
 
-### Oppgave:
+:::
+
+::: {#exr-to-kort-farger-med-rekkefolge name="Fargekombinasjoner med rekkefølge"}
 Hvor mange forskjellige fargekombinasjoner kan du oppnå ved å trekke to kort fra en kortstokk med $52$ kort hvor halvparten av kortene er svarte og halvparten er røde? Også her husker du rekkefølgen kortene er trukket i.
 
-## Addisjonsprinsippet
+:::
+
+## Addisjonsprinsippet {#sec-addisjonsprinsippet}
 
 La oss si at en aktivitet består av et utfall i presis én av $k$ adskilte hendelser $H_1 \dots H_k$. Dersom $H_1, H_2, \dots, H_k$ som har henholdsvis $\alpha_1, \alpha_2, \dots, \alpha_{k}$ mulige utfall, da kan aktiviteten utføres på $\alpha_1 + \alpha_2 + \dots + \alpha_k$ forskjellige måter.
 
-### Eksempel
+::: {#exm-addisjonsprinsippet-kortstokk name="Addisjonsprinsippet for en kortstokk"}
 
 I en kortstokk er det $26$ forskjellige svarte kort, $26$ forskjellige røde kort og $3$ identiske jokere. 
 
@@ -117,15 +124,23 @@ Vi kan dele denne aktiviteten opp i tre adskilte hendelser: $H_1$ å trekke et s
 
 Vi konkluderer at vi kan trekke $53$ forskjellige kort fra kortstokken.
 
-### Oppgave
+:::
+
+::: {#exr-tre-kort-fargekombinasjoner name="Tre kort og fargekombinasjoner"}
 
 Du trekker tre kort fra en kortstokk med tre røde og tre svarte kort. Hvor mange fargekombinasjoner kan du trekke når du ser bort fra rekkefølgen kortene er trukket i?
 
-### Spørsmål
+:::
+
+::: {#exr-to-kort-addisjonsprinsippet name="To kort fra kortstokken"}
 
 På hvor mange måter kan vi trekke to kort fra kortstokken når vi husker rekkefølgen de ble trukket i? 
 
-# 1.3 Utvalg
+:::
+
+# Utvalg {#sec-utvalg}
+
+*Læreboken: §1.3.*
 
 Hvis vi i stedet for å plassere fire personer velger å markere fire av tyve plasser med identiske merkelapper kan vi tenke at vi først husker rekkefølgen av plasseringen av merkelappene og deretter glemmer den. 
 
@@ -144,13 +159,17 @@ $$A = \frac{20!}{4! 16!}.$$
 display(Latex(r'Dette tallet $A$ kaller vi "tyve-velg-fire" og vi skriver $A = \binom{20}{4} = ' + f'{math.comb(20, 4)}$.'))
 ```
 
-### Oppgave
+::: {#exr-fem-av-tjue-plasser name="Fem av tjue plasser"}
 
 På hvor mange måter kan du velge fem plasser ut av $20$? 
 
 Bruk gjerne et elektronisk verktøy til å finne dette tallet.
 
-## Teorem 1.4
+:::
+
+**Læreboken: Teorem 1.4.**
+
+::: {#thm-binomialidentiteter name="Identiteter for binomialkoeffisienter"}
 
 La $\binom nr$ være antallet av måter vi kan velge en samling av $r$ objekter fra en samling bestående av $n$ forskjellige objekter.
 
@@ -160,7 +179,9 @@ Da er
 2. $\binom {n+1}r = \binom nr + \binom n{r-1}$
 
 
-### Begrunnelse:
+:::
+
+::: {.proof name="Begrunnelse"}
 
 Jeg vil først begrunne dette med et eksempel. Deretter vil jeg skrive en mere formell begrunnelse.
 
@@ -175,7 +196,7 @@ La oss si at vi velger ut fire plasser blant tyve markerte plasser.
 
    $$\binom {20}{4} = \binom{19}{4} + \binom{19}{3}$$
 
-#### Mere formell begrunnelse:
+**Mere formell begrunnelse.**
 
 1. Objektene som er med i samlingen vi velger ut er entydig bestemt av objektene som ikke er med i denne samlingen.
 2. La $x$ være et spesielt utvalgt objekt blant de $n+1$ objektene. Da er det $n$ objekter som er forskjellige fra $x$. Vi anvender addisjonsprinsippet på
@@ -188,18 +209,22 @@ La oss si at vi velger ut fire plasser blant tyve markerte plasser.
 
    For $H_2$ er det $\binom nr$ muligheter for valg av objektene vi velger ut. (De er alle forskjellige fra $x$.)
 
-## Teorem
+:::
+
+::: {#thm-binomialformelen name="Formelen for binomialkoeffisienten"}
 
 La $\binom nr$ være antallet av måter vi kan velge en samling av $r$ forskjellige objekter fra en samling bestående av $n$ forskjellige objekter.
 
 Da er 
 $$\binom nr = \frac{n!}{r!(n-r)!}$$
 
-### Begrunnelse:
+:::
+
+::: {.proof name="Begrunnelse"}
 
 Vi forklarte egentlig dette med eksemplet der vi valgte fire ut av tyve plasser.
 
-#### Mere formell begrunnelse:
+**Mere formell begrunnelse.**
 Hvis vi vet at teoremet holder for $n$ da kan vi forklare hvorfor det også må holde for $n+1$:
 
 $$\binom{n+1}r = \binom nr + \binom n{r-1} = \frac{n!}{r!(n-r)!} + \frac{n!}{(r-1)!(n-r+1)!}$$
@@ -208,7 +233,11 @@ Som på side 6 i læreboken kan dette uttrykket algebraisk reduseres til $\frac{
 
 **Trekanten til Pascal kan brukes til å sjekke dette teoremet for noen tall**
 
-# 1.4 Binomialkoeffisienter og Pascals trekant
+:::
+
+# Binomialkoeffisienter og Pascals trekant {#sec-binomialkoeffisienter}
+
+*Læreboken: §1.4.*
 
 Skriver jeg en rekke med tallene
 
@@ -247,6 +276,8 @@ $$
 De indre tallene i den nederste linjen er gitt ved summen av de to tallene til venstre og til høyre for dem i linjen over.
 
 ```{python}
+#| echo: false
+
 # Kode som kan produsere Pascals trekant. Koden er ikke viktig å forstå!
 
 def pascal(n):
@@ -287,13 +318,17 @@ def pascal_latex(n):
     
 ```
 
-### Utdrag av Pascals trekant
+## Utdrag av Pascals trekant {#sec-pascals-trekant-utdrag}
 
 ```{python}
+#| echo: false
+
 display(Math(pascal_latex(7)))
 ```
 
 ```{python}
+#| echo: false
+
 # Kode for ny figur. Ignorer koden...
 
 def xyterm(i, j, coeff):
@@ -324,9 +359,11 @@ def pascal_xplusy(n):
     return res
 ```
 
-### Pascals trekant for potenser av $x + y$
+## Pascals trekant for potenser av $x + y$ {#sec-pascal-potenser}
 
 ```{python}
+#| echo: false
+
 display(Math(pascal_xplusy(7)))
 ```
 
@@ -346,11 +383,15 @@ y(x + y)^6 & = &&&x^6y &+&  6 x^5y^2 &+& 15 x^4y^3 &+& 20 x^3y^4 &+& 15 x^2y^5 &
 \end{matrix}
 $$
 
-### Oppgave
+::: {#exr-binomial-aatte name="Utvid den åttende potensen"}
 
 Skriv ut $(x + y)^8$ som en sum på samme måten som vi gjorde for $(x + y)^7$.
 
-## Teorem 1.5
+:::
+
+**Læreboken: Teorem 1.5.**
+
+::: {#thm-binomialteoremet name="Binomialteoremet"}
 
 Pascals trekant for potenser av $x + y$ kan fortsettes til $(x+y)^n$ for alle positive heltall $n$. 
 
@@ -359,9 +400,13 @@ $$(x + y)^n = \sum_{r=0}^n \binom nr x^r y^{n-r}.$$
 
 Bemerk at koeffisientene foran $x^iy^j$ og $x^jy^i$ er like, og at dette stemmer med at $\binom{i+j}{i} = \binom{i+j}{j}$. 
 
+:::
+
 Ved å sette $x = 1$ fås:
 
-## Korollar 1.6
+**Læreboken: Korollar 1.6.**
+
+::: {#cor-binomialteoremet-x-en name="Binomialteoremet når x er 1"}
 
 $$(1 + y)^n = \sum_{r = 0}^n \binom nr y^r$$
 
@@ -369,11 +414,15 @@ Settes ytterligere $y = 1$ fås:
 
 $$2^n = \sum_{r = 0}^n \binom nr$$
 
-### Oppgave
+:::
+
+::: {#exr-binomial-minus-en name="Sett inn spesielle verdier"}
 
 Sett $x=-1$ og $y=1$ i Teorem 1.5. Skriv ut den formelen du finner. 
 
-### Diagonaler av Pascals trekant
+:::
+
+## Diagonaler av Pascals trekant {#sec-pascal-diagonaler}
 
 La oss beregne tallet $\binom 74$ på en ny måte. 
 
@@ -391,16 +440,22 @@ Ved addisjonsprinsippet er
 
 $$\binom 74 = \binom {3+3+1}{4} = \binom 33 + \binom 43 + \binom 53 + \binom 63$$
 
-### Oppgave
+::: {#exr-pascal-diagonal-seks-tre name="Forklar en diagonalidentitet"}
 
 Forklar formelen
 $$\binom 63 = \binom {2 + 3 + 1}{3} = \binom 22 + \binom 32 + \binom 42 + \binom 52.$$
 
-## Teorem 1.8
+:::
+
+**Læreboken: Teorem 1.8.**
+
+::: {#thm-pascal-diagonal name="En diagonalidentitet"}
 
 $$\binom {m+n+1}{m+1} = \binom mm + \binom{m+1}{m} + \dots + \binom{m+n}{m}$$
 
-### Oppgave
+:::
+
+::: {#exr-aatte-velg-fire name="En ny formel for åtte-velg-fire"}
 
 Vi vet fra Teorem 1.4 at 
 $$(1 + x)^4 = x^4 + 4x^3 + 6x^2 + 4x + 1.$$
@@ -417,14 +472,20 @@ $$(1 + x)^4 (1 + x)^4 = (1 + x)^8 = \binom 80 x^8 + \binom 81 x^7 + \binom 82 x^
 
 Bruk dette til å skrive en ny formel for $\binom 84$.
 
-### Oppgave
+:::
 
-Forklar hvorfor 
+::: {#exr-sum-kvadrater-binomial name="Sum av kvadrerte binomialkoeffisienter"}
+
+Forklar hvorfor
 $$\binom n0^2 + \binom n1^2 + \dots + \binom nn^2 = \binom {2n}{n}.$$
 
-# 1.5 Utvalg med repetisjoner
+:::
 
-## Eksempel
+# Utvalg med repetisjoner {#sec-utvalg-med-repetisjoner}
+
+*Læreboken: §1.5.*
+
+::: {#exm-delmengder-bitstrenger name="Delmengder og binære sekvenser"}
 
 Multiplikasjonsprinsippet gir oss at det finnes $2^n$ binære sekvenser av lengde $n$.
 
@@ -433,17 +494,21 @@ Det finnes derfor $8 = 2^3$ delmengder av mengden $\{1,2,3\}$ med tre elementer.
 
 Generellt finnes det $2^n$ delmengder av en mengde med $n$ elementer.
 
-## Teorem
+:::
+
+::: {#thm-ordnet-utvalg-med-repetisjon name="Ordnet utvalg med repetisjon"}
 
 Det er $n^r$ måter $r$ objekter kan velges i rekkefølge fra $n$ objekter dersom repetisjon er tillatt.
 
-## Oppgave 
+:::
+
+::: {#exr-syv-kort-fra-fem name="Syv kort fra fem med repetisjon"}
 
 Du har en kortstokk med $5$ kort som alle er forskjellige.
 På hvor mange måter kan du velge syv kort fra kortstokken, når repetisjon er tillat og du ser bort fra rekkefølgen på kortene?
 
 
-### Hint:
+**Hint.**
 
 Oversett problemet til et problem der du velger 5 plasser fra 11 mulige plasser!
 
@@ -463,22 +528,27 @@ Dette er en kode for at
 - det er ingen konger fordi det er ingen nuller mellom tredje og fjerde ettall
 - det er to ess fordi det er to nuller etter det fjerde ettall
 
-#### Spørsmål
+**Spørsmål.**
 
 Hvilken kombinasjon av kort er følgende bittstreng kode for?
 $$10001100010$$
 
+:::
 
-## Teorem 1.10
+**Læreboken: Teorem 1.10.**
+
+::: {#thm-uordnet-utvalg-med-repetisjon name="Uordnet utvalg med repetisjon"}
 
 Antallet av uordnede utvalg av $r$ objekter med repetisjon tillat, fra en samling av $n$ objekter som alle er forskjellige, er
 $$\binom {n+r -1}{r}$$
 
+:::
+
 Lar vi i koden over $x_1$ være antallet av nuller før det første ettallet og så videre fram til $x_n$ er antallet av nuller etter det siste ettallet, kan vi se at:
 
-## Teorem
+::: {#thm-ikke-negative-losninger name="Ikke-negative heltallsløsninger"}
 
 Antallet av løsninger til ligningen $x_1 + \dots + x_n = r$ for ikke-negative heltall $x_1, \dots, x_n$ er 
 $$\binom {n+r -1}{r}$$
 
-
+:::
