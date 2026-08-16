@@ -12,9 +12,9 @@ import math
 from IPython.display import display, Math, Latex
 ```
 
-# 1.1 Basale prinsipper
+## Basale prinsipper
 
-## Multiplikasjonsprinsippet.
+### Multiplikasjonsprinsippet.
 
 La oss si at en aktivitet består av $k$ hendelser $H_1, H_2, \dots, H_k$.
 
@@ -24,7 +24,7 @@ For alle de $\alpha_1$ utfallene som skjer i hendelse $H_1$ kan alle de $\alpha_
 
 Da kan aktiviteten utføres på $\alpha_1 \alpha_2 \cdots \alpha_k$ måter.
 
-### Eksempel
+::: {#exm-trepersonertreplasser}
 
 Du vil plassere tre personer på tre forskjellige markerte plasser. 
 
@@ -33,26 +33,35 @@ Tenk på hendelse $H_1$ som at du plasserer den første personen, $H_2$ at du pl
 Da har $H_1$ tre utfall, og uavhengig av disse har $H_2$ to utfall og $H_3$ har ett utfall. 
 
 Du kan altså utføre denne aktiviteten på seks forskjellige måter.
+:::
 
 Samme tankemåte viser at du kan plasserer fire personer på fire forskjellige plasser på $4! = 4 \cdot 3 \cdot 2 \cdot 1$ måter.
 
-### Eksempel
+::: {#exm-trepersonerfireplasser}
 
 Du vil plassere to personer på fire forskjellige plasser. Tenker vi på plassering av første personen som et utfall $H_1$ og plassering av andre personen som et utfall $H_2$ har vi fire utfall for $H_1$ og tre utfall for $H_2$.
 
 Denne aktiviteten kan altså utføres på $4 \cdot 3 = 12$ forskjellige måter.
+:::
 
-# 1.2 Fakultet
+::: {#exr-finneeksemplermultiplikasjonsprinsippet}
+Finn eksempler på situasjoner der multiplikasjonsprinsippet kan brukes. Diskuter med de som sitter i nærheten.
+
+:::
+## Fakultet
 
 Gitt et positivt heltall $n$ er tallet $n$-fakultet gitt ved
 $$n! = n(n-1)(n-2) \dots 2 \cdot 1$$
 
-## Teorem
+::: {#thm-plasseren}
 
 Aktiviteten å plassere $n$ forskjellige objekter på $n$ markerte plasser kan utføres på $n!$ forskjellige måter.
+:::
 
-## Korollar
+::: {#cor-nirekkefølge}
 Aktiviteten å plassere $n$ forskjellige objekter i rekkefølge kan utføres på $n!$ forskjellige måter.
+:::
+
 
 ## Kombinatorisk eksplosjon
 
@@ -62,7 +71,7 @@ Tallet $n!$ vokser veldig fort med $n$:
 math.factorial(8), math.factorial(18), math.factorial(28)
 ```
 
-### Eksempel
+::: {#exm-firepersonertyveplasser}
 
 Fire personer plasseres på hver sin plass. Det er 20 markerte plasser å velge mellom. 
 
@@ -73,16 +82,19 @@ $20 \cdot 19 \cdot 18 \cdot 17 = \frac{20!}{16!}$
 ```{python}
 f"Fire ut av tyve markerte plasser kan velges på {math.factorial(20) // math.factorial(16)} forskjellige måter." 
 ```
+:::
 
-### Oppgave
+::: {#exr-kortstokk}
 
 I en kortstokk er det 52 kort som alle er forskjellige. I hvor mange forskjellige rekkefølger kan kortene plasseres?
 Kan du skrive tallet ut ved hjelp av et dataverktøy?
+:::
 
-## Teorem
+::: {#thm-ravn}
 
 Antallet av måter vi kan velge $r$ objekter fra en samling bestående av $n$ forskjellige objekter er:
 $$n (n-1) \cdots (n-r+1) = \frac{n!}{(n-r)!}$$
+:::
 
 ### Oppgave
 
