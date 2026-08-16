@@ -1,4 +1,4 @@
-# Om kurset
+# Om kurset {.unnumbered}
 
 Dette er undervisningsnotater for **MAT221 Diskret matematikk**.
 
