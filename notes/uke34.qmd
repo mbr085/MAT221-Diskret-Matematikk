@@ -51,7 +51,7 @@ Denne aktiviteten kan altså utføres på $4 \cdot 3 = 12$ forskjellige måter.
 Finn eksempler på situasjoner der multiplikasjonsprinsippet kan brukes. Diskuter med de som sitter i nærheten.
 
 :::
-## Fakultet {#sec-fakultet}
+# Fakultet {#sec-fakultet}
 
 Gitt et positivt heltall $n$ er tallet $n$-fakultet gitt ved
 $$n! = n(n-1)(n-2) \dots 2 \cdot 1$$
