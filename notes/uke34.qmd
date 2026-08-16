@@ -1,472 +1,961 @@
 ---
-title: MAT221 uke 34
+title: "MAT221 uke 34"
+lang: nb
 jupyter: python3
 ---
-
-
 
 Ukens pensum: Kapittel 1 i [Ian Anderson: A first course in discrete mathematics, Springer Verlag, 2002.](https://link.springer.com/book/10.1007/978-0-85729-315-2)
 
 ```{python}
+#| include: false
+
 import math
-from IPython.display import display, Math, Latex
+from IPython.display import display, Math
 ```
 
-# 1.1 Basale prinsipper
+Denne uken skal vi lære grunnleggende metoder for å **telle uten å liste opp alle mulighetene**. Det høres enkelt ut, men små forskjeller i et problem kan gi helt forskjellige svar.
 
-## Multiplikasjonsprinsippet.
+To spørsmål kommer derfor tilbake gjennom hele notatet:
 
-La oss si at en aktivitet består av $k$ hendelser $H_1, H_2, \dots, H_k$.
+1. **Betyr rekkefølgen noe?**
+2. **Er repetisjon tillatt?**
 
-Dersom hendelsene $H_1, H_2, \dots, H_k$ har henholdsvis $\alpha_1, \alpha_2, \dots, \alpha_{k}$ uavhengige utfall i følgende forstand:
+Til slutt skal vi kunne skille mellom fire grunnsituasjoner:
 
-For alle de $\alpha_1$ utfallene som skjer i hendelse $H_1$ kan alle de $\alpha_2$ utfallene i hendelse $H_2$ skje og så videre.
+Her er $n$ antallet tilgjengelige objekter eller objekttyper, og $r$ antallet valg vi gjør.
 
-Da kan aktiviteten utføres på $\alpha_1 \alpha_2 \cdots \alpha_k$ måter.
+- **Rekkefølgen teller, uten repetisjon:** $\dfrac{n!}{(n-r)!}$.
+- **Rekkefølgen teller, med repetisjon:** $n^r$.
+- **Rekkefølgen teller ikke, uten repetisjon:** $\binom nr$.
+- **Rekkefølgen teller ikke, med repetisjon:** $\binom{n+r-1}{r}$.
 
-### Eksempel
+Dette er et kart over stoffet, ikke en liste som skal pugges. Målet er å forstå hvorfor de fire situasjonene er forskjellige, og å kunne kjenne dem igjen i nye problemer.
 
-Du vil plassere tre personer på tre forskjellige markerte plasser. 
+::: {.callout-note title="Om KI-oppgavene"}
+Noen oppgaver er merket **KI**. I disse oppgavene er målet ikke bare å få et svar fra en språkmodell. Gjør i stedet følgende:
 
-Tenk på hendelse $H_1$ som at du plasserer den første personen, $H_2$ at du plasserer den andre personen og $H_3$ at du plasserer siste personen.
+1. Ta vare på spørsmålet eller prompten du brukte.
+2. Vurder om KI-svaret faktisk svarer på det matematiske spørsmålet.
+3. Kontroller minst ett viktig steg selv, for eksempel med et lite eksempel, en annen tellemetode eller en beregning.
+4. Skriv til slutt din egen korte konklusjon med egne ord.
 
-Da har $H_1$ tre utfall, og uavhengig av disse har $H_2$ to utfall og $H_3$ har ett utfall. 
+En overbevisende formulering fra en KI er ikke i seg selv en matematisk begrunnelse.
+:::
 
-Du kan altså utføre denne aktiviteten på seks forskjellige måter.
+## Basale prinsipper {#sec-basale-prinsipper}
 
-Samme tankemåte viser at du kan plasserer fire personer på fire forskjellige plasser på $4! = 4 \cdot 3 \cdot 2 \cdot 1$ måter.
+De to viktigste telleprinsippene er svært enkle. Vi **multipliserer** når en aktivitet består av flere trinn som alle skal utføres, og vi **adderer** når vi deler mulighetene opp i adskilte tilfeller.
 
-### Eksempel
+### Multiplikasjonsprinsippet {#sec-multiplikasjonsprinsippet}
 
-Du vil plassere to personer på fire forskjellige plasser. Tenker vi på plassering av første personen som et utfall $H_1$ og plassering av andre personen som et utfall $H_2$ har vi fire utfall for $H_1$ og tre utfall for $H_2$.
+Anta at en aktivitet består av $k$ trinn $H_1,H_2,\dots,H_k$. Hvis det, etter hvert mulig valg i de foregående trinnene, finnes nøyaktig $\alpha_i$ muligheter i trinn $H_i$, kan hele aktiviteten utføres på
 
-Denne aktiviteten kan altså utføres på $4 \cdot 3 = 12$ forskjellige måter.
+$$
+\alpha_1\alpha_2\cdots\alpha_k
+$$
 
-# 1.2 Fakultet
+forskjellige måter.
 
-Gitt et positivt heltall $n$ er tallet $n$-fakultet gitt ved
-$$n! = n(n-1)(n-2) \dots 2 \cdot 1$$
+Tanken er: for hver mulighet i første trinn kan vi fortsette med alle mulighetene i andre trinn, og slik fortsetter vi.
 
-## Teorem
+::: {#exm-meny name="En meny i tre trinn"}
+
+En kafé tilbyr $3$ forretter, $4$ hovedretter og $2$ desserter. Hvis et måltid består av én rett fra hver kategori, finnes det
+
+$$
+3\cdot4\cdot2=24
+$$
+
+forskjellige måltider.
+
+Her er antallet valg i hvert trinn det samme uansett hva vi valgte tidligere.
+:::
+
+::: {#exm-to-personer-fire-plasser name="To personer på fire plasser"}
+
+To forskjellige personer skal plasseres på to av fire markerte plasser.
+
+Første person kan velge mellom $4$ plasser. Når denne personen har satt seg, er det $3$ plasser igjen til den andre. Derfor finnes det
+
+$$
+4\cdot3=12
+$$
+
+forskjellige plasseringer.
+
+Her avhenger antallet muligheter i andre trinn av at én plass allerede er opptatt, men det er fortsatt alltid nøyaktig $3$ muligheter.
+:::
+
+::: {#exm-delmengder-bitstrenger name="Delmengder og binære sekvenser"}
+
+For hvert av elementene i mengden $\{1,2,\dots,n\}$ har vi to valg: elementet er med i en delmengde, eller det er ikke med.
+
+Multiplikasjonsprinsippet gir derfor
+
+$$
+2\cdot2\cdots2=2^n
+$$
+
+delmengder.
+
+Vi kan kode en delmengde med en binær sekvens $x_1x_2\cdots x_n$, der $x_i=1$ dersom $i$ er med i delmengden og $x_i=0$ ellers. For eksempel svarer delmengden $\{1,3\}\subseteq\{1,2,3\}$ til sekvensen $101$.
+:::
+
+::: {#exr-finneeksemplermultiplikasjonsprinsippet name="Finn egne eksempler"}
+Finn to situasjoner der multiplikasjonsprinsippet kan brukes. Prøv å finne ett eksempel der antallet muligheter er det samme i hvert trinn, og ett der det endrer seg underveis.
+:::
+
+::: {#exr-kode-multiplikasjon name="En kode med bokstaver og sifre"}
+
+En kode består av to bokstaver fra det norske alfabetet med $29$ bokstaver, etterfulgt av tre sifre. Repetisjon er tillatt.
+
+1. Hvor mange koder finnes det?
+2. Hvilke fem trinn bruker du i multiplikasjonsprinsippet?
+3. Hva ville endret seg dersom de to bokstavene måtte være forskjellige?
+:::
+
+::: {#exr-ki-to-telleproblemer name="KI: Lag og kontroller telleproblemer"}
+
+Be en KI lage to korte telleproblemer: ett som bør løses med multiplikasjonsprinsippet og ett som **ikke** bør løses ved bare å multiplisere antall muligheter i flere trinn. Be KI-en om å ikke fortelle deg hvilket som er hvilket.
+
+For hvert problem:
+
+1. avgjør selv hvilken telleidé som passer,
+2. løs problemet,
+3. be deretter KI-en om sin løsning,
+4. vurder om KI-en har modellert problemet på samme måte som deg, og forklar eventuelle forskjeller.
+:::
+
+### Addisjonsprinsippet {#sec-addisjonsprinsippet}
+
+Noen telleproblemer deles naturlig opp i **adskilte tilfeller**. Anta at hvert mulig utfall ligger i nøyaktig ett av tilfellene $H_1,\dots,H_k$, og at tilfellene har henholdsvis $\alpha_1,\dots,\alpha_k$ mulige utfall. Da finnes det totalt
+
+$$
+\alpha_1+\alpha_2+\cdots+\alpha_k
+$$
+
+mulige utfall.
+
+Ordet *adskilte* er viktig: hvis samme utfall kan ligge i to av tilfellene, vil vi telle det mer enn én gang.
+
+::: {#exm-emnevalg name="Valg av ett emne"}
+
+En student skal velge **ett** valgemne. Hun kan velge mellom $5$ matematikkemner og $7$ informatikkemner, og ingen emner står på begge listene.
+
+Valget ligger enten i matematikktilfellet eller i informatikktilfellet. Addisjonsprinsippet gir derfor
+
+$$
+5+7=12
+$$
+
+mulige emner.
+:::
+
+::: {#exr-addisjon-eller-multiplikasjon name="Addere eller multiplisere?"}
+
+Forklar om du vil bruke addisjonsprinsippet, multiplikasjonsprinsippet eller begge i hver situasjon. Regn deretter ut svaret.
+
+1. Du skal velge enten én av $6$ romaner eller én av $4$ diktsamlinger.
+2. Du skal velge én av $6$ romaner **og** én av $4$ diktsamlinger.
+3. En kafé har $3$ varme retter og $5$ kalde retter. Hver rett kan bestilles med én av $4$ drikker. Hvor mange kombinasjoner av én rett og én drikk finnes det?
+:::
+
+Multiplikasjons- og addisjonsprinsippet er byggesteinene i resten av kapitlet. Ofte bruker vi begge i samme argument: først deler vi et problem i tilfeller, og så teller vi hvert tilfelle trinn for trinn.
+
+## Fakultet {#sec-fakultet}
+
+Når vi plasserer forskjellige objekter i rekkefølge, dukker produktet
+
+$$
+n(n-1)(n-2)\cdots2\cdot1
+$$
+
+opp hele tiden. Derfor gir vi det et eget navn.
+
+For et positivt heltall $n$ definerer vi **$n$-fakultet** ved
+
+$$
+n!=n(n-1)(n-2)\cdots2\cdot1.
+$$
+
+Vi setter også $0!=1$. Denne konvensjonen gjør at formlene senere i kapitlet også fungerer i randtilfellene.
+
+::: {#thm-plasseren name="Plassering på markerte plasser"}
 
 Aktiviteten å plassere $n$ forskjellige objekter på $n$ markerte plasser kan utføres på $n!$ forskjellige måter.
+:::
 
-## Korollar
-Aktiviteten å plassere $n$ forskjellige objekter i rekkefølge kan utføres på $n!$ forskjellige måter.
+::: {.proof name="Begrunnelse"}
 
-## Kombinatorisk eksplosjon
+Det er $n$ muligheter for det første objektet, $n-1$ for det andre, og slik fortsetter det til den siste plassen. Multiplikasjonsprinsippet gir
 
-Tallet $n!$ vokser veldig fort med $n$:
+$$
+n(n-1)\cdots2\cdot1=n!.
+$$
+:::
+
+::: {#cor-nirekkefolge name="Plassering i rekkefølge"}
+
+$n$ forskjellige objekter kan plasseres i rekkefølge på $n!$ forskjellige måter.
+:::
+
+### Kombinatorisk eksplosjon {#sec-kombinatorisk-eksplosjon}
+
+Tallet $n!$ vokser svært raskt med $n$:
 
 ```{python}
 math.factorial(8), math.factorial(18), math.factorial(28)
 ```
 
-### Eksempel
+Denne raske veksten er et første eksempel på **kombinatorisk eksplosjon**. Et problem kan være enkelt å beskrive, men likevel ha så mange muligheter at det er upraktisk å undersøke dem én etter én.
 
-Fire personer plasseres på hver sin plass. Det er 20 markerte plasser å velge mellom. 
+### Ordnede utvalg uten repetisjon
 
-La oss analysere hvor mange måter det kan gjøres på. Første person kan plasseres på 20 forskjellige plasser. Andre personer på 19 plasser, tredje person på 18 plasser og siste person på 17 plasser. Resultatet blir
+Vi trenger ikke alltid plassere alle de $n$ objektene. Kanskje skal vi bare velge $r$ av dem, men fortsatt huske rekkefølgen.
 
-$20 \cdot 19 \cdot 18 \cdot 17 = \frac{20!}{16!}$
+::: {#exm-fire-personer-tjue-plasser name="Fire personer på tjue plasser"}
+
+Fire forskjellige personer skal plasseres på hver sin plass blant $20$ markerte plasser.
+
+Første person har $20$ muligheter, den andre $19$, den tredje $18$ og den fjerde $17$. Derfor finnes det
+
+$$
+20\cdot19\cdot18\cdot17=\frac{20!}{16!}
+$$
+
+forskjellige plasseringer.
 
 ```{python}
-f"Fire ut av tyve markerte plasser kan velges på {math.factorial(20) // math.factorial(16)} forskjellige måter." 
+math.factorial(20) // math.factorial(16)
 ```
+:::
 
-### Oppgave
+Det samme argumentet virker for vilkårlige $n$ og $r$.
 
-I en kortstokk er det 52 kort som alle er forskjellige. I hvor mange forskjellige rekkefølger kan kortene plasseres?
-Kan du skrive tallet ut ved hjelp av et dataverktøy?
+::: {#thm-ravn name="Ordnet utvalg uten repetisjon"}
 
-## Teorem
+La $0\le r\le n$. Antallet **ordnede** utvalg av $r$ forskjellige objekter fra en samling med $n$ forskjellige objekter, uten repetisjon, er
 
-Antallet av måter vi kan velge $r$ objekter fra en samling bestående av $n$ forskjellige objekter er:
-$$n (n-1) \cdots (n-r+1) = \frac{n!}{(n-r)!}$$
+$$
+n(n-1)\cdots(n-r+1)=\frac{n!}{(n-r)!}.
+$$
 
-### Oppgave
+Når $r=0$, tolker vi produktet på venstresiden som det tomme produktet $1$.
+:::
 
-På hvor mange måter kan vi velge to kort fra en kortstokk med 52 kort som alle er forskjellige? (Du husker rekkefølgen kortene er trukket i.)
+Her er to ting avgjørende: vi kan ikke velge samme objekt to ganger, og vi skiller mellom forskjellige rekkefølger. Utvalgene $(a,b,c)$ og $(b,a,c)$ regnes altså som forskjellige.
 
-### Oppgave:
-Hvor mange forskjellige fargekombinasjoner kan du oppnå ved å trekke to kort fra en kortstokk med $52$ kort hvor halvparten av kortene er svarte og halvparten er røde? Også her husker du rekkefølgen kortene er trukket i.
+::: {#exr-kortstokk name="To kort med rekkefølge"}
 
-## Addisjonsprinsippet
+På hvor mange måter kan vi trekke to forskjellige kort fra en vanlig kortstokk uten tilbakelegging når vi husker rekkefølgen kortene ble trukket i?
+:::
 
-La oss si at en aktivitet består av et utfall i presis én av $k$ adskilte hendelser $H_1 \dots H_k$. Dersom $H_1, H_2, \dots, H_k$ som har henholdsvis $\alpha_1, \alpha_2, \dots, \alpha_{k}$ mulige utfall, da kan aktiviteten utføres på $\alpha_1 + \alpha_2 + \dots + \alpha_k$ forskjellige måter.
+::: {#exr-medaljer name="Gull, sølv og bronse"}
 
-### Eksempel
+Åtte løpere deltar i et løp uten delt plassering.
 
-I en kortstokk er det $26$ forskjellige svarte kort, $26$ forskjellige røde kort og $3$ identiske jokere. 
+1. På hvor mange måter kan gull, sølv og bronse fordeles?
+2. Hvor i regnestykket ser du at rekkefølgen betyr noe?
+3. Hvordan ville svaret endret seg dersom vi bare skulle velge tre løpere til en dopingkontroll, uten ulike roller?
 
-La oss analysere hvor mange utfall aktiviteten å trekke ett kort fra kortstokken har. 
+Du trenger ikke løse punkt 3 med en ferdig formel ennå; forklar bare hvorfor dette er et annet telleproblem.
+:::
 
-Vi kan dele denne aktiviteten opp i tre adskilte hendelser: $H_1$ å trekke et svart kort, $H_2$ å trekke et rødt kort og $H_3$ å trekke en joker. Hendelsene $H_1$ og $H_2$ har hver $26$ mulige utfall mens hendelsen $H_3$ har presis ett mulig utfall. 
+Vi har nå fylt ut den første av de fire grunnsituasjonene: **rekkefølgen teller, uten repetisjon**. I neste avsnitt beholder vi forbudet mot repetisjon, men slutter å bry oss om rekkefølgen.
 
-Vi konkluderer at vi kan trekke $53$ forskjellige kort fra kortstokken.
+## Utvalg {#sec-utvalg}
 
-### Oppgave
+*Læreboken: §1.3.*
 
-Du trekker tre kort fra en kortstokk med tre røde og tre svarte kort. Hvor mange fargekombinasjoner kan du trekke når du ser bort fra rekkefølgen kortene er trukket i?
+### Når rekkefølgen ikke teller
 
-### Spørsmål
+Tenk på forskjellen mellom disse to spørsmålene:
 
-På hvor mange måter kan vi trekke to kort fra kortstokken når vi husker rekkefølgen de ble trukket i? 
+- Fire studenter skal få vervene leder, nestleder, sekretær og kasserer.
+- Fire studenter skal velges til en komité uten ulike verv.
 
-# 1.3 Utvalg
+I det første problemet betyr rekkefølgen — eller mer presist hvilken rolle hver student får — noe. I det andre problemet bryr vi oss bare om **hvem** som er med.
 
-Hvis vi i stedet for å plassere fire personer velger å markere fire av tyve plasser med identiske merkelapper kan vi tenke at vi først husker rekkefølgen av plasseringen av merkelappene og deretter glemmer den. 
+For å forstå hvordan vi teller uordnede utvalg, begynner vi med et konkret eksempel.
 
-Når vi husker rekkefølgen blir det like mange måter å utføre aktiviteten på som hvis vi hadde plassert personer. 
+::: {#exm-fire-av-tjue name="Fire av tjue plasser"}
 
-Når vi glemmer rekkefølgen er det $4!$ forskjellige rekkefølger som gir samme plasseringen av lappene fordi fire lapper kan plasseres i rekkefølge på $4!$ måter. 
+Vi vil velge fire av tjue markerte plasser.
 
-Det vil si at hvis $A$ er antallet måter merkelappene kan plasseres på, så er $A$ ganger antallet rekkefølger av merkelappene lik antallet måter fire personer kan plasseres på tyve stoler.
-Skriver vi dette ut som en formel får vi
-$$A \cdot 4! = \frac{20!}{16!}$$
+Hvis vi først markerer plassene én etter én og husker rekkefølgen, finnes det
 
-Resultatet blir altså
-$$A = \frac{20!}{4! 16!}.$$
+$$
+20\cdot19\cdot18\cdot17=\frac{20!}{16!}
+$$
+
+ordnede valg.
+
+Men når vi bare bryr oss om hvilke fire plasser som er valgt, beskriver de $4!$ mulige rekkefølgene av de samme fire plassene det samme utvalget. Hvis $A$ er antallet uordnede utvalg, får vi
+
+$$
+A\cdot4!=\frac{20!}{16!},
+$$
+
+og dermed
+
+$$
+A=\frac{20!}{4!16!}=\binom{20}{4}.
+$$
 
 ```{python}
-display(Latex(r'Dette tallet $A$ kaller vi "tyve-velg-fire" og vi skriver $A = \binom{20}{4} = ' + f'{math.comb(20, 4)}$.'))
+math.comb(20, 4)
 ```
+:::
 
-### Oppgave
+Symbolet $\binom nr$ leses **«$n$ velg $r$»** og betyr antallet måter å velge $r$ objekter blant $n$ forskjellige objekter når rekkefølgen ikke teller.
 
-På hvor mange måter kan du velge fem plasser ut av $20$? 
+Overgangen fra ordnede til uordnede utvalg er et viktig mønster: vi teller først med rekkefølge og deler deretter på antallet rekkefølger som beskriver det samme uordnede utvalget.
 
-Bruk gjerne et elektronisk verktøy til å finne dette tallet.
+::: {#thm-binomialformelen name="Formelen for binomialkoeffisienten"}
 
-## Teorem 1.4
-
-La $\binom nr$ være antallet av måter vi kan velge en samling av $r$ objekter fra en samling bestående av $n$ forskjellige objekter.
-
-Da er
-
-1. $\binom nr = \binom n{n-r}$
-2. $\binom {n+1}r = \binom nr + \binom n{r-1}$
-
-
-### Begrunnelse:
-
-Jeg vil først begrunne dette med et eksempel. Deretter vil jeg skrive en mere formell begrunnelse.
-
-La oss si at vi velger ut fire plasser blant tyve markerte plasser. 
-
-1. Jeg kan gjøre dette ved å velge ut $16$ plasser og si at de utvalgte plassene er de fire resterende plassene.
-2. Jeg kan sette meg på en plass.
-
-   Jeg kan enten velge fire plasser ut av de $19$ plassene som jeg ikke sitter på eller jeg kan velge den plassen jeg sitter på sammen med tre av de $19$ plassene jeg ikke sitter på.
-
-   I formler gir dette at tyve-velg-fire er lik summen av nitten-velg-fire og nitten-velg-tre.
-
-   $$\binom {20}{4} = \binom{19}{4} + \binom{19}{3}$$
-
-#### Mere formell begrunnelse:
-
-1. Objektene som er med i samlingen vi velger ut er entydig bestemt av objektene som ikke er med i denne samlingen.
-2. La $x$ være et spesielt utvalgt objekt blant de $n+1$ objektene. Da er det $n$ objekter som er forskjellige fra $x$. Vi anvender addisjonsprinsippet på
-    
-    $H_1:$ $x$ er blant de $r+1$ objektene vi velger ut.
-
-    $H_2:$ $x$ er **ikke** blant de $r+1$ objektene vi velger ut.
-
-   For $H_1$ er det $\binom n{r-1}$ muligheter for valg av de $r-1$ objektene som ikke er $x$.
-
-   For $H_2$ er det $\binom nr$ muligheter for valg av objektene vi velger ut. (De er alle forskjellige fra $x$.)
-
-## Teorem
-
-La $\binom nr$ være antallet av måter vi kan velge en samling av $r$ forskjellige objekter fra en samling bestående av $n$ forskjellige objekter.
-
-Da er 
-$$\binom nr = \frac{n!}{r!(n-r)!}$$
-
-### Begrunnelse:
-
-Vi forklarte egentlig dette med eksemplet der vi valgte fire ut av tyve plasser.
-
-#### Mere formell begrunnelse:
-Hvis vi vet at teoremet holder for $n$ da kan vi forklare hvorfor det også må holde for $n+1$:
-
-$$\binom{n+1}r = \binom nr + \binom n{r-1} = \frac{n!}{r!(n-r)!} + \frac{n!}{(r-1)!(n-r+1)!}$$
-
-Som på side 6 i læreboken kan dette uttrykket algebraisk reduseres til $\frac{(n+1)!}{r!(n+1-r)!}$.
-
-**Trekanten til Pascal kan brukes til å sjekke dette teoremet for noen tall**
-
-# 1.4 Binomialkoeffisienter og Pascals trekant
-
-Skriver jeg en rekke med tallene
-
-$$\binom 40 \ \binom 41 \ \binom 42 \ \binom 43 \ \binom 44$$ 
-
-det vil si
+For $0\le r\le n$ er
 
 $$
-\begin{matrix} 
-&1 && 4 && 6 && 4 && 1 & 
-\end{matrix}
+\binom nr=\frac{n!}{r!(n-r)!}.
 $$
+:::
 
-Kan jeg bruke disse til ved hjelp av Teorem 1.4 å regne ut tallene 
+::: {.proof name="Begrunnelse"}
 
-$$\binom 50 \ \binom 51 \ \binom 52 \ \binom 53 \ \binom 54 \ \binom 55$$ 
-
-til å bli
+Ved @thm-ravn finnes det
 
 $$
-\begin{matrix} 
-1 && 5 && 10 && 10 && 5 && 1
-\end{matrix}
+\frac{n!}{(n-r)!}
 $$
 
-Dette kan illustreres ved å skrive linjene over hverandre:
+ordnede utvalg av $r$ objekter uten repetisjon.
+
+Hvis vi glemmer rekkefølgen, blir hvert uordnet utvalg telt nøyaktig $r!$ ganger, én gang for hver mulig rekkefølge av de $r$ valgte objektene. Derfor
 
 $$
-\begin{matrix} 
-&1 && 4 && 6 && 4 && 1 & \\
-1 && 5 && 10 && 10 && 5 && 1
-\end{matrix}
+r!\binom nr=\frac{n!}{(n-r)!},
 $$
 
+og dermed
 
-De indre tallene i den nederste linjen er gitt ved summen av de to tallene til venstre og til høyre for dem i linjen over.
+$$
+\binom nr=\frac{n!}{r!(n-r)!}.
+$$
+:::
+
+::: {#exm-komite-eller-verv name="Komité eller fire verv"}
+
+Blant $20$ studenter skal fire velges.
+
+Hvis de fire bare skal danne en komité, finnes det
+
+$$
+\binom{20}{4}
+$$
+
+muligheter.
+
+Hvis de i stedet skal få fire forskjellige verv, finnes det
+
+$$
+20\cdot19\cdot18\cdot17=4!\binom{20}{4}
+$$
+
+muligheter.
+
+De samme fire studentene gir altså $4!$ forskjellige resultater når rollene skiller dem fra hverandre. Dette er akkurat forskjellen mellom ordnede og uordnede utvalg.
+:::
+
+::: {#exr-fem-av-tjue-plasser name="Fem av tjue plasser"}
+
+På hvor mange måter kan du velge fem plasser ut av $20$ når rekkefølgen ikke teller? Sammenlign svaret med antallet ordnede valg av fem plasser.
+:::
+
+::: {#exr-prosjektgruppe-roller name="Prosjektgruppe eller roller"}
+
+I en klasse med $12$ studenter skal tre studenter velges.
+
+1. Hvor mange forskjellige prosjektgrupper på tre studenter finnes det?
+2. Hvor mange måter kan man velge en leder, en referent og en presentatør blant de $12$ studentene?
+3. Forklar hvorfor svarene skiller seg med en faktor $3!$.
+:::
+
+::: {#exr-komplementvalg name="Velge med eller velge bort"}
+
+Ti studenter skal fordeles slik at tre deltar på en workshop og de syv andre blir igjen på campus.
+
+Forklar uten å bruke fakultetsformelen hvorfor
+
+$$
+\binom{10}{3}=\binom{10}{7}.
+$$
+
+Beskriv konkret hvordan et valg av tre studenter bestemmer et valg av syv studenter, og omvendt.
+:::
+
+::: {#exr-ki-feil-binomial name="KI: Finn feilen i en telleformel"}
+
+En KI gir følgende svar på spørsmålet «Hvor mange måter kan vi velge tre studenter blant ti når rekkefølgen ikke teller?»:
+
+> Vi har 10 valg for den første studenten, 9 for den andre og 8 for den tredje. Siden rekkefølgen ikke teller, deler vi på 3. Svaret er derfor $10\cdot9\cdot8/3=240$.
+
+Undersøk svaret.
+
+1. Hvilken del av argumentet er riktig?
+2. Hvorfor er det feil å dele på $3$?
+3. Hva skal vi dele på i stedet, og hvorfor?
+4. Be en KI forklare feilen på nytt. Vurder om forklaringen faktisk sier **hvor mange ganger hvert uordnet utvalg ble telt**.
+:::
+
+### To identiteter for binomialkoeffisienter
+
+Binomialkoeffisienter kan forstås på flere måter. Det er ofte bedre å forklare en identitet ved å beskrive **hva begge sider teller** enn å starte med fakultetsformelen.
+
+**Læreboken: Teorem 1.4.**
+
+::: {#thm-binomialidentiteter name="Identiteter for binomialkoeffisienter"}
+
+Vi bruker følgende to identiteter:
+
+1. For $0\le r\le n$ gjelder $\displaystyle \binom nr=\binom n{n-r}$.
+2. For $1\le r\le n$ gjelder $\displaystyle \binom{n+1}r=\binom nr+\binom n{r-1}$.
+:::
+
+::: {.proof name="Kombinatorisk begrunnelse"}
+
+Den første identiteten kan forstås uten regning: å velge de $r$ objektene som skal være med, bestemmer samtidig de $n-r$ objektene som ikke skal være med, og omvendt.
+
+For den andre identiteten velger vi ett spesielt objekt $x$ blant de $n+1$ objektene. Et utvalg av $r$ objekter ligger i nøyaktig ett av to adskilte tilfeller:
+
+- $x$ er med. Da må vi velge de resterende $r-1$ objektene blant de andre $n$ objektene: $\binom n{r-1}$ muligheter.
+- $x$ er ikke med. Da velger vi alle de $r$ objektene blant de andre $n$ objektene: $\binom nr$ muligheter.
+
+Addisjonsprinsippet gir derfor
+
+$$
+\binom{n+1}r=\binom nr+\binom n{r-1}.
+$$
+:::
+
+Den andre identiteten kalles ofte **Pascals identitet**. Den gjør det mulig å beregne binomialkoeffisientene uten å bruke fakulteter.
+
+::: {#exr-ki-pascalbevis name="KI: Algebraisk eller kombinatorisk forklaring?"}
+
+Be en KI forklare Pascals identitet
+
+$$
+\binom{n+1}{r}=\binom nr+\binom n{r-1}.
+$$
+
+Hvis KI-en bare manipulerer fakultetsuttrykk, be uttrykkelig om en **kombinatorisk forklaring**.
+
+Sammenlign de to typene forklaring:
+
+1. Hvilket argument viser bare at uttrykkene er algebraisk like?
+2. Hvilket argument forklarer hvorfor begge sider teller samme samling av objekter?
+3. Skriv den kombinatoriske forklaringen med dine egne ord uten å se på KI-svaret.
+:::
+
+## Binomialkoeffisienter og Pascals trekant {#sec-binomialkoeffisienter}
+
+*Læreboken: §1.4.*
+
+### Pascals trekant
+
+Vi starter med randverdiene
+
+$$
+\binom n0=\binom nn=1.
+$$
+
+Det finnes jo bare én måte å velge ingenting på, og bare én måte å velge alle $n$ objektene på.
+
+Pascals identitet sier at hvert indre tall kan finnes ved å legge sammen de to tallene over det. For eksempel gir raden
+
+$$
+\binom40\quad\binom41\quad\binom42\quad\binom43\quad\binom44
+$$
+
+verdiene
+
+$$
+1\quad4\quad6\quad4\quad1,
+$$
+
+og neste rad blir
+
+$$
+1\quad5\quad10\quad10\quad5\quad1.
+$$
+
+Dette mønsteret kalles **Pascals trekant**.
 
 ```{python}
-# Kode som kan produsere Pascals trekant. Koden er ikke viktig å forstå!
+#| echo: false
 
 def pascal(n):
-    """
-    Yield up to row ``n`` of Pascal's triangle, one row at a time.
-    The first row is row 0.
-    """
-    if not isinstance (n, int):
-        raise TypeError ('n must be an integer')
+    """Yield rows 0 through n of Pascal's triangle."""
+    if not isinstance(n, int):
+        raise TypeError('n must be an integer')
     if n < 0:
-        raise ValueError ('n must be an integer >= 0')
+        raise ValueError('n must be an integer >= 0')
 
-    def newrow(row):
-        "Calculate a row of Pascal's triangle given the previous one." 
-        prev = 0
-        for x in row:
-            yield prev + x
-            prev = x
-        yield 1
+    row = [1]
+    yield row
+    for _ in range(n):
+        row = [1] + [row[i] + row[i + 1] for i in range(len(row) - 1)] + [1]
+        yield row
 
-    prevrow = [1]
-    yield prevrow
-    for x in range(n):
-        prevrow = list(newrow(prevrow))
-        yield prevrow
 
 def pascal_latex(n):
-    """
-    Generate a Pascal triangle for LaTeX embedding.
-    """
+    """Generate Pascal's triangle as a LaTeX matrix."""
     res = r'\begin{matrix}' + '\n'
     for i, row in enumerate(pascal(n)):
-        res += '&' * (n-i)
-        res += ' && '.join ('%2d' % coeff for coeff in row)
-        res += (r'\\' + '\n')
-    res += (r'\end{matrix}' + '\n')
+        res += '&' * (n - i)
+        res += ' && '.join('%2d' % coeff for coeff in row)
+        res += r'\\' + '\n'
+    res += r'\end{matrix}'
     return res
-    
 ```
 
-### Utdrag av Pascals trekant
-
 ```{python}
+#| echo: false
+
 display(Math(pascal_latex(7)))
 ```
 
+Pascals trekant er ikke bare en effektiv måte å beregne binomialkoeffisienter på. De samme tallene dukker også opp når vi regner med potenser av $x+y$.
+
+::: {#exr-pascal-neste-rader name="Bygg videre på Pascals trekant"}
+
+Start med raden
+
+$$
+1\quad5\quad10\quad10\quad5\quad1.
+$$
+
+1. Finn de to neste radene i Pascals trekant uten å bruke fakultetsformelen.
+2. Kontroller at summen av tallene i rad $6$ er $2^6$ og summen i rad $7$ er $2^7$.
+3. Forklar hvorfor denne kontrollen er naturlig ut fra @cor-binomialteoremet-x-en når du kommer til den nedenfor.
+:::
+
+### Pascals trekant og potenser av $x+y$ {#sec-pascal-potenser}
+
 ```{python}
-# Kode for ny figur. Ignorer koden...
+#| echo: false
 
 def xyterm(i, j, coeff):
     if j == 0:
-        if i > 0:
-            return f'x^{i}'
-        else:
-            return '1'
-    elif j == i:
+        return '1' if i == 0 else f'x^{i}'
+    if j == i:
         return f'y^{i}'
-    else:
-        return f'{coeff:2d} x^{i-j}y^{j}'
-        
+    return f'{coeff:2d} x^{i-j}y^{j}'
+
+
 def pascal_xplusy(n):
-    """
-    Generate a Pascal triangle for powers of x + y
-    """
+    """Generate expansions of (x+y)^i using Pascal coefficients."""
     res = r'\begin{matrix}' + '\n'
     for i, row in enumerate(pascal(n)):
         res += f'(x + y)^{i} & = &'
-        res += '&' * (n-i)
-        res += ' &+& '.join (xyterm(i, j, coeff) for j, coeff in enumerate(row))
-        res += (r'\\' + '\n')
-    res += (r'\end{matrix}' + '\n')
-    res = res.replace("(x + y)^1", "x + y")
-    res = res.replace("^1", "")
-    res = res.replace("(x + y)^0", "1")
+        res += '&' * (n - i)
+        res += ' &+& '.join(xyterm(i, j, coeff) for j, coeff in enumerate(row))
+        res += r'\\' + '\n'
+    res += r'\end{matrix}'
+    res = res.replace('(x + y)^1', 'x + y')
+    res = res.replace('^1', '')
+    res = res.replace('(x + y)^0', '1')
     return res
 ```
 
-### Pascals trekant for potenser av $x + y$
-
 ```{python}
+#| echo: false
+
 display(Math(pascal_xplusy(7)))
 ```
 
-Bemerk at tallene her er de samme som i Pascals trekant. 
-
-At tallene i raden for $(x+y)^7$ er binomialkoffisientene en-velg-syv, to-velg-syv og så videre kan forklares ved hjelp av Teorem 1.4 og at 
-
-$$(x+y)^7 = x(x+y)^6 + y(x+y)^6:$$
+Hvorfor er koeffisientene binomialkoeffisienter? Skriv
 
 $$
-\begin{matrix}
-x(x + y)^6 & = &x^7 &+&  6 x^6y &+& 15 x^5y^2 &+& 20 x^4y^3 &+& 15 x^3y^4 &+&  6 x^2y^5 &+& xy^6\\
-% &&&&&&&&&&&&&&&&\\
-y(x + y)^6 & = &&&x^6y &+&  6 x^5y^2 &+& 15 x^4y^3 &+& 20 x^3y^4 &+& 15 x^2y^5 &+&  6 xy^6 &+& y^7\\
- &&&&&&&&&&&&&&&&\\
-(x + y)^7 & = &x^7 &+&  7 x^6y &+& 21 x^5y^2 &+& 35 x^4y^3 &+& 35 x^3y^4 &+& 21 x^2y^5 &+&  7 xy^6 &+& y^7\\
-\end{matrix}
+(x+y)^n=(x+y)(x+y)\cdots(x+y)
 $$
 
-### Oppgave
+med $n$ faktorer. For å få et ledd $x^{n-r}y^r$ må vi velge $y$ fra nøyaktig $r$ av faktorene og $x$ fra resten. Det finnes $\binom nr$ måter å velge hvilke $r$ faktorer som skal bidra med $y$.
 
-Skriv ut $(x + y)^8$ som en sum på samme måten som vi gjorde for $(x + y)^7$.
+Dette gir binomialteoremet nesten direkte.
 
-## Teorem 1.5
+**Læreboken: Teorem 1.5.**
 
-Pascals trekant for potenser av $x + y$ kan fortsettes til $(x+y)^n$ for alle positive heltall $n$. 
+::: {#thm-binomialteoremet name="Binomialteoremet"}
 
-Koeffisienten foran $x^iy^j$ er $\binom{i+j}{i}$, så
-$$(x + y)^n = \sum_{r=0}^n \binom nr x^r y^{n-r}.$$ 
+For hvert ikke-negativt heltall $n$ gjelder
 
-Bemerk at koeffisientene foran $x^iy^j$ og $x^jy^i$ er like, og at dette stemmer med at $\binom{i+j}{i} = \binom{i+j}{j}$. 
+$$
+(x+y)^n=\sum_{r=0}^n\binom nr x^{n-r}y^r.
+$$
+:::
 
-Ved å sette $x = 1$ fås:
+::: {#exm-binomial-fire name="Utvikling av fjerde potens"}
 
-## Korollar 1.6
+For $n=4$ får vi raden $1,4,6,4,1$ fra Pascals trekant, og dermed
 
-$$(1 + y)^n = \sum_{r = 0}^n \binom nr y^r$$
+$$
+(x+y)^4=x^4+4x^3y+6x^2y^2+4xy^3+y^4.
+$$
 
-Settes ytterligere $y = 1$ fås:
+Koeffisienten $6=\binom42$ foran $x^2y^2$ teller for eksempel hvilke to av de fire faktorene som bidrar med $y$.
+:::
 
-$$2^n = \sum_{r = 0}^n \binom nr$$
+::: {#exr-koeffisient-uten-utvidelse name="Finn en koeffisient uten å gange ut"}
 
-### Oppgave
+Finn koeffisienten foran $x^7y^5$ i $(x+y)^{12}$ uten å gange ut hele uttrykket.
 
-Sett $x=-1$ og $y=1$ i Teorem 1.5. Skriv ut den formelen du finner. 
+Forklar både
 
-### Diagonaler av Pascals trekant
+1. hvilken binomialkoeffisient som gir svaret, og
+2. hva denne binomialkoeffisienten teller blant de tolv faktorene $(x+y)$.
+:::
 
-La oss beregne tallet $\binom 74$ på en ny måte. 
+Ved å sette inn spesielle verdier for $x$ og $y$ får vi identiteter for binomialkoeffisientene.
 
-For å være konkret vil jeg trekke fire tall blant tallene $1, 2, 3, 4, 5, 6, 7$.
+**Læreboken: Korollar 1.6.**
 
-Av mulighetene for å gjøre dette er der $\binom 63$ kombinasjoner hvor tallet $1$ er blant tallene som blir trukket.
+::: {#cor-binomialteoremet-x-en name="Binomialteoremet når x er 1"}
 
-Hvis jeg vet at $1$ ikke blir trukket men at $2$ blir trukket er der $\binom 53$ muligheter.
+Ved å sette $x=1$ i @thm-binomialteoremet får vi
 
-Hvis jeg vet at verken $1$ og $2$ blir trukket men at $3$ blir trukket er der $\binom 43$ muligheter.
+$$
+(1+y)^n=\sum_{r=0}^n\binom nr y^r.
+$$
 
-Hvis jeg vet at verken $1, 2$ eller $3$ blir trukket, så må de resterende fire tallene $4,5,6, 7$ bli trukket. Det gjenstår altså $\binom 33$ muligheter.
+Setter vi også $y=1$, får vi
 
-Ved addisjonsprinsippet er 
+$$
+2^n=\sum_{r=0}^n\binom nr.
+$$
+:::
 
-$$\binom 74 = \binom {3+3+1}{4} = \binom 33 + \binom 43 + \binom 53 + \binom 63$$
+Den siste identiteten har også en direkte kombinatorisk forklaring: venstresiden teller alle delmengder av en mengde med $n$ elementer, mens høyresiden teller dem etter størrelse — først de med $0$ elementer, så de med $1$ element, og så videre.
 
-### Oppgave
+::: {#exr-ki-to-begrunnelser name="KI: Sammenlign to begrunnelser"}
+
+Be en KI forklare identiteten
+
+$$
+2^n=\sum_{r=0}^n\binom nr
+$$
+
+på to måter:
+
+- ved å bruke binomialteoremet,
+- ved å telle delmengder.
+
+Kontroller begge forklaringene. Svar deretter selv:
+
+1. Hva teller $2^n$ i den kombinatoriske forklaringen?
+2. Hva teller $\binom nr$?
+3. Hvorfor må summen over alle $r$ gi samme tall?
+4. Hvilken av de to forklaringene synes du gir mest innsikt, og hvorfor?
+:::
+
+::: {#exr-binomial-minus-en name="Sett inn spesielle verdier"}
+
+Sett $x=-1$ og $y=1$ i @thm-binomialteoremet. Skriv ut formelen du får, og forklar hva den sier om summen av binomialkoeffisienter med vekslende fortegn.
+:::
+
+### Diagonaler av Pascals trekant {#sec-pascal-diagonaler}
+
+Pascals identitet summerer to naboer. En annen nyttig identitet oppstår når vi summerer langs en diagonal i trekanten.
+
+La oss beregne $\binom74$ ved å velge fire tall fra $\{1,2,3,4,5,6,7\}$ og dele valgene opp etter **det minste tallet som blir valgt**:
+
+- Minste valgte tall er $1$: velg de tre andre blant $2,\dots,7$, altså $\binom63$ muligheter.
+- Minste valgte tall er $2$: velg de tre andre blant $3,\dots,7$, altså $\binom53$ muligheter.
+- Minste valgte tall er $3$: velg de tre andre blant $4,\dots,7$, altså $\binom43$ muligheter.
+- Minste valgte tall er $4$: da må vi velge $4,5,6,7$, altså $\binom33=1$ mulighet.
+
+Tilfellene er adskilte og dekker alle muligheter. Addisjonsprinsippet gir derfor
+
+$$
+\binom74=\binom33+\binom43+\binom53+\binom63.
+$$
+
+**Læreboken: Teorem 1.8.**
+
+::: {#thm-pascal-diagonal name="En diagonalidentitet"}
+
+For ikke-negative heltall $m,n$ gjelder
+
+$$
+\binom{m+n+1}{m+1}
+=
+\binom mm+\binom{m+1}m+\dots+\binom{m+n}m.
+$$
+:::
+
+::: {#exr-pascal-diagonal-seks-tre name="Forklar en diagonalidentitet"}
 
 Forklar formelen
-$$\binom 63 = \binom {2 + 3 + 1}{3} = \binom 22 + \binom 32 + \binom 42 + \binom 52.$$
 
-## Teorem 1.8
+$$
+\binom63=\binom22+\binom32+\binom42+\binom52
+$$
 
-$$\binom {m+n+1}{m+1} = \binom mm + \binom{m+1}{m} + \dots + \binom{m+n}{m}$$
+ved å dele utvalgene inn etter minste valgte element.
+:::
 
-### Oppgave
+::: {#exr-aatte-velg-fire name="En ny formel for åtte-velg-fire"}
 
-Vi vet fra Teorem 1.4 at 
-$$(1 + x)^4 = x^4 + 4x^3 + 6x^2 + 4x + 1.$$
+Fra @thm-binomialteoremet har vi
 
-Bruk dette til å se at koeffisienten til $x^4$ i $(1 + x)^4 (1 + x)^4$ er
-$$ 1 \cdot 1 + 4 \cdot 4 + 6 \cdot 6 + 4 \cdot 4 + 1 \cdot 1$$
-som er lik
-$$\binom 44 \binom 40 + \binom 43 \binom 41 + \binom 42 \binom 42 + \binom 41 \binom 43 + \binom 40 \binom 44$$
-og som også er lik
-$$\binom 44^2 + \binom 43^2 + \binom 42^2  + \binom 41^2  + \binom 40^2 $$
+$$
+(1+x)^4=x^4+4x^3+6x^2+4x+1.
+$$
 
-Fra Teorem 1.4 er 
-$$(1 + x)^4 (1 + x)^4 = (1 + x)^8 = \binom 80 x^8 + \binom 81 x^7 + \binom 82 x^6 + \binom 83 x^5 + \binom 84 x^4 + \dots.$$
+Koeffisienten til $x^4$ i $(1+x)^4(1+x)^4$ er derfor
 
-Bruk dette til å skrive en ny formel for $\binom 84$.
+$$
+1\cdot1+4\cdot4+6\cdot6+4\cdot4+1\cdot1
+=
+\binom44^2+\binom43^2+\binom42^2+\binom41^2+\binom40^2.
+$$
 
-### Oppgave
+På den andre siden er
 
-Forklar hvorfor 
-$$\binom n0^2 + \binom n1^2 + \dots + \binom nn^2 = \binom {2n}{n}.$$
+$$
+(1+x)^4(1+x)^4=(1+x)^8,
+$$
 
-# 1.5 Utvalg med repetisjoner
+så koeffisienten til $x^4$ er $\binom84$.
 
-## Eksempel
+Skriv identiteten for $\binom84$ som følger av disse to måtene å finne samme koeffisient på.
+:::
 
-Multiplikasjonsprinsippet gir oss at det finnes $2^n$ binære sekvenser av lengde $n$.
+::: {#exr-sum-kvadrater-binomial name="Sum av kvadrerte binomialkoeffisienter"}
 
-En delmengde $A$ av mengden $\{1,2,3\}$ gir oss en binær sekvens $x_1x_2x_3$av lengde $3$, der $x_1=1$ hvis $1 \in A$ og $x_1=0$ hvis $1 \notin A$. Tilsvarende med $x_2$ og $x_3$.
-Det finnes derfor $8 = 2^3$ delmengder av mengden $\{1,2,3\}$ med tre elementer.
+Generaliser forrige oppgave og forklar hvorfor
 
-Generellt finnes det $2^n$ delmengder av en mengde med $n$ elementer.
+$$
+\binom n0^2+\binom n1^2+\dots+\binom nn^2=\binom{2n}n.
+$$
+:::
 
-## Teorem
+## Utvalg med repetisjoner {#sec-utvalg-med-repetisjoner}
 
-Det er $n^r$ måter $r$ objekter kan velges i rekkefølge fra $n$ objekter dersom repetisjon er tillatt.
+*Læreboken: §1.5.*
 
-## Oppgave 
+Til nå har vi arbeidet uten repetisjon: når et objekt er valgt, kan det ikke velges på nytt. Nå tillater vi repetisjon. De samme to spørsmålene fra starten er fortsatt nyttige.
 
-Du har en kortstokk med $5$ kort som alle er forskjellige.
-På hvor mange måter kan du velge syv kort fra kortstokken, når repetisjon er tillat og du ser bort fra rekkefølgen på kortene?
+### Når rekkefølgen teller
 
+Hvis repetisjon er tillatt og rekkefølgen teller, blir tellingen svært enkel: ved hvert valg har vi de samme $n$ mulighetene.
 
-### Hint:
+::: {#exm-pin-kode name="En firesifret PIN-kode"}
 
-Oversett problemet til et problem der du velger 5 plasser fra 11 mulige plasser!
+En PIN-kode består av fire sifre, og hvert siffer kan være ett av $0,1,\dots,9$. Sifre kan gjentas, og rekkefølgen teller.
 
-Ideen er å lage en bitstreng med 11 siffer med 7 nuller og 4 ettaller...
+Det finnes derfor
 
-La oss si at kortene i stokken er en joker, en knekt, en dame, en konge og et ess.
+$$
+10\cdot10\cdot10\cdot10=10^4
+$$
 
-For å illustrere ideen, la oss si at vi har trukket to jokere, en knekt, to damer, og to ess.
+mulige koder.
 
-Da vil jeg skrive bitstrengen 
-$$00101001100$$
+Koden $0112$ er forskjellig fra $1012$, og en kode som $7777$ er tillatt.
+:::
 
-Dette er en kode for at 
-- det er to jokere fordi det er to nuller foran det første ettall.
-- det er en knekt fordi det er ett null mellom første og andre ettall.
-- det er to damer fordi det er to nuller mellom andre og tredje ettall.
-- det er ingen konger fordi det er ingen nuller mellom tredje og fjerde ettall
-- det er to ess fordi det er to nuller etter det fjerde ettall
+::: {#thm-ordnet-utvalg-med-repetisjon name="Ordnet utvalg med repetisjon"}
 
-#### Spørsmål
+Det er $n^r$ ordnede utvalg av lengde $r$ fra $n$ forskjellige objekttyper når repetisjon er tillatt.
+:::
 
-Hvilken kombinasjon av kort er følgende bittstreng kode for?
-$$10001100010$$
+Dette er multiplikasjonsprinsippet: ved hvert av de $r$ valgene har vi $n$ muligheter.
 
+::: {#exr-pin-uten-repetisjon name="Sammenlign med en PIN uten gjentakelser"}
 
-## Teorem 1.10
+Sammenlign to regler for en firesifret PIN-kode:
 
-Antallet av uordnede utvalg av $r$ objekter med repetisjon tillat, fra en samling av $n$ objekter som alle er forskjellige, er
-$$\binom {n+r -1}{r}$$
+1. Sifre kan gjentas.
+2. Ingen siffer kan brukes mer enn én gang.
 
-Lar vi i koden over $x_1$ være antallet av nuller før det første ettallet og så videre fram til $x_n$ er antallet av nuller etter det siste ettallet, kan vi se at:
+Finn antallet koder i begge tilfeller og forklar hvorfor den første situasjonen gir $10^4$, mens den andre gir et produkt med færre valg for hvert nytt siffer.
+:::
 
-## Teorem
+### Når rekkefølgen ikke teller
 
-Antallet av løsninger til ligningen $x_1 + \dots + x_n = r$ for ikke-negative heltall $x_1, \dots, x_n$ er 
-$$\binom {n+r -1}{r}$$
+Det siste tilfellet er mer subtilt. Hvis repetisjon er tillatt, men rekkefølgen ikke teller, er det ikke nok å dele $n^r$ på $r!$: noen utvalg har mange like elementer og derfor færre enn $r!$ forskjellige rekkefølger.
 
+I stedet bruker vi en kode med **objekter og skilletegn**, ofte kalt *stars and bars*.
 
+::: {#exm-iskuler name="Syv iskuler fra fem smaker"}
+
+En iskrembar har fem smaker med ubegrenset mengde av hver smak. Vi skal velge syv iskuler. Rekkefølgen på kulene spiller ingen rolle, og samme smak kan velges flere ganger.
+
+Ordne smakene fast, for eksempel vanilje, sjokolade, jordbær, pistasj og kaffe. Vi bruker én $0$ for hver iskule og fire $1$-ere som skilletegn mellom de fem smakene.
+
+Valget
+
+- $2$ vanilje,
+- $1$ sjokolade,
+- $2$ jordbær,
+- $0$ pistasj,
+- $2$ kaffe
+
+kodes som
+
+$$
+00101001100.
+$$
+
+Bitstrengen inneholder $7$ nuller og $4$ ettall, altså $11$ posisjoner totalt. Et utvalg bestemmes entydig ved å velge posisjonene til de fire skilletegnene. Derfor finnes det
+
+$$
+\binom{11}{4}=\binom{11}{7}
+$$
+
+forskjellige utvalg.
+:::
+
+Denne kodingen fungerer for alle $n$ objekttyper og alle $r$ valg.
+
+**Læreboken: Teorem 1.10.**
+
+::: {#thm-uordnet-utvalg-med-repetisjon name="Uordnet utvalg med repetisjon"}
+
+Antallet uordnede utvalg av $r$ objekter fra $n$ forskjellige objekttyper, når repetisjon er tillatt, er
+
+$$
+\binom{n+r-1}{r}.
+$$
+:::
+
+::: {.proof name="Begrunnelse med skilletegn"}
+
+Kod et utvalg med $r$ nuller og $n-1$ ettall som skilletegn. Bitstrengen har totalt
+
+$$
+r+(n-1)=n+r-1
+$$
+
+posisjoner. Vi kan velge hvilke $r$ posisjoner som skal inneholde nuller, eller ekvivalent hvilke $n-1$ posisjoner som skal inneholde skilletegn. Dermed får vi
+
+$$
+\binom{n+r-1}{r}.
+$$
+:::
+
+Den samme kodingen kan formuleres som et ligningsproblem. Hvis $x_i$ forteller hvor mange ganger type $i$ blir valgt, er et uordnet utvalg med repetisjon det samme som en løsning av
+
+$$
+x_1+x_2+\dots+x_n=r
+$$
+
+med $x_i\ge0$.
+
+::: {#thm-ikke-negative-losninger name="Ikke-negative heltallsløsninger"}
+
+Antallet løsninger til ligningen
+
+$$
+x_1+\dots+x_n=r
+$$
+
+for ikke-negative heltall $x_1,\dots,x_n$ er
+
+$$
+\binom{n+r-1}{r}.
+$$
+:::
+
+::: {#exr-bitstreng name="Les en skilletegnskode"}
+
+Bruk rekkefølgen vanilje, sjokolade, jordbær, pistasj og kaffe. Hvilket utvalg av syv iskuler kodes av
+
+$$
+10001100010?
+$$
+
+Kontroller først at strengen faktisk inneholder syv nuller og fire skilletegn.
+:::
+
+::: {#exr-heltallsloesninger name="Ikke-negative heltallsløsninger"}
+
+Hvor mange løsninger finnes til
+
+$$
+x_1+x_2+x_3=8
+$$
+
+når $x_1,x_2,x_3$ er ikke-negative heltall?
+
+1. Oversett problemet til en skilletegnskode.
+2. Bruk @thm-ikke-negative-losninger.
+3. Kontroller svaret ved å løse det mindre problemet $x_1+x_2+x_3=3$ ved å liste opp alle løsningene.
+:::
+
+::: {#exr-positive-loesninger name="Når alle må få minst én"}
+
+Hvor mange løsninger finnes til
+
+$$
+x_1+x_2+x_3=8
+$$
+
+når $x_1,x_2,x_3$ er **positive** heltall?
+
+Hint: Sett $y_i=x_i-1$. Hvilken ligning får du for de ikke-negative heltallene $y_1,y_2,y_3$?
+:::
+
+::: {#exr-ki-godteri name="KI: Hva er egentlig et godteriproblem?"}
+
+Gi en KI dette spørsmålet:
+
+> På hvor mange måter kan åtte godterier fordeles mellom tre barn?
+
+Ikke gi mer informasjon først. Undersøk om KI-en oppdager at problemet er tvetydig. Diskuter minst disse spørsmålene:
+
+- Er godteriene forskjellige eller identiske?
+- Er barna forskjellige?
+- Kan et barn få null godterier?
+- Teller rekkefølgen som godteriene deles ut i?
+
+Skriv deretter om problemet slik at svaret **entydig** skal finnes med stars-and-bars-metoden, og løs den presise versjonen selv.
+:::
+
+### Blandede oppgaver
+
+::: {#exr-fire-grunnsituasjoner name="Kjenn igjen de fire grunnsituasjonene"}
+
+For hvert problem nedenfor skal du først svare på de to spørsmålene «Teller rekkefølgen?» og «Er repetisjon tillatt?». Velg deretter riktig tellemetode og finn antallet.
+
+1. Gull, sølv og bronse skal fordeles til tre forskjellige deltakere blant $10$.
+2. Fire studenter skal velges til en gruppe blant $15$ studenter.
+3. Et passord består av seks tegn valgt fra $26$ bokstaver; bokstaver kan gjentas.
+4. Du velger åtte iskuler fra fire smaker med ubegrenset mengde av hver smak; rekkefølgen spiller ingen rolle.
+
+Forklar med én setning for hvert problem hvorfor det havner i den grunnsituasjonen du valgte.
+:::
+
+::: {#exr-ki-lag-problempar name="KI: Lag nesten like problemer"}
+
+Be en KI lage et **par** telleproblemer som ser nesten like ut, men der
+
+- det ene problemet skal løses som et uordnet utvalg uten repetisjon,
+- det andre som et ordnet utvalg uten repetisjon.
+
+KI-en skal ikke oppgi løsningene med en gang.
+
+Gjør så følgende:
+
+1. Identifiser den lille språklige forskjellen som gjør at tellemetoden endres.
+2. Løs begge problemene selv.
+3. Be KI-en vise sine løsninger og kontroller dem.
+4. Hvis problemene ikke faktisk skiller de to situasjonene tydelig, forbedre formuleringene selv.
+:::
+
+Vi har nå kommet tilbake til kartet fra starten. Før du bruker en formel i et telleproblem, spør:
+
+1. Teller rekkefølgen?
+2. Er repetisjon tillatt?
+
+Når du kan svare på disse to spørsmålene og forklare **hvorfor**, er det vanligvis mye lettere å velge riktig tellemetode.
