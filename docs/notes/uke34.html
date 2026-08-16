@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nb" xml:lang="nb"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; MAT221 uke 34 – MAT221 Diskret matematikk</title>
+<title>1&nbsp; MAT221 uke 34 – MAT221 Diskret matematikk</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,10 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-24371cd7c856fc855d792c282114372c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9fe705e63113748dc920576427ee2a3d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d992c62eb7d40186ed022f1c04cb8c6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9fe705e63113748dc920576427ee2a3d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -91,17 +95,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "Samsvarende dokumenter",
+    "search-copy-link-title": "Kopier link for å søke",
+    "search-hide-matches-text": "Skjul ytterlige resultater",
+    "search-more-match-text": "annet resultat i dette dokumentet",
+    "search-more-matches-text": "andre resultater i dette dokumentet",
+    "search-clear-button-title": "Tøm",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send inn",
+    "search-label": "Søk"
   }
 }</script>
 
@@ -137,19 +141,190 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Slå av eller på sidebarnavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/uke34.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/uke34.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Slå av eller på sidebarnavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Søk" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -162,11 +337,14 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">MAT221 Diskret matematikk</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Bytt mørk modus"><i class="bi"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Søk"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -174,13 +352,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Om kurset</span></span></a>
+ <span class="menu-text">Om kurset</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notes/uke34.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></span></a>
   </div>
 </li>
     </ul>
@@ -190,78 +368,35 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Innholdsfortegnelse</h2>
    
   <ul>
-  <li><a href="#basale-prinsipper" id="toc-basale-prinsipper" class="nav-link active" data-scroll-target="#basale-prinsipper"><span class="header-section-number">3</span> 1.1 Basale prinsipper</a>
+  <li><a href="#sec-basale-prinsipper" id="toc-sec-basale-prinsipper" class="nav-link active" data-scroll-target="#sec-basale-prinsipper"><span class="header-section-number">1.1</span> Basale prinsipper</a>
   <ul class="collapse">
-  <li><a href="#multiplikasjonsprinsippet." id="toc-multiplikasjonsprinsippet." class="nav-link" data-scroll-target="#multiplikasjonsprinsippet."><span class="header-section-number">3.1</span> Multiplikasjonsprinsippet.</a>
-  <ul class="collapse">
-  <li><a href="#eksempel" id="toc-eksempel" class="nav-link" data-scroll-target="#eksempel"><span class="header-section-number">3.1.1</span> Eksempel</a></li>
-  <li><a href="#eksempel-1" id="toc-eksempel-1" class="nav-link" data-scroll-target="#eksempel-1"><span class="header-section-number">3.1.2</span> Eksempel</a></li>
+  <li><a href="#sec-multiplikasjonsprinsippet" id="toc-sec-multiplikasjonsprinsippet" class="nav-link" data-scroll-target="#sec-multiplikasjonsprinsippet">Multiplikasjonsprinsippet</a></li>
+  <li><a href="#sec-addisjonsprinsippet" id="toc-sec-addisjonsprinsippet" class="nav-link" data-scroll-target="#sec-addisjonsprinsippet">Addisjonsprinsippet</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#fakultet" id="toc-fakultet" class="nav-link" data-scroll-target="#fakultet"><span class="header-section-number">4</span> 1.2 Fakultet</a>
+  <li><a href="#sec-fakultet" id="toc-sec-fakultet" class="nav-link" data-scroll-target="#sec-fakultet"><span class="header-section-number">1.2</span> Fakultet</a>
   <ul class="collapse">
-  <li><a href="#teorem" id="toc-teorem" class="nav-link" data-scroll-target="#teorem"><span class="header-section-number">4.1</span> Teorem</a></li>
-  <li><a href="#korollar" id="toc-korollar" class="nav-link" data-scroll-target="#korollar"><span class="header-section-number">4.2</span> Korollar</a></li>
-  <li><a href="#kombinatorisk-eksplosjon" id="toc-kombinatorisk-eksplosjon" class="nav-link" data-scroll-target="#kombinatorisk-eksplosjon"><span class="header-section-number">4.3</span> Kombinatorisk eksplosjon</a>
-  <ul class="collapse">
-  <li><a href="#eksempel-2" id="toc-eksempel-2" class="nav-link" data-scroll-target="#eksempel-2"><span class="header-section-number">4.3.1</span> Eksempel</a></li>
-  <li><a href="#oppgave" id="toc-oppgave" class="nav-link" data-scroll-target="#oppgave"><span class="header-section-number">4.3.2</span> Oppgave</a></li>
+  <li><a href="#sec-kombinatorisk-eksplosjon" id="toc-sec-kombinatorisk-eksplosjon" class="nav-link" data-scroll-target="#sec-kombinatorisk-eksplosjon">Kombinatorisk eksplosjon</a></li>
+  <li><a href="#ordnede-utvalg-uten-repetisjon" id="toc-ordnede-utvalg-uten-repetisjon" class="nav-link" data-scroll-target="#ordnede-utvalg-uten-repetisjon">Ordnede utvalg uten repetisjon</a></li>
   </ul></li>
-  <li><a href="#teorem-1" id="toc-teorem-1" class="nav-link" data-scroll-target="#teorem-1"><span class="header-section-number">4.4</span> Teorem</a>
+  <li><a href="#sec-utvalg" id="toc-sec-utvalg" class="nav-link" data-scroll-target="#sec-utvalg"><span class="header-section-number">1.3</span> Utvalg</a>
   <ul class="collapse">
-  <li><a href="#oppgave-1" id="toc-oppgave-1" class="nav-link" data-scroll-target="#oppgave-1"><span class="header-section-number">4.4.1</span> Oppgave</a></li>
-  <li><a href="#oppgave-2" id="toc-oppgave-2" class="nav-link" data-scroll-target="#oppgave-2"><span class="header-section-number">4.4.2</span> Oppgave:</a></li>
+  <li><a href="#når-rekkefølgen-ikke-teller" id="toc-når-rekkefølgen-ikke-teller" class="nav-link" data-scroll-target="#når-rekkefølgen-ikke-teller">Når rekkefølgen ikke teller</a></li>
+  <li><a href="#to-identiteter-for-binomialkoeffisienter" id="toc-to-identiteter-for-binomialkoeffisienter" class="nav-link" data-scroll-target="#to-identiteter-for-binomialkoeffisienter">To identiteter for binomialkoeffisienter</a></li>
   </ul></li>
-  <li><a href="#addisjonsprinsippet" id="toc-addisjonsprinsippet" class="nav-link" data-scroll-target="#addisjonsprinsippet"><span class="header-section-number">4.5</span> Addisjonsprinsippet</a>
+  <li><a href="#sec-binomialkoeffisienter" id="toc-sec-binomialkoeffisienter" class="nav-link" data-scroll-target="#sec-binomialkoeffisienter"><span class="header-section-number">1.4</span> Binomialkoeffisienter og Pascals trekant</a>
   <ul class="collapse">
-  <li><a href="#eksempel-3" id="toc-eksempel-3" class="nav-link" data-scroll-target="#eksempel-3"><span class="header-section-number">4.5.1</span> Eksempel</a></li>
-  <li><a href="#oppgave-3" id="toc-oppgave-3" class="nav-link" data-scroll-target="#oppgave-3"><span class="header-section-number">4.5.2</span> Oppgave</a></li>
-  <li><a href="#spørsmål" id="toc-spørsmål" class="nav-link" data-scroll-target="#spørsmål"><span class="header-section-number">4.5.3</span> Spørsmål</a></li>
+  <li><a href="#pascals-trekant" id="toc-pascals-trekant" class="nav-link" data-scroll-target="#pascals-trekant">Pascals trekant</a></li>
+  <li><a href="#sec-pascal-potenser" id="toc-sec-pascal-potenser" class="nav-link" data-scroll-target="#sec-pascal-potenser">Pascals trekant og potenser av <span class="math inline">\(x+y\)</span></a></li>
+  <li><a href="#sec-pascal-diagonaler" id="toc-sec-pascal-diagonaler" class="nav-link" data-scroll-target="#sec-pascal-diagonaler">Diagonaler av Pascals trekant</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#utvalg" id="toc-utvalg" class="nav-link" data-scroll-target="#utvalg"><span class="header-section-number">5</span> 1.3 Utvalg</a>
+  <li><a href="#sec-utvalg-med-repetisjoner" id="toc-sec-utvalg-med-repetisjoner" class="nav-link" data-scroll-target="#sec-utvalg-med-repetisjoner"><span class="header-section-number">1.5</span> Utvalg med repetisjoner</a>
   <ul class="collapse">
-  <li><a href="#oppgave-4" id="toc-oppgave-4" class="nav-link" data-scroll-target="#oppgave-4"><span class="header-section-number">5.0.1</span> Oppgave</a></li>
-  <li><a href="#teorem-1.4" id="toc-teorem-1.4" class="nav-link" data-scroll-target="#teorem-1.4"><span class="header-section-number">5.1</span> Teorem 1.4</a>
-  <ul class="collapse">
-  <li><a href="#begrunnelse" id="toc-begrunnelse" class="nav-link" data-scroll-target="#begrunnelse"><span class="header-section-number">5.1.1</span> Begrunnelse:</a></li>
-  </ul></li>
-  <li><a href="#teorem-2" id="toc-teorem-2" class="nav-link" data-scroll-target="#teorem-2"><span class="header-section-number">5.2</span> Teorem</a>
-  <ul class="collapse">
-  <li><a href="#begrunnelse-1" id="toc-begrunnelse-1" class="nav-link" data-scroll-target="#begrunnelse-1"><span class="header-section-number">5.2.1</span> Begrunnelse:</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#binomialkoeffisienter-og-pascals-trekant" id="toc-binomialkoeffisienter-og-pascals-trekant" class="nav-link" data-scroll-target="#binomialkoeffisienter-og-pascals-trekant"><span class="header-section-number">6</span> 1.4 Binomialkoeffisienter og Pascals trekant</a>
-  <ul class="collapse">
-  <li><a href="#utdrag-av-pascals-trekant" id="toc-utdrag-av-pascals-trekant" class="nav-link" data-scroll-target="#utdrag-av-pascals-trekant"><span class="header-section-number">6.0.1</span> Utdrag av Pascals trekant</a></li>
-  <li><a href="#pascals-trekant-for-potenser-av-x-y" id="toc-pascals-trekant-for-potenser-av-x-y" class="nav-link" data-scroll-target="#pascals-trekant-for-potenser-av-x-y"><span class="header-section-number">6.0.2</span> Pascals trekant for potenser av <span class="math inline">\(x + y\)</span></a></li>
-  <li><a href="#oppgave-5" id="toc-oppgave-5" class="nav-link" data-scroll-target="#oppgave-5"><span class="header-section-number">6.0.3</span> Oppgave</a></li>
-  <li><a href="#teorem-1.5" id="toc-teorem-1.5" class="nav-link" data-scroll-target="#teorem-1.5"><span class="header-section-number">6.1</span> Teorem 1.5</a></li>
-  <li><a href="#korollar-1.6" id="toc-korollar-1.6" class="nav-link" data-scroll-target="#korollar-1.6"><span class="header-section-number">6.2</span> Korollar 1.6</a>
-  <ul class="collapse">
-  <li><a href="#oppgave-6" id="toc-oppgave-6" class="nav-link" data-scroll-target="#oppgave-6"><span class="header-section-number">6.2.1</span> Oppgave</a></li>
-  <li><a href="#diagonaler-av-pascals-trekant" id="toc-diagonaler-av-pascals-trekant" class="nav-link" data-scroll-target="#diagonaler-av-pascals-trekant"><span class="header-section-number">6.2.2</span> Diagonaler av Pascals trekant</a></li>
-  <li><a href="#oppgave-7" id="toc-oppgave-7" class="nav-link" data-scroll-target="#oppgave-7"><span class="header-section-number">6.2.3</span> Oppgave</a></li>
-  </ul></li>
-  <li><a href="#teorem-1.8" id="toc-teorem-1.8" class="nav-link" data-scroll-target="#teorem-1.8"><span class="header-section-number">6.3</span> Teorem 1.8</a>
-  <ul class="collapse">
-  <li><a href="#oppgave-8" id="toc-oppgave-8" class="nav-link" data-scroll-target="#oppgave-8"><span class="header-section-number">6.3.1</span> Oppgave</a></li>
-  <li><a href="#oppgave-9" id="toc-oppgave-9" class="nav-link" data-scroll-target="#oppgave-9"><span class="header-section-number">6.3.2</span> Oppgave</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#utvalg-med-repetisjoner" id="toc-utvalg-med-repetisjoner" class="nav-link" data-scroll-target="#utvalg-med-repetisjoner"><span class="header-section-number">7</span> 1.5 Utvalg med repetisjoner</a>
-  <ul class="collapse">
-  <li><a href="#eksempel-4" id="toc-eksempel-4" class="nav-link" data-scroll-target="#eksempel-4"><span class="header-section-number">7.1</span> Eksempel</a></li>
-  <li><a href="#teorem-3" id="toc-teorem-3" class="nav-link" data-scroll-target="#teorem-3"><span class="header-section-number">7.2</span> Teorem</a></li>
-  <li><a href="#oppgave-10" id="toc-oppgave-10" class="nav-link" data-scroll-target="#oppgave-10"><span class="header-section-number">7.3</span> Oppgave</a>
-  <ul class="collapse">
-  <li><a href="#hint" id="toc-hint" class="nav-link" data-scroll-target="#hint"><span class="header-section-number">7.3.1</span> Hint:</a></li>
-  </ul></li>
-  <li><a href="#teorem-1.10" id="toc-teorem-1.10" class="nav-link" data-scroll-target="#teorem-1.10"><span class="header-section-number">7.4</span> Teorem 1.10</a></li>
-  <li><a href="#teorem-4" id="toc-teorem-4" class="nav-link" data-scroll-target="#teorem-4"><span class="header-section-number">7.5</span> Teorem</a></li>
+  <li><a href="#når-rekkefølgen-teller" id="toc-når-rekkefølgen-teller" class="nav-link" data-scroll-target="#når-rekkefølgen-teller">Når rekkefølgen teller</a></li>
+  <li><a href="#når-rekkefølgen-ikke-teller-1" id="toc-når-rekkefølgen-ikke-teller-1" class="nav-link" data-scroll-target="#når-rekkefølgen-ikke-teller-1">Når rekkefølgen ikke teller</a></li>
+  <li><a href="#blandede-oppgaver" id="toc-blandede-oppgaver" class="nav-link" data-scroll-target="#blandede-oppgaver">Blandede oppgaver</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -269,9 +404,10 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MAT221 uke 34</span></h1>
 </div>
 
 
@@ -289,238 +425,370 @@ window.Quarto = {
 
 
 <p>Ukens pensum: Kapittel 1 i <a href="https://link.springer.com/book/10.1007/978-0-85729-315-2">Ian Anderson: A first course in discrete mathematics, Springer Verlag, 2002.</a></p>
-<div id="f1f1dcdc" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Math, Latex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Denne uken skal vi lære grunnleggende metoder for å <strong>telle uten å liste opp alle mulighetene</strong>. Det høres enkelt ut, men små forskjeller i et problem kan gi helt forskjellige svar.</p>
+<p>To spørsmål kommer derfor tilbake gjennom hele notatet:</p>
+<ol type="1">
+<li><strong>Betyr rekkefølgen noe?</strong></li>
+<li><strong>Er repetisjon tillatt?</strong></li>
+</ol>
+<p>Til slutt skal vi kunne skille mellom fire grunnsituasjoner:</p>
+<p>Her er <span class="math inline">\(n\)</span> antallet tilgjengelige objekter eller objekttyper, og <span class="math inline">\(r\)</span> antallet valg vi gjør.</p>
+<ul>
+<li><strong>Rekkefølgen teller, uten repetisjon:</strong> <span class="math inline">\(\dfrac{n!}{(n-r)!}\)</span>.</li>
+<li><strong>Rekkefølgen teller, med repetisjon:</strong> <span class="math inline">\(n^r\)</span>.</li>
+<li><strong>Rekkefølgen teller ikke, uten repetisjon:</strong> <span class="math inline">\(\binom nr\)</span>.</li>
+<li><strong>Rekkefølgen teller ikke, med repetisjon:</strong> <span class="math inline">\(\binom{n+r-1}{r}\)</span>.</li>
+</ul>
+<p>Dette er et kart over stoffet, ikke en liste som skal pugges. Målet er å forstå hvorfor de fire situasjonene er forskjellige, og å kunne kjenne dem igjen i nye problemer.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Om KI-oppgavene">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<section id="basale-prinsipper" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> 1.1 Basale prinsipper</h1>
-<section id="multiplikasjonsprinsippet." class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="multiplikasjonsprinsippet."><span class="header-section-number">3.1</span> Multiplikasjonsprinsippet.</h2>
-<p>La oss si at en aktivitet består av <span class="math inline">\(k\)</span> hendelser <span class="math inline">\(H_1, H_2, \dots, H_k\)</span>.</p>
-<p>Dersom hendelsene <span class="math inline">\(H_1, H_2, \dots, H_k\)</span> har henholdsvis <span class="math inline">\(\alpha_1, \alpha_2, \dots, \alpha_{k}\)</span> uavhengige utfall i følgende forstand:</p>
-<p>For alle de <span class="math inline">\(\alpha_1\)</span> utfallene som skjer i hendelse <span class="math inline">\(H_1\)</span> kan alle de <span class="math inline">\(\alpha_2\)</span> utfallene i hendelse <span class="math inline">\(H_2\)</span> skje og så videre.</p>
-<p>Da kan aktiviteten utføres på <span class="math inline">\(\alpha_1 \alpha_2 \cdots \alpha_k\)</span> måter.</p>
-<section id="eksempel" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="eksempel"><span class="header-section-number">3.1.1</span> Eksempel</h3>
-<p>Du vil plassere tre personer på tre forskjellige markerte plasser.</p>
-<p>Tenk på hendelse <span class="math inline">\(H_1\)</span> som at du plasserer den første personen, <span class="math inline">\(H_2\)</span> at du plasserer den andre personen og <span class="math inline">\(H_3\)</span> at du plasserer siste personen.</p>
-<p>Da har <span class="math inline">\(H_1\)</span> tre utfall, og uavhengig av disse har <span class="math inline">\(H_2\)</span> to utfall og <span class="math inline">\(H_3\)</span> har ett utfall.</p>
-<p>Du kan altså utføre denne aktiviteten på seks forskjellige måter.</p>
-<p>Samme tankemåte viser at du kan plasserer fire personer på fire forskjellige plasser på <span class="math inline">\(4! = 4 \cdot 3 \cdot 2 \cdot 1\)</span> måter.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Om KI-oppgavene
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Noen oppgaver er merket <strong>KI</strong>. I disse oppgavene er målet ikke bare å få et svar fra en språkmodell. Gjør i stedet følgende:</p>
+<ol type="1">
+<li>Ta vare på spørsmålet eller prompten du brukte.</li>
+<li>Vurder om KI-svaret faktisk svarer på det matematiske spørsmålet.</li>
+<li>Kontroller minst ett viktig steg selv, for eksempel med et lite eksempel, en annen tellemetode eller en beregning.</li>
+<li>Skriv til slutt din egen korte konklusjon med egne ord.</li>
+</ol>
+<p>En overbevisende formulering fra en KI er ikke i seg selv en matematisk begrunnelse.</p>
+</div>
+</div>
+<section id="sec-basale-prinsipper" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-basale-prinsipper"><span class="header-section-number">1.1</span> Basale prinsipper</h2>
+<p>De to viktigste telleprinsippene er svært enkle. Vi <strong>multipliserer</strong> når en aktivitet består av flere trinn som alle skal utføres, og vi <strong>adderer</strong> når vi deler mulighetene opp i adskilte tilfeller.</p>
+<section id="sec-multiplikasjonsprinsippet" class="level3">
+<h3 class="anchored" data-anchor-id="sec-multiplikasjonsprinsippet">Multiplikasjonsprinsippet</h3>
+<p>Anta at en aktivitet består av <span class="math inline">\(k\)</span> trinn <span class="math inline">\(H_1,H_2,\dots,H_k\)</span>. Hvis det, etter hvert mulig valg i de foregående trinnene, finnes nøyaktig <span class="math inline">\(\alpha_i\)</span> muligheter i trinn <span class="math inline">\(H_i\)</span>, kan hele aktiviteten utføres på</p>
+<p><span class="math display">\[
+\alpha_1\alpha_2\cdots\alpha_k
+\]</span></p>
+<p>forskjellige måter.</p>
+<p>Tanken er: for hver mulighet i første trinn kan vi fortsette med alle mulighetene i andre trinn, og slik fortsetter vi.</p>
+<div id="exm-meny" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.1 (En meny i tre trinn)</strong></span> En kafé tilbyr <span class="math inline">\(3\)</span> forretter, <span class="math inline">\(4\)</span> hovedretter og <span class="math inline">\(2\)</span> desserter. Hvis et måltid består av én rett fra hver kategori, finnes det</p>
+<p><span class="math display">\[
+3\cdot4\cdot2=24
+\]</span></p>
+<p>forskjellige måltider.</p>
+<p>Her er antallet valg i hvert trinn det samme uansett hva vi valgte tidligere.</p>
+</div>
+<div id="exm-to-personer-fire-plasser" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.2 (To personer på fire plasser)</strong></span> To forskjellige personer skal plasseres på to av fire markerte plasser.</p>
+<p>Første person kan velge mellom <span class="math inline">\(4\)</span> plasser. Når denne personen har satt seg, er det <span class="math inline">\(3\)</span> plasser igjen til den andre. Derfor finnes det</p>
+<p><span class="math display">\[
+4\cdot3=12
+\]</span></p>
+<p>forskjellige plasseringer.</p>
+<p>Her avhenger antallet muligheter i andre trinn av at én plass allerede er opptatt, men det er fortsatt alltid nøyaktig <span class="math inline">\(3\)</span> muligheter.</p>
+</div>
+<div id="exm-delmengder-bitstrenger" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.3 (Delmengder og binære sekvenser)</strong></span> For hvert av elementene i mengden <span class="math inline">\(\{1,2,\dots,n\}\)</span> har vi to valg: elementet er med i en delmengde, eller det er ikke med.</p>
+<p>Multiplikasjonsprinsippet gir derfor</p>
+<p><span class="math display">\[
+2\cdot2\cdots2=2^n
+\]</span></p>
+<p>delmengder.</p>
+<p>Vi kan kode en delmengde med en binær sekvens <span class="math inline">\(x_1x_2\cdots x_n\)</span>, der <span class="math inline">\(x_i=1\)</span> dersom <span class="math inline">\(i\)</span> er med i delmengden og <span class="math inline">\(x_i=0\)</span> ellers. For eksempel svarer delmengden <span class="math inline">\(\{1,3\}\subseteq\{1,2,3\}\)</span> til sekvensen <span class="math inline">\(101\)</span>.</p>
+</div>
+<div id="exr-finneeksemplermultiplikasjonsprinsippet" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.1 (Finn egne eksempler)</strong></span> Finn to situasjoner der multiplikasjonsprinsippet kan brukes. Prøv å finne ett eksempel der antallet muligheter er det samme i hvert trinn, og ett der det endrer seg underveis.</p>
+</div>
+<div id="exr-kode-multiplikasjon" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.2 (En kode med bokstaver og sifre)</strong></span> En kode består av to bokstaver fra det norske alfabetet med <span class="math inline">\(29\)</span> bokstaver, etterfulgt av tre sifre. Repetisjon er tillatt.</p>
+<ol type="1">
+<li>Hvor mange koder finnes det?</li>
+<li>Hvilke fem trinn bruker du i multiplikasjonsprinsippet?</li>
+<li>Hva ville endret seg dersom de to bokstavene måtte være forskjellige?</li>
+</ol>
+</div>
+<div id="exr-ki-to-telleproblemer" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.3 (KI: Lag og kontroller telleproblemer)</strong></span> Be en KI lage to korte telleproblemer: ett som bør løses med multiplikasjonsprinsippet og ett som <strong>ikke</strong> bør løses ved bare å multiplisere antall muligheter i flere trinn. Be KI-en om å ikke fortelle deg hvilket som er hvilket.</p>
+<p>For hvert problem:</p>
+<ol type="1">
+<li>avgjør selv hvilken telleidé som passer,</li>
+<li>løs problemet,</li>
+<li>be deretter KI-en om sin løsning,</li>
+<li>vurder om KI-en har modellert problemet på samme måte som deg, og forklar eventuelle forskjeller.</li>
+</ol>
+</div>
 </section>
-<section id="eksempel-1" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="eksempel-1"><span class="header-section-number">3.1.2</span> Eksempel</h3>
-<p>Du vil plassere to personer på fire forskjellige plasser. Tenker vi på plassering av første personen som et utfall <span class="math inline">\(H_1\)</span> og plassering av andre personen som et utfall <span class="math inline">\(H_2\)</span> har vi fire utfall for <span class="math inline">\(H_1\)</span> og tre utfall for <span class="math inline">\(H_2\)</span>.</p>
-<p>Denne aktiviteten kan altså utføres på <span class="math inline">\(4 \cdot 3 = 12\)</span> forskjellige måter.</p>
+<section id="sec-addisjonsprinsippet" class="level3">
+<h3 class="anchored" data-anchor-id="sec-addisjonsprinsippet">Addisjonsprinsippet</h3>
+<p>Noen telleproblemer deles naturlig opp i <strong>adskilte tilfeller</strong>. Anta at hvert mulig utfall ligger i nøyaktig ett av tilfellene <span class="math inline">\(H_1,\dots,H_k\)</span>, og at tilfellene har henholdsvis <span class="math inline">\(\alpha_1,\dots,\alpha_k\)</span> mulige utfall. Da finnes det totalt</p>
+<p><span class="math display">\[
+\alpha_1+\alpha_2+\cdots+\alpha_k
+\]</span></p>
+<p>mulige utfall.</p>
+<p>Ordet <em>adskilte</em> er viktig: hvis samme utfall kan ligge i to av tilfellene, vil vi telle det mer enn én gang.</p>
+<div id="exm-emnevalg" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.4 (Valg av ett emne)</strong></span> En student skal velge <strong>ett</strong> valgemne. Hun kan velge mellom <span class="math inline">\(5\)</span> matematikkemner og <span class="math inline">\(7\)</span> informatikkemner, og ingen emner står på begge listene.</p>
+<p>Valget ligger enten i matematikktilfellet eller i informatikktilfellet. Addisjonsprinsippet gir derfor</p>
+<p><span class="math display">\[
+5+7=12
+\]</span></p>
+<p>mulige emner.</p>
+</div>
+<div id="exr-addisjon-eller-multiplikasjon" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.4 (Addere eller multiplisere?)</strong></span> Forklar om du vil bruke addisjonsprinsippet, multiplikasjonsprinsippet eller begge i hver situasjon. Regn deretter ut svaret.</p>
+<ol type="1">
+<li>Du skal velge enten én av <span class="math inline">\(6\)</span> romaner eller én av <span class="math inline">\(4\)</span> diktsamlinger.</li>
+<li>Du skal velge én av <span class="math inline">\(6\)</span> romaner <strong>og</strong> én av <span class="math inline">\(4\)</span> diktsamlinger.</li>
+<li>En kafé har <span class="math inline">\(3\)</span> varme retter og <span class="math inline">\(5\)</span> kalde retter. Hver rett kan bestilles med én av <span class="math inline">\(4\)</span> drikker. Hvor mange kombinasjoner av én rett og én drikk finnes det?</li>
+</ol>
+</div>
+<p>Multiplikasjons- og addisjonsprinsippet er byggesteinene i resten av kapitlet. Ofte bruker vi begge i samme argument: først deler vi et problem i tilfeller, og så teller vi hvert tilfelle trinn for trinn.</p>
 </section>
 </section>
-</section>
-<section id="fakultet" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> 1.2 Fakultet</h1>
-<p>Gitt et positivt heltall <span class="math inline">\(n\)</span> er tallet <span class="math inline">\(n\)</span>-fakultet gitt ved <span class="math display">\[n! = n(n-1)(n-2) \dots 2 \cdot 1\]</span></p>
-<section id="teorem" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="teorem"><span class="header-section-number">4.1</span> Teorem</h2>
-<p>Aktiviteten å plassere <span class="math inline">\(n\)</span> forskjellige objekter på <span class="math inline">\(n\)</span> markerte plasser kan utføres på <span class="math inline">\(n!\)</span> forskjellige måter.</p>
-</section>
-<section id="korollar" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="korollar"><span class="header-section-number">4.2</span> Korollar</h2>
-<p>Aktiviteten å plassere <span class="math inline">\(n\)</span> forskjellige objekter i rekkefølge kan utføres på <span class="math inline">\(n!\)</span> forskjellige måter.</p>
-</section>
-<section id="kombinatorisk-eksplosjon" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="kombinatorisk-eksplosjon"><span class="header-section-number">4.3</span> Kombinatorisk eksplosjon</h2>
-<p>Tallet <span class="math inline">\(n!\)</span> vokser veldig fort med <span class="math inline">\(n\)</span>:</p>
-<div id="217cfa59" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">8</span>), math.factorial(<span class="dv">18</span>), math.factorial(<span class="dv">28</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<section id="sec-fakultet" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-fakultet"><span class="header-section-number">1.2</span> Fakultet</h2>
+<p>Når vi plasserer forskjellige objekter i rekkefølge, dukker produktet</p>
+<p><span class="math display">\[
+n(n-1)(n-2)\cdots2\cdot1
+\]</span></p>
+<p>opp hele tiden. Derfor gir vi det et eget navn.</p>
+<p>For et positivt heltall <span class="math inline">\(n\)</span> definerer vi <strong><span class="math inline">\(n\)</span>-fakultet</strong> ved</p>
+<p><span class="math display">\[
+n!=n(n-1)(n-2)\cdots2\cdot1.
+\]</span></p>
+<p>Vi setter også <span class="math inline">\(0!=1\)</span>. Denne konvensjonen gjør at formlene senere i kapitlet også fungerer i randtilfellene.</p>
+<div id="thm-plasseren" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.1 (Plassering på markerte plasser)</strong></span> Aktiviteten å plassere <span class="math inline">\(n\)</span> forskjellige objekter på <span class="math inline">\(n\)</span> markerte plasser kan utføres på <span class="math inline">\(n!\)</span> forskjellige måter.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Bevis</em> (Begrunnelse). </span>Det er <span class="math inline">\(n\)</span> muligheter for det første objektet, <span class="math inline">\(n-1\)</span> for det andre, og slik fortsetter det til den siste plassen. Multiplikasjonsprinsippet gir</p>
+<p><span class="math display">\[
+n(n-1)\cdots2\cdot1=n!.
+\]</span></p>
+</div>
+<div id="cor-nirekkefolge" class="theorem corollary">
+<p><span class="theorem-title"><strong>Korollar 1.1 (Plassering i rekkefølge)</strong></span> <span class="math inline">\(n\)</span> forskjellige objekter kan plasseres i rekkefølge på <span class="math inline">\(n!\)</span> forskjellige måter.</p>
+</div>
+<section id="sec-kombinatorisk-eksplosjon" class="level3">
+<h3 class="anchored" data-anchor-id="sec-kombinatorisk-eksplosjon">Kombinatorisk eksplosjon</h3>
+<p>Tallet <span class="math inline">\(n!\)</span> vokser svært raskt med <span class="math inline">\(n\)</span>:</p>
+<div id="941fbf12" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">8</span>), math.factorial(<span class="dv">18</span>), math.factorial(<span class="dv">28</span>)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>(40320, 6402373705728000, 304888344611713860501504000000)</code></pre>
 </div>
 </div>
-<section id="eksempel-2" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="eksempel-2"><span class="header-section-number">4.3.1</span> Eksempel</h3>
-<p>Fire personer plasseres på hver sin plass. Det er 20 markerte plasser å velge mellom.</p>
-<p>La oss analysere hvor mange måter det kan gjøres på. Første person kan plasseres på 20 forskjellige plasser. Andre personer på 19 plasser, tredje person på 18 plasser og siste person på 17 plasser. Resultatet blir</p>
-<p><span class="math inline">\(20 \cdot 19 \cdot 18 \cdot 17 = \frac{20!}{16!}\)</span></p>
-<div id="e995f2dc" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ss">f"Fire ut av tyve markerte plasser kan velges på </span><span class="sc">{</span>math<span class="sc">.</span>factorial(<span class="dv">20</span>) <span class="op">//</span> math<span class="sc">.</span>factorial(<span class="dv">16</span>)<span class="sc">}</span><span class="ss"> forskjellige måter."</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>'Fire ut av tyve markerte plasser kan velges på 116280 forskjellige måter.'</code></pre>
-</div>
-</div>
+<p>Denne raske veksten er et første eksempel på <strong>kombinatorisk eksplosjon</strong>. Et problem kan være enkelt å beskrive, men likevel ha så mange muligheter at det er upraktisk å undersøke dem én etter én.</p>
 </section>
-<section id="oppgave" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="oppgave"><span class="header-section-number">4.3.2</span> Oppgave</h3>
-<p>I en kortstokk er det 52 kort som alle er forskjellige. I hvor mange forskjellige rekkefølger kan kortene plasseres? Kan du skrive tallet ut ved hjelp av et dataverktøy?</p>
-</section>
-</section>
-<section id="teorem-1" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="teorem-1"><span class="header-section-number">4.4</span> Teorem</h2>
-<p>Antallet av måter vi kan velge <span class="math inline">\(r\)</span> objekter fra en samling bestående av <span class="math inline">\(n\)</span> forskjellige objekter er: <span class="math display">\[n (n-1) \cdots (n-r+1) = \frac{n!}{(n-r)!}\]</span></p>
-<section id="oppgave-1" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="oppgave-1"><span class="header-section-number">4.4.1</span> Oppgave</h3>
-<p>På hvor mange måter kan vi velge to kort fra en kortstokk med 52 kort som alle er forskjellige? (Du husker rekkefølgen kortene er trukket i.)</p>
-</section>
-<section id="oppgave-2" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="oppgave-2"><span class="header-section-number">4.4.2</span> Oppgave:</h3>
-<p>Hvor mange forskjellige fargekombinasjoner kan du oppnå ved å trekke to kort fra en kortstokk med <span class="math inline">\(52\)</span> kort hvor halvparten av kortene er svarte og halvparten er røde? Også her husker du rekkefølgen kortene er trukket i.</p>
-</section>
-</section>
-<section id="addisjonsprinsippet" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="addisjonsprinsippet"><span class="header-section-number">4.5</span> Addisjonsprinsippet</h2>
-<p>La oss si at en aktivitet består av et utfall i presis én av <span class="math inline">\(k\)</span> adskilte hendelser <span class="math inline">\(H_1 \dots H_k\)</span>. Dersom <span class="math inline">\(H_1, H_2, \dots, H_k\)</span> som har henholdsvis <span class="math inline">\(\alpha_1, \alpha_2, \dots, \alpha_{k}\)</span> mulige utfall, da kan aktiviteten utføres på <span class="math inline">\(\alpha_1 + \alpha_2 + \dots + \alpha_k\)</span> forskjellige måter.</p>
-<section id="eksempel-3" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="eksempel-3"><span class="header-section-number">4.5.1</span> Eksempel</h3>
-<p>I en kortstokk er det <span class="math inline">\(26\)</span> forskjellige svarte kort, <span class="math inline">\(26\)</span> forskjellige røde kort og <span class="math inline">\(3\)</span> identiske jokere.</p>
-<p>La oss analysere hvor mange utfall aktiviteten å trekke ett kort fra kortstokken har.</p>
-<p>Vi kan dele denne aktiviteten opp i tre adskilte hendelser: <span class="math inline">\(H_1\)</span> å trekke et svart kort, <span class="math inline">\(H_2\)</span> å trekke et rødt kort og <span class="math inline">\(H_3\)</span> å trekke en joker. Hendelsene <span class="math inline">\(H_1\)</span> og <span class="math inline">\(H_2\)</span> har hver <span class="math inline">\(26\)</span> mulige utfall mens hendelsen <span class="math inline">\(H_3\)</span> har presis ett mulig utfall.</p>
-<p>Vi konkluderer at vi kan trekke <span class="math inline">\(53\)</span> forskjellige kort fra kortstokken.</p>
-</section>
-<section id="oppgave-3" class="level3" data-number="4.5.2">
-<h3 data-number="4.5.2" class="anchored" data-anchor-id="oppgave-3"><span class="header-section-number">4.5.2</span> Oppgave</h3>
-<p>Du trekker tre kort fra en kortstokk med tre røde og tre svarte kort. Hvor mange fargekombinasjoner kan du trekke når du ser bort fra rekkefølgen kortene er trukket i?</p>
-</section>
-<section id="spørsmål" class="level3" data-number="4.5.3">
-<h3 data-number="4.5.3" class="anchored" data-anchor-id="spørsmål"><span class="header-section-number">4.5.3</span> Spørsmål</h3>
-<p>På hvor mange måter kan vi trekke to kort fra kortstokken når vi husker rekkefølgen de ble trukket i?</p>
-</section>
-</section>
-</section>
-<section id="utvalg" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> 1.3 Utvalg</h1>
-<p>Hvis vi i stedet for å plassere fire personer velger å markere fire av tyve plasser med identiske merkelapper kan vi tenke at vi først husker rekkefølgen av plasseringen av merkelappene og deretter glemmer den.</p>
-<p>Når vi husker rekkefølgen blir det like mange måter å utføre aktiviteten på som hvis vi hadde plassert personer.</p>
-<p>Når vi glemmer rekkefølgen er det <span class="math inline">\(4!\)</span> forskjellige rekkefølger som gir samme plasseringen av lappene fordi fire lapper kan plasseres i rekkefølge på <span class="math inline">\(4!\)</span> måter.</p>
-<p>Det vil si at hvis <span class="math inline">\(A\)</span> er antallet måter merkelappene kan plasseres på, så er <span class="math inline">\(A\)</span> ganger antallet rekkefølger av merkelappene lik antallet måter fire personer kan plasseres på tyve stoler. Skriver vi dette ut som en formel får vi <span class="math display">\[A \cdot 4! = \frac{20!}{16!}\]</span></p>
-<p>Resultatet blir altså <span class="math display">\[A = \frac{20!}{4! 16!}.\]</span></p>
-<div id="8732aca5" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>display(Latex(<span class="vs">r'Dette tallet </span><span class="dv">$</span><span class="vs">A</span><span class="dv">$</span><span class="vs"> kaller vi "tyve-velg-fire" og vi skriver </span><span class="dv">$</span><span class="vs">A = </span><span class="dv">\b</span><span class="vs">inom</span><span class="op">{20}{4}</span><span class="vs"> = '</span> <span class="op">+</span> <span class="ss">f'</span><span class="sc">{</span>math<span class="sc">.</span>comb(<span class="dv">20</span>, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">$.'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<pre><code>&lt;IPython.core.display.Latex object&gt;</code></pre>
-</div>
-</div>
-<section id="oppgave-4" class="level3" data-number="5.0.1">
-<h3 data-number="5.0.1" class="anchored" data-anchor-id="oppgave-4"><span class="header-section-number">5.0.1</span> Oppgave</h3>
-<p>På hvor mange måter kan du velge fem plasser ut av <span class="math inline">\(20\)</span>?</p>
-<p>Bruk gjerne et elektronisk verktøy til å finne dette tallet.</p>
-</section>
-<section id="teorem-1.4" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="teorem-1.4"><span class="header-section-number">5.1</span> Teorem 1.4</h2>
-<p>La <span class="math inline">\(\binom nr\)</span> være antallet av måter vi kan velge en samling av <span class="math inline">\(r\)</span> objekter fra en samling bestående av <span class="math inline">\(n\)</span> forskjellige objekter.</p>
-<p>Da er</p>
-<ol type="1">
-<li><span class="math inline">\(\binom nr = \binom n{n-r}\)</span></li>
-<li><span class="math inline">\(\binom {n+1}r = \binom nr + \binom n{r-1}\)</span></li>
-</ol>
-<section id="begrunnelse" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="begrunnelse"><span class="header-section-number">5.1.1</span> Begrunnelse:</h3>
-<p>Jeg vil først begrunne dette med et eksempel. Deretter vil jeg skrive en mere formell begrunnelse.</p>
-<p>La oss si at vi velger ut fire plasser blant tyve markerte plasser.</p>
-<ol type="1">
-<li><p>Jeg kan gjøre dette ved å velge ut <span class="math inline">\(16\)</span> plasser og si at de utvalgte plassene er de fire resterende plassene.</p></li>
-<li><p>Jeg kan sette meg på en plass.</p>
-<p>Jeg kan enten velge fire plasser ut av de <span class="math inline">\(19\)</span> plassene som jeg ikke sitter på eller jeg kan velge den plassen jeg sitter på sammen med tre av de <span class="math inline">\(19\)</span> plassene jeg ikke sitter på.</p>
-<p>I formler gir dette at tyve-velg-fire er lik summen av nitten-velg-fire og nitten-velg-tre.</p>
-<p><span class="math display">\[\binom {20}{4} = \binom{19}{4} + \binom{19}{3}\]</span></p></li>
-</ol>
-<section id="mere-formell-begrunnelse" class="level4" data-number="5.1.1.1">
-<h4 data-number="5.1.1.1" class="anchored" data-anchor-id="mere-formell-begrunnelse"><span class="header-section-number">5.1.1.1</span> Mere formell begrunnelse:</h4>
-<ol type="1">
-<li><p>Objektene som er med i samlingen vi velger ut er entydig bestemt av objektene som ikke er med i denne samlingen.</p></li>
-<li><p>La <span class="math inline">\(x\)</span> være et spesielt utvalgt objekt blant de <span class="math inline">\(n+1\)</span> objektene. Da er det <span class="math inline">\(n\)</span> objekter som er forskjellige fra <span class="math inline">\(x\)</span>. Vi anvender addisjonsprinsippet på</p>
-<p><span class="math inline">\(H_1:\)</span> <span class="math inline">\(x\)</span> er blant de <span class="math inline">\(r+1\)</span> objektene vi velger ut.</p>
-<p><span class="math inline">\(H_2:\)</span> <span class="math inline">\(x\)</span> er <strong>ikke</strong> blant de <span class="math inline">\(r+1\)</span> objektene vi velger ut.</p>
-<p>For <span class="math inline">\(H_1\)</span> er det <span class="math inline">\(\binom n{r-1}\)</span> muligheter for valg av de <span class="math inline">\(r-1\)</span> objektene som ikke er <span class="math inline">\(x\)</span>.</p>
-<p>For <span class="math inline">\(H_2\)</span> er det <span class="math inline">\(\binom nr\)</span> muligheter for valg av objektene vi velger ut. (De er alle forskjellige fra <span class="math inline">\(x\)</span>.)</p></li>
-</ol>
-</section>
-</section>
-</section>
-<section id="teorem-2" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="teorem-2"><span class="header-section-number">5.2</span> Teorem</h2>
-<p>La <span class="math inline">\(\binom nr\)</span> være antallet av måter vi kan velge en samling av <span class="math inline">\(r\)</span> forskjellige objekter fra en samling bestående av <span class="math inline">\(n\)</span> forskjellige objekter.</p>
-<p>Da er <span class="math display">\[\binom nr = \frac{n!}{r!(n-r)!}\]</span></p>
-<section id="begrunnelse-1" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="begrunnelse-1"><span class="header-section-number">5.2.1</span> Begrunnelse:</h3>
-<p>Vi forklarte egentlig dette med eksemplet der vi valgte fire ut av tyve plasser.</p>
-<section id="mere-formell-begrunnelse-1" class="level4" data-number="5.2.1.1">
-<h4 data-number="5.2.1.1" class="anchored" data-anchor-id="mere-formell-begrunnelse-1"><span class="header-section-number">5.2.1.1</span> Mere formell begrunnelse:</h4>
-<p>Hvis vi vet at teoremet holder for <span class="math inline">\(n\)</span> da kan vi forklare hvorfor det også må holde for <span class="math inline">\(n+1\)</span>:</p>
-<p><span class="math display">\[\binom{n+1}r = \binom nr + \binom n{r-1} = \frac{n!}{r!(n-r)!} + \frac{n!}{(r-1)!(n-r+1)!}\]</span></p>
-<p>Som på side 6 i læreboken kan dette uttrykket algebraisk reduseres til <span class="math inline">\(\frac{(n+1)!}{r!(n+1-r)!}\)</span>.</p>
-<p><strong>Trekanten til Pascal kan brukes til å sjekke dette teoremet for noen tall</strong></p>
-</section>
-</section>
-</section>
-</section>
-<section id="binomialkoeffisienter-og-pascals-trekant" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> 1.4 Binomialkoeffisienter og Pascals trekant</h1>
-<p>Skriver jeg en rekke med tallene</p>
-<p><span class="math display">\[\binom 40 \ \binom 41 \ \binom 42 \ \binom 43 \ \binom 44\]</span></p>
-<p>det vil si</p>
+<section id="ordnede-utvalg-uten-repetisjon" class="level3">
+<h3 class="anchored" data-anchor-id="ordnede-utvalg-uten-repetisjon">Ordnede utvalg uten repetisjon</h3>
+<p>Vi trenger ikke alltid plassere alle de <span class="math inline">\(n\)</span> objektene. Kanskje skal vi bare velge <span class="math inline">\(r\)</span> av dem, men fortsatt huske rekkefølgen.</p>
+<div id="exm-fire-personer-tjue-plasser" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.5 (Fire personer på tjue plasser)</strong></span> Fire forskjellige personer skal plasseres på hver sin plass blant <span class="math inline">\(20\)</span> markerte plasser.</p>
+<p>Første person har <span class="math inline">\(20\)</span> muligheter, den andre <span class="math inline">\(19\)</span>, den tredje <span class="math inline">\(18\)</span> og den fjerde <span class="math inline">\(17\)</span>. Derfor finnes det</p>
 <p><span class="math display">\[
-\begin{matrix}
-&amp;1 &amp;&amp; 4 &amp;&amp; 6 &amp;&amp; 4 &amp;&amp; 1 &amp;
-\end{matrix}
+20\cdot19\cdot18\cdot17=\frac{20!}{16!}
 \]</span></p>
-<p>Kan jeg bruke disse til ved hjelp av Teorem 1.4 å regne ut tallene</p>
-<p><span class="math display">\[\binom 50 \ \binom 51 \ \binom 52 \ \binom 53 \ \binom 54 \ \binom 55\]</span></p>
-<p>til å bli</p>
-<p><span class="math display">\[
-\begin{matrix}
-1 &amp;&amp; 5 &amp;&amp; 10 &amp;&amp; 10 &amp;&amp; 5 &amp;&amp; 1
-\end{matrix}
-\]</span></p>
-<p>Dette kan illustreres ved å skrive linjene over hverandre:</p>
-<p><span class="math display">\[
-\begin{matrix}
-&amp;1 &amp;&amp; 4 &amp;&amp; 6 &amp;&amp; 4 &amp;&amp; 1 &amp; \\
-1 &amp;&amp; 5 &amp;&amp; 10 &amp;&amp; 10 &amp;&amp; 5 &amp;&amp; 1
-\end{matrix}
-\]</span></p>
-<p>De indre tallene i den nederste linjen er gitt ved summen av de to tallene til venstre og til høyre for dem i linjen over.</p>
-<div id="2c4af045" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kode som kan produsere Pascals trekant. Koden er ikke viktig å forstå!</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pascal(n):</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Yield up to row ``n`` of Pascal's triangle, one row at a time.</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    The first row is row 0.</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span> (n, <span class="bu">int</span>):</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span> (<span class="st">'n must be an integer'</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span> (<span class="st">'n must be an integer &gt;= 0'</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> newrow(row):</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">"Calculate a row of Pascal's triangle given the previous one."</span> </span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        prev <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> x <span class="kw">in</span> row:</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">yield</span> prev <span class="op">+</span> x</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            prev <span class="op">=</span> x</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> <span class="dv">1</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    prevrow <span class="op">=</span> [<span class="dv">1</span>]</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">yield</span> prevrow</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        prevrow <span class="op">=</span> <span class="bu">list</span>(newrow(prevrow))</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> prevrow</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pascal_latex(n):</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">    Generate a Pascal triangle for LaTeX embedding.</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="vs">r'</span><span class="dv">\b</span><span class="vs">egin{matrix}'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, row <span class="kw">in</span> <span class="bu">enumerate</span>(pascal(n)):</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="st">'&amp;'</span> <span class="op">*</span> (n<span class="op">-</span>i)</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="st">' &amp;&amp; '</span>.join (<span class="st">'</span><span class="sc">%2d</span><span class="st">'</span> <span class="op">%</span> coeff <span class="cf">for</span> coeff <span class="kw">in</span> row)</span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> (<span class="vs">r'</span><span class="ch">\\</span><span class="vs">'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    res <span class="op">+=</span> (<span class="vs">r'</span><span class="er">\</span><span class="vs">end{matrix}'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>forskjellige plasseringer.</p>
+<div id="2d3e361d" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">20</span>) <span class="op">//</span> math.factorial(<span class="dv">16</span>)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>116280</code></pre>
 </div>
-<section id="utdrag-av-pascals-trekant" class="level3" data-number="6.0.1">
-<h3 data-number="6.0.1" class="anchored" data-anchor-id="utdrag-av-pascals-trekant"><span class="header-section-number">6.0.1</span> Utdrag av Pascals trekant</h3>
-<div id="394571ea" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>display(Math(pascal_latex(<span class="dv">7</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<p>Det samme argumentet virker for vilkårlige <span class="math inline">\(n\)</span> og <span class="math inline">\(r\)</span>.</p>
+<div id="thm-ravn" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.2 (Ordnet utvalg uten repetisjon)</strong></span> La <span class="math inline">\(0\le r\le n\)</span>. Antallet <strong>ordnede</strong> utvalg av <span class="math inline">\(r\)</span> forskjellige objekter fra en samling med <span class="math inline">\(n\)</span> forskjellige objekter, uten repetisjon, er</p>
+<p><span class="math display">\[
+n(n-1)\cdots(n-r+1)=\frac{n!}{(n-r)!}.
+\]</span></p>
+<p>Når <span class="math inline">\(r=0\)</span>, tolker vi produktet på venstresiden som det tomme produktet <span class="math inline">\(1\)</span>.</p>
+</div>
+<p>Her er to ting avgjørende: vi kan ikke velge samme objekt to ganger, og vi skiller mellom forskjellige rekkefølger. Utvalgene <span class="math inline">\((a,b,c)\)</span> og <span class="math inline">\((b,a,c)\)</span> regnes altså som forskjellige.</p>
+<div id="exr-kortstokk" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.5 (To kort med rekkefølge)</strong></span> På hvor mange måter kan vi trekke to forskjellige kort fra en vanlig kortstokk uten tilbakelegging når vi husker rekkefølgen kortene ble trukket i?</p>
+</div>
+<div id="exr-medaljer" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.6 (Gull, sølv og bronse)</strong></span> Åtte løpere deltar i et løp uten delt plassering.</p>
+<ol type="1">
+<li>På hvor mange måter kan gull, sølv og bronse fordeles?</li>
+<li>Hvor i regnestykket ser du at rekkefølgen betyr noe?</li>
+<li>Hvordan ville svaret endret seg dersom vi bare skulle velge tre løpere til en dopingkontroll, uten ulike roller?</li>
+</ol>
+<p>Du trenger ikke løse punkt 3 med en ferdig formel ennå; forklar bare hvorfor dette er et annet telleproblem.</p>
+</div>
+<p>Vi har nå fylt ut den første av de fire grunnsituasjonene: <strong>rekkefølgen teller, uten repetisjon</strong>. I neste avsnitt beholder vi forbudet mot repetisjon, men slutter å bry oss om rekkefølgen.</p>
+</section>
+</section>
+<section id="sec-utvalg" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-utvalg"><span class="header-section-number">1.3</span> Utvalg</h2>
+<p><em>Læreboken: §1.3.</em></p>
+<section id="når-rekkefølgen-ikke-teller" class="level3">
+<h3 class="anchored" data-anchor-id="når-rekkefølgen-ikke-teller">Når rekkefølgen ikke teller</h3>
+<p>Tenk på forskjellen mellom disse to spørsmålene:</p>
+<ul>
+<li>Fire studenter skal få vervene leder, nestleder, sekretær og kasserer.</li>
+<li>Fire studenter skal velges til en komité uten ulike verv.</li>
+</ul>
+<p>I det første problemet betyr rekkefølgen — eller mer presist hvilken rolle hver student får — noe. I det andre problemet bryr vi oss bare om <strong>hvem</strong> som er med.</p>
+<p>For å forstå hvordan vi teller uordnede utvalg, begynner vi med et konkret eksempel.</p>
+<div id="exm-fire-av-tjue" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.6 (Fire av tjue plasser)</strong></span> Vi vil velge fire av tjue markerte plasser.</p>
+<p>Hvis vi først markerer plassene én etter én og husker rekkefølgen, finnes det</p>
+<p><span class="math display">\[
+20\cdot19\cdot18\cdot17=\frac{20!}{16!}
+\]</span></p>
+<p>ordnede valg.</p>
+<p>Men når vi bare bryr oss om hvilke fire plasser som er valgt, beskriver de <span class="math inline">\(4!\)</span> mulige rekkefølgene av de samme fire plassene det samme utvalget. Hvis <span class="math inline">\(A\)</span> er antallet uordnede utvalg, får vi</p>
+<p><span class="math display">\[
+A\cdot4!=\frac{20!}{16!},
+\]</span></p>
+<p>og dermed</p>
+<p><span class="math display">\[
+A=\frac{20!}{4!16!}=\binom{20}{4}.
+\]</span></p>
+<div id="0851e81b" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>math.comb(<span class="dv">20</span>, <span class="dv">4</span>)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>4845</code></pre>
+</div>
+</div>
+</div>
+<p>Symbolet <span class="math inline">\(\binom nr\)</span> leses <strong>«<span class="math inline">\(n\)</span> velg <span class="math inline">\(r\)</span>»</strong> og betyr antallet måter å velge <span class="math inline">\(r\)</span> objekter blant <span class="math inline">\(n\)</span> forskjellige objekter når rekkefølgen ikke teller.</p>
+<p>Overgangen fra ordnede til uordnede utvalg er et viktig mønster: vi teller først med rekkefølge og deler deretter på antallet rekkefølger som beskriver det samme uordnede utvalget.</p>
+<div id="thm-binomialformelen" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.3 (Formelen for binomialkoeffisienten)</strong></span> For <span class="math inline">\(0\le r\le n\)</span> er</p>
+<p><span class="math display">\[
+\binom nr=\frac{n!}{r!(n-r)!}.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Bevis</em> (Begrunnelse). </span>Ved <a href="#thm-ravn" class="quarto-xref">Teorem&nbsp;<span>1.2</span></a> finnes det</p>
+<p><span class="math display">\[
+\frac{n!}{(n-r)!}
+\]</span></p>
+<p>ordnede utvalg av <span class="math inline">\(r\)</span> objekter uten repetisjon.</p>
+<p>Hvis vi glemmer rekkefølgen, blir hvert uordnet utvalg telt nøyaktig <span class="math inline">\(r!\)</span> ganger, én gang for hver mulig rekkefølge av de <span class="math inline">\(r\)</span> valgte objektene. Derfor</p>
+<p><span class="math display">\[
+r!\binom nr=\frac{n!}{(n-r)!},
+\]</span></p>
+<p>og dermed</p>
+<p><span class="math display">\[
+\binom nr=\frac{n!}{r!(n-r)!}.
+\]</span></p>
+</div>
+<div id="exm-komite-eller-verv" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.7 (Komité eller fire verv)</strong></span> Blant <span class="math inline">\(20\)</span> studenter skal fire velges.</p>
+<p>Hvis de fire bare skal danne en komité, finnes det</p>
+<p><span class="math display">\[
+\binom{20}{4}
+\]</span></p>
+<p>muligheter.</p>
+<p>Hvis de i stedet skal få fire forskjellige verv, finnes det</p>
+<p><span class="math display">\[
+20\cdot19\cdot18\cdot17=4!\binom{20}{4}
+\]</span></p>
+<p>muligheter.</p>
+<p>De samme fire studentene gir altså <span class="math inline">\(4!\)</span> forskjellige resultater når rollene skiller dem fra hverandre. Dette er akkurat forskjellen mellom ordnede og uordnede utvalg.</p>
+</div>
+<div id="exr-fem-av-tjue-plasser" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.7 (Fem av tjue plasser)</strong></span> På hvor mange måter kan du velge fem plasser ut av <span class="math inline">\(20\)</span> når rekkefølgen ikke teller? Sammenlign svaret med antallet ordnede valg av fem plasser.</p>
+</div>
+<div id="exr-prosjektgruppe-roller" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.8 (Prosjektgruppe eller roller)</strong></span> I en klasse med <span class="math inline">\(12\)</span> studenter skal tre studenter velges.</p>
+<ol type="1">
+<li>Hvor mange forskjellige prosjektgrupper på tre studenter finnes det?</li>
+<li>Hvor mange måter kan man velge en leder, en referent og en presentatør blant de <span class="math inline">\(12\)</span> studentene?</li>
+<li>Forklar hvorfor svarene skiller seg med en faktor <span class="math inline">\(3!\)</span>.</li>
+</ol>
+</div>
+<div id="exr-komplementvalg" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.9 (Velge med eller velge bort)</strong></span> Ti studenter skal fordeles slik at tre deltar på en workshop og de syv andre blir igjen på campus.</p>
+<p>Forklar uten å bruke fakultetsformelen hvorfor</p>
+<p><span class="math display">\[
+\binom{10}{3}=\binom{10}{7}.
+\]</span></p>
+<p>Beskriv konkret hvordan et valg av tre studenter bestemmer et valg av syv studenter, og omvendt.</p>
+</div>
+<div id="exr-ki-feil-binomial" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.10 (KI: Finn feilen i en telleformel)</strong></span> En KI gir følgende svar på spørsmålet «Hvor mange måter kan vi velge tre studenter blant ti når rekkefølgen ikke teller?»:</p>
+<blockquote class="blockquote">
+<p>Vi har 10 valg for den første studenten, 9 for den andre og 8 for den tredje. Siden rekkefølgen ikke teller, deler vi på 3. Svaret er derfor <span class="math inline">\(10\cdot9\cdot8/3=240\)</span>.</p>
+</blockquote>
+<p>Undersøk svaret.</p>
+<ol type="1">
+<li>Hvilken del av argumentet er riktig?</li>
+<li>Hvorfor er det feil å dele på <span class="math inline">\(3\)</span>?</li>
+<li>Hva skal vi dele på i stedet, og hvorfor?</li>
+<li>Be en KI forklare feilen på nytt. Vurder om forklaringen faktisk sier <strong>hvor mange ganger hvert uordnet utvalg ble telt</strong>.</li>
+</ol>
+</div>
+</section>
+<section id="to-identiteter-for-binomialkoeffisienter" class="level3">
+<h3 class="anchored" data-anchor-id="to-identiteter-for-binomialkoeffisienter">To identiteter for binomialkoeffisienter</h3>
+<p>Binomialkoeffisienter kan forstås på flere måter. Det er ofte bedre å forklare en identitet ved å beskrive <strong>hva begge sider teller</strong> enn å starte med fakultetsformelen.</p>
+<p><strong>Læreboken: Teorem 1.4.</strong></p>
+<div id="thm-binomialidentiteter" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.4 (Identiteter for binomialkoeffisienter)</strong></span> Vi bruker følgende to identiteter:</p>
+<ol type="1">
+<li>For <span class="math inline">\(0\le r\le n\)</span> gjelder <span class="math inline">\(\displaystyle \binom nr=\binom n{n-r}\)</span>.</li>
+<li>For <span class="math inline">\(1\le r\le n\)</span> gjelder <span class="math inline">\(\displaystyle \binom{n+1}r=\binom nr+\binom n{r-1}\)</span>.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Bevis</em> (Kombinatorisk begrunnelse). </span>Den første identiteten kan forstås uten regning: å velge de <span class="math inline">\(r\)</span> objektene som skal være med, bestemmer samtidig de <span class="math inline">\(n-r\)</span> objektene som ikke skal være med, og omvendt.</p>
+<p>For den andre identiteten velger vi ett spesielt objekt <span class="math inline">\(x\)</span> blant de <span class="math inline">\(n+1\)</span> objektene. Et utvalg av <span class="math inline">\(r\)</span> objekter ligger i nøyaktig ett av to adskilte tilfeller:</p>
+<ul>
+<li><span class="math inline">\(x\)</span> er med. Da må vi velge de resterende <span class="math inline">\(r-1\)</span> objektene blant de andre <span class="math inline">\(n\)</span> objektene: <span class="math inline">\(\binom n{r-1}\)</span> muligheter.</li>
+<li><span class="math inline">\(x\)</span> er ikke med. Da velger vi alle de <span class="math inline">\(r\)</span> objektene blant de andre <span class="math inline">\(n\)</span> objektene: <span class="math inline">\(\binom nr\)</span> muligheter.</li>
+</ul>
+<p>Addisjonsprinsippet gir derfor</p>
+<p><span class="math display">\[
+\binom{n+1}r=\binom nr+\binom n{r-1}.
+\]</span></p>
+</div>
+<p>Den andre identiteten kalles ofte <strong>Pascals identitet</strong>. Den gjør det mulig å beregne binomialkoeffisientene uten å bruke fakulteter.</p>
+<div id="exr-ki-pascalbevis" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.11 (KI: Algebraisk eller kombinatorisk forklaring?)</strong></span> Be en KI forklare Pascals identitet</p>
+<p><span class="math display">\[
+\binom{n+1}{r}=\binom nr+\binom n{r-1}.
+\]</span></p>
+<p>Hvis KI-en bare manipulerer fakultetsuttrykk, be uttrykkelig om en <strong>kombinatorisk forklaring</strong>.</p>
+<p>Sammenlign de to typene forklaring:</p>
+<ol type="1">
+<li>Hvilket argument viser bare at uttrykkene er algebraisk like?</li>
+<li>Hvilket argument forklarer hvorfor begge sider teller samme samling av objekter?</li>
+<li>Skriv den kombinatoriske forklaringen med dine egne ord uten å se på KI-svaret.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="sec-binomialkoeffisienter" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-binomialkoeffisienter"><span class="header-section-number">1.4</span> Binomialkoeffisienter og Pascals trekant</h2>
+<p><em>Læreboken: §1.4.</em></p>
+<section id="pascals-trekant" class="level3">
+<h3 class="anchored" data-anchor-id="pascals-trekant">Pascals trekant</h3>
+<p>Vi starter med randverdiene</p>
+<p><span class="math display">\[
+\binom n0=\binom nn=1.
+\]</span></p>
+<p>Det finnes jo bare én måte å velge ingenting på, og bare én måte å velge alle <span class="math inline">\(n\)</span> objektene på.</p>
+<p>Pascals identitet sier at hvert indre tall kan finnes ved å legge sammen de to tallene over det. For eksempel gir raden</p>
+<p><span class="math display">\[
+\binom40\quad\binom41\quad\binom42\quad\binom43\quad\binom44
+\]</span></p>
+<p>verdiene</p>
+<p><span class="math display">\[
+1\quad4\quad6\quad4\quad1,
+\]</span></p>
+<p>og neste rad blir</p>
+<p><span class="math display">\[
+1\quad5\quad10\quad10\quad5\quad1.
+\]</span></p>
+<p>Dette mønsteret kalles <strong>Pascals trekant</strong>.</p>
+<div id="bd55dcdf" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(\displaystyle \begin{matrix}
 &amp;&amp;&amp;&amp;&amp;&amp;&amp; 1\\
@@ -534,41 +802,22 @@ window.Quarto = {
 \end{matrix}\)</span></p>
 </div>
 </div>
-<div id="3905d903" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kode for ny figur. Ignorer koden...</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> xyterm(i, j, coeff):</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> j <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="ss">f'x^</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">'1'</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> j <span class="op">==</span> i:</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f'y^</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f'</span><span class="sc">{</span>coeff<span class="sc">:2d}</span><span class="ss"> x^</span><span class="sc">{</span>i<span class="op">-</span>j<span class="sc">}</span><span class="ss">y^</span><span class="sc">{</span>j<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pascal_xplusy(n):</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Generate a Pascal triangle for powers of x + y</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="vs">r'</span><span class="dv">\b</span><span class="vs">egin{matrix}'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, row <span class="kw">in</span> <span class="bu">enumerate</span>(pascal(n)):</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="ss">f'(x + y)^</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> &amp; = &amp;'</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="st">'&amp;'</span> <span class="op">*</span> (n<span class="op">-</span>i)</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> <span class="st">' &amp;+&amp; '</span>.join (xyterm(i, j, coeff) <span class="cf">for</span> j, coeff <span class="kw">in</span> <span class="bu">enumerate</span>(row))</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        res <span class="op">+=</span> (<span class="vs">r'</span><span class="ch">\\</span><span class="vs">'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    res <span class="op">+=</span> (<span class="vs">r'</span><span class="er">\</span><span class="vs">end{matrix}'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> res.replace(<span class="st">"(x + y)^1"</span>, <span class="st">"x + y"</span>)</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> res.replace(<span class="st">"^1"</span>, <span class="st">""</span>)</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> res.replace(<span class="st">"(x + y)^0"</span>, <span class="st">"1"</span>)</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pascals trekant er ikke bare en effektiv måte å beregne binomialkoeffisienter på. De samme tallene dukker også opp når vi regner med potenser av <span class="math inline">\(x+y\)</span>.</p>
+<div id="exr-pascal-neste-rader" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.12 (Bygg videre på Pascals trekant)</strong></span> Start med raden</p>
+<p><span class="math display">\[
+1\quad5\quad10\quad10\quad5\quad1.
+\]</span></p>
+<ol type="1">
+<li>Finn de to neste radene i Pascals trekant uten å bruke fakultetsformelen.</li>
+<li>Kontroller at summen av tallene i rad <span class="math inline">\(6\)</span> er <span class="math inline">\(2^6\)</span> og summen i rad <span class="math inline">\(7\)</span> er <span class="math inline">\(2^7\)</span>.</li>
+<li>Forklar hvorfor denne kontrollen er naturlig ut fra <a href="#cor-binomialteoremet-x-en" class="quarto-xref">Korollar&nbsp;<span>1.2</span></a> når du kommer til den nedenfor.</li>
+</ol>
 </div>
 </section>
-<section id="pascals-trekant-for-potenser-av-x-y" class="level3" data-number="6.0.2">
-<h3 data-number="6.0.2" class="anchored" data-anchor-id="pascals-trekant-for-potenser-av-x-y"><span class="header-section-number">6.0.2</span> Pascals trekant for potenser av <span class="math inline">\(x + y\)</span></h3>
-<div id="088c0f36" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>display(Math(pascal_xplusy(<span class="dv">7</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="sec-pascal-potenser" class="level3">
+<h3 class="anchored" data-anchor-id="sec-pascal-potenser">Pascals trekant og potenser av <span class="math inline">\(x+y\)</span></h3>
+<div id="8c1aa030" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><span class="math inline">\(\displaystyle \begin{matrix}
 1 &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1\\
@@ -582,108 +831,287 @@ x + y &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;x &amp;+&amp; y\\
 \end{matrix}\)</span></p>
 </div>
 </div>
-<p>Bemerk at tallene her er de samme som i Pascals trekant.</p>
-<p>At tallene i raden for <span class="math inline">\((x+y)^7\)</span> er binomialkoffisientene en-velg-syv, to-velg-syv og så videre kan forklares ved hjelp av Teorem 1.4 og at</p>
-<p><span class="math display">\[(x+y)^7 = x(x+y)^6 + y(x+y)^6:\]</span></p>
+<p>Hvorfor er koeffisientene binomialkoeffisienter? Skriv</p>
 <p><span class="math display">\[
-\begin{matrix}
-x(x + y)^6 &amp; = &amp;x^7 &amp;+&amp;  6 x^6y &amp;+&amp; 15 x^5y^2 &amp;+&amp; 20 x^4y^3 &amp;+&amp; 15 x^3y^4 &amp;+&amp;  6 x^2y^5 &amp;+&amp; xy^6\\
-% &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;\\
-y(x + y)^6 &amp; = &amp;&amp;&amp;x^6y &amp;+&amp;  6 x^5y^2 &amp;+&amp; 15 x^4y^3 &amp;+&amp; 20 x^3y^4 &amp;+&amp; 15 x^2y^5 &amp;+&amp;  6 xy^6 &amp;+&amp; y^7\\
-&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;\\
-(x + y)^7 &amp; = &amp;x^7 &amp;+&amp;  7 x^6y &amp;+&amp; 21 x^5y^2 &amp;+&amp; 35 x^4y^3 &amp;+&amp; 35 x^3y^4 &amp;+&amp; 21 x^2y^5 &amp;+&amp;  7 xy^6 &amp;+&amp; y^7\\
-\end{matrix}
+(x+y)^n=(x+y)(x+y)\cdots(x+y)
 \]</span></p>
+<p>med <span class="math inline">\(n\)</span> faktorer. For å få et ledd <span class="math inline">\(x^{n-r}y^r\)</span> må vi velge <span class="math inline">\(y\)</span> fra nøyaktig <span class="math inline">\(r\)</span> av faktorene og <span class="math inline">\(x\)</span> fra resten. Det finnes <span class="math inline">\(\binom nr\)</span> måter å velge hvilke <span class="math inline">\(r\)</span> faktorer som skal bidra med <span class="math inline">\(y\)</span>.</p>
+<p>Dette gir binomialteoremet nesten direkte.</p>
+<p><strong>Læreboken: Teorem 1.5.</strong></p>
+<div id="thm-binomialteoremet" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.5 (Binomialteoremet)</strong></span> For hvert ikke-negativt heltall <span class="math inline">\(n\)</span> gjelder</p>
+<p><span class="math display">\[
+(x+y)^n=\sum_{r=0}^n\binom nr x^{n-r}y^r.
+\]</span></p>
+</div>
+<div id="exm-binomial-fire" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.8 (Utvikling av fjerde potens)</strong></span> For <span class="math inline">\(n=4\)</span> får vi raden <span class="math inline">\(1,4,6,4,1\)</span> fra Pascals trekant, og dermed</p>
+<p><span class="math display">\[
+(x+y)^4=x^4+4x^3y+6x^2y^2+4xy^3+y^4.
+\]</span></p>
+<p>Koeffisienten <span class="math inline">\(6=\binom42\)</span> foran <span class="math inline">\(x^2y^2\)</span> teller for eksempel hvilke to av de fire faktorene som bidrar med <span class="math inline">\(y\)</span>.</p>
+</div>
+<div id="exr-koeffisient-uten-utvidelse" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.13 (Finn en koeffisient uten å gange ut)</strong></span> Finn koeffisienten foran <span class="math inline">\(x^7y^5\)</span> i <span class="math inline">\((x+y)^{12}\)</span> uten å gange ut hele uttrykket.</p>
+<p>Forklar både</p>
+<ol type="1">
+<li>hvilken binomialkoeffisient som gir svaret, og</li>
+<li>hva denne binomialkoeffisienten teller blant de tolv faktorene <span class="math inline">\((x+y)\)</span>.</li>
+</ol>
+</div>
+<p>Ved å sette inn spesielle verdier for <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span> får vi identiteter for binomialkoeffisientene.</p>
+<p><strong>Læreboken: Korollar 1.6.</strong></p>
+<div id="cor-binomialteoremet-x-en" class="theorem corollary">
+<p><span class="theorem-title"><strong>Korollar 1.2 (Binomialteoremet når x er 1)</strong></span> Ved å sette <span class="math inline">\(x=1\)</span> i <a href="#thm-binomialteoremet" class="quarto-xref">Teorem&nbsp;<span>1.5</span></a> får vi</p>
+<p><span class="math display">\[
+(1+y)^n=\sum_{r=0}^n\binom nr y^r.
+\]</span></p>
+<p>Setter vi også <span class="math inline">\(y=1\)</span>, får vi</p>
+<p><span class="math display">\[
+2^n=\sum_{r=0}^n\binom nr.
+\]</span></p>
+</div>
+<p>Den siste identiteten har også en direkte kombinatorisk forklaring: venstresiden teller alle delmengder av en mengde med <span class="math inline">\(n\)</span> elementer, mens høyresiden teller dem etter størrelse — først de med <span class="math inline">\(0\)</span> elementer, så de med <span class="math inline">\(1\)</span> element, og så videre.</p>
+<div id="exr-ki-to-begrunnelser" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.14 (KI: Sammenlign to begrunnelser)</strong></span> Be en KI forklare identiteten</p>
+<p><span class="math display">\[
+2^n=\sum_{r=0}^n\binom nr
+\]</span></p>
+<p>på to måter:</p>
+<ul>
+<li>ved å bruke binomialteoremet,</li>
+<li>ved å telle delmengder.</li>
+</ul>
+<p>Kontroller begge forklaringene. Svar deretter selv:</p>
+<ol type="1">
+<li>Hva teller <span class="math inline">\(2^n\)</span> i den kombinatoriske forklaringen?</li>
+<li>Hva teller <span class="math inline">\(\binom nr\)</span>?</li>
+<li>Hvorfor må summen over alle <span class="math inline">\(r\)</span> gi samme tall?</li>
+<li>Hvilken av de to forklaringene synes du gir mest innsikt, og hvorfor?</li>
+</ol>
+</div>
+<div id="exr-binomial-minus-en" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.15 (Sett inn spesielle verdier)</strong></span> Sett <span class="math inline">\(x=-1\)</span> og <span class="math inline">\(y=1\)</span> i <a href="#thm-binomialteoremet" class="quarto-xref">Teorem&nbsp;<span>1.5</span></a>. Skriv ut formelen du får, og forklar hva den sier om summen av binomialkoeffisienter med vekslende fortegn.</p>
+</div>
 </section>
-<section id="oppgave-5" class="level3" data-number="6.0.3">
-<h3 data-number="6.0.3" class="anchored" data-anchor-id="oppgave-5"><span class="header-section-number">6.0.3</span> Oppgave</h3>
-<p>Skriv ut <span class="math inline">\((x + y)^8\)</span> som en sum på samme måten som vi gjorde for <span class="math inline">\((x + y)^7\)</span>.</p>
-</section>
-<section id="teorem-1.5" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="teorem-1.5"><span class="header-section-number">6.1</span> Teorem 1.5</h2>
-<p>Pascals trekant for potenser av <span class="math inline">\(x + y\)</span> kan fortsettes til <span class="math inline">\((x+y)^n\)</span> for alle positive heltall <span class="math inline">\(n\)</span>.</p>
-<p>Koeffisienten foran <span class="math inline">\(x^iy^j\)</span> er <span class="math inline">\(\binom{i+j}{i}\)</span>, så <span class="math display">\[(x + y)^n = \sum_{r=0}^n \binom nr x^r y^{n-r}.\]</span></p>
-<p>Bemerk at koeffisientene foran <span class="math inline">\(x^iy^j\)</span> og <span class="math inline">\(x^jy^i\)</span> er like, og at dette stemmer med at <span class="math inline">\(\binom{i+j}{i} = \binom{i+j}{j}\)</span>.</p>
-<p>Ved å sette <span class="math inline">\(x = 1\)</span> fås:</p>
-</section>
-<section id="korollar-1.6" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="korollar-1.6"><span class="header-section-number">6.2</span> Korollar 1.6</h2>
-<p><span class="math display">\[(1 + y)^n = \sum_{r = 0}^n \binom nr y^r\]</span></p>
-<p>Settes ytterligere <span class="math inline">\(y = 1\)</span> fås:</p>
-<p><span class="math display">\[2^n = \sum_{r = 0}^n \binom nr\]</span></p>
-<section id="oppgave-6" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="oppgave-6"><span class="header-section-number">6.2.1</span> Oppgave</h3>
-<p>Sett <span class="math inline">\(x=-1\)</span> og <span class="math inline">\(y=1\)</span> i Teorem 1.5. Skriv ut den formelen du finner.</p>
-</section>
-<section id="diagonaler-av-pascals-trekant" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="diagonaler-av-pascals-trekant"><span class="header-section-number">6.2.2</span> Diagonaler av Pascals trekant</h3>
-<p>La oss beregne tallet <span class="math inline">\(\binom 74\)</span> på en ny måte.</p>
-<p>For å være konkret vil jeg trekke fire tall blant tallene <span class="math inline">\(1, 2, 3, 4, 5, 6, 7\)</span>.</p>
-<p>Av mulighetene for å gjøre dette er der <span class="math inline">\(\binom 63\)</span> kombinasjoner hvor tallet <span class="math inline">\(1\)</span> er blant tallene som blir trukket.</p>
-<p>Hvis jeg vet at <span class="math inline">\(1\)</span> ikke blir trukket men at <span class="math inline">\(2\)</span> blir trukket er der <span class="math inline">\(\binom 53\)</span> muligheter.</p>
-<p>Hvis jeg vet at verken <span class="math inline">\(1\)</span> og <span class="math inline">\(2\)</span> blir trukket men at <span class="math inline">\(3\)</span> blir trukket er der <span class="math inline">\(\binom 43\)</span> muligheter.</p>
-<p>Hvis jeg vet at verken <span class="math inline">\(1, 2\)</span> eller <span class="math inline">\(3\)</span> blir trukket, så må de resterende fire tallene <span class="math inline">\(4,5,6, 7\)</span> bli trukket. Det gjenstår altså <span class="math inline">\(\binom 33\)</span> muligheter.</p>
-<p>Ved addisjonsprinsippet er</p>
-<p><span class="math display">\[\binom 74 = \binom {3+3+1}{4} = \binom 33 + \binom 43 + \binom 53 + \binom 63\]</span></p>
-</section>
-<section id="oppgave-7" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="oppgave-7"><span class="header-section-number">6.2.3</span> Oppgave</h3>
-<p>Forklar formelen <span class="math display">\[\binom 63 = \binom {2 + 3 + 1}{3} = \binom 22 + \binom 32 + \binom 42 + \binom 52.\]</span></p>
-</section>
-</section>
-<section id="teorem-1.8" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="teorem-1.8"><span class="header-section-number">6.3</span> Teorem 1.8</h2>
-<p><span class="math display">\[\binom {m+n+1}{m+1} = \binom mm + \binom{m+1}{m} + \dots + \binom{m+n}{m}\]</span></p>
-<section id="oppgave-8" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="oppgave-8"><span class="header-section-number">6.3.1</span> Oppgave</h3>
-<p>Vi vet fra Teorem 1.4 at <span class="math display">\[(1 + x)^4 = x^4 + 4x^3 + 6x^2 + 4x + 1.\]</span></p>
-<p>Bruk dette til å se at koeffisienten til <span class="math inline">\(x^4\)</span> i <span class="math inline">\((1 + x)^4 (1 + x)^4\)</span> er <span class="math display">\[ 1 \cdot 1 + 4 \cdot 4 + 6 \cdot 6 + 4 \cdot 4 + 1 \cdot 1\]</span> som er lik <span class="math display">\[\binom 44 \binom 40 + \binom 43 \binom 41 + \binom 42 \binom 42 + \binom 41 \binom 43 + \binom 40 \binom 44\]</span> og som også er lik <span class="math display">\[\binom 44^2 + \binom 43^2 + \binom 42^2  + \binom 41^2  + \binom 40^2 \]</span></p>
-<p>Fra Teorem 1.4 er <span class="math display">\[(1 + x)^4 (1 + x)^4 = (1 + x)^8 = \binom 80 x^8 + \binom 81 x^7 + \binom 82 x^6 + \binom 83 x^5 + \binom 84 x^4 + \dots.\]</span></p>
-<p>Bruk dette til å skrive en ny formel for <span class="math inline">\(\binom 84\)</span>.</p>
-</section>
-<section id="oppgave-9" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="oppgave-9"><span class="header-section-number">6.3.2</span> Oppgave</h3>
-<p>Forklar hvorfor <span class="math display">\[\binom n0^2 + \binom n1^2 + \dots + \binom nn^2 = \binom {2n}{n}.\]</span></p>
-</section>
-</section>
-</section>
-<section id="utvalg-med-repetisjoner" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> 1.5 Utvalg med repetisjoner</h1>
-<section id="eksempel-4" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="eksempel-4"><span class="header-section-number">7.1</span> Eksempel</h2>
-<p>Multiplikasjonsprinsippet gir oss at det finnes <span class="math inline">\(2^n\)</span> binære sekvenser av lengde <span class="math inline">\(n\)</span>.</p>
-<p>En delmengde <span class="math inline">\(A\)</span> av mengden <span class="math inline">\(\{1,2,3\}\)</span> gir oss en binær sekvens <span class="math inline">\(x_1x_2x_3\)</span>av lengde <span class="math inline">\(3\)</span>, der <span class="math inline">\(x_1=1\)</span> hvis <span class="math inline">\(1 \in A\)</span> og <span class="math inline">\(x_1=0\)</span> hvis <span class="math inline">\(1 \notin A\)</span>. Tilsvarende med <span class="math inline">\(x_2\)</span> og <span class="math inline">\(x_3\)</span>. Det finnes derfor <span class="math inline">\(8 = 2^3\)</span> delmengder av mengden <span class="math inline">\(\{1,2,3\}\)</span> med tre elementer.</p>
-<p>Generellt finnes det <span class="math inline">\(2^n\)</span> delmengder av en mengde med <span class="math inline">\(n\)</span> elementer.</p>
-</section>
-<section id="teorem-3" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="teorem-3"><span class="header-section-number">7.2</span> Teorem</h2>
-<p>Det er <span class="math inline">\(n^r\)</span> måter <span class="math inline">\(r\)</span> objekter kan velges i rekkefølge fra <span class="math inline">\(n\)</span> objekter dersom repetisjon er tillatt.</p>
-</section>
-<section id="oppgave-10" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="oppgave-10"><span class="header-section-number">7.3</span> Oppgave</h2>
-<p>Du har en kortstokk med <span class="math inline">\(5\)</span> kort som alle er forskjellige. På hvor mange måter kan du velge syv kort fra kortstokken, når repetisjon er tillat og du ser bort fra rekkefølgen på kortene?</p>
-<section id="hint" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="hint"><span class="header-section-number">7.3.1</span> Hint:</h3>
-<p>Oversett problemet til et problem der du velger 5 plasser fra 11 mulige plasser!</p>
-<p>Ideen er å lage en bitstreng med 11 siffer med 7 nuller og 4 ettaller…</p>
-<p>La oss si at kortene i stokken er en joker, en knekt, en dame, en konge og et ess.</p>
-<p>For å illustrere ideen, la oss si at vi har trukket to jokere, en knekt, to damer, og to ess.</p>
-<p>Da vil jeg skrive bitstrengen <span class="math display">\[00101001100\]</span></p>
-<p>Dette er en kode for at - det er to jokere fordi det er to nuller foran det første ettall. - det er en knekt fordi det er ett null mellom første og andre ettall. - det er to damer fordi det er to nuller mellom andre og tredje ettall. - det er ingen konger fordi det er ingen nuller mellom tredje og fjerde ettall - det er to ess fordi det er to nuller etter det fjerde ettall</p>
-<section id="spørsmål-1" class="level4" data-number="7.3.1.1">
-<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="spørsmål-1"><span class="header-section-number">7.3.1.1</span> Spørsmål</h4>
-<p>Hvilken kombinasjon av kort er følgende bittstreng kode for? <span class="math display">\[10001100010\]</span></p>
+<section id="sec-pascal-diagonaler" class="level3">
+<h3 class="anchored" data-anchor-id="sec-pascal-diagonaler">Diagonaler av Pascals trekant</h3>
+<p>Pascals identitet summerer to naboer. En annen nyttig identitet oppstår når vi summerer langs en diagonal i trekanten.</p>
+<p>La oss beregne <span class="math inline">\(\binom74\)</span> ved å velge fire tall fra <span class="math inline">\(\{1,2,3,4,5,6,7\}\)</span> og dele valgene opp etter <strong>det minste tallet som blir valgt</strong>:</p>
+<ul>
+<li>Minste valgte tall er <span class="math inline">\(1\)</span>: velg de tre andre blant <span class="math inline">\(2,\dots,7\)</span>, altså <span class="math inline">\(\binom63\)</span> muligheter.</li>
+<li>Minste valgte tall er <span class="math inline">\(2\)</span>: velg de tre andre blant <span class="math inline">\(3,\dots,7\)</span>, altså <span class="math inline">\(\binom53\)</span> muligheter.</li>
+<li>Minste valgte tall er <span class="math inline">\(3\)</span>: velg de tre andre blant <span class="math inline">\(4,\dots,7\)</span>, altså <span class="math inline">\(\binom43\)</span> muligheter.</li>
+<li>Minste valgte tall er <span class="math inline">\(4\)</span>: da må vi velge <span class="math inline">\(4,5,6,7\)</span>, altså <span class="math inline">\(\binom33=1\)</span> mulighet.</li>
+</ul>
+<p>Tilfellene er adskilte og dekker alle muligheter. Addisjonsprinsippet gir derfor</p>
+<p><span class="math display">\[
+\binom74=\binom33+\binom43+\binom53+\binom63.
+\]</span></p>
+<p><strong>Læreboken: Teorem 1.8.</strong></p>
+<div id="thm-pascal-diagonal" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.6 (En diagonalidentitet)</strong></span> For ikke-negative heltall <span class="math inline">\(m,n\)</span> gjelder</p>
+<p><span class="math display">\[
+\binom{m+n+1}{m+1}
+=
+\binom mm+\binom{m+1}m+\dots+\binom{m+n}m.
+\]</span></p>
+</div>
+<div id="exr-pascal-diagonal-seks-tre" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.16 (Forklar en diagonalidentitet)</strong></span> Forklar formelen</p>
+<p><span class="math display">\[
+\binom63=\binom22+\binom32+\binom42+\binom52
+\]</span></p>
+<p>ved å dele utvalgene inn etter minste valgte element.</p>
+</div>
+<div id="exr-aatte-velg-fire" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.17 (En ny formel for åtte-velg-fire)</strong></span> Fra <a href="#thm-binomialteoremet" class="quarto-xref">Teorem&nbsp;<span>1.5</span></a> har vi</p>
+<p><span class="math display">\[
+(1+x)^4=x^4+4x^3+6x^2+4x+1.
+\]</span></p>
+<p>Koeffisienten til <span class="math inline">\(x^4\)</span> i <span class="math inline">\((1+x)^4(1+x)^4\)</span> er derfor</p>
+<p><span class="math display">\[
+1\cdot1+4\cdot4+6\cdot6+4\cdot4+1\cdot1
+=
+\binom44^2+\binom43^2+\binom42^2+\binom41^2+\binom40^2.
+\]</span></p>
+<p>På den andre siden er</p>
+<p><span class="math display">\[
+(1+x)^4(1+x)^4=(1+x)^8,
+\]</span></p>
+<p>så koeffisienten til <span class="math inline">\(x^4\)</span> er <span class="math inline">\(\binom84\)</span>.</p>
+<p>Skriv identiteten for <span class="math inline">\(\binom84\)</span> som følger av disse to måtene å finne samme koeffisient på.</p>
+</div>
+<div id="exr-sum-kvadrater-binomial" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.18 (Sum av kvadrerte binomialkoeffisienter)</strong></span> Generaliser forrige oppgave og forklar hvorfor</p>
+<p><span class="math display">\[
+\binom n0^2+\binom n1^2+\dots+\binom nn^2=\binom{2n}n.
+\]</span></p>
+</div>
 </section>
 </section>
+<section id="sec-utvalg-med-repetisjoner" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sec-utvalg-med-repetisjoner"><span class="header-section-number">1.5</span> Utvalg med repetisjoner</h2>
+<p><em>Læreboken: §1.5.</em></p>
+<p>Til nå har vi arbeidet uten repetisjon: når et objekt er valgt, kan det ikke velges på nytt. Nå tillater vi repetisjon. De samme to spørsmålene fra starten er fortsatt nyttige.</p>
+<section id="når-rekkefølgen-teller" class="level3">
+<h3 class="anchored" data-anchor-id="når-rekkefølgen-teller">Når rekkefølgen teller</h3>
+<p>Hvis repetisjon er tillatt og rekkefølgen teller, blir tellingen svært enkel: ved hvert valg har vi de samme <span class="math inline">\(n\)</span> mulighetene.</p>
+<div id="exm-pin-kode" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.9 (En firesifret PIN-kode)</strong></span> En PIN-kode består av fire sifre, og hvert siffer kan være ett av <span class="math inline">\(0,1,\dots,9\)</span>. Sifre kan gjentas, og rekkefølgen teller.</p>
+<p>Det finnes derfor</p>
+<p><span class="math display">\[
+10\cdot10\cdot10\cdot10=10^4
+\]</span></p>
+<p>mulige koder.</p>
+<p>Koden <span class="math inline">\(0112\)</span> er forskjellig fra <span class="math inline">\(1012\)</span>, og en kode som <span class="math inline">\(7777\)</span> er tillatt.</p>
+</div>
+<div id="thm-ordnet-utvalg-med-repetisjon" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.7 (Ordnet utvalg med repetisjon)</strong></span> Det er <span class="math inline">\(n^r\)</span> ordnede utvalg av lengde <span class="math inline">\(r\)</span> fra <span class="math inline">\(n\)</span> forskjellige objekttyper når repetisjon er tillatt.</p>
+</div>
+<p>Dette er multiplikasjonsprinsippet: ved hvert av de <span class="math inline">\(r\)</span> valgene har vi <span class="math inline">\(n\)</span> muligheter.</p>
+<div id="exr-pin-uten-repetisjon" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.19 (Sammenlign med en PIN uten gjentakelser)</strong></span> Sammenlign to regler for en firesifret PIN-kode:</p>
+<ol type="1">
+<li>Sifre kan gjentas.</li>
+<li>Ingen siffer kan brukes mer enn én gang.</li>
+</ol>
+<p>Finn antallet koder i begge tilfeller og forklar hvorfor den første situasjonen gir <span class="math inline">\(10^4\)</span>, mens den andre gir et produkt med færre valg for hvert nytt siffer.</p>
+</div>
 </section>
-<section id="teorem-1.10" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="teorem-1.10"><span class="header-section-number">7.4</span> Teorem 1.10</h2>
-<p>Antallet av uordnede utvalg av <span class="math inline">\(r\)</span> objekter med repetisjon tillat, fra en samling av <span class="math inline">\(n\)</span> objekter som alle er forskjellige, er <span class="math display">\[\binom {n+r -1}{r}\]</span></p>
-<p>Lar vi i koden over <span class="math inline">\(x_1\)</span> være antallet av nuller før det første ettallet og så videre fram til <span class="math inline">\(x_n\)</span> er antallet av nuller etter det siste ettallet, kan vi se at:</p>
+<section id="når-rekkefølgen-ikke-teller-1" class="level3">
+<h3 class="anchored" data-anchor-id="når-rekkefølgen-ikke-teller-1">Når rekkefølgen ikke teller</h3>
+<p>Det siste tilfellet er mer subtilt. Hvis repetisjon er tillatt, men rekkefølgen ikke teller, er det ikke nok å dele <span class="math inline">\(n^r\)</span> på <span class="math inline">\(r!\)</span>: noen utvalg har mange like elementer og derfor færre enn <span class="math inline">\(r!\)</span> forskjellige rekkefølger.</p>
+<p>I stedet bruker vi en kode med <strong>objekter og skilletegn</strong>, ofte kalt <em>stars and bars</em>.</p>
+<div id="exm-iskuler" class="theorem example">
+<p><span class="theorem-title"><strong>Eksempel 1.10 (Syv iskuler fra fem smaker)</strong></span> En iskrembar har fem smaker med ubegrenset mengde av hver smak. Vi skal velge syv iskuler. Rekkefølgen på kulene spiller ingen rolle, og samme smak kan velges flere ganger.</p>
+<p>Ordne smakene fast, for eksempel vanilje, sjokolade, jordbær, pistasj og kaffe. Vi bruker én <span class="math inline">\(0\)</span> for hver iskule og fire <span class="math inline">\(1\)</span>-ere som skilletegn mellom de fem smakene.</p>
+<p>Valget</p>
+<ul>
+<li><span class="math inline">\(2\)</span> vanilje,</li>
+<li><span class="math inline">\(1\)</span> sjokolade,</li>
+<li><span class="math inline">\(2\)</span> jordbær,</li>
+<li><span class="math inline">\(0\)</span> pistasj,</li>
+<li><span class="math inline">\(2\)</span> kaffe</li>
+</ul>
+<p>kodes som</p>
+<p><span class="math display">\[
+00101001100.
+\]</span></p>
+<p>Bitstrengen inneholder <span class="math inline">\(7\)</span> nuller og <span class="math inline">\(4\)</span> ettall, altså <span class="math inline">\(11\)</span> posisjoner totalt. Et utvalg bestemmes entydig ved å velge posisjonene til de fire skilletegnene. Derfor finnes det</p>
+<p><span class="math display">\[
+\binom{11}{4}=\binom{11}{7}
+\]</span></p>
+<p>forskjellige utvalg.</p>
+</div>
+<p>Denne kodingen fungerer for alle <span class="math inline">\(n\)</span> objekttyper og alle <span class="math inline">\(r\)</span> valg.</p>
+<p><strong>Læreboken: Teorem 1.10.</strong></p>
+<div id="thm-uordnet-utvalg-med-repetisjon" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.8 (Uordnet utvalg med repetisjon)</strong></span> Antallet uordnede utvalg av <span class="math inline">\(r\)</span> objekter fra <span class="math inline">\(n\)</span> forskjellige objekttyper, når repetisjon er tillatt, er</p>
+<p><span class="math display">\[
+\binom{n+r-1}{r}.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Bevis</em> (Begrunnelse med skilletegn). </span>Kod et utvalg med <span class="math inline">\(r\)</span> nuller og <span class="math inline">\(n-1\)</span> ettall som skilletegn. Bitstrengen har totalt</p>
+<p><span class="math display">\[
+r+(n-1)=n+r-1
+\]</span></p>
+<p>posisjoner. Vi kan velge hvilke <span class="math inline">\(r\)</span> posisjoner som skal inneholde nuller, eller ekvivalent hvilke <span class="math inline">\(n-1\)</span> posisjoner som skal inneholde skilletegn. Dermed får vi</p>
+<p><span class="math display">\[
+\binom{n+r-1}{r}.
+\]</span></p>
+</div>
+<p>Den samme kodingen kan formuleres som et ligningsproblem. Hvis <span class="math inline">\(x_i\)</span> forteller hvor mange ganger type <span class="math inline">\(i\)</span> blir valgt, er et uordnet utvalg med repetisjon det samme som en løsning av</p>
+<p><span class="math display">\[
+x_1+x_2+\dots+x_n=r
+\]</span></p>
+<p>med <span class="math inline">\(x_i\ge0\)</span>.</p>
+<div id="thm-ikke-negative-losninger" class="theorem">
+<p><span class="theorem-title"><strong>Teorem 1.9 (Ikke-negative heltallsløsninger)</strong></span> Antallet løsninger til ligningen</p>
+<p><span class="math display">\[
+x_1+\dots+x_n=r
+\]</span></p>
+<p>for ikke-negative heltall <span class="math inline">\(x_1,\dots,x_n\)</span> er</p>
+<p><span class="math display">\[
+\binom{n+r-1}{r}.
+\]</span></p>
+</div>
+<div id="exr-bitstreng" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.20 (Les en skilletegnskode)</strong></span> Bruk rekkefølgen vanilje, sjokolade, jordbær, pistasj og kaffe. Hvilket utvalg av syv iskuler kodes av</p>
+<p><span class="math display">\[
+10001100010?
+\]</span></p>
+<p>Kontroller først at strengen faktisk inneholder syv nuller og fire skilletegn.</p>
+</div>
+<div id="exr-heltallsloesninger" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.21 (Ikke-negative heltallsløsninger)</strong></span> Hvor mange løsninger finnes til</p>
+<p><span class="math display">\[
+x_1+x_2+x_3=8
+\]</span></p>
+<p>når <span class="math inline">\(x_1,x_2,x_3\)</span> er ikke-negative heltall?</p>
+<ol type="1">
+<li>Oversett problemet til en skilletegnskode.</li>
+<li>Bruk <a href="#thm-ikke-negative-losninger" class="quarto-xref">Teorem&nbsp;<span>1.9</span></a>.</li>
+<li>Kontroller svaret ved å løse det mindre problemet <span class="math inline">\(x_1+x_2+x_3=3\)</span> ved å liste opp alle løsningene.</li>
+</ol>
+</div>
+<div id="exr-positive-loesninger" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.22 (Når alle må få minst én)</strong></span> Hvor mange løsninger finnes til</p>
+<p><span class="math display">\[
+x_1+x_2+x_3=8
+\]</span></p>
+<p>når <span class="math inline">\(x_1,x_2,x_3\)</span> er <strong>positive</strong> heltall?</p>
+<p>Hint: Sett <span class="math inline">\(y_i=x_i-1\)</span>. Hvilken ligning får du for de ikke-negative heltallene <span class="math inline">\(y_1,y_2,y_3\)</span>?</p>
+</div>
+<div id="exr-ki-godteri" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.23 (KI: Hva er egentlig et godteriproblem?)</strong></span> Gi en KI dette spørsmålet:</p>
+<blockquote class="blockquote">
+<p>På hvor mange måter kan åtte godterier fordeles mellom tre barn?</p>
+</blockquote>
+<p>Ikke gi mer informasjon først. Undersøk om KI-en oppdager at problemet er tvetydig. Diskuter minst disse spørsmålene:</p>
+<ul>
+<li>Er godteriene forskjellige eller identiske?</li>
+<li>Er barna forskjellige?</li>
+<li>Kan et barn få null godterier?</li>
+<li>Teller rekkefølgen som godteriene deles ut i?</li>
+</ul>
+<p>Skriv deretter om problemet slik at svaret <strong>entydig</strong> skal finnes med stars-and-bars-metoden, og løs den presise versjonen selv.</p>
+</div>
 </section>
-<section id="teorem-4" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="teorem-4"><span class="header-section-number">7.5</span> Teorem</h2>
-<p>Antallet av løsninger til ligningen <span class="math inline">\(x_1 + \dots + x_n = r\)</span> for ikke-negative heltall <span class="math inline">\(x_1, \dots, x_n\)</span> er <span class="math display">\[\binom {n+r -1}{r}\]</span></p>
+<section id="blandede-oppgaver" class="level3">
+<h3 class="anchored" data-anchor-id="blandede-oppgaver">Blandede oppgaver</h3>
+<div id="exr-fire-grunnsituasjoner" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.24 (Kjenn igjen de fire grunnsituasjonene)</strong></span> For hvert problem nedenfor skal du først svare på de to spørsmålene «Teller rekkefølgen?» og «Er repetisjon tillatt?». Velg deretter riktig tellemetode og finn antallet.</p>
+<ol type="1">
+<li>Gull, sølv og bronse skal fordeles til tre forskjellige deltakere blant <span class="math inline">\(10\)</span>.</li>
+<li>Fire studenter skal velges til en gruppe blant <span class="math inline">\(15\)</span> studenter.</li>
+<li>Et passord består av seks tegn valgt fra <span class="math inline">\(26\)</span> bokstaver; bokstaver kan gjentas.</li>
+<li>Du velger åtte iskuler fra fire smaker med ubegrenset mengde av hver smak; rekkefølgen spiller ingen rolle.</li>
+</ol>
+<p>Forklar med én setning for hvert problem hvorfor det havner i den grunnsituasjonen du valgte.</p>
+</div>
+<div id="exr-ki-lag-problempar" class="theorem exercise">
+<p><span class="theorem-title"><strong>Oppgave 1.25 (KI: Lag nesten like problemer)</strong></span> Be en KI lage et <strong>par</strong> telleproblemer som ser nesten like ut, men der</p>
+<ul>
+<li>det ene problemet skal løses som et uordnet utvalg uten repetisjon,</li>
+<li>det andre som et ordnet utvalg uten repetisjon.</li>
+</ul>
+<p>KI-en skal ikke oppgi løsningene med en gang.</p>
+<p>Gjør så følgende:</p>
+<ol type="1">
+<li>Identifiser den lille språklige forskjellen som gjør at tellemetoden endres.</li>
+<li>Løs begge problemene selv.</li>
+<li>Be KI-en vise sine løsninger og kontroller dem.</li>
+<li>Hvis problemene ikke faktisk skiller de to situasjonene tydelig, forbedre formuleringene selv.</li>
+</ol>
+</div>
+<p>Vi har nå kommet tilbake til kartet fra starten. Før du bruker en formel i et telleproblem, spør:</p>
+<ol type="1">
+<li>Teller rekkefølgen?</li>
+<li>Er repetisjon tillatt?</li>
+</ol>
+<p>Når du kan svare på disse to spørsmålene og forklare <strong>hvorfor</strong>, er det vanligvis mye lettere å velge riktig tellemetode.</p>
 
 
 </section>
@@ -692,6 +1120,19 @@ y(x + y)^6 &amp; = &amp;&amp;&amp;x^6y &amp;+&amp;  6 x^5y^2 &amp;+&amp; 15 x^4y
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -715,12 +1156,12 @@ y(x + y)^6 &amp; = &amp;&amp;&amp;x^6y &amp;+&amp;  6 x^5y^2 &amp;+&amp; 15 x^4y
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Kopiert!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Kopiert!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -1093,7 +1534,7 @@ y(x + y)^6 &amp; = &amp;&amp;&amp;x^6y &amp;+&amp;  6 x^5y^2 &amp;+&amp; 15 x^4y
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../index.html" class="pagination-link" aria-label="Om kurset">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Om kurset</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Om kurset</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
