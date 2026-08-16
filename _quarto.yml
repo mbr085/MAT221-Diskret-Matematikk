@@ -9,6 +9,8 @@ book:
     - index.qmd
     - notes/uke34.qmd
 
+number-depth: 1
+
 crossref:
   thm-title: "Teorem"
   thm-prefix: "Teorem"
