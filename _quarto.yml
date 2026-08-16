@@ -9,11 +9,26 @@ book:
     - index.qmd
     - notes/uke34.qmd
 
+crossref:
+  thm-title: "Teorem"
+  thm-prefix: "Teorem"
+  cor-title: "Korollar"
+  cor-prefix: "Korollar"
+  exr-title: "Oppgave"
+  exr-prefix: "Oppgave"
+  exm-title: "Eksempel"
+  exm-prefix: "Eksempel"
+
 format:
   html:
+    theme:
+      light: cosmo
+      dark: darkly
+    respect-user-color-scheme: true
     toc: true
     number-sections: true
     code-copy: true
+
   pdf:
     documentclass: scrreprt
     number-sections: true
