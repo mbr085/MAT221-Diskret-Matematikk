@@ -20,12 +20,12 @@ I denne uken skal vi lære noen grunnleggende metoder for å telle. De samme to 
 
 Disse spørsmålene leder til fire grunnleggende typer utvalg:
 
-| | Uten repetisjon | Med repetisjon |
-|---|---|---|
-| **Rekkefølgen teller** | $\dfrac{n!}{(n-r)!}$ | $n^r$ |
-| **Rekkefølgen teller ikke** | $\binom nr$ | $\binom{n+r-1}{r}$ |
+- **Rekkefølgen teller, uten repetisjon:** $\dfrac{n!}{(n-r)!}$.
+- **Rekkefølgen teller, med repetisjon:** $n^r$.
+- **Rekkefølgen teller ikke, uten repetisjon:** $\binom nr$.
+- **Rekkefølgen teller ikke, med repetisjon:** $\binom{n+r-1}{r}$.
 
-Tabellen er en oversikt over hvor vi skal. Poenget er ikke å pugge fire formler, men å forstå hvorfor de fire situasjonene er forskjellige, og hvordan formlene følger av noen få enkle telleprinsipper.
+Oversikten viser hvor vi skal. Poenget er ikke å pugge fire formler, men å forstå hvorfor de fire situasjonene er forskjellige, og hvordan formlene følger av noen få enkle telleprinsipper.
 
 ## Basale prinsipper {#sec-basale-prinsipper}
 
