@@ -1,14 +1,49 @@
-/* Forelesningsvisning: bred tekst når Quarto reader mode er aktiv. */
+/* Knappen vises bare når Quarto reader mode er aktiv. */
+#reader-mode-exit {
+  display: none;
+}
+
+body:has(.quarto-reader-toggle.reader) #reader-mode-exit {
+  display: block;
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 2000;
+
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.35rem;
+
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+}
+
+body:has(.quarto-reader-toggle.reader) #reader-mode-exit:hover {
+  opacity: 1;
+}
+
+
+/* Forelesningsvisning. */
 @media (min-width: 992px) {
 
-  /* Fjern både de ordinære sidefeltene og reader-mode-menyene. */
+  /* Større skrift bare i reader mode. */
+  html:has(.quarto-reader-toggle.reader) {
+    --bs-root-font-size: 20px;
+  }
+
+  /* Fjern sidefeltene helt. */
   #quarto-content:has(.quarto-reader-toggle.reader) #quarto-sidebar,
   #quarto-content:has(.quarto-reader-toggle.reader) #quarto-margin-sidebar,
   #quarto-content:has(.quarto-reader-toggle.reader) .quarto-sidebar-toggle {
     display: none !important;
   }
 
-  /* La hovedteksten bruke nesten hele skjermbredden. */
+  /* Bruk nesten hele skjermbredden. */
   #quarto-content:has(.quarto-reader-toggle.reader) > main.content {
     grid-column: screen-start / screen-end !important;
     width: auto !important;
@@ -17,7 +52,7 @@
     margin-left: 0 !important;
     margin-right: 0 !important;
 
-    padding-left: clamp(1.5rem, 4vw, 5rem);
-    padding-right: clamp(1.5rem, 4vw, 5rem);
+    padding-left: clamp(2rem, 4vw, 5rem);
+    padding-right: clamp(2rem, 4vw, 5rem);
   }
 }
