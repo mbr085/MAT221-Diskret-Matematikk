@@ -7,6 +7,7 @@ lang: nb
 book:
   title: "MAT221 Diskret matematikk"
   author: "Morten Brun"
+  reader-mode: true
   chapters:
     - index.qmd
     - notes/uke34.qmd
