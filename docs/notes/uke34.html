@@ -109,35 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -394,7 +365,7 @@ window.Quarto = {
   <li><a href="#sec-binomialkoeffisienter" id="toc-sec-binomialkoeffisienter" class="nav-link" data-scroll-target="#sec-binomialkoeffisienter"><span class="header-section-number">1.4</span> Binomialkoeffisienter og Pascals trekant</a>
   <ul class="collapse">
   <li><a href="#pascals-trekant" id="toc-pascals-trekant" class="nav-link" data-scroll-target="#pascals-trekant">Pascals trekant</a></li>
-  <li><a href="#sec-pascal-potenser" id="toc-sec-pascal-potenser" class="nav-link" data-scroll-target="#sec-pascal-potenser">Pascals trekant og potenser av <span class="math inline">\(x+y\)</span></a></li>
+  <li><a href="#sec-pascal-potenser" id="toc-sec-pascal-potenser" class="nav-link" data-scroll-target="#sec-pascal-potenser">Pascals trekant og potenser av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x+y</annotation></semantics></math></a></li>
   <li><a href="#sec-pascal-diagonaler" id="toc-sec-pascal-diagonaler" class="nav-link" data-scroll-target="#sec-pascal-diagonaler">Diagonaler av Pascals trekant</a></li>
   </ul></li>
   <li><a href="#sec-utvalg-med-repetisjoner" id="toc-sec-utvalg-med-repetisjoner" class="nav-link" data-scroll-target="#sec-utvalg-med-repetisjoner"><span class="header-section-number">1.5</span> Utvalg med repetisjoner</a>
@@ -437,12 +408,12 @@ window.Quarto = {
 <li><strong>Er repetisjon tillatt?</strong></li>
 </ol>
 <p>Til slutt skal vi kunne skille mellom fire grunnsituasjoner:</p>
-<p>Her er <span class="math inline">\(n\)</span> antallet tilgjengelige objekter eller objekttyper, og <span class="math inline">\(r\)</span> antallet valg vi gjør.</p>
+<p>Her er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> antallet tilgjengelige objekter eller objekttyper, og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> antallet valg vi gjør.</p>
 <ul>
-<li><strong>Rekkefølgen teller, uten repetisjon:</strong> <span class="math inline">\(\dfrac{n!}{(n-r)!}\)</span>.</li>
-<li><strong>Rekkefølgen teller, med repetisjon:</strong> <span class="math inline">\(n^r\)</span>.</li>
-<li><strong>Rekkefølgen teller ikke, uten repetisjon:</strong> <span class="math inline">\(\binom nr\)</span>.</li>
-<li><strong>Rekkefølgen teller ikke, med repetisjon:</strong> <span class="math inline">\(\binom{n+r-1}{r}\)</span>.</li>
+<li><strong>Rekkefølgen teller, uten repetisjon:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mstyle displaystyle="true"><mfrac><mrow><mi>n</mi><mi>!</mi></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac></mstyle><annotation encoding="application/x-tex">\dfrac{n!}{(n-r)!}</annotation></semantics></math>.</li>
+<li><strong>Rekkefølgen teller, med repetisjon:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mi>r</mi></msup><annotation encoding="application/x-tex">n^r</annotation></semantics></math>.</li>
+<li><strong>Rekkefølgen teller ikke, uten repetisjon:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom nr</annotation></semantics></math>.</li>
+<li><strong>Rekkefølgen teller ikke, med repetisjon:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>n</mi><mo>+</mo><mi>r</mi><mo>−</mo><mn>1</mn></mrow><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom{n+r-1}{r}</annotation></semantics></math>.</li>
 </ul>
 <p>Dette er et kart over stoffet, ikke en liste som skal pugges. Målet er å forstå hvorfor de fire situasjonene er forskjellige, og å kunne kjenne dem igjen i nye problemer.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Om KI-oppgavene">
@@ -470,43 +441,43 @@ window.Quarto = {
 <p>De to viktigste telleprinsippene er svært enkle. Vi <strong>multipliserer</strong> når en aktivitet består av flere trinn som alle skal utføres, og vi <strong>adderer</strong> når vi deler mulighetene opp i adskilte tilfeller.</p>
 <section id="sec-multiplikasjonsprinsippet" class="level3">
 <h3 class="anchored" data-anchor-id="sec-multiplikasjonsprinsippet">Multiplikasjonsprinsippet</h3>
-<p>Anta at en aktivitet består av <span class="math inline">\(k\)</span> trinn <span class="math inline">\(H_1,H_2,\dots,H_k\)</span>. Hvis det, etter hvert mulig valg i de foregående trinnene, finnes nøyaktig <span class="math inline">\(\alpha_i\)</span> muligheter i trinn <span class="math inline">\(H_i\)</span>, kan hele aktiviteten utføres på</p>
-<p><span class="math display">\[
+<p>Anta at en aktivitet består av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> trinn <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>,</mo><msub><mi>H</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>H</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">H_1,H_2,\dots,H_k</annotation></semantics></math>. Hvis det, etter hvert mulig valg i de foregående trinnene, finnes nøyaktig <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math> muligheter i trinn <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>i</mi></msub><annotation encoding="application/x-tex">H_i</annotation></semantics></math>, kan hele aktiviteten utføres på</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>1</mn></msub><msub><mi>α</mi><mn>2</mn></msub><mi>⋯</mi><msub><mi>α</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">
 \alpha_1\alpha_2\cdots\alpha_k
-\]</span></p>
+</annotation></semantics></math></p>
 <p>forskjellige måter.</p>
 <p>Tanken er: for hver mulighet i første trinn kan vi fortsette med alle mulighetene i andre trinn, og slik fortsetter vi.</p>
 <div id="exm-meny" class="theorem example">
-<p><span class="theorem-title"><strong>Eksempel 1.1 (En meny i tre trinn)</strong></span> En kafé tilbyr <span class="math inline">\(3\)</span> forretter, <span class="math inline">\(4\)</span> hovedretter og <span class="math inline">\(2\)</span> desserter. Hvis et måltid består av én rett fra hver kategori, finnes det</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Eksempel 1.1 (En meny i tre trinn)</strong></span> En kafé tilbyr <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math> forretter, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math> hovedretter og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math> desserter. Hvis et måltid består av én rett fra hver kategori, finnes det</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>⋅</mo><mn>4</mn><mo>⋅</mo><mn>2</mn><mo>=</mo><mn>24</mn></mrow><annotation encoding="application/x-tex">
 3\cdot4\cdot2=24
-\]</span></p>
+</annotation></semantics></math></p>
 <p>forskjellige måltider.</p>
 <p>Her er antallet valg i hvert trinn det samme uansett hva vi valgte tidligere.</p>
 </div>
 <div id="exm-to-personer-fire-plasser" class="theorem example">
 <p><span class="theorem-title"><strong>Eksempel 1.2 (To personer på fire plasser)</strong></span> To forskjellige personer skal plasseres på to av fire markerte plasser.</p>
-<p>Første person kan velge mellom <span class="math inline">\(4\)</span> plasser. Når denne personen har satt seg, er det <span class="math inline">\(3\)</span> plasser igjen til den andre. Derfor finnes det</p>
-<p><span class="math display">\[
+<p>Første person kan velge mellom <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math> plasser. Når denne personen har satt seg, er det <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math> plasser igjen til den andre. Derfor finnes det</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>⋅</mo><mn>3</mn><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">
 4\cdot3=12
-\]</span></p>
+</annotation></semantics></math></p>
 <p>forskjellige plasseringer.</p>
-<p>Her avhenger antallet muligheter i andre trinn av at én plass allerede er opptatt, men det er fortsatt alltid nøyaktig <span class="math inline">\(3\)</span> muligheter.</p>
+<p>Her avhenger antallet muligheter i andre trinn av at én plass allerede er opptatt, men det er fortsatt alltid nøyaktig <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math> muligheter.</p>
 </div>
 <div id="exm-delmengder-bitstrenger" class="theorem example">
-<p><span class="theorem-title"><strong>Eksempel 1.3 (Delmengder og binære sekvenser)</strong></span> For hvert av elementene i mengden <span class="math inline">\(\{1,2,\dots,n\}\)</span> har vi to valg: elementet er med i en delmengde, eller det er ikke med.</p>
+<p><span class="theorem-title"><strong>Eksempel 1.3 (Delmengder og binære sekvenser)</strong></span> For hvert av elementene i mengden <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1,2,\dots,n\}</annotation></semantics></math> har vi to valg: elementet er med i en delmengde, eller det er ikke med.</p>
 <p>Multiplikasjonsprinsippet gir derfor</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>⋅</mo><mn>2</mn><mi>⋯</mi><mn>2</mn><mo>=</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">
 2\cdot2\cdots2=2^n
-\]</span></p>
+</annotation></semantics></math></p>
 <p>delmengder.</p>
-<p>Vi kan kode en delmengde med en binær sekvens <span class="math inline">\(x_1x_2\cdots x_n\)</span>, der <span class="math inline">\(x_i=1\)</span> dersom <span class="math inline">\(i\)</span> er med i delmengden og <span class="math inline">\(x_i=0\)</span> ellers. For eksempel svarer delmengden <span class="math inline">\(\{1,3\}\subseteq\{1,2,3\}\)</span> til sekvensen <span class="math inline">\(101\)</span>.</p>
+<p>Vi kan kode en delmengde med en binær sekvens <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><msub><mi>x</mi><mn>2</mn></msub><mi>⋯</mi><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_1x_2\cdots x_n</annotation></semantics></math>, der <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x_i=1</annotation></semantics></math> dersom <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> er med i delmengden og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_i=0</annotation></semantics></math> ellers. For eksempel svarer delmengden <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo><mo>⊆</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1,3\}\subseteq\{1,2,3\}</annotation></semantics></math> til sekvensen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>101</mn><annotation encoding="application/x-tex">101</annotation></semantics></math>.</p>
 </div>
 <div id="exr-finneeksemplermultiplikasjonsprinsippet" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.1 (Finn egne eksempler)</strong></span> Finn to situasjoner der multiplikasjonsprinsippet kan brukes. Prøv å finne ett eksempel der antallet muligheter er det samme i hvert trinn, og ett der det endrer seg underveis.</p>
 </div>
 <div id="exr-kode-multiplikasjon" class="theorem exercise">
-<p><span class="theorem-title"><strong>Oppgave 1.2 (En kode med bokstaver og sifre)</strong></span> En kode består av to bokstaver fra det norske alfabetet med <span class="math inline">\(29\)</span> bokstaver, etterfulgt av tre sifre. Repetisjon er tillatt.</p>
+<p><span class="theorem-title"><strong>Oppgave 1.2 (En kode med bokstaver og sifre)</strong></span> En kode består av to bokstaver fra det norske alfabetet med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>29</mn><annotation encoding="application/x-tex">29</annotation></semantics></math> bokstaver, etterfulgt av tre sifre. Repetisjon er tillatt.</p>
 <ol type="1">
 <li>Hvor mange koder finnes det?</li>
 <li>Hvilke fem trinn bruker du i multiplikasjonsprinsippet?</li>
@@ -526,26 +497,26 @@ window.Quarto = {
 </section>
 <section id="sec-addisjonsprinsippet" class="level3">
 <h3 class="anchored" data-anchor-id="sec-addisjonsprinsippet">Addisjonsprinsippet</h3>
-<p>Noen telleproblemer deles naturlig opp i <strong>adskilte tilfeller</strong>. Anta at hvert mulig utfall ligger i nøyaktig ett av tilfellene <span class="math inline">\(H_1,\dots,H_k\)</span>, og at tilfellene har henholdsvis <span class="math inline">\(\alpha_1,\dots,\alpha_k\)</span> mulige utfall. Da finnes det totalt</p>
-<p><span class="math display">\[
+<p>Noen telleproblemer deles naturlig opp i <strong>adskilte tilfeller</strong>. Anta at hvert mulig utfall ligger i nøyaktig ett av tilfellene <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>H</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">H_1,\dots,H_k</annotation></semantics></math>, og at tilfellene har henholdsvis <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>α</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\alpha_1,\dots,\alpha_k</annotation></semantics></math> mulige utfall. Da finnes det totalt</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>1</mn></msub><mo>+</mo><msub><mi>α</mi><mn>2</mn></msub><mo>+</mo><mi>⋯</mi><mo>+</mo><msub><mi>α</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">
 \alpha_1+\alpha_2+\cdots+\alpha_k
-\]</span></p>
+</annotation></semantics></math></p>
 <p>mulige utfall.</p>
 <p>Ordet <em>adskilte</em> er viktig: hvis samme utfall kan ligge i to av tilfellene, vil vi telle det mer enn én gang.</p>
 <div id="exm-emnevalg" class="theorem example">
-<p><span class="theorem-title"><strong>Eksempel 1.4 (Valg av ett emne)</strong></span> En student skal velge <strong>ett</strong> valgemne. Hun kan velge mellom <span class="math inline">\(5\)</span> matematikkemner og <span class="math inline">\(7\)</span> informatikkemner, og ingen emner står på begge listene.</p>
+<p><span class="theorem-title"><strong>Eksempel 1.4 (Valg av ett emne)</strong></span> En student skal velge <strong>ett</strong> valgemne. Hun kan velge mellom <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math> matematikkemner og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math> informatikkemner, og ingen emner står på begge listene.</p>
 <p>Valget ligger enten i matematikktilfellet eller i informatikktilfellet. Addisjonsprinsippet gir derfor</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>+</mo><mn>7</mn><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">
 5+7=12
-\]</span></p>
+</annotation></semantics></math></p>
 <p>mulige emner.</p>
 </div>
 <div id="exr-addisjon-eller-multiplikasjon" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.4 (Addere eller multiplisere?)</strong></span> Forklar om du vil bruke addisjonsprinsippet, multiplikasjonsprinsippet eller begge i hver situasjon. Regn deretter ut svaret.</p>
 <ol type="1">
-<li>Du skal velge enten én av <span class="math inline">\(6\)</span> romaner eller én av <span class="math inline">\(4\)</span> diktsamlinger.</li>
-<li>Du skal velge én av <span class="math inline">\(6\)</span> romaner <strong>og</strong> én av <span class="math inline">\(4\)</span> diktsamlinger.</li>
-<li>En kafé har <span class="math inline">\(3\)</span> varme retter og <span class="math inline">\(5\)</span> kalde retter. Hver rett kan bestilles med én av <span class="math inline">\(4\)</span> drikker. Hvor mange kombinasjoner av én rett og én drikk finnes det?</li>
+<li>Du skal velge enten én av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math> romaner eller én av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math> diktsamlinger.</li>
+<li>Du skal velge én av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math> romaner <strong>og</strong> én av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math> diktsamlinger.</li>
+<li>En kafé har <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math> varme retter og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5</mn><annotation encoding="application/x-tex">5</annotation></semantics></math> kalde retter. Hver rett kan bestilles med én av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math> drikker. Hvor mange kombinasjoner av én rett og én drikk finnes det?</li>
 </ol>
 </div>
 <p>Multiplikasjons- og addisjonsprinsippet er byggesteinene i resten av kapitlet. Ofte bruker vi begge i samme argument: først deler vi et problem i tilfeller, og så teller vi hvert tilfelle trinn for trinn.</p>
@@ -554,30 +525,30 @@ window.Quarto = {
 <section id="sec-fakultet" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sec-fakultet"><span class="header-section-number">1.2</span> Fakultet</h2>
 <p>Når vi plasserer forskjellige objekter i rekkefølge, dukker produktet</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>⋯</mi><mn>2</mn><mo>⋅</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
 n(n-1)(n-2)\cdots2\cdot1
-\]</span></p>
+</annotation></semantics></math></p>
 <p>opp hele tiden. Derfor gir vi det et eget navn.</p>
-<p>For et positivt heltall <span class="math inline">\(n\)</span> definerer vi <strong><span class="math inline">\(n\)</span>-fakultet</strong> ved</p>
-<p><span class="math display">\[
+<p>For et positivt heltall <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> definerer vi <strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>-fakultet</strong> ved</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>!</mi><mo>=</mo><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>⋯</mi><mn>2</mn><mo>⋅</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 n!=n(n-1)(n-2)\cdots2\cdot1.
-\]</span></p>
-<p>Vi setter også <span class="math inline">\(0!=1\)</span>. Denne konvensjonen gjør at formlene senere i kapitlet også fungerer i randtilfellene.</p>
+</annotation></semantics></math></p>
+<p>Vi setter også <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>!</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0!=1</annotation></semantics></math>. Denne konvensjonen gjør at formlene senere i kapitlet også fungerer i randtilfellene.</p>
 <div id="thm-plasseren" class="theorem">
-<p><span class="theorem-title"><strong>Teorem 1.1 (Plassering på markerte plasser)</strong></span> Aktiviteten å plassere <span class="math inline">\(n\)</span> forskjellige objekter på <span class="math inline">\(n\)</span> markerte plasser kan utføres på <span class="math inline">\(n!\)</span> forskjellige måter.</p>
+<p><span class="theorem-title"><strong>Teorem 1.1 (Plassering på markerte plasser)</strong></span> Aktiviteten å plassere <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> forskjellige objekter på <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> markerte plasser kan utføres på <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">n!</annotation></semantics></math> forskjellige måter.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Bevis</em> (Begrunnelse). </span>Det er <span class="math inline">\(n\)</span> muligheter for det første objektet, <span class="math inline">\(n-1\)</span> for det andre, og slik fortsetter det til den siste plassen. Multiplikasjonsprinsippet gir</p>
-<p><span class="math display">\[
+<p><span class="proof-title"><em>Bevis</em> (Begrunnelse). </span>Det er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> muligheter for det første objektet, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math> for det andre, og slik fortsetter det til den siste plassen. Multiplikasjonsprinsippet gir</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>⋯</mi><mn>2</mn><mo>⋅</mo><mn>1</mn><mo>=</mo><mi>n</mi><mi>!</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
 n(n-1)\cdots2\cdot1=n!.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <div id="cor-nirekkefolge" class="theorem corollary">
-<p><span class="theorem-title"><strong>Korollar 1.1 (Plassering i rekkefølge)</strong></span> <span class="math inline">\(n\)</span> forskjellige objekter kan plasseres i rekkefølge på <span class="math inline">\(n!\)</span> forskjellige måter.</p>
+<p><span class="theorem-title"><strong>Korollar 1.1 (Plassering i rekkefølge)</strong></span> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> forskjellige objekter kan plasseres i rekkefølge på <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">n!</annotation></semantics></math> forskjellige måter.</p>
 </div>
 <section id="sec-kombinatorisk-eksplosjon" class="level3">
 <h3 class="anchored" data-anchor-id="sec-kombinatorisk-eksplosjon">Kombinatorisk eksplosjon</h3>
-<p>Tallet <span class="math inline">\(n!\)</span> vokser svært raskt med <span class="math inline">\(n\)</span>:</p>
+<p>Tallet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">n!</annotation></semantics></math> vokser svært raskt med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>:</p>
 <div id="941fbf12" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">8</span>), math.factorial(<span class="dv">18</span>), math.factorial(<span class="dv">28</span>)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -588,13 +559,13 @@ n(n-1)\cdots2\cdot1=n!.
 </section>
 <section id="ordnede-utvalg-uten-repetisjon" class="level3">
 <h3 class="anchored" data-anchor-id="ordnede-utvalg-uten-repetisjon">Ordnede utvalg uten repetisjon</h3>
-<p>Vi trenger ikke alltid plassere alle de <span class="math inline">\(n\)</span> objektene. Kanskje skal vi bare velge <span class="math inline">\(r\)</span> av dem, men fortsatt huske rekkefølgen.</p>
+<p>Vi trenger ikke alltid plassere alle de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> objektene. Kanskje skal vi bare velge <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> av dem, men fortsatt huske rekkefølgen.</p>
 <div id="exm-fire-personer-tjue-plasser" class="theorem example">
-<p><span class="theorem-title"><strong>Eksempel 1.5 (Fire personer på tjue plasser)</strong></span> Fire forskjellige personer skal plasseres på hver sin plass blant <span class="math inline">\(20\)</span> markerte plasser.</p>
-<p>Første person har <span class="math inline">\(20\)</span> muligheter, den andre <span class="math inline">\(19\)</span>, den tredje <span class="math inline">\(18\)</span> og den fjerde <span class="math inline">\(17\)</span>. Derfor finnes det</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Eksempel 1.5 (Fire personer på tjue plasser)</strong></span> Fire forskjellige personer skal plasseres på hver sin plass blant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>20</mn><annotation encoding="application/x-tex">20</annotation></semantics></math> markerte plasser.</p>
+<p>Første person har <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>20</mn><annotation encoding="application/x-tex">20</annotation></semantics></math> muligheter, den andre <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>19</mn><annotation encoding="application/x-tex">19</annotation></semantics></math>, den tredje <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>18</mn><annotation encoding="application/x-tex">18</annotation></semantics></math> og den fjerde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>17</mn><annotation encoding="application/x-tex">17</annotation></semantics></math>. Derfor finnes det</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>⋅</mo><mn>19</mn><mo>⋅</mo><mn>18</mn><mo>⋅</mo><mn>17</mn><mo>=</mo><mfrac><mrow><mn>20</mn><mi>!</mi></mrow><mrow><mn>16</mn><mi>!</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 20\cdot19\cdot18\cdot17=\frac{20!}{16!}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>forskjellige plasseringer.</p>
 <div id="2d3e361d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">20</span>) <span class="op">//</span> math.factorial(<span class="dv">16</span>)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
@@ -603,15 +574,15 @@ n(n-1)\cdots2\cdot1=n!.
 </div>
 </div>
 </div>
-<p>Det samme argumentet virker for vilkårlige <span class="math inline">\(n\)</span> og <span class="math inline">\(r\)</span>.</p>
+<p>Det samme argumentet virker for vilkårlige <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>.</p>
 <div id="thm-ravn" class="theorem">
-<p><span class="theorem-title"><strong>Teorem 1.2 (Ordnet utvalg uten repetisjon)</strong></span> La <span class="math inline">\(0\le r\le n\)</span>. Antallet <strong>ordnede</strong> utvalg av <span class="math inline">\(r\)</span> forskjellige objekter fra en samling med <span class="math inline">\(n\)</span> forskjellige objekter, uten repetisjon, er</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Teorem 1.2 (Ordnet utvalg uten repetisjon)</strong></span> La <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>r</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0\le r\le n</annotation></semantics></math>. Antallet <strong>ordnede</strong> utvalg av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> forskjellige objekter fra en samling med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> forskjellige objekter, uten repetisjon, er</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>⋯</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>n</mi><mi>!</mi></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 n(n-1)\cdots(n-r+1)=\frac{n!}{(n-r)!}.
-\]</span></p>
-<p>Når <span class="math inline">\(r=0\)</span>, tolker vi produktet på venstresiden som det tomme produktet <span class="math inline">\(1\)</span>.</p>
+</annotation></semantics></math></p>
+<p>Når <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r=0</annotation></semantics></math>, tolker vi produktet på venstresiden som det tomme produktet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>.</p>
 </div>
-<p>Her er to ting avgjørende: vi kan ikke velge samme objekt to ganger, og vi skiller mellom forskjellige rekkefølger. Utvalgene <span class="math inline">\((a,b,c)\)</span> og <span class="math inline">\((b,a,c)\)</span> regnes altså som forskjellige.</p>
+<p>Her er to ting avgjørende: vi kan ikke velge samme objekt to ganger, og vi skiller mellom forskjellige rekkefølger. Utvalgene <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a,b,c)</annotation></semantics></math> og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo>,</mo><mi>a</mi><mo>,</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(b,a,c)</annotation></semantics></math> regnes altså som forskjellige.</p>
 <div id="exr-kortstokk" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.5 (To kort med rekkefølge)</strong></span> På hvor mange måter kan vi trekke to forskjellige kort fra en vanlig kortstokk uten tilbakelegging når vi husker rekkefølgen kortene ble trukket i?</p>
 </div>
@@ -642,18 +613,18 @@ n(n-1)\cdots(n-r+1)=\frac{n!}{(n-r)!}.
 <div id="exm-fire-av-tjue" class="theorem example">
 <p><span class="theorem-title"><strong>Eksempel 1.6 (Fire av tjue plasser)</strong></span> Vi vil velge fire av tjue markerte plasser.</p>
 <p>Hvis vi først markerer plassene én etter én og husker rekkefølgen, finnes det</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>⋅</mo><mn>19</mn><mo>⋅</mo><mn>18</mn><mo>⋅</mo><mn>17</mn><mo>=</mo><mfrac><mrow><mn>20</mn><mi>!</mi></mrow><mrow><mn>16</mn><mi>!</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 20\cdot19\cdot18\cdot17=\frac{20!}{16!}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>ordnede valg.</p>
-<p>Men når vi bare bryr oss om hvilke fire plasser som er valgt, beskriver de <span class="math inline">\(4!\)</span> mulige rekkefølgene av de samme fire plassene det samme utvalget. Hvis <span class="math inline">\(A\)</span> er antallet uordnede utvalg, får vi</p>
-<p><span class="math display">\[
+<p>Men når vi bare bryr oss om hvilke fire plasser som er valgt, beskriver de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mi>!</mi></mrow><annotation encoding="application/x-tex">4!</annotation></semantics></math> mulige rekkefølgene av de samme fire plassene det samme utvalget. Hvis <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> er antallet uordnede utvalg, får vi</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>⋅</mo><mn>4</mn><mi>!</mi><mo>=</mo><mfrac><mrow><mn>20</mn><mi>!</mi></mrow><mrow><mn>16</mn><mi>!</mi></mrow></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
 A\cdot4!=\frac{20!}{16!},
-\]</span></p>
+</annotation></semantics></math></p>
 <p>og dermed</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mfrac><mrow><mn>20</mn><mi>!</mi></mrow><mrow><mn>4</mn><mi>!</mi><mn>16</mn><mi>!</mi></mrow></mfrac><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>20</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 A=\frac{20!}{4!16!}=\binom{20}{4}.
-\]</span></p>
+</annotation></semantics></math></p>
 <div id="0851e81b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>math.comb(<span class="dv">20</span>, <span class="dv">4</span>)</span></code></pre></div><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -661,71 +632,71 @@ A=\frac{20!}{4!16!}=\binom{20}{4}.
 </div>
 </div>
 </div>
-<p>Symbolet <span class="math inline">\(\binom nr\)</span> leses <strong>«<span class="math inline">\(n\)</span> velg <span class="math inline">\(r\)</span>»</strong> og betyr antallet måter å velge <span class="math inline">\(r\)</span> objekter blant <span class="math inline">\(n\)</span> forskjellige objekter når rekkefølgen ikke teller.</p>
+<p>Symbolet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom nr</annotation></semantics></math> leses <strong>«<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> velg <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>»</strong> og betyr antallet måter å velge <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> objekter blant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> forskjellige objekter når rekkefølgen ikke teller.</p>
 <p>Overgangen fra ordnede til uordnede utvalg er et viktig mønster: vi teller først med rekkefølge og deler deretter på antallet rekkefølger som beskriver det samme uordnede utvalget.</p>
 <div id="thm-binomialformelen" class="theorem">
-<p><span class="theorem-title"><strong>Teorem 1.3 (Formelen for binomialkoeffisienten)</strong></span> For <span class="math inline">\(0\le r\le n\)</span> er</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Teorem 1.3 (Formelen for binomialkoeffisienten)</strong></span> For <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>r</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0\le r\le n</annotation></semantics></math> er</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>n</mi><mi>!</mi></mrow><mrow><mi>r</mi><mi>!</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom nr=\frac{n!}{r!(n-r)!}.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Bevis</em> (Begrunnelse). </span>Ved <a href="#thm-ravn" class="quarto-xref">Teorem&nbsp;<span>1.2</span></a> finnes det</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mi>n</mi><mi>!</mi></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac><annotation encoding="application/x-tex">
 \frac{n!}{(n-r)!}
-\]</span></p>
-<p>ordnede utvalg av <span class="math inline">\(r\)</span> objekter uten repetisjon.</p>
-<p>Hvis vi glemmer rekkefølgen, blir hvert uordnet utvalg telt nøyaktig <span class="math inline">\(r!\)</span> ganger, én gang for hver mulig rekkefølge av de <span class="math inline">\(r\)</span> valgte objektene. Derfor</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>ordnede utvalg av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> objekter uten repetisjon.</p>
+<p>Hvis vi glemmer rekkefølgen, blir hvert uordnet utvalg telt nøyaktig <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">r!</annotation></semantics></math> ganger, én gang for hver mulig rekkefølge av de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> valgte objektene. Derfor</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>!</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>n</mi><mi>!</mi></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
 r!\binom nr=\frac{n!}{(n-r)!},
-\]</span></p>
+</annotation></semantics></math></p>
 <p>og dermed</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>n</mi><mi>!</mi></mrow><mrow><mi>r</mi><mi>!</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom nr=\frac{n!}{r!(n-r)!}.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <div id="exm-komite-eller-verv" class="theorem example">
-<p><span class="theorem-title"><strong>Eksempel 1.7 (Komité eller fire verv)</strong></span> Blant <span class="math inline">\(20\)</span> studenter skal fire velges.</p>
+<p><span class="theorem-title"><strong>Eksempel 1.7 (Komité eller fire verv)</strong></span> Blant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>20</mn><annotation encoding="application/x-tex">20</annotation></semantics></math> studenter skal fire velges.</p>
 <p>Hvis de fire bare skal danne en komité, finnes det</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>20</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
 \binom{20}{4}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>muligheter.</p>
 <p>Hvis de i stedet skal få fire forskjellige verv, finnes det</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>⋅</mo><mn>19</mn><mo>⋅</mo><mn>18</mn><mo>⋅</mo><mn>17</mn><mo>=</mo><mn>4</mn><mi>!</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>20</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 20\cdot19\cdot18\cdot17=4!\binom{20}{4}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>muligheter.</p>
-<p>De samme fire studentene gir altså <span class="math inline">\(4!\)</span> forskjellige resultater når rollene skiller dem fra hverandre. Dette er akkurat forskjellen mellom ordnede og uordnede utvalg.</p>
+<p>De samme fire studentene gir altså <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mi>!</mi></mrow><annotation encoding="application/x-tex">4!</annotation></semantics></math> forskjellige resultater når rollene skiller dem fra hverandre. Dette er akkurat forskjellen mellom ordnede og uordnede utvalg.</p>
 </div>
 <div id="exr-fem-av-tjue-plasser" class="theorem exercise">
-<p><span class="theorem-title"><strong>Oppgave 1.7 (Fem av tjue plasser)</strong></span> På hvor mange måter kan du velge fem plasser ut av <span class="math inline">\(20\)</span> når rekkefølgen ikke teller? Sammenlign svaret med antallet ordnede valg av fem plasser.</p>
+<p><span class="theorem-title"><strong>Oppgave 1.7 (Fem av tjue plasser)</strong></span> På hvor mange måter kan du velge fem plasser ut av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>20</mn><annotation encoding="application/x-tex">20</annotation></semantics></math> når rekkefølgen ikke teller? Sammenlign svaret med antallet ordnede valg av fem plasser.</p>
 </div>
 <div id="exr-prosjektgruppe-roller" class="theorem exercise">
-<p><span class="theorem-title"><strong>Oppgave 1.8 (Prosjektgruppe eller roller)</strong></span> I en klasse med <span class="math inline">\(12\)</span> studenter skal tre studenter velges.</p>
+<p><span class="theorem-title"><strong>Oppgave 1.8 (Prosjektgruppe eller roller)</strong></span> I en klasse med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>12</mn><annotation encoding="application/x-tex">12</annotation></semantics></math> studenter skal tre studenter velges.</p>
 <ol type="1">
 <li>Hvor mange forskjellige prosjektgrupper på tre studenter finnes det?</li>
-<li>Hvor mange måter kan man velge en leder, en referent og en presentatør blant de <span class="math inline">\(12\)</span> studentene?</li>
-<li>Forklar hvorfor svarene skiller seg med en faktor <span class="math inline">\(3!\)</span>.</li>
+<li>Hvor mange måter kan man velge en leder, en referent og en presentatør blant de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>12</mn><annotation encoding="application/x-tex">12</annotation></semantics></math> studentene?</li>
+<li>Forklar hvorfor svarene skiller seg med en faktor <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>!</mi></mrow><annotation encoding="application/x-tex">3!</annotation></semantics></math>.</li>
 </ol>
 </div>
 <div id="exr-komplementvalg" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.9 (Velge med eller velge bort)</strong></span> Ti studenter skal fordeles slik at tre deltar på en workshop og de syv andre blir igjen på campus.</p>
 <p>Forklar uten å bruke fakultetsformelen hvorfor</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>10</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>10</mn><mn>7</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom{10}{3}=\binom{10}{7}.
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Beskriv konkret hvordan et valg av tre studenter bestemmer et valg av syv studenter, og omvendt.</p>
 </div>
 <div id="exr-ki-feil-binomial" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.10 (KI: Finn feilen i en telleformel)</strong></span> En KI gir følgende svar på spørsmålet «Hvor mange måter kan vi velge tre studenter blant ti når rekkefølgen ikke teller?»:</p>
 <blockquote class="blockquote">
-<p>Vi har 10 valg for den første studenten, 9 for den andre og 8 for den tredje. Siden rekkefølgen ikke teller, deler vi på 3. Svaret er derfor <span class="math inline">\(10\cdot9\cdot8/3=240\)</span>.</p>
+<p>Vi har 10 valg for den første studenten, 9 for den andre og 8 for den tredje. Siden rekkefølgen ikke teller, deler vi på 3. Svaret er derfor <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>⋅</mo><mn>9</mn><mo>⋅</mo><mn>8</mn><mi>/</mi><mn>3</mn><mo>=</mo><mn>240</mn></mrow><annotation encoding="application/x-tex">10\cdot9\cdot8/3=240</annotation></semantics></math>.</p>
 </blockquote>
 <p>Undersøk svaret.</p>
 <ol type="1">
 <li>Hvilken del av argumentet er riktig?</li>
-<li>Hvorfor er det feil å dele på <span class="math inline">\(3\)</span>?</li>
+<li>Hvorfor er det feil å dele på <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>?</li>
 <li>Hva skal vi dele på i stedet, og hvorfor?</li>
 <li>Be en KI forklare feilen på nytt. Vurder om forklaringen faktisk sier <strong>hvor mange ganger hvert uordnet utvalg ble telt</strong>.</li>
 </ol>
@@ -738,28 +709,28 @@ r!\binom nr=\frac{n!}{(n-r)!},
 <div id="thm-binomialidentiteter" class="theorem">
 <p><span class="theorem-title"><strong>Teorem 1.4 (Identiteter for binomialkoeffisienter)</strong></span> Vi bruker følgende to identiteter:</p>
 <ol type="1">
-<li>For <span class="math inline">\(0\le r\le n\)</span> gjelder <span class="math inline">\(\displaystyle \binom nr=\binom n{n-r}\)</span>.</li>
-<li>For <span class="math inline">\(1\le r\le n\)</span> gjelder <span class="math inline">\(\displaystyle \binom{n+1}r=\binom nr+\binom n{r-1}\)</span>.</li>
+<li>For <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>r</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0\le r\le n</annotation></semantics></math> gjelder <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mi>r</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\displaystyle \binom nr=\binom n{n-r}</annotation></semantics></math>.</li>
+<li>For <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>r</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\le r\le n</annotation></semantics></math> gjelder <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mrow><mi>r</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\displaystyle \binom{n+1}r=\binom nr+\binom n{r-1}</annotation></semantics></math>.</li>
 </ol>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Bevis</em> (Kombinatorisk begrunnelse). </span>Den første identiteten kan forstås uten regning: å velge de <span class="math inline">\(r\)</span> objektene som skal være med, bestemmer samtidig de <span class="math inline">\(n-r\)</span> objektene som ikke skal være med, og omvendt.</p>
-<p>For den andre identiteten velger vi ett spesielt objekt <span class="math inline">\(x\)</span> blant de <span class="math inline">\(n+1\)</span> objektene. Et utvalg av <span class="math inline">\(r\)</span> objekter ligger i nøyaktig ett av to adskilte tilfeller:</p>
+<p><span class="proof-title"><em>Bevis</em> (Kombinatorisk begrunnelse). </span>Den første identiteten kan forstås uten regning: å velge de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> objektene som skal være med, bestemmer samtidig de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">n-r</annotation></semantics></math> objektene som ikke skal være med, og omvendt.</p>
+<p>For den andre identiteten velger vi ett spesielt objekt <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> blant de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n+1</annotation></semantics></math> objektene. Et utvalg av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> objekter ligger i nøyaktig ett av to adskilte tilfeller:</p>
 <ul>
-<li><span class="math inline">\(x\)</span> er med. Da må vi velge de resterende <span class="math inline">\(r-1\)</span> objektene blant de andre <span class="math inline">\(n\)</span> objektene: <span class="math inline">\(\binom n{r-1}\)</span> muligheter.</li>
-<li><span class="math inline">\(x\)</span> er ikke med. Da velger vi alle de <span class="math inline">\(r\)</span> objektene blant de andre <span class="math inline">\(n\)</span> objektene: <span class="math inline">\(\binom nr\)</span> muligheter.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> er med. Da må vi velge de resterende <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r-1</annotation></semantics></math> objektene blant de andre <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> objektene: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mrow><mi>r</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom n{r-1}</annotation></semantics></math> muligheter.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> er ikke med. Da velger vi alle de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> objektene blant de andre <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> objektene: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom nr</annotation></semantics></math> muligheter.</li>
 </ul>
 <p>Addisjonsprinsippet gir derfor</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mrow><mi>r</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom{n+1}r=\binom nr+\binom n{r-1}.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <p>Den andre identiteten kalles ofte <strong>Pascals identitet</strong>. Den gjør det mulig å beregne binomialkoeffisientene uten å bruke fakulteter.</p>
 <div id="exr-ki-pascalbevis" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.11 (KI: Algebraisk eller kombinatorisk forklaring?)</strong></span> Be en KI forklare Pascals identitet</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mrow><mi>r</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom{n+1}{r}=\binom nr+\binom n{r-1}.
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Hvis KI-en bare manipulerer fakultetsuttrykk, be uttrykkelig om en <strong>kombinatorisk forklaring</strong>.</p>
 <p>Sammenlign de to typene forklaring:</p>
 <ol type="1">
@@ -776,26 +747,26 @@ r!\binom nr=\frac{n!}{(n-r)!},
 <section id="pascals-trekant" class="level3">
 <h3 class="anchored" data-anchor-id="pascals-trekant">Pascals trekant</h3>
 <p>Vi starter med randverdiene</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mn>0</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>n</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom n0=\binom nn=1.
-\]</span></p>
-<p>Det finnes jo bare én måte å velge ingenting på, og bare én måte å velge alle <span class="math inline">\(n\)</span> objektene på.</p>
+</annotation></semantics></math></p>
+<p>Det finnes jo bare én måte å velge ingenting på, og bare én måte å velge alle <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> objektene på.</p>
 <p>Pascals identitet sier at hvert indre tall kan finnes ved å legge sammen de to tallene over det. For eksempel gir raden</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>0</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \binom40\quad\binom41\quad\binom42\quad\binom43\quad\binom44
-\]</span></p>
+</annotation></semantics></math></p>
 <p>verdiene</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="1.0em"></mspace><mn>4</mn><mspace width="1.0em"></mspace><mn>6</mn><mspace width="1.0em"></mspace><mn>4</mn><mspace width="1.0em"></mspace><mn>1</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">
 1\quad4\quad6\quad4\quad1,
-\]</span></p>
+</annotation></semantics></math></p>
 <p>og neste rad blir</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="1.0em"></mspace><mn>5</mn><mspace width="1.0em"></mspace><mn>10</mn><mspace width="1.0em"></mspace><mn>10</mn><mspace width="1.0em"></mspace><mn>5</mn><mspace width="1.0em"></mspace><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 1\quad5\quad10\quad10\quad5\quad1.
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Dette mønsteret kalles <strong>Pascals trekant</strong>.</p>
 <div id="bd55dcdf" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(\displaystyle \begin{matrix}
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>10</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>10</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>15</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>20</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>15</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>7</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>21</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>35</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>35</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>21</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>7</mn></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd></mtr></mtable><annotation encoding="application/x-tex">\displaystyle \begin{matrix}
 &amp;&amp;&amp;&amp;&amp;&amp;&amp; 1\\
 &amp;&amp;&amp;&amp;&amp;&amp; 1 &amp;&amp;  1\\
 &amp;&amp;&amp;&amp;&amp; 1 &amp;&amp;  2 &amp;&amp;  1\\
@@ -803,28 +774,28 @@ r!\binom nr=\frac{n!}{(n-r)!},
 &amp;&amp;&amp; 1 &amp;&amp;  4 &amp;&amp;  6 &amp;&amp;  4 &amp;&amp;  1\\
 &amp;&amp; 1 &amp;&amp;  5 &amp;&amp; 10 &amp;&amp; 10 &amp;&amp;  5 &amp;&amp;  1\\
 &amp; 1 &amp;&amp;  6 &amp;&amp; 15 &amp;&amp; 20 &amp;&amp; 15 &amp;&amp;  6 &amp;&amp;  1\\
-1 &amp;&amp;  7 &amp;&amp; 21 &amp;&amp; 35 &amp;&amp; 35 &amp;&amp; 21 &amp;&amp;  7 &amp;&amp;  1\\
-\end{matrix}\)</span></p>
+ 1 &amp;&amp;  7 &amp;&amp; 21 &amp;&amp; 35 &amp;&amp; 35 &amp;&amp; 21 &amp;&amp;  7 &amp;&amp;  1\\
+\end{matrix}</annotation></semantics></math></p>
 </div>
 </div>
-<p>Pascals trekant er ikke bare en effektiv måte å beregne binomialkoeffisienter på. De samme tallene dukker også opp når vi regner med potenser av <span class="math inline">\(x+y\)</span>.</p>
+<p>Pascals trekant er ikke bare en effektiv måte å beregne binomialkoeffisienter på. De samme tallene dukker også opp når vi regner med potenser av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x+y</annotation></semantics></math>.</p>
 <div id="exr-pascal-neste-rader" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.12 (Bygg videre på Pascals trekant)</strong></span> Start med raden</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="1.0em"></mspace><mn>5</mn><mspace width="1.0em"></mspace><mn>10</mn><mspace width="1.0em"></mspace><mn>10</mn><mspace width="1.0em"></mspace><mn>5</mn><mspace width="1.0em"></mspace><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 1\quad5\quad10\quad10\quad5\quad1.
-\]</span></p>
+</annotation></semantics></math></p>
 <ol type="1">
 <li>Finn de to neste radene i Pascals trekant uten å bruke fakultetsformelen.</li>
-<li>Kontroller at summen av tallene i rad <span class="math inline">\(6\)</span> er <span class="math inline">\(2^6\)</span> og summen i rad <span class="math inline">\(7\)</span> er <span class="math inline">\(2^7\)</span>.</li>
+<li>Kontroller at summen av tallene i rad <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math> er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>2</mn><mn>6</mn></msup><annotation encoding="application/x-tex">2^6</annotation></semantics></math> og summen i rad <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math> er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>2</mn><mn>7</mn></msup><annotation encoding="application/x-tex">2^7</annotation></semantics></math>.</li>
 <li>Forklar hvorfor denne kontrollen er naturlig ut fra <a href="#cor-binomialteoremet-x-en" class="quarto-xref">Korollar&nbsp;<span>1.2</span></a> når du kommer til den nedenfor.</li>
 </ol>
 </div>
 </section>
 <section id="sec-pascal-potenser" class="level3">
-<h3 class="anchored" data-anchor-id="sec-pascal-potenser">Pascals trekant og potenser av <span class="math inline">\(x+y\)</span></h3>
+<h3 class="anchored" data-anchor-id="sec-pascal-potenser">Pascals trekant og potenser av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x+y</annotation></semantics></math></h3>
 <div id="8c1aa030" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown">
-<p><span class="math inline">\(\displaystyle \begin{matrix}
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>x</mi><mo>+</mo><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><mi>x</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>y</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>2</mn><mi>x</mi><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>y</mi><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>3</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>3</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>3</mn><mi>x</mi><msup><mi>y</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>y</mi><mn>3</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>4</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn><msup><mi>x</mi><mn>3</mn></msup><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>6</mn><msup><mi>x</mi><mn>2</mn></msup><msup><mi>y</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>4</mn><mi>x</mi><msup><mi>y</mi><mn>3</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>y</mi><mn>4</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>5</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>5</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn><msup><mi>x</mi><mn>4</mn></msup><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>10</mn><msup><mi>x</mi><mn>3</mn></msup><msup><mi>y</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>10</mn><msup><mi>x</mi><mn>2</mn></msup><msup><mi>y</mi><mn>3</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>5</mn><mi>x</mi><msup><mi>y</mi><mn>4</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>y</mi><mn>5</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>6</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>6</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>6</mn><msup><mi>x</mi><mn>5</mn></msup><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>15</mn><msup><mi>x</mi><mn>4</mn></msup><msup><mi>y</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>20</mn><msup><mi>x</mi><mn>3</mn></msup><msup><mi>y</mi><mn>3</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>15</mn><msup><mi>x</mi><mn>2</mn></msup><msup><mi>y</mi><mn>4</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>6</mn><mi>x</mi><msup><mi>y</mi><mn>5</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>y</mi><mn>6</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>7</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mo>=</mo></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>x</mi><mn>7</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>7</mn><msup><mi>x</mi><mn>6</mn></msup><mi>y</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>21</mn><msup><mi>x</mi><mn>5</mn></msup><msup><mi>y</mi><mn>2</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>35</mn><msup><mi>x</mi><mn>4</mn></msup><msup><mi>y</mi><mn>3</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>35</mn><msup><mi>x</mi><mn>3</mn></msup><msup><mi>y</mi><mn>4</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>21</mn><msup><mi>x</mi><mn>2</mn></msup><msup><mi>y</mi><mn>5</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><mn>7</mn><mi>x</mi><msup><mi>y</mi><mn>6</mn></msup></mtd><mtd columnalign="center" style="text-align: center"><mi>+</mi></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>y</mi><mn>7</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd></mtr></mtable><annotation encoding="application/x-tex">\displaystyle \begin{matrix}
 1 &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;1\\
 x + y &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;x &amp;+&amp; y\\
 (x + y)^2 &amp; = &amp;&amp;&amp;&amp;&amp;&amp;x^2 &amp;+&amp;  2 xy &amp;+&amp; y^2\\
@@ -833,55 +804,55 @@ x + y &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;x &amp;+&amp; y\\
 (x + y)^5 &amp; = &amp;&amp;&amp;x^5 &amp;+&amp;  5 x^4y &amp;+&amp; 10 x^3y^2 &amp;+&amp; 10 x^2y^3 &amp;+&amp;  5 xy^4 &amp;+&amp; y^5\\
 (x + y)^6 &amp; = &amp;&amp;x^6 &amp;+&amp;  6 x^5y &amp;+&amp; 15 x^4y^2 &amp;+&amp; 20 x^3y^3 &amp;+&amp; 15 x^2y^4 &amp;+&amp;  6 xy^5 &amp;+&amp; y^6\\
 (x + y)^7 &amp; = &amp;x^7 &amp;+&amp;  7 x^6y &amp;+&amp; 21 x^5y^2 &amp;+&amp; 35 x^4y^3 &amp;+&amp; 35 x^3y^4 &amp;+&amp; 21 x^2y^5 &amp;+&amp;  7 xy^6 &amp;+&amp; y^7\\
-\end{matrix}\)</span></p>
+\end{matrix}</annotation></semantics></math></p>
 </div>
 </div>
 <p>Hvorfor er koeffisientene binomialkoeffisienter? Skriv</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>n</mi></msup><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mi>⋯</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
 (x+y)^n=(x+y)(x+y)\cdots(x+y)
-\]</span></p>
-<p>med <span class="math inline">\(n\)</span> faktorer. For å få et ledd <span class="math inline">\(x^{n-r}y^r\)</span> må vi velge <span class="math inline">\(y\)</span> fra nøyaktig <span class="math inline">\(r\)</span> av faktorene og <span class="math inline">\(x\)</span> fra resten. Det finnes <span class="math inline">\(\binom nr\)</span> måter å velge hvilke <span class="math inline">\(r\)</span> faktorer som skal bidra med <span class="math inline">\(y\)</span>.</p>
+</annotation></semantics></math></p>
+<p>med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> faktorer. For å få et ledd <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mi>r</mi></mrow></msup><msup><mi>y</mi><mi>r</mi></msup></mrow><annotation encoding="application/x-tex">x^{n-r}y^r</annotation></semantics></math> må vi velge <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> fra nøyaktig <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> av faktorene og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> fra resten. Det finnes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom nr</annotation></semantics></math> måter å velge hvilke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> faktorer som skal bidra med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>.</p>
 <p>Dette gir binomialteoremet nesten direkte.</p>
 <p><strong>Læreboken: Teorem 1.5.</strong></p>
 <div id="thm-binomialteoremet" class="theorem">
-<p><span class="theorem-title"><strong>Teorem 1.5 (Binomialteoremet)</strong></span> For hvert ikke-negativt heltall <span class="math inline">\(n\)</span> gjelder</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Teorem 1.5 (Binomialteoremet)</strong></span> For hvert ikke-negativt heltall <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> gjelder</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>n</mi></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>r</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mi>r</mi></mrow></msup><msup><mi>y</mi><mi>r</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
 (x+y)^n=\sum_{r=0}^n\binom nr x^{n-r}y^r.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <div id="exm-binomial-fire" class="theorem example">
-<p><span class="theorem-title"><strong>Eksempel 1.8 (Utvikling av fjerde potens)</strong></span> For <span class="math inline">\(n=4\)</span> får vi raden <span class="math inline">\(1,4,6,4,1\)</span> fra Pascals trekant, og dermed</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Eksempel 1.8 (Utvikling av fjerde potens)</strong></span> For <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">n=4</annotation></semantics></math> får vi raden <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1,4,6,4,1</annotation></semantics></math> fra Pascals trekant, og dermed</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup><mo>=</mo><msup><mi>x</mi><mn>4</mn></msup><mo>+</mo><mn>4</mn><msup><mi>x</mi><mn>3</mn></msup><mi>y</mi><mo>+</mo><mn>6</mn><msup><mi>x</mi><mn>2</mn></msup><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi>x</mi><msup><mi>y</mi><mn>3</mn></msup><mo>+</mo><msup><mi>y</mi><mn>4</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
 (x+y)^4=x^4+4x^3y+6x^2y^2+4xy^3+y^4.
-\]</span></p>
-<p>Koeffisienten <span class="math inline">\(6=\binom42\)</span> foran <span class="math inline">\(x^2y^2\)</span> teller for eksempel hvilke to av de fire faktorene som bidrar med <span class="math inline">\(y\)</span>.</p>
+</annotation></semantics></math></p>
+<p>Koeffisienten <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">6=\binom42</annotation></semantics></math> foran <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><msup><mi>y</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x^2y^2</annotation></semantics></math> teller for eksempel hvilke to av de fire faktorene som bidrar med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>.</p>
 </div>
 <div id="exr-koeffisient-uten-utvidelse" class="theorem exercise">
-<p><span class="theorem-title"><strong>Oppgave 1.13 (Finn en koeffisient uten å gange ut)</strong></span> Finn koeffisienten foran <span class="math inline">\(x^7y^5\)</span> i <span class="math inline">\((x+y)^{12}\)</span> uten å gange ut hele uttrykket.</p>
+<p><span class="theorem-title"><strong>Oppgave 1.13 (Finn en koeffisient uten å gange ut)</strong></span> Finn koeffisienten foran <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>7</mn></msup><msup><mi>y</mi><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">x^7y^5</annotation></semantics></math> i <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>12</mn></msup></mrow><annotation encoding="application/x-tex">(x+y)^{12}</annotation></semantics></math> uten å gange ut hele uttrykket.</p>
 <p>Forklar både</p>
 <ol type="1">
 <li>hvilken binomialkoeffisient som gir svaret, og</li>
-<li>hva denne binomialkoeffisienten teller blant de tolv faktorene <span class="math inline">\((x+y)\)</span>.</li>
+<li>hva denne binomialkoeffisienten teller blant de tolv faktorene <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x+y)</annotation></semantics></math>.</li>
 </ol>
 </div>
-<p>Ved å sette inn spesielle verdier for <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span> får vi identiteter for binomialkoeffisientene.</p>
+<p>Ved å sette inn spesielle verdier for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> får vi identiteter for binomialkoeffisientene.</p>
 <p><strong>Læreboken: Korollar 1.6.</strong></p>
 <div id="cor-binomialteoremet-x-en" class="theorem corollary">
-<p><span class="theorem-title"><strong>Korollar 1.2 (Binomialteoremet når x er 1)</strong></span> Ved å sette <span class="math inline">\(x=1\)</span> i <a href="#thm-binomialteoremet" class="quarto-xref">Teorem&nbsp;<span>1.5</span></a> får vi</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Korollar 1.2 (Binomialteoremet når x er 1)</strong></span> Ved å sette <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x=1</annotation></semantics></math> i <a href="#thm-binomialteoremet" class="quarto-xref">Teorem&nbsp;<span>1.5</span></a> får vi</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mi>n</mi></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>r</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>y</mi><mi>r</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
 (1+y)^n=\sum_{r=0}^n\binom nr y^r.
-\]</span></p>
-<p>Setter vi også <span class="math inline">\(y=1\)</span>, får vi</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>Setter vi også <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y=1</annotation></semantics></math>, får vi</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>r</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 2^n=\sum_{r=0}^n\binom nr.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
-<p>Den siste identiteten har også en direkte kombinatorisk forklaring: venstresiden teller alle delmengder av en mengde med <span class="math inline">\(n\)</span> elementer, mens høyresiden teller dem etter størrelse — først de med <span class="math inline">\(0\)</span> elementer, så de med <span class="math inline">\(1\)</span> element, og så videre.</p>
+<p>Den siste identiteten har også en direkte kombinatorisk forklaring: venstresiden teller alle delmengder av en mengde med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> elementer, mens høyresiden teller dem etter størrelse — først de med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math> elementer, så de med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math> element, og så videre.</p>
 <div id="exr-ki-to-begrunnelser" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.14 (KI: Sammenlign to begrunnelser)</strong></span> Be en KI forklare identiteten</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>r</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 2^n=\sum_{r=0}^n\binom nr
-\]</span></p>
+</annotation></semantics></math></p>
 <p>på to måter:</p>
 <ul>
 <li>ved å bruke binomialteoremet,</li>
@@ -889,69 +860,69 @@ x + y &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;x &amp;+&amp; y\\
 </ul>
 <p>Kontroller begge forklaringene. Svar deretter selv:</p>
 <ol type="1">
-<li>Hva teller <span class="math inline">\(2^n\)</span> i den kombinatoriske forklaringen?</li>
-<li>Hva teller <span class="math inline">\(\binom nr\)</span>?</li>
-<li>Hvorfor må summen over alle <span class="math inline">\(r\)</span> gi samme tall?</li>
+<li>Hva teller <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>2</mn><mi>n</mi></msup><annotation encoding="application/x-tex">2^n</annotation></semantics></math> i den kombinatoriske forklaringen?</li>
+<li>Hva teller <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom nr</annotation></semantics></math>?</li>
+<li>Hvorfor må summen over alle <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> gi samme tall?</li>
 <li>Hvilken av de to forklaringene synes du gir mest innsikt, og hvorfor?</li>
 </ol>
 </div>
 <div id="exr-binomial-minus-en" class="theorem exercise">
-<p><span class="theorem-title"><strong>Oppgave 1.15 (Sett inn spesielle verdier)</strong></span> Sett <span class="math inline">\(x=-1\)</span> og <span class="math inline">\(y=1\)</span> i <a href="#thm-binomialteoremet" class="quarto-xref">Teorem&nbsp;<span>1.5</span></a>. Skriv ut formelen du får, og forklar hva den sier om summen av binomialkoeffisienter med vekslende fortegn.</p>
+<p><span class="theorem-title"><strong>Oppgave 1.15 (Sett inn spesielle verdier)</strong></span> Sett <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">x=-1</annotation></semantics></math> og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y=1</annotation></semantics></math> i <a href="#thm-binomialteoremet" class="quarto-xref">Teorem&nbsp;<span>1.5</span></a>. Skriv ut formelen du får, og forklar hva den sier om summen av binomialkoeffisienter med vekslende fortegn.</p>
 </div>
 </section>
 <section id="sec-pascal-diagonaler" class="level3">
 <h3 class="anchored" data-anchor-id="sec-pascal-diagonaler">Diagonaler av Pascals trekant</h3>
 <p>Pascals identitet summerer to naboer. En annen nyttig identitet oppstår når vi summerer langs en diagonal i trekanten.</p>
-<p>La oss beregne <span class="math inline">\(\binom74\)</span> ved å velge fire tall fra <span class="math inline">\(\{1,2,3,4,5,6,7\}\)</span> og dele valgene opp etter <strong>det minste tallet som blir valgt</strong>:</p>
+<p>La oss beregne <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>7</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom74</annotation></semantics></math> ved å velge fire tall fra <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>7</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1,2,3,4,5,6,7\}</annotation></semantics></math> og dele valgene opp etter <strong>det minste tallet som blir valgt</strong>:</p>
 <ul>
-<li>Minste valgte tall er <span class="math inline">\(1\)</span>: velg de tre andre blant <span class="math inline">\(2,\dots,7\)</span>, altså <span class="math inline">\(\binom63\)</span> muligheter.</li>
-<li>Minste valgte tall er <span class="math inline">\(2\)</span>: velg de tre andre blant <span class="math inline">\(3,\dots,7\)</span>, altså <span class="math inline">\(\binom53\)</span> muligheter.</li>
-<li>Minste valgte tall er <span class="math inline">\(3\)</span>: velg de tre andre blant <span class="math inline">\(4,\dots,7\)</span>, altså <span class="math inline">\(\binom43\)</span> muligheter.</li>
-<li>Minste valgte tall er <span class="math inline">\(4\)</span>: da må vi velge <span class="math inline">\(4,5,6,7\)</span>, altså <span class="math inline">\(\binom33=1\)</span> mulighet.</li>
+<li>Minste valgte tall er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>: velg de tre andre blant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">2,\dots,7</annotation></semantics></math>, altså <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>6</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom63</annotation></semantics></math> muligheter.</li>
+<li>Minste valgte tall er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>: velg de tre andre blant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">3,\dots,7</annotation></semantics></math>, altså <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom53</annotation></semantics></math> muligheter.</li>
+<li>Minste valgte tall er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>: velg de tre andre blant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">4,\dots,7</annotation></semantics></math>, altså <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom43</annotation></semantics></math> muligheter.</li>
+<li>Minste valgte tall er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>: da må vi velge <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">4,5,6,7</annotation></semantics></math>, altså <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\binom33=1</annotation></semantics></math> mulighet.</li>
 </ul>
 <p>Tilfellene er adskilte og dekker alle muligheter. Addisjonsprinsippet gir derfor</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>7</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>6</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom74=\binom33+\binom43+\binom53+\binom63.
-\]</span></p>
+</annotation></semantics></math></p>
 <p><strong>Læreboken: Teorem 1.8.</strong></p>
 <div id="thm-pascal-diagonal" class="theorem">
-<p><span class="theorem-title"><strong>Teorem 1.6 (En diagonalidentitet)</strong></span> For ikke-negative heltall <span class="math inline">\(m,n\)</span> gjelder</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Teorem 1.6 (En diagonalidentitet)</strong></span> For ikke-negative heltall <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>,</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m,n</annotation></semantics></math> gjelder</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>m</mi><mo>+</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><mrow><mi>m</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>m</mi><mi>m</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>m</mi><mo>+</mo><mn>1</mn></mrow><mi>m</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>…</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow><mi>m</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom{m+n+1}{m+1}
 =
 \binom mm+\binom{m+1}m+\dots+\binom{m+n}m.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <div id="exr-pascal-diagonal-seks-tre" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.16 (Forklar en diagonalidentitet)</strong></span> Forklar formelen</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>6</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>2</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>3</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>5</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \binom63=\binom22+\binom32+\binom42+\binom52
-\]</span></p>
+</annotation></semantics></math></p>
 <p>ved å dele utvalgene inn etter minste valgte element.</p>
 </div>
 <div id="exr-aatte-velg-fire" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.17 (En ny formel for åtte-velg-fire)</strong></span> Fra <a href="#thm-binomialteoremet" class="quarto-xref">Teorem&nbsp;<span>1.5</span></a> har vi</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup><mo>=</mo><msup><mi>x</mi><mn>4</mn></msup><mo>+</mo><mn>4</mn><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>6</mn><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 (1+x)^4=x^4+4x^3+6x^2+4x+1.
-\]</span></p>
-<p>Koeffisienten til <span class="math inline">\(x^4\)</span> i <span class="math inline">\((1+x)^4(1+x)^4\)</span> er derfor</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>Koeffisienten til <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mn>4</mn></msup><annotation encoding="application/x-tex">x^4</annotation></semantics></math> i <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">(1+x)^4(1+x)^4</annotation></semantics></math> er derfor</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>⋅</mo><mn>1</mn><mo>+</mo><mn>4</mn><mo>⋅</mo><mn>4</mn><mo>+</mo><mn>6</mn><mo>⋅</mo><mn>6</mn><mo>+</mo><mn>4</mn><mo>⋅</mo><mn>4</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>1</mn><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>3</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>4</mn><mn>0</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
 1\cdot1+4\cdot4+6\cdot6+4\cdot4+1\cdot1
 =
 \binom44^2+\binom43^2+\binom42^2+\binom41^2+\binom40^2.
-\]</span></p>
+</annotation></semantics></math></p>
 <p>På den andre siden er</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>4</mn></msup><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>8</mn></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
 (1+x)^4(1+x)^4=(1+x)^8,
-\]</span></p>
-<p>så koeffisienten til <span class="math inline">\(x^4\)</span> er <span class="math inline">\(\binom84\)</span>.</p>
-<p>Skriv identiteten for <span class="math inline">\(\binom84\)</span> som følger av disse to måtene å finne samme koeffisient på.</p>
+</annotation></semantics></math></p>
+<p>så koeffisienten til <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mn>4</mn></msup><annotation encoding="application/x-tex">x^4</annotation></semantics></math> er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>8</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom84</annotation></semantics></math>.</p>
+<p>Skriv identiteten for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>8</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\binom84</annotation></semantics></math> som følger av disse to måtene å finne samme koeffisient på.</p>
 </div>
 <div id="exr-sum-kvadrater-binomial" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.18 (Sum av kvadrerte binomialkoeffisienter)</strong></span> Generaliser forrige oppgave og forklar hvorfor</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mn>0</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mn>1</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mi>…</mi><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mi>n</mi><mi>n</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mn>2</mn><mi>n</mi></mrow><mi>n</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom n0^2+\binom n1^2+\dots+\binom nn^2=\binom{2n}n.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 </section>
 </section>
@@ -961,113 +932,113 @@ x + y &amp; = &amp;&amp;&amp;&amp;&amp;&amp;&amp;x &amp;+&amp; y\\
 <p>Til nå har vi arbeidet uten repetisjon: når et objekt er valgt, kan det ikke velges på nytt. Nå tillater vi repetisjon. De samme to spørsmålene fra starten er fortsatt nyttige.</p>
 <section id="når-rekkefølgen-teller" class="level3">
 <h3 class="anchored" data-anchor-id="når-rekkefølgen-teller">Når rekkefølgen teller</h3>
-<p>Hvis repetisjon er tillatt og rekkefølgen teller, blir tellingen svært enkel: ved hvert valg har vi de samme <span class="math inline">\(n\)</span> mulighetene.</p>
+<p>Hvis repetisjon er tillatt og rekkefølgen teller, blir tellingen svært enkel: ved hvert valg har vi de samme <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> mulighetene.</p>
 <div id="exm-pin-kode" class="theorem example">
-<p><span class="theorem-title"><strong>Eksempel 1.9 (En firesifret PIN-kode)</strong></span> En PIN-kode består av fire sifre, og hvert siffer kan være ett av <span class="math inline">\(0,1,\dots,9\)</span>. Sifre kan gjentas, og rekkefølgen teller.</p>
+<p><span class="theorem-title"><strong>Eksempel 1.9 (En firesifret PIN-kode)</strong></span> En PIN-kode består av fire sifre, og hvert siffer kan være ett av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">0,1,\dots,9</annotation></semantics></math>. Sifre kan gjentas, og rekkefølgen teller.</p>
 <p>Det finnes derfor</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>⋅</mo><mn>10</mn><mo>⋅</mo><mn>10</mn><mo>⋅</mo><mn>10</mn><mo>=</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">
 10\cdot10\cdot10\cdot10=10^4
-\]</span></p>
+</annotation></semantics></math></p>
 <p>mulige koder.</p>
-<p>Koden <span class="math inline">\(0112\)</span> er forskjellig fra <span class="math inline">\(1012\)</span>, og en kode som <span class="math inline">\(7777\)</span> er tillatt.</p>
+<p>Koden <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0112</mn><annotation encoding="application/x-tex">0112</annotation></semantics></math> er forskjellig fra <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1012</mn><annotation encoding="application/x-tex">1012</annotation></semantics></math>, og en kode som <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7777</mn><annotation encoding="application/x-tex">7777</annotation></semantics></math> er tillatt.</p>
 </div>
 <div id="thm-ordnet-utvalg-med-repetisjon" class="theorem">
-<p><span class="theorem-title"><strong>Teorem 1.7 (Ordnet utvalg med repetisjon)</strong></span> Det er <span class="math inline">\(n^r\)</span> ordnede utvalg av lengde <span class="math inline">\(r\)</span> fra <span class="math inline">\(n\)</span> forskjellige objekttyper når repetisjon er tillatt.</p>
+<p><span class="theorem-title"><strong>Teorem 1.7 (Ordnet utvalg med repetisjon)</strong></span> Det er <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mi>r</mi></msup><annotation encoding="application/x-tex">n^r</annotation></semantics></math> ordnede utvalg av lengde <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> fra <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> forskjellige objekttyper når repetisjon er tillatt.</p>
 </div>
-<p>Dette er multiplikasjonsprinsippet: ved hvert av de <span class="math inline">\(r\)</span> valgene har vi <span class="math inline">\(n\)</span> muligheter.</p>
+<p>Dette er multiplikasjonsprinsippet: ved hvert av de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> valgene har vi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> muligheter.</p>
 <div id="exr-pin-uten-repetisjon" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.19 (Sammenlign med en PIN uten gjentakelser)</strong></span> Sammenlign to regler for en firesifret PIN-kode:</p>
 <ol type="1">
 <li>Sifre kan gjentas.</li>
 <li>Ingen siffer kan brukes mer enn én gang.</li>
 </ol>
-<p>Finn antallet koder i begge tilfeller og forklar hvorfor den første situasjonen gir <span class="math inline">\(10^4\)</span>, mens den andre gir et produkt med færre valg for hvert nytt siffer.</p>
+<p>Finn antallet koder i begge tilfeller og forklar hvorfor den første situasjonen gir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>4</mn></msup><annotation encoding="application/x-tex">10^4</annotation></semantics></math>, mens den andre gir et produkt med færre valg for hvert nytt siffer.</p>
 </div>
 </section>
 <section id="når-rekkefølgen-ikke-teller-1" class="level3">
 <h3 class="anchored" data-anchor-id="når-rekkefølgen-ikke-teller-1">Når rekkefølgen ikke teller</h3>
-<p>Det siste tilfellet er mer subtilt. Hvis repetisjon er tillatt, men rekkefølgen ikke teller, er det ikke nok å dele <span class="math inline">\(n^r\)</span> på <span class="math inline">\(r!\)</span>: noen utvalg har mange like elementer og derfor færre enn <span class="math inline">\(r!\)</span> forskjellige rekkefølger.</p>
+<p>Det siste tilfellet er mer subtilt. Hvis repetisjon er tillatt, men rekkefølgen ikke teller, er det ikke nok å dele <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mi>r</mi></msup><annotation encoding="application/x-tex">n^r</annotation></semantics></math> på <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">r!</annotation></semantics></math>: noen utvalg har mange like elementer og derfor færre enn <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">r!</annotation></semantics></math> forskjellige rekkefølger.</p>
 <p>I stedet bruker vi en kode med <strong>objekter og skilletegn</strong>, ofte kalt <em>stars and bars</em>.</p>
 <div id="exm-iskuler" class="theorem example">
 <p><span class="theorem-title"><strong>Eksempel 1.10 (Syv iskuler fra fem smaker)</strong></span> En iskrembar har fem smaker med ubegrenset mengde av hver smak. Vi skal velge syv iskuler. Rekkefølgen på kulene spiller ingen rolle, og samme smak kan velges flere ganger.</p>
-<p>Ordne smakene fast, for eksempel vanilje, sjokolade, jordbær, pistasj og kaffe. Vi bruker én <span class="math inline">\(0\)</span> for hver iskule og fire <span class="math inline">\(1\)</span>-ere som skilletegn mellom de fem smakene.</p>
+<p>Ordne smakene fast, for eksempel vanilje, sjokolade, jordbær, pistasj og kaffe. Vi bruker én <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math> for hver iskule og fire <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>-ere som skilletegn mellom de fem smakene.</p>
 <p>Valget</p>
 <ul>
-<li><span class="math inline">\(2\)</span> vanilje,</li>
-<li><span class="math inline">\(1\)</span> sjokolade,</li>
-<li><span class="math inline">\(2\)</span> jordbær,</li>
-<li><span class="math inline">\(0\)</span> pistasj,</li>
-<li><span class="math inline">\(2\)</span> kaffe</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math> vanilje,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math> sjokolade,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math> jordbær,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math> pistasj,</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math> kaffe</li>
 </ul>
 <p>kodes som</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>00101001100</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
 00101001100.
-\]</span></p>
-<p>Bitstrengen inneholder <span class="math inline">\(7\)</span> nuller og <span class="math inline">\(4\)</span> ettall, altså <span class="math inline">\(11\)</span> posisjoner totalt. Et utvalg bestemmes entydig ved å velge posisjonene til de fire skilletegnene. Derfor finnes det</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>Bitstrengen inneholder <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>7</mn><annotation encoding="application/x-tex">7</annotation></semantics></math> nuller og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math> ettall, altså <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>11</mn><annotation encoding="application/x-tex">11</annotation></semantics></math> posisjoner totalt. Et utvalg bestemmes entydig ved å velge posisjonene til de fire skilletegnene. Derfor finnes det</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>11</mn><mn>4</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mn>11</mn><mn>7</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \binom{11}{4}=\binom{11}{7}
-\]</span></p>
+</annotation></semantics></math></p>
 <p>forskjellige utvalg.</p>
 </div>
-<p>Denne kodingen fungerer for alle <span class="math inline">\(n\)</span> objekttyper og alle <span class="math inline">\(r\)</span> valg.</p>
+<p>Denne kodingen fungerer for alle <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> objekttyper og alle <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> valg.</p>
 <p><strong>Læreboken: Teorem 1.10.</strong></p>
 <div id="thm-uordnet-utvalg-med-repetisjon" class="theorem">
-<p><span class="theorem-title"><strong>Teorem 1.8 (Uordnet utvalg med repetisjon)</strong></span> Antallet uordnede utvalg av <span class="math inline">\(r\)</span> objekter fra <span class="math inline">\(n\)</span> forskjellige objekttyper, når repetisjon er tillatt, er</p>
-<p><span class="math display">\[
+<p><span class="theorem-title"><strong>Teorem 1.8 (Uordnet utvalg med repetisjon)</strong></span> Antallet uordnede utvalg av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> objekter fra <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> forskjellige objekttyper, når repetisjon er tillatt, er</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>n</mi><mo>+</mo><mi>r</mi><mo>−</mo><mn>1</mn></mrow><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom{n+r-1}{r}.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Bevis</em> (Begrunnelse med skilletegn). </span>Kod et utvalg med <span class="math inline">\(r\)</span> nuller og <span class="math inline">\(n-1\)</span> ettall som skilletegn. Bitstrengen har totalt</p>
-<p><span class="math display">\[
+<p><span class="proof-title"><em>Bevis</em> (Begrunnelse med skilletegn). </span>Kod et utvalg med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> nuller og <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math> ettall som skilletegn. Bitstrengen har totalt</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>n</mi><mo>+</mo><mi>r</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
 r+(n-1)=n+r-1
-\]</span></p>
-<p>posisjoner. Vi kan velge hvilke <span class="math inline">\(r\)</span> posisjoner som skal inneholde nuller, eller ekvivalent hvilke <span class="math inline">\(n-1\)</span> posisjoner som skal inneholde skilletegn. Dermed får vi</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>posisjoner. Vi kan velge hvilke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> posisjoner som skal inneholde nuller, eller ekvivalent hvilke <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math> posisjoner som skal inneholde skilletegn. Dermed får vi</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>n</mi><mo>+</mo><mi>r</mi><mo>−</mo><mn>1</mn></mrow><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom{n+r-1}{r}.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
-<p>Den samme kodingen kan formuleres som et ligningsproblem. Hvis <span class="math inline">\(x_i\)</span> forteller hvor mange ganger type <span class="math inline">\(i\)</span> blir valgt, er et uordnet utvalg med repetisjon det samme som en løsning av</p>
-<p><span class="math display">\[
+<p>Den samme kodingen kan formuleres som et ligningsproblem. Hvis <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math> forteller hvor mange ganger type <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> blir valgt, er et uordnet utvalg med repetisjon det samme som en løsning av</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>x</mi><mi>n</mi></msub><mo>=</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">
 x_1+x_2+\dots+x_n=r
-\]</span></p>
-<p>med <span class="math inline">\(x_i\ge0\)</span>.</p>
+</annotation></semantics></math></p>
+<p>med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_i\ge0</annotation></semantics></math>.</p>
 <div id="thm-ikke-negative-losninger" class="theorem">
 <p><span class="theorem-title"><strong>Teorem 1.9 (Ikke-negative heltallsløsninger)</strong></span> Antallet løsninger til ligningen</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>x</mi><mi>n</mi></msub><mo>=</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">
 x_1+\dots+x_n=r
-\]</span></p>
-<p>for ikke-negative heltall <span class="math inline">\(x_1,\dots,x_n\)</span> er</p>
-<p><span class="math display">\[
+</annotation></semantics></math></p>
+<p>for ikke-negative heltall <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_1,\dots,x_n</annotation></semantics></math> er</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>n</mi><mo>+</mo><mi>r</mi><mo>−</mo><mn>1</mn></mrow><mi>r</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \binom{n+r-1}{r}.
-\]</span></p>
+</annotation></semantics></math></p>
 </div>
 <div id="exr-bitstreng" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.20 (Les en skilletegnskode)</strong></span> Bruk rekkefølgen vanilje, sjokolade, jordbær, pistasj og kaffe. Hvilket utvalg av syv iskuler kodes av</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10001100010</mn><mi>?</mi></mrow><annotation encoding="application/x-tex">
 10001100010?
-\]</span></p>
+</annotation></semantics></math></p>
 <p>Kontroller først at strengen faktisk inneholder syv nuller og fire skilletegn.</p>
 </div>
 <div id="exr-heltallsloesninger" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.21 (Ikke-negative heltallsløsninger)</strong></span> Hvor mange løsninger finnes til</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><msub><mi>x</mi><mn>3</mn></msub><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">
 x_1+x_2+x_3=8
-\]</span></p>
-<p>når <span class="math inline">\(x_1,x_2,x_3\)</span> er ikke-negative heltall?</p>
+</annotation></semantics></math></p>
+<p>når <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">x_1,x_2,x_3</annotation></semantics></math> er ikke-negative heltall?</p>
 <ol type="1">
 <li>Oversett problemet til en skilletegnskode.</li>
 <li>Bruk <a href="#thm-ikke-negative-losninger" class="quarto-xref">Teorem&nbsp;<span>1.9</span></a>.</li>
-<li>Kontroller svaret ved å løse det mindre problemet <span class="math inline">\(x_1+x_2+x_3=3\)</span> ved å liste opp alle løsningene.</li>
+<li>Kontroller svaret ved å løse det mindre problemet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><msub><mi>x</mi><mn>3</mn></msub><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">x_1+x_2+x_3=3</annotation></semantics></math> ved å liste opp alle løsningene.</li>
 </ol>
 </div>
 <div id="exr-positive-loesninger" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.22 (Når alle må få minst én)</strong></span> Hvor mange løsninger finnes til</p>
-<p><span class="math display">\[
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><msub><mi>x</mi><mn>3</mn></msub><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">
 x_1+x_2+x_3=8
-\]</span></p>
-<p>når <span class="math inline">\(x_1,x_2,x_3\)</span> er <strong>positive</strong> heltall?</p>
-<p>Hint: Sett <span class="math inline">\(y_i=x_i-1\)</span>. Hvilken ligning får du for de ikke-negative heltallene <span class="math inline">\(y_1,y_2,y_3\)</span>?</p>
+</annotation></semantics></math></p>
+<p>når <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo>,</mo><msub><mi>x</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">x_1,x_2,x_3</annotation></semantics></math> er <strong>positive</strong> heltall?</p>
+<p>Hint: Sett <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y_i=x_i-1</annotation></semantics></math>. Hvilken ligning får du for de ikke-negative heltallene <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mn>1</mn></msub><mo>,</mo><msub><mi>y</mi><mn>2</mn></msub><mo>,</mo><msub><mi>y</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">y_1,y_2,y_3</annotation></semantics></math>?</p>
 </div>
 <div id="exr-ki-godteri" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.23 (KI: Hva er egentlig et godteriproblem?)</strong></span> Gi en KI dette spørsmålet:</p>
@@ -1089,9 +1060,9 @@ x_1+x_2+x_3=8
 <div id="exr-fire-grunnsituasjoner" class="theorem exercise">
 <p><span class="theorem-title"><strong>Oppgave 1.24 (Kjenn igjen de fire grunnsituasjonene)</strong></span> For hvert problem nedenfor skal du først svare på de to spørsmålene «Teller rekkefølgen?» og «Er repetisjon tillatt?». Velg deretter riktig tellemetode og finn antallet.</p>
 <ol type="1">
-<li>Gull, sølv og bronse skal fordeles til tre forskjellige deltakere blant <span class="math inline">\(10\)</span>.</li>
-<li>Fire studenter skal velges til en gruppe blant <span class="math inline">\(15\)</span> studenter.</li>
-<li>Et passord består av seks tegn valgt fra <span class="math inline">\(26\)</span> bokstaver; bokstaver kan gjentas.</li>
+<li>Gull, sølv og bronse skal fordeles til tre forskjellige deltakere blant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>.</li>
+<li>Fire studenter skal velges til en gruppe blant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>15</mn><annotation encoding="application/x-tex">15</annotation></semantics></math> studenter.</li>
+<li>Et passord består av seks tegn valgt fra <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>26</mn><annotation encoding="application/x-tex">26</annotation></semantics></math> bokstaver; bokstaver kan gjentas.</li>
 <li>Du velger åtte iskuler fra fire smaker med ubegrenset mengde av hver smak; rekkefølgen spiller ingen rolle.</li>
 </ol>
 <p>Forklar med én setning for hvert problem hvorfor det havner i den grunnsituasjonen du valgte.</p>

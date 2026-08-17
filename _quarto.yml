@@ -26,6 +26,7 @@ crossref:
 
 format:
   html:
+    html-math-method: mathml
     theme:
       light: cosmo
       dark: darkly
