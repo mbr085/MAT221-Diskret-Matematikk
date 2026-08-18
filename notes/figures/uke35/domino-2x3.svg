@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">De tre dominodekningene av et 2 ganger 3-rektangel</title>
+  <desc id="desc">Tre paneler viser de tre mulige dominodekningene av et rektangel med to rader og tre kolonner.</desc>
+  <rect width="900" height="300" fill="white"/>
+  <g transform="translate(55 85)">
+    <rect width="180" height="120" fill="#e5e5e5"/>
+    <rect x="60" width="60" height="120" fill="#d7d7d7"/>
+    <rect x="120" width="60" height="120" fill="#c9c9c9"/>
+    <rect width="180" height="120" fill="none" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="60" y1="0" x2="60" y2="120" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="120" y1="0" x2="120" y2="120" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="0" y1="60" x2="180" y2="60" stroke="#aaaaaa" stroke-width="2.5" stroke-dasharray="7 6"/>
+  </g>
+  <g transform="translate(360 85)">
+    <rect width="120" height="60" fill="#e5e5e5"/>
+    <rect y="60" width="120" height="60" fill="#d7d7d7"/>
+    <rect x="120" width="60" height="120" fill="#c9c9c9"/>
+    <rect width="180" height="120" fill="none" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="120" y1="0" x2="120" y2="120" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="0" y1="60" x2="120" y2="60" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="60" y1="0" x2="60" y2="120" stroke="#aaaaaa" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <line x1="120" y1="60" x2="180" y2="60" stroke="#aaaaaa" stroke-width="2.5" stroke-dasharray="7 6"/>
+  </g>
+  <g transform="translate(665 85)">
+    <rect width="60" height="120" fill="#c9c9c9"/>
+    <rect x="60" width="120" height="60" fill="#e5e5e5"/>
+    <rect x="60" y="60" width="120" height="60" fill="#d7d7d7"/>
+    <rect width="180" height="120" fill="none" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="60" y1="0" x2="60" y2="120" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="60" y1="60" x2="180" y2="60" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="120" y1="0" x2="120" y2="120" stroke="#aaaaaa" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <line x1="0" y1="60" x2="60" y2="60" stroke="#aaaaaa" stroke-width="2.5" stroke-dasharray="7 6"/>
+  </g>
+</svg>
