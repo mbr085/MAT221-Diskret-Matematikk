@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" role="img" aria-labelledby="title desc">
+  <title id="title">To tilfeller for dominodekninger av et 2 ganger n-rektangel</title>
+  <desc id="desc">I første tilfelle starter dekningen med én loddrett dominobrikke og etterlater et 2 ganger n minus 1-rektangel. I andre tilfelle starter den med to vannrette dominobrikker og etterlater et 2 ganger n minus 2-rektangel.</desc>
+  <rect width="980" height="360" fill="white"/>
+  <g font-family="sans-serif" fill="#2f2f2f">
+    <text x="240" y="46" text-anchor="middle" font-size="24" font-weight="600">Tilfelle 1</text>
+    <text x="740" y="46" text-anchor="middle" font-size="24" font-weight="600">Tilfelle 2</text>
+  </g>
+  <g transform="translate(65 90)">
+    <rect width="360" height="140" fill="#f4f4f4" stroke="#2f2f2f" stroke-width="5"/>
+    <rect width="70" height="140" fill="#d1d1d1"/>
+    <line x1="70" y1="0" x2="70" y2="140" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="0" y1="70" x2="360" y2="70" stroke="#aaaaaa" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <text x="215" y="82" text-anchor="middle" font-family="sans-serif" font-size="25" fill="#444444">2 × (n−1)</text>
+  </g>
+  <g transform="translate(555 90)">
+    <rect width="360" height="140" fill="#f4f4f4" stroke="#2f2f2f" stroke-width="5"/>
+    <rect width="140" height="70" fill="#dedede"/>
+    <rect y="70" width="140" height="70" fill="#c9c9c9"/>
+    <line x1="140" y1="0" x2="140" y2="140" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="0" y1="70" x2="140" y2="70" stroke="#2f2f2f" stroke-width="5"/>
+    <line x1="70" y1="0" x2="70" y2="140" stroke="#aaaaaa" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <line x1="140" y1="70" x2="360" y2="70" stroke="#aaaaaa" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <text x="250" y="82" text-anchor="middle" font-family="sans-serif" font-size="25" fill="#444444">2 × (n−2)</text>
+  </g>
+  <g font-family="sans-serif" font-size="20" fill="#4a4a4a">
+    <text x="245" y="278" text-anchor="middle">én loddrett dominobrikke først</text>
+    <text x="735" y="278" text-anchor="middle">to vannrette dominobrikker først</text>
+  </g>
+</svg>
