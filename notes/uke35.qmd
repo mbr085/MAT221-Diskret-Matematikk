@@ -1,0 +1,444 @@
+---
+title: "MAT221 uke 35"
+lang: nb
+---
+
+# Arbeidsøkt 1: Rekurrenser
+
+I denne arbeidsøkten skal vi undersøke hvordan en følge av tall kan beskrives ved hjelp av tidligere tall i følgen.
+
+Vi skal særlig arbeide med tre spørsmål:
+
+1. Hvordan kan en rekurrens oppstå fra et konkret problem?
+2. Hvordan kan vi gå fra en rekurrens til en formel for det $n$-te leddet?
+3. Hvordan kan kunstig intelligens brukes til å finne, forklare og kontrollere matematiske argumenter?
+
+::: {.callout-note title="Om KI-oppgavene"}
+Når du bruker KI i denne økten, er målet ikke bare å få et svar.
+
+1. Forsøk først selv å forstå problemet eller formulere hva du står fast på.
+2. Bruk KI til et tydelig avgrenset formål: et hint, et bevis, en forklaring eller kontroll av en beregning.
+3. Kontroller minst ett viktig steg selv.
+4. Avgjør til slutt selv om KI-svaret er matematisk holdbart.
+
+En overbevisende formulering fra en KI er ikke i seg selv en matematisk begrunnelse.
+:::
+
+## Hanoi-tårnene
+
+Vi har tre stolper og $n$ sirkelformede skiver med forskjellig størrelse. I starten ligger alle skivene på den første stolpen, med den største nederst og den minste øverst.
+
+Vi vil flytte hele tårnet til en annen stolpe.
+
+Reglene er:
+
+- Vi kan bare flytte én skive om gangen.
+- Vi kan aldri legge en større skive oppå en mindre skive.
+
+La $a_n$ være det minste antallet flytt som er nødvendig når vi har $n$ skiver.
+
+::: {#exr-hanoi-smaa name="Hanoi med få skiver"}
+Finn $a_1$, $a_2$ og $a_3$.
+
+Prøv gjerne å utføre flyttene med mynter, papirbiter eller andre objekter.
+
+Kan du også finne $a_4$ uten å liste opp alle flyttene?
+:::
+
+For å flytte et tårn med $n$ skiver må den største skiven på et tidspunkt flyttes.
+
+Før det kan skje må alle de $n-1$ mindre skivene flyttes bort fra den. Etter at den største skiven er flyttet, må de $n-1$ mindre skivene flyttes oppå den igjen.
+
+::: {#exr-hanoi-rekurrens name="Finn rekurrensen"}
+Bruk observasjonen over til å forklare hvorfor
+
+$$
+a_n=2a_{n-1}+1.
+$$
+
+Hvilken startverdi må vi oppgi sammen med denne ligningen?
+
+Sammenlign forklaringen din med forklaringen til noen som sitter i nærheten.
+:::
+
+### Rekurrensrelasjoner
+
+En **rekurrensrelasjon** beskriver ledd i en følge ved hjelp av tidligere ledd.
+
+Ligningen
+
+$$
+a_n=2a_{n-1}+1
+$$
+
+er en rekurrensrelasjon.
+
+For at den skal bestemme følgen, trenger vi også en **initialbetingelse**. For Hanoi-problemet er denne
+
+$$
+a_1=1.
+$$
+
+Rekurrensen og initialbetingelsen bestemmer sammen hele følgen.
+
+::: {#exr-hanoi-verdier name="Fra rekurrens til tall"}
+Bruk
+
+$$
+a_1=1,\qquad a_n=2a_{n-1}+1
+$$
+
+til å beregne $a_2,a_3,a_4,a_5$ og $a_6$.
+
+Se etter et mønster og gjett en formel for $a_n$ som ikke bruker tidligere ledd i følgen.
+:::
+
+En formel som gir $a_n$ direkte fra $n$, uten først å beregne $a_1,\ldots,a_{n-1}$, kaller vi her en **eksplisitt formel**.
+
+::: {#exr-ki-hanoi-bevis name="KI: Kan hypotesen bevises?"}
+Du har nå en hypotese om en eksplisitt formel for $a_n$.
+
+**Bruk kunstig intelligens.**
+
+Be KI om å bevise hypotesen ved induksjon.
+
+Les beviset den gir deg, og kontroller spesielt:
+
+1. Hvilket utsagn er det som bevises ved induksjon?
+2. Kontrolleres startverdien?
+3. Hvor brukes rekurrensen?
+4. Hvor brukes induksjonshypotesen?
+
+Hvis KI bruker en annen nummerering av følgen enn vi gjør, må du avgjøre om argumentet likevel er riktig.
+
+Skriv til slutt med én eller to setninger hvorfor du mener beviset holder, eller hva som må rettes.
+:::
+
+## Et nytt telleproblem
+
+Vi skal nå dekke et rektangel som er $2$ ruter høyt og $n$ ruter langt med dominobrikker.
+
+Hver dominobrikke dekker to ruter som ligger ved siden av hverandre. Den kan altså ligge enten loddrett eller vannrett.
+
+La $p_n$ være antallet forskjellige måter et $2\times n$-rektangel kan dekkes fullstendig på.
+
+::: {#exr-flislegging-smaa name="Tegn de første tilfellene"}
+Tegn alle mulige dekninger når
+
+$$
+n=1,\qquad n=2,\qquad n=3.
+$$
+
+Finn dermed $p_1,p_2$ og $p_3$.
+
+Prøv også å finne $p_4$.
+:::
+
+Nå skal vi prøve å telle uten å tegne alle mulighetene.
+
+Se på den **venstre kanten** av et ferdig dekket $2\times n$-rektangel.
+
+Det finnes to muligheter:
+
+- Den venstre kolonnen er dekket av én loddrett dominobrikke.
+- De to rutene lengst til venstre tilhører to vannrette dominobrikker.
+
+::: {#exr-flislegging-rekurrens name="Del problemet i to tilfeller"}
+Forklar hvorfor de to tilfellene over gir
+
+$$
+p_n=p_{n-1}+p_{n-2}.
+$$
+
+Hvorfor har vi fått med alle mulige dekninger?
+
+Hvorfor blir ingen dekning telt to ganger?
+:::
+
+Vi kjenner igjen tallene
+
+$$
+1,2,3,5,8,13,\ldots
+$$
+
+Dette er Fibonacci-følgen med nummereringen
+
+$$
+F_1=1,\qquad F_2=2,\qquad
+F_n=F_{n-1}+F_{n-2}\quad(n\geq3).
+$$
+
+::: {#exr-ki-fibonacci-kritikk name="KI: Et argument som ikke er godt nok"}
+Tenk deg at noen sier:
+
+> Vi fant $p_1=1,p_2=2,p_3=3,p_4=5$. Derfor er $p_n$ Fibonacci-følgen.
+
+Be en KI vurdere dette argumentet.
+
+Diskuter deretter:
+
+1. Hvorfor er det ikke nok å kontrollere de første fire verdiene?
+2. Hva er det i argumentet med dominobrikkene som faktisk viser at følgene fortsetter å være like?
+3. Hvis KI hevder noe du ikke er enig i, avgjør selv hvem som har rett.
+:::
+
+## Hvordan løser vi en rekurrens?
+
+Vi har nå sett rekurrensen
+
+$$
+F_n=F_{n-1}+F_{n-2}.
+$$
+
+Den lar oss lett beregne neste Fibonacci-tall når vi kjenner de to foregående. Men den gir ikke $F_{100}$ direkte.
+
+Vi skal derfor undersøke rekurrenser av formen
+
+$$
+a_n=Aa_{n-1}+Ba_{n-2},
+\qquad n\geq3,
+$$
+
+der $A$ og $B$ er faste tall og $a_1,a_2$ er gitt.
+
+Dette kalles en **lineær rekurrens av andre orden med konstante koeffisienter**.
+
+### Prøv en enkel type løsning
+
+Anta at en løsning har formen
+
+$$
+a_n=r^n.
+$$
+
+Setter vi dette inn i rekurrensen, får vi
+
+$$
+r^n=Ar^{n-1}+Br^{n-2}.
+$$
+
+Dersom $r\neq0$, kan vi dele på $r^{n-2}$.
+
+::: {#exr-karakteristisk-ligning name="Finn ligningen for r"}
+Gjennomfør divisjonen og vis at $r$ må oppfylle
+
+$$
+r^2-Ar-B=0.
+$$
+
+Denne ligningen kaller vi den **karakteristiske ligningen** til rekurrensen.
+
+Be gjerne KI kontrollere utregningen din dersom du er usikker.
+:::
+
+Hvis $r$ er en rot i den karakteristiske ligningen, vil altså følgen
+
+$$
+a_n=r^n
+$$
+
+oppfylle rekurrensen.
+
+Har den karakteristiske ligningen to forskjellige røtter $\alpha$ og $\beta$, får vi derfor to løsninger
+
+$$
+\alpha^n
+\qquad\text{og}\qquad
+\beta^n.
+$$
+
+Dessuten er enhver lineærkombinasjon
+
+$$
+C\alpha^n+D\beta^n
+$$
+
+også en løsning.
+
+::: {#exr-ki-lineaerkombinasjon name="KI: Hvorfor kan løsningene kombineres?"}
+Be KI forklare hvorfor
+
+$$
+a_n=C\alpha^n+D\beta^n
+$$
+
+oppfyller rekurrensen når både $\alpha^n$ og $\beta^n$ gjør det.
+
+Be om en kort algebraisk forklaring.
+
+Kontroller selv forklaringen ved å sette uttrykket inn i
+
+$$
+a_n=Aa_{n-1}+Ba_{n-2}.
+$$
+
+Hva er det ved rekurrensen som gjør at lineærkombinasjoner fungerer?
+:::
+
+::: {#thm-lineaer-rekurrens name="Lineære rekurrenser av andre orden"}
+Anta at
+
+$$
+a_n=Aa_{n-1}+Ba_{n-2},
+$$
+
+der $a_1$ og $a_2$ er gitt.
+
+La $\alpha$ og $\beta$ være røttene i den karakteristiske ligningen
+
+$$
+r^2-Ar-B=0.
+$$
+
+Hvis $\alpha\neq\beta$, finnes konstanter $C$ og $D$ slik at
+
+$$
+a_n=C\alpha^n+D\beta^n.
+$$
+
+Hvis den karakteristiske ligningen har en dobbeltrot $\alpha$, finnes konstanter $C$ og $D$ slik at
+
+$$
+a_n=(C+Dn)\alpha^n.
+$$
+
+Konstantene bestemmes av initialbetingelsene.
+:::
+
+::: {#exr-ki-teorem-bevis name="KI: Undersøk teoremet"}
+Bruk KI til å få et bevis eller en begrunnelse for teoremet.
+
+Du trenger ikke skrive av hele beviset.
+
+Finn i stedet svar på disse spørsmålene:
+
+1. Hvorfor oppfyller $\alpha^n$ og $\beta^n$ rekurrensen når røttene er forskjellige?
+2. Hvorfor oppfyller også lineærkombinasjonen rekurrensen?
+3. Hvordan brukes $a_1$ og $a_2$ til å bestemme $C$ og $D$?
+4. I tilfellet med dobbeltrot: kontroller ved innsetting at $n\alpha^n$ også er en løsning.
+
+Hvis KI hopper over den siste kontrollen, be den vise akkurat denne utregningen.
+:::
+
+## Tilbake til Fibonacci-følgen
+
+For
+
+$$
+F_n=F_{n-1}+F_{n-2}
+$$
+
+er den karakteristiske ligningen
+
+$$
+r^2-r-1=0.
+$$
+
+::: {#exr-fibonacci-eksplisitt name="Finn en eksplisitt formel"}
+1. Finn røttene i
+   $$
+   r^2-r-1=0.
+   $$
+
+2. Skriv den generelle løsningen på formen
+   $$
+   F_n=C\alpha^n+D\beta^n.
+   $$
+
+3. Bruk
+   $$
+   F_1=1,\qquad F_2=2
+   $$
+   til å bestemme $C$ og $D$.
+
+**Bruk gjerne KI til algebraen i punkt 3.**
+
+Men før du godtar svaret:
+
+- kontroller at formelen gir $F_1=1$ og $F_2=2$;
+- bruk formelen til å beregne $F_3$;
+- kontroller at du får $F_3=3$.
+:::
+
+Den positive roten
+
+$$
+\frac{1+\sqrt5}{2}
+$$
+
+kalles **det gylne snitt**.
+
+Den andre roten har tallverdi mindre enn $1$.
+
+::: {#exr-fibonacci-vekst name="Hva skjer når n blir stor?"}
+Bruk den eksplisitte formelen du nettopp fant.
+
+Hva tror du skjer med forholdet
+
+$$
+\frac{F_{n+1}}{F_n}
+$$
+
+når $n$ blir stor?
+
+Be KI forklare hvorfor, men prøv først selv å formulere en forklaring ut fra de to røttene i den karakteristiske ligningen.
+:::
+
+## Dobbeltrot
+
+Betrakt rekurrensen
+
+$$
+a_n=4a_{n-1}-4a_{n-2},
+\qquad
+a_1=1,\quad a_2=3.
+$$
+
+::: {#exr-dobbeltrot name="Løs en rekurrens med dobbeltrot"}
+1. Finn den karakteristiske ligningen.
+2. Vis at den har en dobbeltrot.
+3. Bruk teoremet til å skrive
+   $$
+   a_n=(C+Dn)\alpha^n.
+   $$
+4. Bestem $C$ og $D$ fra initialbetingelsene.
+
+Du kan bruke KI til å kontrollere utregningene.
+
+Når du har fått en eksplisitt formel, kontroller den ved å:
+
+- beregne $a_1$ og $a_2$;
+- beregne $a_3$ både fra rekurrensen og fra den eksplisitte formelen.
+:::
+
+## Oppsummering
+
+Etter denne arbeidsøkten bør du kunne gå begge veier i diagrammet
+
+$$
+\boxed{
+\text{problem}
+\longrightarrow
+\text{rekurrens og initialbetingelser}
+\longrightarrow
+\text{eksplisitt formel}
+}
+$$
+
+For en lineær rekurrens av andre orden
+
+$$
+a_n=Aa_{n-1}+Ba_{n-2}
+$$
+
+er det sentrale verktøyet den karakteristiske ligningen
+
+$$
+r^2-Ar-B=0.
+$$
+
+Når du bruker KI i matematikk, er det ikke nok at svaret ser overbevisende ut. I denne økten har du blant annet brukt tre måter å kontrollere KI på:
+
+- sette et foreslått uttrykk inn i en rekurrens;
+- kontrollere initialbetingelser;
+- undersøke hvert steg i et bevis eller argument.
