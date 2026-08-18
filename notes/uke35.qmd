@@ -3,14 +3,14 @@ title: "MAT221 uke 35"
 lang: nb
 ---
 
-## Arbeidsøkt 1: Rekurrenser
+## Arbeidsøkt 1: Rekursjonsformler
 
 I denne arbeidsøkten skal vi undersøke hvordan en følge av tall kan beskrives ved hjelp av tidligere tall i følgen.
 
 Vi skal særlig arbeide med tre spørsmål:
 
-1. Hvordan kan en rekurrens oppstå fra et konkret problem?
-2. Hvordan kan vi gå fra en rekurrens til en formel for det $n$-te leddet?
+1. Hvordan kan en rekursjonsformel oppstå fra et konkret problem?
+2. Hvordan kan vi gå fra en rekursjonsformel til en formel for det $n$-te leddet?
 3. Hvordan kan kunstig intelligens brukes til å finne, forklare og kontrollere matematiske argumenter?
 
 ::: {.callout-note title="Om KI-oppgavene"}
@@ -51,7 +51,7 @@ For å flytte et tårn med $n$ skiver må den største skiven på et tidspunkt f
 
 Før det kan skje må alle de $n-1$ mindre skivene flyttes bort fra den. Etter at den største skiven er flyttet, må de $n-1$ mindre skivene flyttes oppå den igjen.
 
-::: {#exr-hanoi-rekurrens name="Finn rekurrensen"}
+::: {#exr-hanoi-rekurrens name="Finn rekursjonsformelen"}
 Bruk observasjonen over til å forklare hvorfor
 
 $$
@@ -63,9 +63,9 @@ Hvilken startverdi må vi oppgi sammen med denne ligningen?
 Sammenlign forklaringen din med forklaringen til noen som sitter i nærheten.
 :::
 
-#### Rekurrensrelasjoner
+#### Rekursjonsformler
 
-En **rekurrensrelasjon** beskriver ledd i en følge ved hjelp av tidligere ledd.
+En **rekursjonsformel** (også kalt en **rekurrensrelasjon**) beskriver ledd i en følge ved hjelp av tidligere ledd.
 
 Ligningen
 
@@ -73,7 +73,7 @@ $$
 a_n=2a_{n-1}+1
 $$
 
-er en rekurrensrelasjon.
+er en rekursjonsformel.
 
 For at den skal bestemme følgen, trenger vi også en **initialbetingelse**. For Hanoi-problemet er denne
 
@@ -81,9 +81,9 @@ $$
 a_1=1.
 $$
 
-Rekurrensen og initialbetingelsen bestemmer sammen hele følgen.
+Rekursjonsformelen og initialbetingelsen bestemmer sammen hele følgen. En følge som er gitt på denne måten, kalles **rekursivt definert**.
 
-::: {#exr-hanoi-verdier name="Fra rekurrens til tall"}
+::: {#exr-hanoi-verdier name="Fra rekursjonsformel til tall"}
 Bruk
 
 $$
@@ -108,7 +108,7 @@ Les beviset den gir deg, og kontroller spesielt:
 
 1. Hvilket utsagn er det som bevises ved induksjon?
 2. Kontrolleres startverdien?
-3. Hvor brukes rekurrensen?
+3. Hvor brukes rekursjonsformelen?
 4. Hvor brukes induksjonshypotesen?
 
 Hvis KI bruker en annen nummerering av følgen enn vi gjør, må du avgjøre om argumentet likevel er riktig.
@@ -158,7 +158,7 @@ Det finnes to muligheter:
 ![De to mulige måtene en dekning av et $2\times n$-rektangel kan begynne på.](figures/uke35/domino-cases.svg){width=90%}
 
 ::: {#exr-flislegging-rekurrens name="Del problemet i to tilfeller"}
-Forklar hvorfor de to tilfellene over gir
+Forklar hvorfor de to tilfellene over gir rekursjonsformelen
 
 $$
 p_n=p_{n-1}+p_{n-2}.
@@ -196,9 +196,9 @@ Diskuter deretter:
 3. Hvis KI hevder noe du ikke er enig i, avgjør selv hvem som har rett.
 :::
 
-### Hvordan løser vi en rekurrens?
+### Hvordan finner vi en eksplisitt formel?
 
-Vi har nå sett rekurrensen
+Vi har nå sett rekursjonsformelen
 
 $$
 F_n=F_{n-1}+F_{n-2}.
@@ -206,7 +206,7 @@ $$
 
 Den lar oss lett beregne neste Fibonacci-tall når vi kjenner de to foregående. Men den gir ikke $F_{100}$ direkte.
 
-Vi skal derfor undersøke rekurrenser av formen
+Vi skal derfor undersøke rekursjonsformler av formen
 
 $$
 a_n=Aa_{n-1}+Ba_{n-2},
@@ -215,7 +215,7 @@ $$
 
 der $A$ og $B$ er faste tall og $a_1,a_2$ er gitt.
 
-Dette kalles en **lineær rekurrens av andre orden med konstante koeffisienter**.
+Dette kalles en **lineær rekursjonsformel av andre orden med konstante koeffisienter**.
 
 #### Prøv en enkel type løsning
 
@@ -225,7 +225,7 @@ $$
 a_n=r^n.
 $$
 
-Setter vi dette inn i rekurrensen, får vi
+Setter vi dette inn i rekursjonsformelen, får vi
 
 $$
 r^n=Ar^{n-1}+Br^{n-2}.
@@ -240,7 +240,7 @@ $$
 r^2-Ar-B=0.
 $$
 
-Denne ligningen kaller vi den **karakteristiske ligningen** til rekurrensen.
+Denne ligningen kaller vi den **karakteristiske ligningen** til rekursjonsformelen.
 
 Be gjerne KI kontrollere utregningen din dersom du er usikker.
 :::
@@ -251,7 +251,7 @@ $$
 a_n=r^n
 $$
 
-oppfylle rekurrensen.
+oppfylle rekursjonsformelen.
 
 Har den karakteristiske ligningen to forskjellige røtter $\alpha$ og $\beta$, får vi derfor to løsninger
 
@@ -276,7 +276,7 @@ $$
 a_n=C\alpha^n+D\beta^n
 $$
 
-oppfyller rekurrensen når både $\alpha^n$ og $\beta^n$ gjør det.
+oppfyller rekursjonsformelen når både $\alpha^n$ og $\beta^n$ gjør det.
 
 Be om en kort algebraisk forklaring.
 
@@ -286,10 +286,10 @@ $$
 a_n=Aa_{n-1}+Ba_{n-2}.
 $$
 
-Hva er det ved rekurrensen som gjør at lineærkombinasjoner fungerer?
+Hva er det ved rekursjonsformelen som gjør at lineærkombinasjoner fungerer?
 :::
 
-::: {#thm-lineaer-rekurrens name="Lineære rekurrenser av andre orden"}
+::: {#thm-lineaer-rekurrens name="Lineære rekursjonsformler av andre orden"}
 Anta at
 
 $$
@@ -326,8 +326,8 @@ Du trenger ikke skrive av hele beviset.
 
 Finn i stedet svar på disse spørsmålene:
 
-1. Hvorfor oppfyller $\alpha^n$ og $\beta^n$ rekurrensen når røttene er forskjellige?
-2. Hvorfor oppfyller også lineærkombinasjonen rekurrensen?
+1. Hvorfor oppfyller $\alpha^n$ og $\beta^n$ rekursjonsformelen når røttene er forskjellige?
+2. Hvorfor oppfyller også lineærkombinasjonen rekursjonsformelen?
 3. Hvordan brukes $a_1$ og $a_2$ til å bestemme $C$ og $D$?
 4. I tilfellet med dobbeltrot: kontroller ved innsetting at $n\alpha^n$ også er en løsning.
 
@@ -400,7 +400,7 @@ Be KI forklare hvorfor, men prøv først selv å formulere en forklaring ut fra 
 
 ### Dobbeltrot
 
-Betrakt rekurrensen
+Betrakt rekursjonsformelen
 
 $$
 a_n=4a_{n-1}-4a_{n-2},
@@ -408,7 +408,7 @@ a_n=4a_{n-1}-4a_{n-2},
 a_1=1,\quad a_2=3.
 $$
 
-::: {#exr-dobbeltrot name="Løs en rekurrens med dobbeltrot"}
+::: {#exr-dobbeltrot name="En rekursjonsformel med dobbeltrot"}
 1. Finn den karakteristiske ligningen.
 2. Vis at den har en dobbeltrot.
 3. Bruk teoremet til å skrive
@@ -422,7 +422,7 @@ Du kan bruke KI til å kontrollere utregningene.
 Når du har fått en eksplisitt formel, kontroller den ved å:
 
 - beregne $a_1$ og $a_2$;
-- beregne $a_3$ både fra rekurrensen og fra den eksplisitte formelen.
+- beregne $a_3$ både fra rekursjonsformelen og fra den eksplisitte formelen.
 :::
 
 ### Oppsummering av arbeidsøkt 1
@@ -433,13 +433,13 @@ $$
 \boxed{
 \text{problem}
 \longrightarrow
-\text{rekurrens og initialbetingelser}
+\text{rekursjonsformel og initialbetingelser}
 \longrightarrow
 \text{eksplisitt formel}
 }
 $$
 
-For en lineær rekurrens av andre orden
+For en lineær rekursjonsformel av andre orden
 
 $$
 a_n=Aa_{n-1}+Ba_{n-2}
@@ -453,7 +453,7 @@ $$
 
 Når du bruker KI i matematikk, er det ikke nok at svaret ser overbevisende ut. I denne økten har du blant annet brukt tre måter å kontrollere KI på:
 
-- sette et foreslått uttrykk inn i en rekurrens;
+- sette et foreslått uttrykk inn i en rekursjonsformel;
 - kontrollere initialbetingelser;
 - undersøke hvert steg i et bevis eller argument.
 
@@ -461,19 +461,19 @@ Når du bruker KI i matematikk, er det ikke nok at svaret ser overbevisende ut. 
 
 ## Arbeidsøkt 2: Genererende funksjoner, derangements og Catalan-tall
 
-I den første arbeidsøkten brukte vi rekurrenser til å beskrive følger og den karakteristiske ligningen til å finne eksplisitte formler. I denne økten skal vi møte et nytt verktøy: **genererende funksjoner**.
+I den første arbeidsøkten brukte vi rekursjonsformler til å beskrive følger og den karakteristiske ligningen til å finne eksplisitte formler. I denne økten skal vi møte et nytt verktøy: **genererende funksjoner**.
 
 Vi skal bruke dem til å:
 
 1. pakke en hel følge inn i én potensrekke,
-2. løse en rekurrens på en ny måte,
+2. finne eksplisitte formler på en ny måte,
 3. forstå hvorfor produkter av potensrekker gir summer av produkter av koeffisienter,
 4. arbeide med derangements og Catalan-tall.
 
 ::: {.callout-note title="KI i denne arbeidsøkten"}
 Bruk KI til å fylle inn detaljer som ellers ville tatt mye plass i teksten: algebra, delbrøkoppspalting, bevis og koeffisientutregninger.
 
-Men gjør alltid minst én matematisk kontroll selv. Det kan være å sette et uttrykk inn i en rekurrens, regne ut de første leddene eller kontrollere en koeffisient direkte.
+Men gjør alltid minst én matematisk kontroll selv. Det kan være å sette et uttrykk inn i en rekursjonsformel, regne ut de første leddene eller kontrollere en koeffisient direkte.
 :::
 
 ### Genererende funksjoner
@@ -615,8 +615,8 @@ $$
 F(x)=F_1x+F_2x^2+F_3x^3+\cdots.
 $$
 
-::: {#exr-fibonacci-genererende name="Fra rekurrens til funksjon"}
-Bruk rekurrensen til å vise at
+::: {#exr-fibonacci-genererende name="Fra rekursjonsformel til funksjon"}
+Bruk rekursjonsformelen til å vise at
 
 $$
 F(x)-x-2x^2=xF(x)-x^2+x^2F(x).
@@ -655,14 +655,14 @@ Skriv opp de to derangementene av $1,2,3$.
 Velg deretter ett av de ni derangementene av fire objekter ved hjelp av KI. Kontroller selv at ingen av tallene $1,2,3,4$ står på sin egen plass.
 :::
 
-For $n\geq3$ gjelder rekurrensen
+For $n\geq3$ gjelder rekursjonsformelen
 
 $$
 d_n=(n-1)(d_{n-1}+d_{n-2}).
 $$
 
 ::: {#exr-ki-derangement-rekurrens name="KI: Finn de to tilfellene"}
-Be KI forklare rekurrensen ved å se på hva som skjer med objekt nummer $n$.
+Be KI forklare rekursjonsformelen ved å se på hva som skjer med objekt nummer $n$.
 
 Be den dele argumentet i nøyaktig to tilfeller:
 
@@ -671,10 +671,10 @@ Be den dele argumentet i nøyaktig to tilfeller:
 
 Kontroller selv at det første tilfellet gir $(n-1)d_{n-2}$ og at det andre gir $(n-1)d_{n-1}$.
 
-Bruk deretter rekurrensen til å beregne $d_5$ og $d_6$.
+Bruk deretter rekursjonsformelen til å beregne $d_5$ og $d_6$.
 :::
 
-Ved å omskrive rekurrensen kan man få
+Ved å omskrive rekursjonsformelen kan man få
 
 $$
 d_n-nd_{n-1}=(-1)^n.
@@ -738,8 +738,8 @@ For en god sti fra $A$ til $B$, se på **siste gang stien møter diagonalen før
 
 Før $C$ har vi et godt ruteproblem av størrelse $m$. Etter $C$ må stien først gå mot høyre, og den gjenværende delen svarer til et godt ruteproblem av størrelse $n-m-1$.
 
-::: {#exr-catalan-rekurrens name="Forklar Catalan-rekurrensen"}
-Bruk figuren, multiplikasjonsprinsippet og addisjonsprinsippet til å forklare
+::: {#exr-catalan-rekurrens name="Forklar rekursjonsformelen"}
+Bruk figuren, multiplikasjonsprinsippet og addisjonsprinsippet til å forklare rekursjonsformelen
 
 $$
 p_n=\sum_{m=0}^{n-1}p_mp_{n-m-1}.
@@ -758,8 +758,8 @@ $$
 
 Nå blir produktregelen for genererende funksjoner avgjørende.
 
-::: {#exr-catalan-genererende name="Fra konvolusjon til en ligning"}
-Bruk Catalan-rekurrensen og Cauchy-produktet til å vise at
+::: {#exr-catalan-genererende name="Fra rekursjonsformel til en ligning"}
+Bruk rekursjonsformelen for Catalan-tallene og Cauchy-produktet til å vise at
 
 $$
 C(x)^2=\sum_{n=0}^{\infty}p_{n+1}x^n.
@@ -815,7 +815,7 @@ $$
 C_n=\frac{1}{n+1}\binom{2n}{n}.
 $$
 
-Du trenger ikke gjengi alle algebraiske detaljer. Kontroller i stedet formelen for $n=0,1,2,3,4$, og kontroller at disse tallene oppfyller Catalan-rekurrensen for $n=4$.
+Du trenger ikke gjengi alle algebraiske detaljer. Kontroller i stedet formelen for $n=0,1,2,3,4$, og kontroller at disse tallene oppfyller rekursjonsformelen for $n=4$.
 :::
 
 #### Samme tall i et nytt problem
@@ -852,8 +852,8 @@ $$
 
 Tre ideer er spesielt viktige:
 
-1. Rekurrenser kan bli algebraiske ligninger for genererende funksjoner.
+1. Rekursjonsformler kan bli algebraiske ligninger for genererende funksjoner.
 2. Produktet av to genererende funksjoner gir konvolusjonssummer av koeffisientene.
 3. Den samme følgen kan oppstå i svært forskjellige telleproblemer.
 
-Denne uken har vi dermed gått fra konkrete telleproblemer til rekurrenser, fra rekurrenser til eksplisitte formler, og videre til genererende funksjoner som et nytt verktøy for å organisere og løse problemene.
+Denne uken har vi dermed gått fra konkrete telleproblemer til rekursjonsformler, fra rekursjonsformler til eksplisitte formler, og videre til genererende funksjoner som et nytt verktøy for å organisere og løse problemene.
