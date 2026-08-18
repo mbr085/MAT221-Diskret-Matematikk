@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Hanoi-tårnene med tre skiver</title>
+  <desc id="desc">Tre stolper på en base. Tre skiver ligger på venstre stolpe, størst nederst og minst øverst.</desc>
+  <rect width="720" height="320" fill="white"/>
+  <g fill="none" stroke="#2f2f2f" stroke-width="6" stroke-linecap="round">
+    <line x1="70" y1="270" x2="650" y2="270"/>
+    <line x1="170" y1="270" x2="170" y2="70"/>
+    <line x1="360" y1="270" x2="360" y2="70"/>
+    <line x1="550" y1="270" x2="550" y2="70"/>
+  </g>
+  <g stroke="#2f2f2f" stroke-width="4">
+    <rect x="85" y="220" width="170" height="38" rx="8" fill="#dedede"/>
+    <rect x="108" y="176" width="124" height="38" rx="8" fill="#c8c8c8"/>
+    <rect x="132" y="132" width="76" height="38" rx="8" fill="#b2b2b2"/>
+  </g>
+</svg>
