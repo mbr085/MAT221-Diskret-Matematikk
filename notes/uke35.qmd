@@ -476,39 +476,6 @@ Bruk KI til å fylle inn detaljer som ellers ville tatt mye plass i teksten: alg
 Men gjør alltid minst én matematisk kontroll selv. Det kan være å sette et uttrykk inn i en rekurrens, regne ut de første leddene eller kontrollere en koeffisient direkte.
 :::
 
-### En kort bro fra forrige økt: ikke-homogene rekurrenser
-
-En rekurrens på formen
-
-$$
-a_n=Aa_{n-1}+Ba_{n-2}
-$$
-
-kalles **homogen**. Hvis vi i stedet har
-
-$$
-a_n=Aa_{n-1}+Ba_{n-2}+t_n,
-$$
-
-der $t_n$ er en gitt følge, kalles rekurrensen **ikke-homogen**.
-
-En viktig idé er:
-
-> Finn først den generelle løsningen av den homogene rekurrensen. Finn deretter én bestemt løsning av den ikke-homogene rekurrensen. Summen av disse gir den generelle løsningen av den ikke-homogene rekurrensen.
-
-::: {#exr-ikkehomogen-ki name="KI: En ikke-homogen rekurrens"}
-Betrakt
-
-$$
-a_n=-a_{n-1}+3\cdot2^{n-1},\qquad a_1=0.
-$$
-
-1. Vis selv at $a_n=2^n$ er én bestemt løsning.
-2. Finn løsningen av den homogene rekurrensen $a_n=-a_{n-1}$.
-3. Be KI sette de to delene sammen og bruke initialbetingelsen.
-4. Kontroller svaret ved å beregne $a_2$ og $a_3$ både fra rekurrensen og fra den eksplisitte formelen.
-:::
-
 ### Genererende funksjoner
 
 La
