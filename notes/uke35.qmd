@@ -28,6 +28,8 @@ En overbevisende formulering fra en KI er ikke i seg selv en matematisk begrunne
 
 Vi har tre stolper og $n$ sirkelformede skiver med forskjellig størrelse. I starten ligger alle skivene på den første stolpen, med den største nederst og den minste øverst.
 
+![Startsituasjonen i Hanoi-tårnene med tre skiver.](figures/uke35/hanoi-start.svg){width=65%}
+
 Vi vil flytte hele tårnet til en annen stolpe.
 
 Reglene er:
@@ -134,6 +136,16 @@ Finn dermed $p_1,p_2$ og $p_3$.
 Prøv også å finne $p_4$.
 :::
 
+:::: {.callout-tip collapse="true" title="Kontroller tegningene dine"}
+::: {layout-ncol=3}
+![Den eneste dekningen av et $2\times1$-rektangel.](figures/uke35/domino-2x1.svg)
+
+![De to dekningene av et $2\times2$-rektangel.](figures/uke35/domino-2x2.svg)
+
+![De tre dekningene av et $2\times3$-rektangel.](figures/uke35/domino-2x3.svg)
+:::
+::::
+
 Nå skal vi prøve å telle uten å tegne alle mulighetene.
 
 Se på den **venstre kanten** av et ferdig dekket $2\times n$-rektangel.
@@ -142,6 +154,8 @@ Det finnes to muligheter:
 
 - Den venstre kolonnen er dekket av én loddrett dominobrikke.
 - De to rutene lengst til venstre tilhører to vannrette dominobrikker.
+
+![De to mulige måtene en dekning av et $2\times n$-rektangel kan begynne på.](figures/uke35/domino-cases.svg){width=90%}
 
 ::: {#exr-flislegging-rekurrens name="Del problemet i to tilfeller"}
 Forklar hvorfor de to tilfellene over gir
