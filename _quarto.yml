@@ -11,6 +11,7 @@ book:
   chapters:
     - index.qmd
     - notes/uke34.qmd
+    - notes/uke35.qmd
 
 number-depth: 2
 
