@@ -1,0 +1,107 @@
+---
+title: "Obligatorisk oppgave 1 – Hva er egentlig en graf?"
+lang: nb
+---
+
+I Definition 3.1 beskriver Anderson en graf ved hjelp av en endelig mengde hjørner $V$ og «a collection $E$ of pairs of vertices called edges». Senere omtaler han blant annet løkker, multiple kanter og delgrafer.
+
+I denne oppgaven skal du undersøke hvor presis denne definisjonen egentlig er. Målet er ikke først og fremst å finne feil hos Anderson, men å lære å lese en matematisk definisjon bokstavelig, skille mellom det som er definert og det som er underforstått, og formulere matematikken mer presist når det er nødvendig.
+
+## Del 1 – Les Definition 3.1 bokstavelig
+
+Undersøk følgende spørsmål.
+
+1. Hva kan «a pair of vertices» bety matematisk?
+2. Er det klart fra definisjonen om en kant er **rettet eller urettet**?
+3. Anderson sier også hvordan en graf kan tegnes. Hva er forskjellen mellom **en kant** og **streken som representerer kanten i en tegning**? Kan en vilkårlig strek uten angitte endepunkter være en kant etter definisjonen?
+4. Hvordan kan definisjonen beskrive en **løkke**, altså en kant som forbinder et hjørne med seg selv?
+5. Hvordan kan definisjonen beskrive **to forskjellige kanter med de samme endepunktene**?
+
+For hvert spørsmål skal du forsøke å skille mellom
+
+- hva som faktisk følger av den skrevne definisjonen, og
+- hva du tror Anderson mener ut fra den omkringliggende teksten, figurene og vanlige grafteoretiske konvensjoner.
+
+Begrunn svarene dine.
+
+## Del 2 – Sammenlign med Definition 3.2
+
+Les Definition 3.2 om delgrafer.
+
+Anderson beskriver her hjørnene og kantene i en delgraf ved hjelp av **subsets** av hjørnene og kantene i den opprinnelige grafen.
+
+Lag et eksempel på en graf $G$ med to parallelle kanter mellom de samme hjørnene, og en delgraf $H$ som inneholder bare én av disse kantene.
+
+Undersøk deretter:
+
+1. Hva må elementene i $E(G)$ være for at
+   $$
+   E(H)\subseteq E(G)
+   $$
+   skal gi vanlig mengdeteoretisk mening?
+2. Kan en kant samtidig bare identifiseres med paret av hjørner som den forbinder?
+3. Er Definition 3.1 og Definition 3.2, lest helt bokstavelig, tilstrekkelig presise til å beskrive eksemplet ditt?
+
+## Del 3 – Foreslå en presis definisjon
+
+Formuler din egen presise definisjon av en graf av den typen Anderson ønsker å arbeide med.
+
+Definisjonen din skal gjøre det klart
+
+- hva et hjørne er,
+- hva en kant er,
+- hvilke hjørner en kant forbinder,
+- at kantene er urettede,
+- hvordan løkker håndteres,
+- hvordan multiple kanter håndteres.
+
+Du kan innføre nye mengder, avbildninger eller annen notasjon dersom du trenger det.
+
+Etter definisjonen skal du kort forklare hvorfor den løser problemene du fant i del 1 og 2.
+
+Det er ikke et krav at du bruker samme notasjon eller samme formelle modell som andre studenter. Det viktige er at definisjonen din er tydelig og matematisk konsistent.
+
+## Del 4 – Bruk KI kritisk
+
+Bruk en KI-assistent til å undersøke Definition 3.1. Du bestemmer selv hvilke spørsmål du stiller, men minst ett av dem skal handle om hvorvidt Andersons definisjon er en presis definisjon av en urettet graf med løkker og multiple kanter.
+
+Velg ut én påstand eller forklaring fra KI-samtalen som du mener bør undersøkes nærmere.
+
+Det kan være en påstand som er
+
+- feil,
+- riktig, men utilstrekkelig begrunnet,
+- basert på en konvensjon som ikke står i definisjonen,
+- eller mer presis enn Andersons egen formulering.
+
+Gjengi påstanden kort og vurder den matematisk. Det er **din begrunnelse**, ikke KI-ens svar, som skal telle.
+
+## Del 5 – Kort muntlig forklaring
+
+Du skal kunne forklare ett av funnene dine muntlig.
+
+Velg ett konkret problem i Definition 3.1 eller 3.2 og forklar
+
+1. hva problemet er,
+2. et eksempel som viser problemet,
+3. hvordan du vil reparere definisjonen.
+
+Forklaringen skal være kort, omtrent 3–5 minutter.
+
+Den muntlige forklaringen kan gjennomføres i undervisningen. Dersom du ikke ønsker å presentere for hele klassen, kan du forklare den direkte til faglærer.
+
+## Innlevering
+
+Lever en kort, sammenhengende besvarelse av del 1–4.
+
+Det er viktigere at argumentene er presise enn at teksten er lang. Du skal ikke bare skrive hva du mener Anderson har ment; du skal også forklare hva som faktisk følger av formuleringene i definisjonene.
+
+### Hva blir vurdert?
+
+Det blir særlig lagt vekt på at du kan
+
+- lese en matematisk definisjon bokstavelig og kritisk,
+- skille mellom definisjon og uuttalt konvensjon,
+- bruke konkrete eksempler til å avdekke problemer,
+- formulere matematikk mer presist,
+- og vurdere et KI-generert matematisk argument kritisk.
