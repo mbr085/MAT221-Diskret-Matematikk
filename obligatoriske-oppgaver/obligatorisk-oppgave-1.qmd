@@ -42,7 +42,32 @@ Undersøk deretter:
 2. Kan en kant samtidig bare identifiseres med paret av hjørner som den forbinder?
 3. Er Definition 3.1 og Definition 3.2, lest helt bokstavelig, tilstrekkelig presise til å beskrive eksemplet ditt?
 
-## Del 3 – Foreslå en presis definisjon
+## Del 3 – Paths, walks og sammenheng
+
+Les Definition 3.3 om *paths* og Definition 3.4 om sammenhengende grafer.
+
+Bruk igjen en graf $G$ med to hjørner $u$ og $v$ og to forskjellige parallelle kanter $e$ og $f$ mellom dem.
+
+1. Det finnes en tur fra $u$ til $v$ som bruker $e$, og en annen som bruker $f$. Kan Definition 3.3 skille mellom disse to? Hva blir borte dersom en *path* bare beskrives ved hjørnene den går gjennom?
+2. Foreslå en liten endring av Definition 3.3 som gjør at den også registrerer hvilken kant som brukes i en multigraf.
+3. Definition 3.3 har altså et problem når grafen har multiple kanter. Undersøk likevel Definition 3.4. Har dette problemet noen betydning for spørsmålet om **det finnes** en *path* mellom to hjørner? Begrunn om Definition 3.4 fortsatt gir en meningsfull definisjon av sammenheng for multigrafer.
+
+En **vandring** (*walk*) fra $x$ til $y$ i en multigraf kan defineres som en endelig alternerende følge
+
+$$
+x=v_0,e_1,v_1,e_2,\ldots,e_n,v_n=y,
+$$
+
+der $e_i$ har endepunktene $v_{i-1}$ og $v_i$. Hjørner og kanter kan gjentas. Vi tillater også $n=0$.
+
+Vi kunne derfor ha brukt følgende alternative definisjon:
+
+> En graf er sammenhengende dersom det finnes en vandring mellom ethvert par av hjørner.
+
+4. Vis at denne definisjonen og Andersons Definition 3.4 er ekvivalente.
+5. Hvilken av de to definisjonene av sammenheng synes du er **mest direkte** eller **enklest**? Forklar først hva du legger i disse ordene. Gi minst ett argument til fordel for hver definisjon før du begrunner hvilken du selv foretrekker.
+
+## Del 4 – Foreslå en presis definisjon
 
 Formuler din egen presise definisjon av en graf av den typen Anderson ønsker å arbeide med.
 
@@ -57,13 +82,15 @@ Definisjonen din skal gjøre det klart
 
 Du kan innføre nye mengder, avbildninger eller annen notasjon dersom du trenger det.
 
-Etter definisjonen skal du kort forklare hvorfor den løser problemene du fant i del 1 og 2.
+Etter definisjonen skal du kort forklare hvorfor den løser problemene du fant i del 1–3.
 
 Det er ikke et krav at du bruker samme notasjon eller samme formelle modell som andre studenter. Det viktige er at definisjonen din er tydelig og matematisk konsistent.
 
-## Del 4 – Bruk KI kritisk
+## Del 5 – Bruk KI kritisk
 
-Bruk en KI-assistent til å undersøke Definition 3.1. Du bestemmer selv hvilke spørsmål du stiller, men minst ett av dem skal handle om hvorvidt Andersons definisjon er en presis definisjon av en urettet graf med løkker og multiple kanter.
+Bruk en KI-assistent til å undersøke en eller flere av Definition 3.1–3.4. Du bestemmer selv hvilke spørsmål du stiller, men minst ett av dem skal handle om hvorvidt Andersons Definition 3.1 er en presis definisjon av en urettet graf med løkker og multiple kanter.
+
+Du kan også for eksempel be KI-assistenten vurdere om Definition 3.3 fungerer for parallelle kanter, eller sammenligne de to definisjonene av sammenheng i del 3.
 
 Velg ut én påstand eller forklaring fra KI-samtalen som du mener bør undersøkes nærmere.
 
@@ -76,11 +103,11 @@ Det kan være en påstand som er
 
 Gjengi påstanden kort og vurder den matematisk. Det er **din begrunnelse**, ikke KI-ens svar, som skal telle.
 
-## Del 5 – Kort muntlig forklaring
+## Del 6 – Kort muntlig forklaring
 
 Du skal kunne forklare ett av funnene dine muntlig.
 
-Velg ett konkret problem i Definition 3.1 eller 3.2 og forklar
+Velg ett konkret problem i Definition 3.1, 3.2 eller 3.3 og forklar
 
 1. hva problemet er,
 2. et eksempel som viser problemet,
@@ -92,7 +119,7 @@ Den muntlige forklaringen kan gjennomføres i undervisningen. Dersom du ikke øn
 
 ## Innlevering
 
-Lever en kort, sammenhengende besvarelse av del 1–4.
+Lever en kort, sammenhengende besvarelse av del 1–5.
 
 Det er viktigere at argumentene er presise enn at teksten er lang. Du skal ikke bare skrive hva du mener Anderson har ment; du skal også forklare hva som faktisk følger av formuleringene i definisjonene.
 
@@ -103,5 +130,6 @@ Det blir særlig lagt vekt på at du kan
 - lese en matematisk definisjon bokstavelig og kritisk,
 - skille mellom definisjon og uuttalt konvensjon,
 - bruke konkrete eksempler til å avdekke problemer,
+- sammenligne ekvivalente matematiske definisjoner,
 - formulere matematikk mer presist,
 - og vurdere et KI-generert matematisk argument kritisk.
