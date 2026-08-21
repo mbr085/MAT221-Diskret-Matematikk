@@ -29,7 +29,9 @@ format:
   html:
     html-math-method: mathml
     css: styles.css
-    include-after-body: reader-mode.html
+    include-after-body:
+      - reader-mode.html
+      - shared-numbering.html
     theme:
       light: cosmo
       dark: darkly
@@ -44,6 +46,49 @@ format:
     include-in-header:
       text: |
         \setcounter{MaxMatrixCols}{30}
+
+        % One shared counter for numbered theorem-like environments.
+        % Quarto gives theorem, definition, example, exercise, etc.
+        % separate counters by default.
+        \makeatletter
+        \@ifundefined{c@chapter}{%
+          \newcounter{matstatement}[section]
+        }{%
+          \newcounter{matstatement}[chapter]
+        }
+        \AtBeginDocument{%
+          \@ifundefined{c@theorem}{}{% 
+            \let\c@theorem\c@matstatement
+          }%
+          \@ifundefined{c@lemma}{}{% 
+            \let\c@lemma\c@matstatement
+          }%
+          \@ifundefined{c@corollary}{}{% 
+            \let\c@corollary\c@matstatement
+          }%
+          \@ifundefined{c@proposition}{}{% 
+            \let\c@proposition\c@matstatement
+          }%
+          \@ifundefined{c@conjecture}{}{% 
+            \let\c@conjecture\c@matstatement
+          }%
+          \@ifundefined{c@definition}{}{% 
+            \let\c@definition\c@matstatement
+          }%
+          \@ifundefined{c@example}{}{% 
+            \let\c@example\c@matstatement
+          }%
+          \@ifundefined{c@exercise}{}{% 
+            \let\c@exercise\c@matstatement
+          }%
+          \@ifundefined{c@remark}{}{% 
+            \let\c@remark\c@matstatement
+          }%
+          \@ifundefined{c@solution}{}{% 
+            \let\c@solution\c@matstatement
+          }%
+        }
+        \makeatother
 
 execute:
   freeze: auto
