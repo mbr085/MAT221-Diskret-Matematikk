@@ -1,0 +1,476 @@
+---
+title: "Utkast: Grafer"
+lang: nb
+---
+
+Dette er et arbeidsutkast til undervisningen knyttet til Anderson kapittel 3.
+Målet er å holde hovedteksten kort: fundamentale definisjoner og teoremer står her,
+mens mange forklaringer, bevis og eksempler undersøkes i oppgaver og med KI.
+
+Vi skal særlig arbeide med fire spørsmål:
+
+1. Hvordan beskriver vi grafer presist, og hvordan uttrykker vi sammenheng?
+2. Hvordan finner vi spenntrær, og hva betyr det egentlig at en algoritme er rask?
+3. Hvorfor hører plane grafer, sfæren og Eulers formel sammen?
+4. Hvordan leder dette videre til Kuratowskis teorem, dualitet og firefargeproblemet?
+
+::: {.callout-note title="Om KI-oppgavene"}
+Når du bruker KI, er målet ikke bare å få et svar.
+
+- Bruk KI til et avgrenset formål: et hint, en forklaring, et bevis, et eksempel eller hjelp til å lese dokumentasjon eller kildekode.
+- Kontroller minst ett viktig matematisk eller algoritmisk steg selv.
+- Når oppgaven gjelder hva et programvarebibliotek faktisk gjør, skal du kontrollere svaret mot offisiell dokumentasjon eller kildekode.
+- En overbevisende formulering fra en KI er ikke i seg selv en begrunnelse.
+:::
+
+## Arbeidsøkt 1: Grafer, sammenheng og trær
+
+### Grafer
+
+::: {#def-graf name="Enkel urettet graf"}
+En **enkel urettet graf** er et par
+
+$$
+G=(V,E),
+$$
+
+der $V$ er en endelig mengde av **hjørner**, og
+
+$$
+E\subseteq \bigl\{\{u,v\}:u,v\in V,\ u\neq v\bigr\}.
+$$
+
+Elementene i $E$ kalles **kanter**.
+:::
+
+At kanten skrives som mengden $\{u,v\}$, og ikke som det ordnede paret $(u,v)$,
+betyr at grafen er urettet.
+
+To hjørner er **naboer** dersom de er endepunktene til samme kant.
+Graden $\deg(v)$ til et hjørne $v$ er antallet kanter som har $v$ som endepunkt.
+
+::: {#exr-handtrykk-oppdag name="Tell endepunkter på to måter"}
+Tegn en graf med minst seks hjørner og minst åtte kanter.
+
+1. Finn graden til hvert hjørne.
+2. Summer alle gradene.
+3. Sammenlign summen med antallet kanter.
+4. Forklar hvorfor det du observerer må gjelde for enhver endelig graf.
+:::
+
+::: {#thm-handtrykk name="Håndtrykkslemmaet"}
+For enhver endelig graf $G=(V,E)$ gjelder
+
+$$
+\sum_{v\in V}\deg(v)=2|E|.
+$$
+:::
+
+Håndtrykkslemmaet er et eksempel på **dobbelttelling**: begge sider teller de samme
+kantendepunktene.
+
+### Gang, sti, sykel og sammenheng
+
+::: {#def-gang-sti-sykel name="Gang, sti og sykel"}
+En **gang** fra $v_0$ til $v_k$ er en følge
+
+$$
+v_0,e_1,v_1,e_2,\ldots,e_k,v_k,
+$$
+
+der $e_i=\{v_{i-1},v_i\}$ for hvert $i$.
+
+En **sti** er en gang uten gjentatte hjørner.
+En **sykel** er en lukket gang som, bortsett fra at første og siste hjørne er det samme,
+ikke gjentar hjørner.
+:::
+
+::: {#def-sammenheng name="Sammenhengende graf"}
+En graf er **sammenhengende** dersom det finnes en sti mellom ethvert par av hjørner.
+:::
+
+::: {#exr-sammenheng-gang name="Sti eller gang?"}
+En annen mulig definisjon sier at en graf er sammenhengende dersom det finnes en **gang**
+mellom ethvert par av hjørner.
+
+1. Vis at de to definisjonene er ekvivalente.
+2. Hvis en gang gjentar et hjørne, hvordan kan du gjøre gangen kortere uten å endre start- og endepunkt?
+3. Hvilken definisjon synes du er mest direkte eller enklest å bruke? Begrunn svaret.
+
+**KI:** Hvis du står fast, be KI forklare hvordan man går fra en gang til en sti.
+Kontroller deretter selv at argumentet virkelig terminerer.
+:::
+
+### Trær
+
+::: {#def-tre name="Tre"}
+Et **tre** er en sammenhengende graf uten sykler.
+:::
+
+Følgende karakteriseringer er fundamentale og lar oss skifte mellom geometriske,
+kombinatoriske og algoritmiske beskrivelser av trær.
+
+::: {#thm-tre-karakterisering name="Karakteriseringer av trær"}
+La $T$ være en endelig graf med $n$ hjørner. Følgende utsagn er ekvivalente:
+
+1. $T$ er et tre.
+2. Mellom hvert par av hjørner finnes nøyaktig én sti.
+3. $T$ er sammenhengende og har $n-1$ kanter.
+4. $T$ har ingen sykler og har $n-1$ kanter.
+:::
+
+::: {#exr-tre-bevis name="KI: Bygg et bevis av små deler"}
+Velg én av implikasjonene i @thm-tre-karakterisering.
+
+1. Forsøk først å forklare hvorfor implikasjonen burde være sann.
+2. Be så KI om et kort bevis.
+3. Finn det viktigste stedet der hypotesen brukes.
+4. Skriv beviset med egne ord i høyst fem setninger.
+
+Målet er ikke å memorere et langt standardbevis, men å forstå hvorfor karakteriseringene henger sammen.
+:::
+
+## Arbeidsøkt 2: Spenntrær og algoritmer
+
+### Minimum spenntrær
+
+La $G=(V,E)$ være sammenhengende, og la hver kant $e$ ha en vekt $w(e)$.
+Et **spenntre** er et deltre som inneholder alle hjørnene i $G$.
+Et **minimum spenntre** (MST) er et spenntre med minst mulig total vekt.
+
+To klassiske algoritmer er:
+
+**Kruskal:** Sorter kantene etter stigende vekt. Gå gjennom dem i denne rekkefølgen,
+og legg til en kant dersom den ikke danner en sykel med kantene som allerede er valgt.
+
+**Prim:** Start i ett hjørne. Legg gjentatte ganger til en kant med minst mulig vekt
+som forbinder treet som hittil er bygget med et nytt hjørne.
+
+::: {#exr-kruskal-prim name="Samme problem, to strategier"}
+Bruk begge algoritmene på den vektede grafen med hjørner
+
+$$
+\{A,B,C,D,E,F\}
+$$
+
+og kanter
+
+| kant | $AB$ | $AC$ | $BC$ | $BD$ | $CD$ | $BE$ | $CE$ | $DE$ | $DF$ | $EF$ |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| vekt | 4 | 2 | 1 | 5 | 8 | 7 | 10 | 2 | 6 | 3 |
+
+1. Hvilke kanter velger Kruskal, og i hvilken rekkefølge?
+2. Kjør Prim med start i $A$.
+3. Får algoritmene samme spenntre?
+4. Hva kan skje dersom flere kanter har samme vekt?
+:::
+
+### Er sykeltesten i Kruskal dyr?
+
+Når Kruskal vurderer kanten $uv$, trenger algoritmen egentlig bare å vite om $u$ og $v$
+allerede ligger i samme sammenhengskomponent av skogen som er bygget så langt.
+
+::: {#exr-union-find name="Fra sykeltest til union--find"}
+Anta at vi hele tiden holder orden på komponentene i skogen.
+
+1. Forklar hvorfor kanten $uv$ danner en sykel akkurat når $u$ og $v$ allerede ligger i samme komponent.
+2. Hvilke to operasjoner trenger vi på komponentene?
+3. Undersøk datastrukturen **union--find** (disjoint-set union, DSU).
+4. Be KI forklare *union by rank/size* og *path compression*. Tegn selv et lite eksempel som viser hva operasjonene gjør.
+5. Forklar hvorfor Andersons sykeltest ikke nødvendigvis er den kostbare delen av Kruskals algoritme.
+:::
+
+Med en vanlig sammenligningssortering og union--find får Kruskal typisk kjøretid
+
+$$
+O(E\log E),
+$$
+
+mens Prim med en binær heap typisk får
+
+$$
+O(E\log V).
+$$
+
+::: {#exr-prim-vs-kruskal name="Er Prim virkelig raskere enn Kruskal?"}
+Undersøk påstanden «Prim er raskere enn Kruskal».
+
+Diskuter minst disse spørsmålene:
+
+1. Hvor stor forskjell er det egentlig mellom $\log E$ og $\log V$ for en enkel graf?
+2. Hva skjer hvis kantene allerede er sortert?
+3. Hvordan påvirker det sammenligningen om grafen er lagret som kantliste, nabolister eller matrise?
+4. Hva forventer du for svært sparsomme og svært tette grafer?
+5. Hvilke konstante faktorer skjuler $O$-notasjonen?
+
+**KI:** Be gjerne KI foreslå hypoteser, men krev at den oppgir hvilken datastruktur og inputrepresentasjon den antar.
+:::
+
+### Hva bruker stabile programvarebiblioteker?
+
+::: {#exr-mst-biblioteker name="Fra lærebok til programvare som faktisk brukes"}
+Arbeid i små grupper. Velg ett eller to stabile biblioteker for graf- eller databehandling,
+for eksempel NetworkX, SciPy, igraph, Boost Graph Library, graph-tool eller cuGraph.
+
+Finn ut:
+
+1. Hvilke MST-algoritmer tilbyr biblioteket?
+2. Finnes det en standardalgoritme? Hvilken?
+3. Hvilken versjon av biblioteket undersøker dere?
+4. Hvordan er grafen representert i den aktuelle funksjonen?
+5. Hva sier dokumentasjonen om kjøretid eller valg av algoritme?
+6. Hvis dokumentasjonen ikke svarer: klarer dere å finne det i kildekoden?
+
+Oppgi lenke til offisiell dokumentasjon eller kildekode. Ikke bruk et KI-svar som eneste kilde.
+
+Til slutt samler klassen resultatene i én tabell og diskuterer hvorfor forskjellige biblioteker
+kan ha valgt forskjellige algoritmer.
+:::
+
+::: {#exr-moderne-mst name="Hvorfor brukes ikke alltid den beste asymptotiske algoritmen?"}
+Det finnes MST-algoritmer med langt mer avansert teori enn de klassiske implementasjonene.
+Undersøk i grupper én av følgende ideer eller algoritmer:
+
+- Borůvkas algoritme,
+- Filter-Kruskal,
+- Karger--Klein--Tarjans randomiserte algoritme,
+- Chazelles algoritme og *soft heaps*,
+- Pettie--Ramachandrans optimale MST-algoritme.
+
+Dere trenger ikke forstå hele algoritmen. Finn i stedet svar på tre spørsmål:
+
+1. Hva er den viktigste ideen, og hvilken teoretisk kjøretid oppnås?
+2. Hvorfor kan algoritmen likevel være lite attraktiv som standardimplementasjon i et stabilt bibliotek?
+3. Finn minst to praktiske hensyn som asymptotisk kjøretid ikke måler godt.
+
+Mulige hensyn er implementasjonskompleksitet, konstante faktorer, minnebruk og cache,
+randomisering, parallellisering, robusthet, testbarhet, vedlikehold og hvilke problemstørrelser
+som faktisk forekommer.
+:::
+
+## Arbeidsøkt 3: Plane grafer, sfæren og Kuratowski
+
+### Planet og sfæren
+
+En graf er **plan** dersom den kan tegnes i planet slik at kanter bare møtes i felles endepunkter.
+En bestemt slik tegning kalles en **plan innleiring**. De sammenhengende områdene mellom kantene
+kalles **flater**.
+
+::: {#exr-sfaere-plan name="Hvor kommer den ytre flaten fra?"}
+Tenk på en sammenhengende graf tegnet på overflaten av en kule, som landegrenser på jordkloden.
+Grafen deler sfæren i regioner.
+
+1. Velg et punkt $p$ inne i én region, men ikke på grafen.
+2. Tenk deg at sfæren punkteres i $p$ og strekkes ut til et plan.
+3. Hva skjer med hjørnene og kantene?
+4. Hvilken region blir den ubundne «ytre flaten» i planet?
+5. Endres antall hjørner $V$, kanter $E$ eller flater $F$?
+6. Hvorfor er det derfor naturlig å telle den ytre flaten i en plan graf?
+
+**KI:** Hvis du ønsker et mer presist topologisk språk, be KI forklare utsagnet
+$S^2\setminus\{p\}\cong\mathbb R^2$ og stereografisk projeksjon.
+:::
+
+::: {#thm-euler-plan name="Eulers formel"}
+For en sammenhengende plan graf gjelder
+
+$$
+V-E+F=2.
+$$
+:::
+
+::: {.callout-tip title="Et topologisk blikk"}
+En graf på sfæren kan betraktes som $1$-skjelettet i en celleoppdeling av $S^2$:
+hjørnene er $0$-celler, kantene er $1$-celler og flatene er $2$-celler.
+Da er Eulers formel utsagnet
+
+$$
+\chi(S^2)=V-E+F=2.
+$$
+
+CW-språket passer også når en kant er en bro: randen til en $2$-celle kan da gå langs
+samme kant mer enn én gang.
+:::
+
+::: {#exr-plan-ulikheter name="To konsekvenser av Euler"}
+La $G$ være en enkel, sammenhengende plan graf med minst tre hjørner.
+
+1. Forklar hvorfor hver flate har minst tre kantforekomster på randen.
+2. Dobbelttell kantforekomster langs flater og vis at
+
+$$
+3F\leq 2E.
+$$
+
+3. Bruk Eulers formel til å vise
+
+$$
+E\leq 3V-6.
+$$
+
+4. Anta nå at $G$ er bipartitt. Hvorfor har ingen flate rand av lengde tre?
+5. Vis i dette tilfellet at
+
+$$
+E\leq 2V-4.
+$$
+:::
+
+::: {#exr-k5-k33 name="To grunnleggende hindringer"}
+Bruk @exr-plan-ulikheter til å vise at
+
+$$
+K_5\qquad\text{og}\qquad K_{3,3}
+$$
+
+ikke er plane.
+
+Hvorfor trenger vi to forskjellige ulikheter for å avsløre de to grafene?
+:::
+
+### Hvorfor dukker subdivisjoner opp?
+
+Å **subdividere** en kant betyr å erstatte den med en sti ved å sette inn nye hjørner av grad $2$.
+
+::: {#exr-subdivisjon-plan name="Subdivisjon endrer ikke planaritet"}
+La $G'$ være laget fra $G$ ved å subdividere én kant.
+
+1. Vis at hvis $G$ er plan, så er $G'$ plan.
+2. Vis omvendt at hvis $G'$ er plan, så er $G$ plan.
+3. Generaliser til vilkårlig mange subdivisjoner.
+4. Forklar hvorfor det derfor ikke er nok å lete etter $K_5$ eller $K_{3,3}$ som bokstavelige delgrafer.
+:::
+
+::: {#thm-kuratowski name="Kuratowskis teorem"}
+En endelig graf er plan hvis og bare hvis den ikke inneholder en delgraf som er en subdivisjon av
+$K_5$ eller $K_{3,3}$.
+:::
+
+::: {#exr-kuratowski-enkel-retning name="Bevis halvparten av Kuratowski"}
+Bruk bare følgende tre fakta:
+
+- $K_5$ og $K_{3,3}$ er ikke plane,
+- subdivisjon bevarer planaritet,
+- enhver delgraf av en plan graf er plan.
+
+Bevis den retningen av @thm-kuratowski som følger direkte av disse faktaene.
+:::
+
+Den andre retningen er den dype delen av teoremet. Vi skal ikke skjule den bak et langt bevis,
+men vi kan undersøke hva et slikt bevis må få til.
+
+::: {#exr-minimal-ikkeplan name="Hva må en minimal ikke-plan graf se ut som?"}
+Anta at $G$ er ikke-plan, men at enhver ekte delgraf av $G$ er plan.
+
+Undersøk følgende spørsmål:
+
+1. Kan $G$ ha et isolert hjørne eller et endehjørne?
+2. Kan $G$ ha en bro?
+3. Kan $G$ ha et artikulasjonspunkt? Forsøk å lime sammen plane tegninger av delene rundt dette hjørnet.
+4. Hvis et hjørne har grad $2$, hva skjer dersom vi «glatter ut» dette hjørnet og erstatter de to kantene med én?
+5. La $e=uv$ være en kant. Grafen $G-e$ er plan. Hvorfor kan ikke $u$ og $v$ ligge på randen av samme flate i en plan tegning av $G-e$?
+
+Målet er å finne strukturelle begrensninger som et bevis for Kuratowski må utnytte.
+:::
+
+::: {#exr-ki-kuratowski name="KI: Hvor gjemmer det vanskelige lemmaet seg?"}
+Be en KI om et **kort** bevis for den vanskelige retningen av Kuratowskis teorem.
+
+Les argumentet kritisk og finn det første stedet der KI-en bruker en påstand som ikke er bevist,
+eller skriver noe som «man kan vise», «ved en standard argumentasjon» eller tilsvarende.
+
+1. Formuler den skjulte påstanden presist.
+2. Er dette bare en liten detalj, eller inneholder den en vesentlig del av teoremet?
+3. Sammenlign med det dere allerede har funnet om minimale ikke-plane grafer.
+
+Dette er en øvelse i å skille et bevis fra et bevisomriss.
+:::
+
+## Arbeidsøkt 4: Dualitet, polyedre og firefargeproblemet
+
+### Den duale grafen
+
+La $G$ være en sammenhengende plan graf med en bestemt plan innleiring.
+Den **duale grafen** $G^*$ konstrueres ved å plassere ett nytt hjørne i hver flate og
+la hver kant i $G$ krysses av én tilsvarende kant i $G^*$.
+
+::: {#exr-dual name="Bygg dualen"}
+1. Tegn en kube som en plan graf.
+2. Plasser ett dualt hjørne i hver av de seks flatene, også den ytre.
+3. Tegn de duale kantene.
+4. Hvilken kjent polyedergraf får du?
+5. Gjør det samme med tetraederet.
+
+Undersøk også hva som kan skje i dualgrafen dersom den opprinnelige grafen har en bro eller
+to flater deler mer enn én kant.
+:::
+
+### Polyedre som grafer på sfæren
+
+Overflaten til et konvekst polyeder kan deformeres til en sfære.
+Hjørner, kanter og flater gir derfor en graf og en celleoppdeling av $S^2$.
+Eulers formel blir igjen
+
+$$
+V-E+F=2.
+$$
+
+Vi bruker ikke mye tid på klassifikasjonen av regulære polyedre. De er først og fremst gode,
+visuelle eksempler på dualitet:
+
+$$
+\text{tetraeder}\leftrightarrow\text{tetraeder},
+$$
+
+$$
+\text{kube}\leftrightarrow\text{oktaeder},
+$$
+
+$$
+\text{dodekaeder}\leftrightarrow\text{ikosaeder}.
+$$
+
+### Fra kartfarging til graf-farging
+
+Tenk igjen på et kart på jordkloden. To regioner skal ha forskjellige farger dersom de deler
+en grensestrekning.
+
+::: {#exr-kart-dual name="Gjør kartfarging om til hjørnefarging"}
+1. Lag den duale grafen til et lite kart du selv tegner.
+2. Forklar hvorfor en fargelegging av regionene er det samme som en hjørnefarging av dualgrafen.
+3. Hva svarer to naboland til i dualgrafen?
+4. Hvorfor er sfæren og planet ekvivalente for dette spørsmålet?
+:::
+
+::: {#thm-firefarge name="Firefargeteoremet"}
+Hjørnene i enhver plan graf kan fargelegges med høyst fire farger slik at nabohjørner får
+forskjellige farger.
+:::
+
+Via dualitet er dette det klassiske utsagnet om at ethvert kart på sfæren eller i planet kan
+fargelegges med høyst fire farger når regioner som deler en grensestrekning skal ha ulike farger.
+Vi skal bruke teoremet, men ikke bevise det.
+
+::: {#exr-firefarge-refleksjon name="Hva binder kapitlet sammen?"}
+Lag et kort begrepskart som inneholder minst disse ordene:
+
+**graf**, **sammenheng**, **tre**, **spenntre**, **plan graf**, **sfære**, **flate**,
+**Euler**, **Kuratowski**, **dual graf**, **polyeder**, **firefarging**.
+
+Tegn piler mellom begrepene og skriv én kort forklaring på hver pil.
+
+Du kan bruke KI til å foreslå forbindelser, men fjern alle piler du ikke selv kan forklare.
+:::
+
+## Etter kapitlet
+
+Du skal særlig kunne:
+
+- bruke de grunnleggende definisjonene for grafer, stier, sykler, sammenheng og trær,
+- forklare og anvende sentrale karakteriseringer av trær,
+- gjennomføre Kruskals og Prims algoritmer og diskutere deres faktiske kostnad,
+- forklare rollen til union--find og forskjellen mellom asymptotisk og praktisk ytelse,
+- bruke Eulers formel og forstå hvorfor en plan graf like naturlig kan tegnes på sfæren,
+- bruke $K_5$, $K_{3,3}$ og subdivisjoner som hindringer for planaritet,
+- forklare innholdet i Kuratowskis teorem og hva som gjør den vanskelige retningen vanskelig,
+- konstruere duale grafer og forklare sammenhengen mellom polyedre, kartfarging og firefargeteoremet.
