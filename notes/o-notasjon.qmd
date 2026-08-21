@@ -1,0 +1,61 @@
+---
+title: "Kort notat: O-notasjon"
+lang: nb
+number-sections: false
+---
+
+# O-notasjon
+
+Når vi analyserer en algoritme, er vi ofte mer interessert i hvordan kjøretiden **vokser** når problemet blir større enn i nøyaktig hvor mange millisekunder én bestemt kjøring tar.
+
+Vi skriver
+
+$$
+f(n)=O(g(n))
+$$
+
+hvis det finnes konstanter $C>0$ og $n_0$ slik at
+
+$$
+f(n)\leq Cg(n)
+$$
+
+for alle $n\geq n_0$.
+
+Intuitivt betyr dette at $f$ fra et visst punkt ikke vokser raskere enn en konstant multiplisert med $g$.
+
+For eksempel er
+
+$$
+3n+5=O(n)
+$$
+
+og
+
+$$
+7n^2+4n+10=O(n^2).
+$$
+
+O-notasjonen ser altså bort fra konstante faktorer og ledd som vokser langsommere. Derfor forteller den ikke hele historien om hva som er raskest i praksis.
+
+Noen vekstrater som ofte forekommer er
+
+$$
+O(1),\qquad O(\log n),\qquad O(n),\qquad O(n\log n),\qquad O(n^2).
+$$
+
+For grafalgoritmer beskrives problemstørrelsen ofte ved antallet hjørner $|V|$ og antallet kanter $|E|$. Derfor kan vi for eksempel møte kjøretider som
+
+$$
+O(|E|\log |V|).
+$$
+
+::: {.callout-note title="Hva O-notasjon ikke forteller"}
+To algoritmer kan ha forskjellig praktisk kjøretid selv om de har samme O-estimat. Datastrukturer, minnebruk, cache, konstante faktorer og egenskaper ved inputen kan være avgjørende.
+:::
+
+::: {#exr-o-notasjon-sjekk name="KI: Les et O-estimat"}
+Be KI forklare forskjellen mellom $O(n)$, $O(n\log n)$ og $O(n^2)$ uten å bruke den formelle definisjonen først.
+
+Kontroller deretter forklaringen mot definisjonen over. Finn minst én påstand i KI-svaret som er en forenkling, og forklar hvorfor den likevel kan være nyttig.
+:::
