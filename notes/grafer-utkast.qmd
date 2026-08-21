@@ -27,39 +27,40 @@ Når du bruker KI, er målet ikke bare å få et svar.
 
 ### Grafer
 
-::: {#def-graf name="Enkel urettet graf"}
-En **enkel urettet graf** er et par
+::: {#def-graf name="Enkel graf"}
+En **enkel graf** er et par
 
 $$
 G=(V,E),
 $$
 
-der $V$ er en endelig mengde av **hjørner**, og
+der $V$ er en mengde av **hjørner**, og
 
 $$
 E\subseteq \bigl\{\{u,v\}:u,v\in V,\ u\neq v\bigr\}.
 $$
 
-Elementene i $E$ kalles **kanter**.
+Elementene $e=\{u,v\}\in E$ kalles **kanter**, og $u$ og $v$ er endepunktene til kanten $e$.
 :::
 
-At kanten skrives som mengden $\{u,v\}$, og ikke som det ordnede paret $(u,v)$,
-betyr at grafen er urettet.
+En enkel graf $G=(V,E)$ kalles **endelig** dersom $V$ er endelig.
+
+Siden $\{u,v\}=\{v,u\}$, har kantene ingen retning.
 
 To hjørner er **naboer** dersom de er endepunktene til samme kant.
 Graden $\deg(v)$ til et hjørne $v$ er antallet kanter som har $v$ som endepunkt.
 
 ::: {#exr-handtrykk-oppdag name="Tell endepunkter på to måter"}
-Tegn en graf med minst seks hjørner og minst åtte kanter.
+Tegn en endelig enkel graf med minst seks hjørner og minst åtte kanter.
 
 1. Finn graden til hvert hjørne.
 2. Summer alle gradene.
 3. Sammenlign summen med antallet kanter.
-4. Forklar hvorfor det du observerer må gjelde for enhver endelig graf.
+4. Forklar hvorfor det du observerer må gjelde for enhver endelig enkel graf.
 :::
 
 ::: {#thm-handtrykk name="Håndtrykkslemmaet"}
-For enhver endelig graf $G=(V,E)$ gjelder
+For enhver endelig enkel graf $G=(V,E)$ gjelder
 
 $$
 \sum_{v\in V}\deg(v)=2|E|.
@@ -111,7 +112,7 @@ Følgende karakteriseringer er fundamentale og lar oss skifte mellom geometriske
 kombinatoriske og algoritmiske beskrivelser av trær.
 
 ::: {#thm-tre-karakterisering name="Karakteriseringer av trær"}
-La $T$ være en endelig graf med $n$ hjørner. Følgende utsagn er ekvivalente:
+La $T$ være en endelig enkel graf med $n$ hjørner. Følgende utsagn er ekvivalente:
 
 1. $T$ er et tre.
 2. Mellom hvert par av hjørner finnes nøyaktig én sti.
@@ -134,7 +135,7 @@ Målet er ikke å memorere et langt standardbevis, men å forstå hvorfor karakt
 
 ### Minimum spenntrær
 
-La $G=(V,E)$ være sammenhengende, og la hver kant $e$ ha en vekt $w(e)$.
+La $G=(V,E)$ være en endelig, sammenhengende enkel graf, og la hver kant $e$ ha en vekt $w(e)$.
 Et **spenntre** er et deltre som inneholder alle hjørnene i $G$.
 Et **minimum spenntre** (MST) er et spenntre med minst mulig total vekt.
 
@@ -153,11 +154,15 @@ $$
 \{A,B,C,D,E,F\}
 $$
 
-og kanter
+og kanter og vekter
 
-| kant | $AB$ | $AC$ | $BC$ | $BD$ | $CD$ | $BE$ | $CE$ | $DE$ | $DF$ | $EF$ |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| vekt | 4 | 2 | 1 | 5 | 8 | 7 | 10 | 2 | 6 | 3 |
+$$
+\begin{array}{c|cccccccccc}
+\text{kant} & AB & AC & BC & BD & CD & BE & CE & DE & DF & EF\\
+\hline
+\text{vekt} & 4 & 2 & 1 & 5 & 8 & 7 & 10 & 2 & 6 & 3
+\end{array}
+$$
 
 1. Hvilke kanter velger Kruskal, og i hvilken rekkefølge?
 2. Kjør Prim med start i $A$.
@@ -257,7 +262,7 @@ En bestemt slik tegning kalles en **plan innleiring**. De sammenhengende område
 kalles **flater**.
 
 ::: {#exr-sfaere-plan name="Hvor kommer den ytre flaten fra?"}
-Tenk på en sammenhengende graf tegnet på overflaten av en kule, som landegrenser på jordkloden.
+Tenk på en endelig, sammenhengende enkel graf tegnet på overflaten av en kule, som landegrenser på jordkloden.
 Grafen deler sfæren i regioner.
 
 1. Velg et punkt $p$ inne i én region, men ikke på grafen.
@@ -272,7 +277,7 @@ $S^2\setminus\{p\}\cong\mathbb R^2$ og stereografisk projeksjon.
 :::
 
 ::: {#thm-euler-plan name="Eulers formel"}
-For en sammenhengende plan graf gjelder
+For en endelig, sammenhengende enkel plan graf gjelder
 
 $$
 V-E+F=2.
@@ -293,7 +298,7 @@ samme kant mer enn én gang.
 :::
 
 ::: {#exr-plan-ulikheter name="To konsekvenser av Euler"}
-La $G$ være en enkel, sammenhengende plan graf med minst tre hjørner.
+La $G$ være en endelig, sammenhengende enkel plan graf med minst tre hjørner.
 
 1. Forklar hvorfor hver flate har minst tre kantforekomster på randen.
 2. Dobbelttell kantforekomster langs flater og vis at
@@ -342,7 +347,7 @@ La $G'$ være laget fra $G$ ved å subdividere én kant.
 :::
 
 ::: {#thm-kuratowski name="Kuratowskis teorem"}
-En endelig graf er plan hvis og bare hvis den ikke inneholder en delgraf som er en subdivisjon av
+En endelig enkel graf er plan hvis og bare hvis den ikke inneholder en delgraf som er en subdivisjon av
 $K_5$ eller $K_{3,3}$.
 :::
 
