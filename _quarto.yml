@@ -12,6 +12,7 @@ book:
     - index.qmd
     - notes/uke34.qmd
     - notes/uke35.qmd
+    - notes/grafer-utkast.qmd
 
 number-depth: 2
 
@@ -20,6 +21,8 @@ crossref:
   thm-prefix: "Teorem"
   cor-title: "Korollar"
   cor-prefix: "Korollar"
+  def-title: "Definisjon"
+  def-prefix: "Definisjon"
   exr-title: "Oppgave"
   exr-prefix: "Oppgave"
   exm-title: "Eksempel"
