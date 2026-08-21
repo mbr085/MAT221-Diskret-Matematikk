@@ -1,0 +1,120 @@
+<script>
+(() => {
+  const prefixes = [
+    "thm", "lem", "cor", "prp", "cnj",
+    "def", "exm", "exr", "rem", "sol"
+  ];
+  const selector = prefixes.map((prefix) => `[id^="${prefix}-"]`).join(",");
+  const numberPattern = /\d+(?:\.\d+)*/;
+
+  function replaceFirstNumber(root, newNumber, doc) {
+    const walker = doc.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node;
+
+    while ((node = walker.nextNode())) {
+      const text = node.nodeValue;
+      const match = text.match(numberPattern);
+      if (!match) continue;
+
+      node.nodeValue =
+        text.slice(0, match.index) +
+        newNumber +
+        text.slice(match.index + match[0].length);
+      return true;
+    }
+
+    return false;
+  }
+
+  function renumberDocument(doc) {
+    const numberedBlocks = [...doc.querySelectorAll(selector)]
+      .map((block) => ({
+        block,
+        title: block.querySelector(".theorem-title")
+      }))
+      .filter(({ title }) => title && numberPattern.test(title.textContent));
+
+    if (numberedBlocks.length === 0) return new Map();
+
+    const oldFirstNumber =
+      numberedBlocks[0].title.textContent.match(numberPattern)[0];
+    const numberParts = oldFirstNumber.split(".");
+    numberParts.pop();
+    const chapterPrefix = numberParts.join(".");
+
+    const numbers = new Map();
+
+    numberedBlocks.forEach(({ block, title }, index) => {
+      const localNumber = index + 1;
+      const newNumber = chapterPrefix
+        ? `${chapterPrefix}.${localNumber}`
+        : `${localNumber}`;
+
+      numbers.set(block.id, newNumber);
+      replaceFirstNumber(title, newNumber, doc);
+    });
+
+    return numbers;
+  }
+
+  function isSharedNumberingId(id) {
+    return prefixes.some((prefix) => id.startsWith(`${prefix}-`));
+  }
+
+  function pageUrl(url) {
+    const result = new URL(url.href);
+    result.hash = "";
+    return result.href;
+  }
+
+  const currentNumbers = renumberDocument(document);
+  const currentPage = pageUrl(new URL(document.location.href));
+  const remotePages = new Map();
+
+  function numbersForPage(url) {
+    const page = pageUrl(url);
+
+    if (page === currentPage) {
+      return Promise.resolve(currentNumbers);
+    }
+
+    if (!remotePages.has(page)) {
+      remotePages.set(
+        page,
+        fetch(page)
+          .then((response) => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.text();
+          })
+          .then((html) => {
+            const doc = new DOMParser().parseFromString(html, "text/html");
+            return renumberDocument(doc);
+          })
+          .catch(() => new Map())
+      );
+    }
+
+    return remotePages.get(page);
+  }
+
+  for (const link of document.querySelectorAll("a.quarto-xref[href]")) {
+    let target;
+
+    try {
+      target = new URL(link.getAttribute("href"), document.baseURI);
+    } catch {
+      continue;
+    }
+
+    if (!target.hash) continue;
+
+    const id = decodeURIComponent(target.hash.slice(1));
+    if (!isSharedNumberingId(id)) continue;
+
+    numbersForPage(target).then((numbers) => {
+      const newNumber = numbers.get(id);
+      if (newNumber) replaceFirstNumber(link, newNumber, document);
+    });
+  }
+})();
+</script>
