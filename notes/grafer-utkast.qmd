@@ -81,8 +81,8 @@ $$
 der $e_i=\{v_{i-1},v_i\}$ for hvert $i$.
 
 En **sti** er en gang uten gjentatte hjørner.
-En **sykel** er en lukket gang som, bortsett fra at første og siste hjørne er det samme,
-ikke gjentar hjørner.
+En **sykel** er en lukket gang med minst tre kanter som, bortsett fra at første og siste
+hjørne er det samme, ikke gjentar hjørner.
 :::
 
 ::: {#def-sammenheng name="Sammenhengende graf"}
@@ -367,7 +367,7 @@ Undersøk følgende spørsmål:
 1. Kan $G$ ha et isolert hjørne eller et endehjørne?
 2. Kan $G$ ha en bro?
 3. Kan $G$ ha et artikulasjonspunkt? Forsøk å lime sammen plane tegninger av delene rundt dette hjørnet.
-4. Hvis et hjørne har grad $2$, hva skjer dersom vi «glatter ut» dette hjørnet og erstatter de to kantene med én?
+4. Hvis et hjørne har grad $2$, hvorfor er dette akkurat den typen hjørne som kan ha blitt satt inn ved en subdivisjon?
 5. La $e=uv$ være en kant. Grafen $G-e$ er plan. Hvorfor kan ikke $u$ og $v$ ligge på randen av samme flate i en plan tegning av $G-e$?
 
 Målet er å finne strukturelle begrensninger som et bevis for Kuratowski må utnytte.
@@ -447,9 +447,11 @@ Hjørnene i enhver plan graf kan fargelegges med høyst fire farger slik at nabo
 forskjellige farger.
 :::
 
-Via dualitet er dette det klassiske utsagnet om at ethvert kart på sfæren eller i planet kan
-fargelegges med høyst fire farger når regioner som deler en grensestrekning skal ha ulike farger.
-Vi skal bruke teoremet, men ikke bevise det.
+Ved kartfarging er bare grenser mellom to **forskjellige** regioner relevante. Dersom en dualgraf
+får en løkke fordi en kant har samme flate på begge sider, ser vi bort fra denne løkken i
+fargeleggingsproblemet. Med denne forståelsen er @thm-firefarge det klassiske utsagnet om at
+ethvert kart på sfæren eller i planet kan fargelegges med høyst fire farger når regioner som
+deler en grensestrekning skal ha ulike farger. Vi skal bruke teoremet, men ikke bevise det.
 
 ::: {#exr-firefarge-refleksjon name="Hva binder kapitlet sammen?"}
 Lag et kort begrepskart som inneholder minst disse ordene:
