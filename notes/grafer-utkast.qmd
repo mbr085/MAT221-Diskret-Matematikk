@@ -23,6 +23,11 @@ Når du bruker KI, er målet ikke bare å få et svar.
 - En overbevisende formulering fra en KI er ikke i seg selv en begrunnelse.
 :::
 
+::: {.callout-note title="Figurer i dette arbeidsutkastet"}
+Bokser merket **Figurforslag (SVG)** markerer steder der vi ønsker enkel vektorgrafikk.
+De skal erstattes av faktiske SVG-figurer når innhold og rekkefølge er på plass.
+:::
+
 ## Arbeidsøkt 1: Grafer, sammenheng og trær
 
 ### Grafer
@@ -47,8 +52,30 @@ En enkel graf $G=(V,E)$ kalles **endelig** dersom $V$ er endelig.
 
 Siden $\{u,v\}=\{v,u\}$, har kantene ingen retning.
 
+::: {.callout-note title="Figurforslag (SVG)"}
+En liten enkel graf med 5--6 hjørner. Merk ett hjørne $v$, to naboer til $v$, en kant
+$e=\{u,v\}$ og endepunktene $u,v$. Figuren bør stå rett etter den første grafdefinisjonen.
+Foreslått filnavn: `figures/grafer/enkel-graf.svg`.
+:::
+
 To hjørner er **naboer** dersom de er endepunktene til samme kant.
 Graden $\deg(v)$ til et hjørne $v$ er antallet kanter som har $v$ som endepunkt.
+
+::: {#def-delgraf name="Delgraf"}
+La $G=(V,E)$ være en graf. En graf $H=(W,F)$ er en **delgraf** av $G$ dersom
+
+$$
+W\subseteq V,\qquad F\subseteq E,
+$$
+
+og begge endepunktene til hver kant i $F$ ligger i $W$.
+:::
+
+::: {.callout-note title="Figurforslag (SVG)"}
+Vis samme graf som i den første figuren, og ved siden av en delgraf der noen hjørner og kanter
+er beholdt. Bruk samme plassering av hjørnene slik at forholdet er umiddelbart synlig.
+Foreslått filnavn: `figures/grafer/delgraf.svg`.
+:::
 
 ::: {#exr-handtrykk-oppdag name="Tell endepunkter på to måter"}
 Tegn en endelig enkel graf med minst seks hjørner og minst åtte kanter.
@@ -86,6 +113,12 @@ En **sykel** er en lukket gang med minst tre kanter som, bortsett fra at første
 hjørne er det samme, ikke gjentar hjørner.
 :::
 
+::: {.callout-note title="Figurforslag (SVG)"}
+Én graf med tre tydelig markerte ruter: en gang som gjentar et hjørne, en sti og en sykel.
+Helst samme underliggende graf i alle tre småpanelene.
+Foreslått filnavn: `figures/grafer/gang-sti-sykel.svg`.
+:::
+
 ::: {#def-sammenheng name="Sammenhengende graf"}
 En graf er **sammenhengende** dersom det finnes en sti mellom ethvert par av hjørner.
 :::
@@ -102,10 +135,17 @@ mellom ethvert par av hjørner.
 Kontroller deretter selv at argumentet virkelig terminerer.
 :::
 
-### Trær
+### Trær og skoger
 
 ::: {#def-tre name="Tre"}
 Et **tre** er en sammenhengende graf uten sykler.
+:::
+
+En **skog** er en graf uten sykler. Hver sammenhengskomponent i en skog er altså et tre.
+
+::: {.callout-note title="Figurforslag (SVG)"}
+Tre små bilder: et tre, en skog med to komponenter, og det samme treet med én ekstra kant
+slik at det oppstår en sykel. Foreslått filnavn: `figures/grafer/tre-skog-sykel.svg`.
 :::
 
 Følgende karakteriseringer er fundamentale og lar oss skifte mellom geometriske,
@@ -133,11 +173,39 @@ Målet er ikke å memorere et langt standardbevis, men å forstå hvorfor karakt
 
 ## Arbeidsøkt 2: Spenntrær og algoritmer
 
-### Minimum spenntrær
+### Vektede grafer og minimum spenntrær
 
-La $G=(V,E)$ være en endelig, sammenhengende enkel graf, og la hver kant $e$ ha en vekt $w(e)$.
-Et **spenntre** er et deltre som inneholder alle hjørnene i $G$.
+En **vektet graf** er en graf $G=(V,E)$ sammen med en funksjon
+
+$$
+w:E\longrightarrow \mathbb R.
+$$
+
+Tallet $w(e)$ kalles **vekten** til kanten $e$. Vekten kan for eksempel representere avstand,
+kostnad eller tid.
+
+La $G=(V,E)$ være en endelig, sammenhengende vektet enkel graf. Et **spenntre** i $G$ er en
+delgraf
+
+$$
+T=(V,F)
+$$
+
+som er et tre. Legg merke til at et spenntre inneholder alle hjørnene i $G$.
+
+Den totale vekten til $T$ er
+
+$$
+w(T)=\sum_{e\in F}w(e).
+$$
+
 Et **minimum spenntre** (MST) er et spenntre med minst mulig total vekt.
+
+::: {.callout-note title="Figurforslag (SVG)"}
+En liten vektet graf og samme graf ved siden av med ett spenntre markert. Alle hjørnene skal
+stå på samme sted i begge bilder; bare de valgte kantene fremheves i spenntreet.
+Foreslått filnavn: `figures/grafer/spenntre.svg`.
+:::
 
 To klassiske algoritmer er:
 
@@ -146,6 +214,16 @@ og legg til en kant dersom den ikke danner en sykel med kantene som allerede er 
 
 **Prim:** Start i ett hjørne. Legg gjentatte ganger til en kant med minst mulig vekt
 som forbinder treet som hittil er bygget med et nytt hjørne.
+
+::: {.callout-note title="Figurforslag (SVG)"}
+Bruk én og samme vektede graf til to stegserier.
+
+- **Kruskal:** 4--5 små paneler der skogen vokser. Vis minst én kant som avvises fordi den ville danne en sykel.
+- **Prim:** 4--5 små paneler fra et markert starthjørne der ett sammenhengende tre vokser.
+
+Samme graf og samme vekter i begge serier gjør kontrasten tydelig.
+Foreslåtte filnavn: `figures/grafer/kruskal-steg.svg` og `figures/grafer/prim-steg.svg`.
+:::
 
 ::: {#exr-kruskal-prim name="Samme problem, to strategier"}
 Bruk begge algoritmene på den vektede grafen med hjørner
@@ -172,8 +250,9 @@ $$
 
 ### Er sykeltesten i Kruskal dyr?
 
-Når Kruskal vurderer kanten $uv$, trenger algoritmen egentlig bare å vite om $u$ og $v$
-allerede ligger i samme sammenhengskomponent av skogen som er bygget så langt.
+Når Kruskal har valgt noen kanter, danner de en skog. Når algoritmen vurderer kanten $uv$,
+trenger den egentlig bare å vite om $u$ og $v$ allerede ligger i samme sammenhengskomponent
+av denne skogen.
 
 ::: {#exr-union-find name="Fra sykeltest til union--find"}
 Anta at vi hele tiden holder orden på komponentene i skogen.
@@ -185,16 +264,19 @@ Anta at vi hele tiden holder orden på komponentene i skogen.
 5. Forklar hvorfor Andersons sykeltest ikke nødvendigvis er den kostbare delen av Kruskals algoritme.
 :::
 
+Her bruker vi $O$-notasjon for å beskrive hvordan kjøretiden vokser når input blir større.
+Hvis notasjonen er ny for deg, les først det [korte notatet om $O$-notasjon](o-notasjon.qmd).
+
 Med en vanlig sammenligningssortering og union--find får Kruskal typisk kjøretid
 
 $$
-O(E\log E),
+O(|E|\log |E|),
 $$
 
 mens Prim med en binær heap typisk får
 
 $$
-O(E\log V).
+O(|E|\log |V|).
 $$
 
 ::: {#exr-prim-vs-kruskal name="Er Prim virkelig raskere enn Kruskal?"}
@@ -202,7 +284,7 @@ Undersøk påstanden «Prim er raskere enn Kruskal».
 
 Diskuter minst disse spørsmålene:
 
-1. Hvor stor forskjell er det egentlig mellom $\log E$ og $\log V$ for en enkel graf?
+1. Hvor stor forskjell er det egentlig mellom $\log |E|$ og $\log |V|$ for en enkel graf?
 2. Hva skjer hvis kantene allerede er sortert?
 3. Hvordan påvirker det sammenligningen om grafen er lagret som kantliste, nabolister eller matrise?
 4. Hva forventer du for svært sparsomme og svært tette grafer?
@@ -261,6 +343,12 @@ En graf er **plan** dersom den kan tegnes i planet slik at kanter bare møtes i 
 En bestemt slik tegning kalles en **plan innleiring**. De sammenhengende områdene mellom kantene
 kalles **flater**.
 
+::: {.callout-note title="Figurforslag (SVG)"}
+Vis én og samme plane graf først i en tegning med en unødvendig kantkryssing og deretter i en
+plan innleiring uten kryssinger. Poenget er å skille «denne tegningen har en kryssing» fra
+«grafen er ikke plan». Foreslått filnavn: `figures/grafer/plan-tegning.svg`.
+:::
+
 ::: {#exr-sfaere-plan name="Hvor kommer den ytre flaten fra?"}
 Tenk på en endelig, sammenhengende enkel graf tegnet på overflaten av en kule, som landegrenser på jordkloden.
 Grafen deler sfæren i regioner.
@@ -276,12 +364,20 @@ Grafen deler sfæren i regioner.
 $S^2\setminus\{p\}\cong\mathbb R^2$ og stereografisk projeksjon.
 :::
 
+::: {.callout-note title="Figurforslag (SVG)"}
+En todelt figur: til venstre et enkelt kart/graf på sfæren med ett punkt $p$ i en region,
+til høyre den tilsvarende plane tegningen der nettopp denne regionen er den ytre flaten.
+Foreslått filnavn: `figures/grafer/sfaere-plan.svg`.
+:::
+
 ::: {#thm-euler-plan name="Eulers formel"}
 For en endelig, sammenhengende enkel plan graf gjelder
 
 $$
-V-E+F=2.
+|V|-|E|+F=2,
 $$
+
+der $F$ er antallet flater i den valgte plane innleiringen.
 :::
 
 ::: {.callout-tip title="Et topologisk blikk"}
@@ -290,11 +386,37 @@ hjørnene er $0$-celler, kantene er $1$-celler og flatene er $2$-celler.
 Da er Eulers formel utsagnet
 
 $$
-\chi(S^2)=V-E+F=2.
+\chi(S^2)=|V|-|E|+F=2.
 $$
 
-CW-språket passer også når en kant er en bro: randen til en $2$-celle kan da gå langs
-samme kant mer enn én gang.
+I CW-språket trenger ikke festekartet $S^1\to G$ til en $2$-celle være injektivt.
+Hvis grafen har en bro, kan festekartet derfor gå langs den samme kanten to ganger,
+én gang på hver side av broen.
+:::
+
+### Bipartitte grafer
+
+::: {#def-bipartitt name="Bipartitt graf"}
+En graf $G=(V,E)$ er **bipartitt** dersom hjørnemengden kan deles i to disjunkte mengder
+
+$$
+V=A\sqcup B
+$$
+
+slik at hver kant har ett endepunkt i $A$ og ett i $B$.
+:::
+
+::: {.callout-note title="Figurforslag (SVG)"}
+En liten bipartitt graf med $A$ tegnet som én vertikal kolonne og $B$ som en annen.
+Ingen kanter går mellom to hjørner i samme kolonne.
+Foreslått filnavn: `figures/grafer/bipartitt.svg`.
+:::
+
+::: {#exr-bipartitt-sykler name="Hvor lange kan syklene være?"}
+Følg en sykel i en bipartitt graf og legg merke til at hjørnene annenhver gang ligger i $A$ og $B$.
+
+1. Forklar hvorfor en sykel må ha partallslengde.
+2. Hvorfor kan en bipartitt graf derfor ikke inneholde en trekant?
 :::
 
 ::: {#exr-plan-ulikheter name="To konsekvenser av Euler"}
@@ -304,57 +426,74 @@ La $G$ være en endelig, sammenhengende enkel plan graf med minst tre hjørner.
 2. Dobbelttell kantforekomster langs flater og vis at
 
 $$
-3F\leq 2E.
+3F\leq 2|E|.
 $$
 
 3. Bruk Eulers formel til å vise
 
 $$
-E\leq 3V-6.
+|E|\leq 3|V|-6.
 $$
 
-4. Anta nå at $G$ er bipartitt. Hvorfor har ingen flate rand av lengde tre?
+4. Anta nå at $G$ er bipartitt. Bruk @exr-bipartitt-sykler til å forklare hvorfor ingen flate kan ha rand av lengde tre.
 5. Vis i dette tilfellet at
 
 $$
-E\leq 2V-4.
+|E|\leq 2|V|-4.
 $$
 :::
 
-::: {#exr-k5-k33 name="To grunnleggende hindringer"}
-Bruk @exr-plan-ulikheter til å vise at
+### To grunnleggende hindringer for planaritet
 
-$$
-K_5\qquad\text{og}\qquad K_{3,3}
-$$
+::: {.callout-note title="Figurforslag (SVG)"}
+To figurer side ved side:
 
-ikke er plane.
+1. fem hjørner der hvert par av forskjellige hjørner er forbundet med en kant;
+2. to grupper med tre hjørner, der hvert hjørne i den ene gruppen er forbundet med alle tre i den andre.
+
+Ingen symbolnavn er nødvendig i selve figuren. Foreslått filnavn:
+`figures/grafer/to-ikkeplane-grafer.svg`.
+:::
+
+::: {#exr-to-ikkeplane name="To grunnleggende hindringer"}
+Bruk @exr-plan-ulikheter til å vise at følgende to grafer ikke er plane:
+
+1. grafen med fem hjørner der hvert par av forskjellige hjørner er forbundet med en kant;
+2. den bipartitte grafen med tre hjørner i hver del, der alle mulige kanter mellom de to delene er med.
 
 Hvorfor trenger vi to forskjellige ulikheter for å avsløre de to grafene?
 :::
 
 ### Hvorfor dukker subdivisjoner opp?
 
-Å **subdividere** en kant betyr å erstatte den med en sti ved å sette inn nye hjørner av grad $2$.
+Å **subdividere** en kant betyr å erstatte den med en sti ved å sette inn ett eller flere nye
+hjørner av grad $2$.
+
+::: {.callout-note title="Figurforslag (SVG)"}
+Vis én kant $u$--$v$ og ved siden av samme kant subdividert med ett nytt hjørne $x$:
+$u$--$x$--$v$. Legg deretter inn en liten versjon av den første ikke-plane grafen der én kant
+er subdividert. Foreslått filnavn: `figures/grafer/subdivisjon.svg`.
+:::
 
 ::: {#exr-subdivisjon-plan name="Subdivisjon endrer ikke planaritet"}
 La $G'$ være laget fra $G$ ved å subdividere én kant.
 
 1. Vis at hvis $G$ er plan, så er $G'$ plan.
 2. Vis omvendt at hvis $G'$ er plan, så er $G$ plan.
-3. Generaliser til vilkårlig mange subdivisjoner.
-4. Forklar hvorfor det derfor ikke er nok å lete etter $K_5$ eller $K_{3,3}$ som bokstavelige delgrafer.
+3. Ta nå grafen med fem hjørner der hvert par av forskjellige hjørner er forbundet med en kant. Subdivider én av kantene. Hvorfor er den nye grafen fortsatt ikke plan?
+4. Inneholder den nye grafen fortsatt den opprinnelige fem-hjørnersgrafen som en delgraf? Begrunn svaret.
+5. Hva viser dette om en planaritetstest som bare leter etter de to grafene i @exr-to-ikkeplane som delgrafer?
 :::
 
 ::: {#thm-kuratowski name="Kuratowskis teorem"}
-En endelig enkel graf er plan hvis og bare hvis den ikke inneholder en delgraf som er en subdivisjon av
-$K_5$ eller $K_{3,3}$.
+En endelig enkel graf er plan hvis og bare hvis den ikke inneholder en delgraf som kan fås ved å
+subdividere kanter i en av de to grafene i @exr-to-ikkeplane.
 :::
 
 ::: {#exr-kuratowski-enkel-retning name="Bevis halvparten av Kuratowski"}
 Bruk bare følgende tre fakta:
 
-- $K_5$ og $K_{3,3}$ er ikke plane,
+- de to grafene i @exr-to-ikkeplane er ikke plane,
 - subdivisjon bevarer planaritet,
 - enhver delgraf av en plan graf er plan.
 
@@ -373,7 +512,7 @@ Undersøk følgende spørsmål:
 2. Kan $G$ ha en bro?
 3. Kan $G$ ha et artikulasjonspunkt? Forsøk å lime sammen plane tegninger av delene rundt dette hjørnet.
 4. Hvis et hjørne har grad $2$, hvorfor er dette akkurat den typen hjørne som kan ha blitt satt inn ved en subdivisjon?
-5. La $e=uv$ være en kant. Grafen $G-e$ er plan. Hvorfor kan ikke $u$ og $v$ ligge på randen av samme flate i en plan tegning av $G-e$?
+5. La $e=\{u,v\}$ være en kant. Grafen $G-e$ er plan. Hvorfor kan ikke $u$ og $v$ ligge på randen av samme flate i en plan tegning av $G-e$?
 
 Målet er å finne strukturelle begrensninger som et bevis for Kuratowski må utnytte.
 :::
@@ -399,6 +538,12 @@ La $G$ være en sammenhengende plan graf med en bestemt plan innleiring.
 Den **duale grafen** $G^*$ konstrueres ved å plassere ett nytt hjørne i hver flate og
 la hver kant i $G$ krysses av én tilsvarende kant i $G^*$.
 
+::: {.callout-note title="Figurforslag (SVG)"}
+En plan graf og dens dual oppå samme tegning, men visuelt tydelig atskilt. Deretter gjerne et lite
+panel med kube-grafen og oktaeder-grafen som duale.
+Foreslått filnavn: `figures/grafer/dual-graf.svg`.
+:::
+
 ::: {#exr-dual name="Bygg dualen"}
 1. Tegn en kube som en plan graf.
 2. Plasser ett dualt hjørne i hver av de seks flatene, også den ytre.
@@ -417,7 +562,7 @@ Hjørner, kanter og flater gir derfor en graf og en celleoppdeling av $S^2$.
 Eulers formel blir igjen
 
 $$
-V-E+F=2.
+|V|-|E|+F=2.
 $$
 
 Vi bruker ikke mye tid på klassifikasjonen av regulære polyedre. De er først og fremst gode,
@@ -435,10 +580,22 @@ $$
 \text{dodekaeder}\leftrightarrow\text{ikosaeder}.
 $$
 
+::: {.callout-note title="Figurforslag (SVG)"}
+En svært enkel strekfigur av kube og oktaeder side ved side, eventuelt også tetraederet som selvdual.
+Dodekaeder/ikosaeder kan utelates hvis figuren blir for tung.
+Foreslått filnavn: `figures/grafer/polyeder-dualitet.svg`.
+:::
+
 ### Fra kartfarging til graf-farging
 
 Tenk igjen på et kart på jordkloden. To regioner skal ha forskjellige farger dersom de deler
 en grensestrekning.
+
+::: {.callout-note title="Figurforslag (SVG)"}
+Et lite kunstig kart med 5--6 regioner og den duale grafen ved siden av. Bruk ingen faktisk
+geografi; en ren skjematisk figur er lettere å lese.
+Foreslått filnavn: `figures/grafer/kart-og-dual.svg`.
+:::
 
 ::: {#exr-kart-dual name="Gjør kartfarging om til hjørnefarging"}
 1. Lag den duale grafen til et lite kart du selv tegner.
@@ -448,20 +605,20 @@ en grensestrekning.
 :::
 
 ::: {#thm-firefarge name="Firefargeteoremet"}
-Hjørnene i enhver plan graf kan fargelegges med høyst fire farger slik at nabohjørner får
+Hjørnene i enhver endelig enkel plan graf kan fargelegges med høyst fire farger slik at nabohjørner får
 forskjellige farger.
 :::
 
 Ved kartfarging er bare grenser mellom to **forskjellige** regioner relevante. Dersom en dualgraf
 får en løkke fordi en kant har samme flate på begge sider, ser vi bort fra denne løkken i
 fargeleggingsproblemet. Med denne forståelsen er @thm-firefarge det klassiske utsagnet om at
-ethvert kart på sfæren eller i planet kan fargelegges med høyst fire farger når regioner som
+ethvert endelig kart på sfæren eller i planet kan fargelegges med høyst fire farger når regioner som
 deler en grensestrekning skal ha ulike farger. Vi skal bruke teoremet, men ikke bevise det.
 
 ::: {#exr-firefarge-refleksjon name="Hva binder kapitlet sammen?"}
 Lag et kort begrepskart som inneholder minst disse ordene:
 
-**graf**, **sammenheng**, **tre**, **spenntre**, **plan graf**, **sfære**, **flate**,
+**graf**, **delgraf**, **sammenheng**, **tre**, **skog**, **spenntre**, **plan graf**, **sfære**, **flate**,
 **Euler**, **Kuratowski**, **dual graf**, **polyeder**, **firefarging**.
 
 Tegn piler mellom begrepene og skriv én kort forklaring på hver pil.
@@ -473,11 +630,12 @@ Du kan bruke KI til å foreslå forbindelser, men fjern alle piler du ikke selv 
 
 Du skal særlig kunne:
 
-- bruke de grunnleggende definisjonene for grafer, stier, sykler, sammenheng og trær,
+- bruke de grunnleggende definisjonene for grafer, delgrafer, stier, sykler, sammenheng og trær,
 - forklare og anvende sentrale karakteriseringer av trær,
+- forklare hva en vektet graf og et spenntre er,
 - gjennomføre Kruskals og Prims algoritmer og diskutere deres faktiske kostnad,
 - forklare rollen til union--find og forskjellen mellom asymptotisk og praktisk ytelse,
 - bruke Eulers formel og forstå hvorfor en plan graf like naturlig kan tegnes på sfæren,
-- bruke $K_5$, $K_{3,3}$ og subdivisjoner som hindringer for planaritet,
+- bruke de to grunnleggende ikke-plane grafene og deres subdivisjoner som hindringer for planaritet,
 - forklare innholdet i Kuratowskis teorem og hva som gjør den vanskelige retningen vanskelig,
 - konstruere duale grafer og forklare sammenhengen mellom polyedre, kartfarging og firefargeteoremet.
