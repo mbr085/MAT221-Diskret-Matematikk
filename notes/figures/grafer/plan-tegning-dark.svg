@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+  <title id="title">Samme plane graf tegnet med og uten kantkryssing</title>
+  <desc id="desc">To paneler viser grafen K4. Til venstre er de fire hjørnene plassert i et kvadrat slik at diagonalene krysser. Til høyre er samme graf tegnet plant, med ett hjørne inne i en trekant.</desc>
+  <style>
+    .edge { stroke: #f2f2f2; stroke-width: 4; fill: none; stroke-linecap: round; }
+    .vertex { stroke: #f2f2f2; stroke-width: 3; fill: #444444; }
+    .vlabel { fill: #f2f2f2; font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+    .caption { fill: #f2f2f2; font-family: Arial, Helvetica, sans-serif; font-size: 22px; text-anchor: middle; }
+    .note { fill: #bbbbbb; font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-anchor: middle; }
+  </style>
+
+  <g transform="translate(55,35)">
+    <line class="edge" x1="70" y1="60" x2="330" y2="60"/>
+    <line class="edge" x1="330" y1="60" x2="330" y2="270"/>
+    <line class="edge" x1="330" y1="270" x2="70" y2="270"/>
+    <line class="edge" x1="70" y1="270" x2="70" y2="60"/>
+    <line class="edge" x1="70" y1="60" x2="330" y2="270"/>
+    <line class="edge" x1="330" y1="60" x2="70" y2="270"/>
+
+    <circle class="vertex" cx="70" cy="60" r="20"/><text class="vlabel" x="70" y="60">A</text>
+    <circle class="vertex" cx="330" cy="60" r="20"/><text class="vlabel" x="330" y="60">B</text>
+    <circle class="vertex" cx="330" cy="270" r="20"/><text class="vlabel" x="330" y="270">C</text>
+    <circle class="vertex" cx="70" cy="270" r="20"/><text class="vlabel" x="70" y="270">D</text>
+
+    <text class="caption" x="200" y="335">En tegning med kryssing</text>
+    <text class="note" x="200" y="365">Grafen kan likevel være plan</text>
+  </g>
+
+  <g transform="translate(545,35)">
+    <line class="edge" x1="200" y1="45" x2="55" y2="285"/>
+    <line class="edge" x1="55" y1="285" x2="345" y2="285"/>
+    <line class="edge" x1="345" y1="285" x2="200" y2="45"/>
+    <line class="edge" x1="200" y1="45" x2="200" y2="190"/>
+    <line class="edge" x1="55" y1="285" x2="200" y2="190"/>
+    <line class="edge" x1="345" y1="285" x2="200" y2="190"/>
+
+    <circle class="vertex" cx="200" cy="45" r="20"/><text class="vlabel" x="200" y="45">A</text>
+    <circle class="vertex" cx="55" cy="285" r="20"/><text class="vlabel" x="55" y="285">B</text>
+    <circle class="vertex" cx="345" cy="285" r="20"/><text class="vlabel" x="345" y="285">C</text>
+    <circle class="vertex" cx="200" cy="190" r="20"/><text class="vlabel" x="200" y="190">D</text>
+
+    <text class="caption" x="200" y="335">En plan innleiring</text>
+    <text class="note" x="200" y="365">Samme hjørner og samme kanter</text>
+  </g>
+</svg>
