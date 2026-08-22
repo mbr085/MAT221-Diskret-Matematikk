@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Tre eksempler på delgrafer</title>
+  <desc id="desc">Tre delgrafer av den samme plane grafen: en der noen kanter er fjernet, en der noen hjørner er fjernet, og en mer generell delgraf.</desc>
+  <style>
+    .edge { stroke: #111; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .vertex { stroke: #111; stroke-width: 3; fill: #dddddd; }
+    .caption { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-anchor: middle; }
+  </style>
+
+  <!-- Noen kanter fjernet: alle seks hjørner beholdes. -->
+  <g id="subgraph-edges">
+    <line class="edge" x1="180" y1="70" x2="90" y2="170"/>
+    <line class="edge" x1="180" y1="70" x2="270" y2="170"/>
+    <line class="edge" x1="90" y1="170" x2="180" y2="230"/>
+    <line class="edge" x1="270" y1="170" x2="180" y2="230"/>
+    <line class="edge" x1="120" y1="310" x2="180" y2="230"/>
+    <line class="edge" x1="240" y1="310" x2="180" y2="230"/>
+
+    <circle class="vertex" cx="180" cy="70" r="17"/>
+    <circle class="vertex" cx="90" cy="170" r="17"/>
+    <circle class="vertex" cx="270" cy="170" r="17"/>
+    <circle class="vertex" cx="120" cy="310" r="17"/>
+    <circle class="vertex" cx="240" cy="310" r="17"/>
+    <circle class="vertex" cx="180" cy="230" r="17"/>
+
+    <text class="caption" x="180" y="395">Noen kanter fjernet</text>
+  </g>
+
+  <!-- Noen hjørner fjernet: indusert delgraf på de fire gjenværende hjørnene. -->
+  <g id="subgraph-vertices" transform="translate(420,0)">
+    <line class="edge" x1="90" y1="170" x2="120" y2="310"/>
+    <line class="edge" x1="270" y1="170" x2="240" y2="310"/>
+    <line class="edge" x1="120" y1="310" x2="240" y2="310"/>
+
+    <circle class="vertex" cx="90" cy="170" r="17"/>
+    <circle class="vertex" cx="270" cy="170" r="17"/>
+    <circle class="vertex" cx="120" cy="310" r="17"/>
+    <circle class="vertex" cx="240" cy="310" r="17"/>
+
+    <text class="caption" x="180" y="395">Noen hjørner fjernet</text>
+  </g>
+
+  <!-- Både hjørner og en mulig gjenværende kant er fjernet. -->
+  <g id="subgraph-mixed" transform="translate(840,0)">
+    <line class="edge" x1="180" y1="70" x2="90" y2="170"/>
+    <line class="edge" x1="180" y1="70" x2="270" y2="170"/>
+    <line class="edge" x1="90" y1="170" x2="120" y2="310"/>
+    <line class="edge" x1="120" y1="310" x2="240" y2="310"/>
+
+    <circle class="vertex" cx="180" cy="70" r="17"/>
+    <circle class="vertex" cx="90" cy="170" r="17"/>
+    <circle class="vertex" cx="270" cy="170" r="17"/>
+    <circle class="vertex" cx="120" cy="310" r="17"/>
+    <circle class="vertex" cx="240" cy="310" r="17"/>
+
+    <text class="caption" x="180" y="395">En annen delgraf</text>
+  </g>
+</svg>
