@@ -131,14 +131,18 @@ En **sykel** er en lukket gang med minst tre kanter som, bortsett fra at første
 hjørne er det samme, ikke gjentar hjørner.
 :::
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/gang-sti-sykel.svg`: Én underliggende graf med tre små paneler som fremhever henholdsvis
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![En gang, en sti og en sykel i den samme underliggende grafen.](figures/grafer/gang-sti-sykel.svg){width=100%}
+:::
 
-- en gang som gjentar et hjørne,
-- en sti,
-- en sykel.
+::: {.dark-content}
+![En gang, en sti og en sykel i den samme underliggende grafen.](figures/grafer/gang-sti-sykel-dark.svg){width=100%}
+:::
+:::
 
-Bruk samme hjørneplassering i alle panelene.
+::: {.content-visible when-format="pdf"}
+![En gang, en sti og en sykel i den samme underliggende grafen.](figures/grafer/gang-sti-sykel.svg){width=100%}
 :::
 
 ::: {#def-sammenheng name="Sammenhengende graf"}
