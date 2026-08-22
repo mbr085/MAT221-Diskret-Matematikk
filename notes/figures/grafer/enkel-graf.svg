@@ -2,48 +2,13 @@
   <title id="title">Tre eksempler på enkle grafer</title>
   <desc id="desc">En komplett graf med fem hjørner, en komplett bipartitt graf med tre pluss tre hjørner, og en enkel plan graf.</desc>
   <style>
-    :root {
-      color-scheme: light dark;
-      --ink: #111;
-      --paper: #fff;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #f2f2f2;
-        --paper: #222;
-      }
-    }
-
-    .edge {
-      stroke: var(--ink);
-      stroke-width: 3;
-      fill: none;
-      stroke-linecap: round;
-    }
-
-    .vertex {
-      stroke: var(--ink);
-      stroke-width: 3;
-      fill: var(--paper);
-    }
-
-    .caption {
-      fill: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 26px;
-      text-anchor: middle;
-    }
-
-    .label {
-      fill: var(--ink);
-      font-family: "Times New Roman", Times, serif;
-      font-size: 30px;
-      font-style: italic;
-    }
+    .edge { stroke: #111; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .vertex { stroke: #111; stroke-width: 3; fill: #fff; }
+    .caption { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 26px; text-anchor: middle; }
+    .label { fill: #111; font-family: "Times New Roman", Times, serif; font-size: 30px; font-style: italic; }
   </style>
 
-  <!-- Fem hjørner, alle par forbundet -->
+  <!-- Panel 1: K5 -->
   <g id="k5">
     <line class="edge" x1="180" y1="70" x2="90" y2="170"/>
     <line class="edge" x1="180" y1="70" x2="270" y2="170"/>
@@ -55,17 +20,15 @@
     <line class="edge" x1="270" y1="170" x2="120" y2="310"/>
     <line class="edge" x1="270" y1="170" x2="240" y2="310"/>
     <line class="edge" x1="120" y1="310" x2="240" y2="310"/>
-
     <circle class="vertex" cx="180" cy="70" r="17"/>
     <circle class="vertex" cx="90" cy="170" r="17"/>
     <circle class="vertex" cx="270" cy="170" r="17"/>
     <circle class="vertex" cx="120" cy="310" r="17"/>
     <circle class="vertex" cx="240" cy="310" r="17"/>
-
     <text class="caption" x="180" y="395">Fem hjørner, alle par forbundet</text>
   </g>
 
-  <!-- Bipartitt graf 3+3 -->
+  <!-- Panel 2: K3,3 -->
   <g id="k33">
     <line class="edge" x1="500" y1="120" x2="720" y2="120"/>
     <line class="edge" x1="500" y1="120" x2="720" y2="210"/>
@@ -76,18 +39,16 @@
     <line class="edge" x1="500" y1="300" x2="720" y2="120"/>
     <line class="edge" x1="500" y1="300" x2="720" y2="210"/>
     <line class="edge" x1="500" y1="300" x2="720" y2="300"/>
-
     <circle class="vertex" cx="500" cy="120" r="17"/>
     <circle class="vertex" cx="500" cy="210" r="17"/>
     <circle class="vertex" cx="500" cy="300" r="17"/>
     <circle class="vertex" cx="720" cy="120" r="17"/>
     <circle class="vertex" cx="720" cy="210" r="17"/>
     <circle class="vertex" cx="720" cy="300" r="17"/>
-
     <text class="caption" x="610" y="395">Bipartitt graf 3+3</text>
   </g>
 
-  <!-- En enkel plan graf -->
+  <!-- Panel 3: Simple planar graph -->
   <g id="planar">
     <line class="edge" x1="1000" y1="70" x2="910" y2="170"/>
     <line class="edge" x1="1000" y1="70" x2="1090" y2="170"/>
@@ -98,18 +59,15 @@
     <line class="edge" x1="1090" y1="170" x2="1000" y2="230"/>
     <line class="edge" x1="940" y1="310" x2="1000" y2="230"/>
     <line class="edge" x1="1060" y1="310" x2="1000" y2="230"/>
-
     <circle class="vertex" cx="1000" cy="70" r="17"/>
     <circle class="vertex" cx="910" cy="170" r="17"/>
     <circle class="vertex" cx="1090" cy="170" r="17"/>
     <circle class="vertex" cx="940" cy="310" r="17"/>
     <circle class="vertex" cx="1060" cy="310" r="17"/>
     <circle class="vertex" cx="1000" cy="230" r="17"/>
-
     <text class="label" x="1012" y="205">v</text>
     <text class="label" x="1048" y="188">e</text>
     <text class="label" x="1112" y="158">u</text>
-
     <text class="caption" x="1000" y="395">En enkel plan graf</text>
   </g>
 </svg>
