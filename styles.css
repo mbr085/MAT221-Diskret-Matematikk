@@ -27,6 +27,16 @@ body:has(.quarto-reader-toggle.reader) #reader-mode-exit:hover {
   opacity: 1;
 }
 
+/* Graf-SVG-er tegnes svart på lyst underlag i selve SVG-filen.
+   Når Quarto faktisk er i dark mode, inverterer vi hele figuren.
+   Slik følger figuren Quarto sin body.quarto-dark-klasse, ikke OS-innstillingen. */
+img.graph-svg {
+  filter: none;
+}
+
+body.quarto-dark img.graph-svg {
+  filter: invert(1);
+}
 
 /* Forelesningsvisning. */
 @media (min-width: 992px) {
