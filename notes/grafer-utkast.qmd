@@ -491,7 +491,7 @@ $$
 |E|\leq 3|V|-6.
 $$
 
-4. Anta nå at $G$ er bipartitt. Hvorfor har ingen flate rand av lengd tre?
+4. Anta nå at $G$ er bipartitt. Hvorfor har ingen flate rand av lengde tre?
 5. Vis i dette tilfellet at
 
 $$
