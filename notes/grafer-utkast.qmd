@@ -234,10 +234,18 @@ $$
 
 Et **minimum spenntre** (MST) er et spenntre med minst mulig total vekt.
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/spenntre.svg`: En liten vektet graf og samme graf ved siden av med ett spenntre markert.
-Alle hjørnene skal stå på samme sted i begge bilder; bare de valgte kantene fremheves i spenntreet.
-Bruk denne samme vektede grafen også i figurene for Kruskal og Prim dersom den egner seg.
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![En vektet graf og et minimum spenntre i den samme grafen.](figures/grafer/spenntre.svg){width=100%}
+:::
+
+::: {.dark-content}
+![En vektet graf og et minimum spenntre i den samme grafen.](figures/grafer/spenntre-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![En vektet graf og et minimum spenntre i den samme grafen.](figures/grafer/spenntre.svg){width=100%}
 :::
 
 To klassiske algoritmer er:
@@ -245,16 +253,26 @@ To klassiske algoritmer er:
 **Kruskal:** Sorter kantene etter stigende vekt. Gå gjennom dem i denne rekkefølgen,
 og legg til en kant dersom den ikke danner en sykel med kantene som allerede er valgt.
 
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![Kruskals algoritme steg for steg.](figures/grafer/kruskal-steg.svg){width=100%}
+:::
+
+::: {.dark-content}
+![Kruskals algoritme steg for steg.](figures/grafer/kruskal-steg-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![Kruskals algoritme steg for steg.](figures/grafer/kruskal-steg.svg){width=100%}
+:::
+
 **Prim:** Start i ett hjørne. Legg gjentatte ganger til en kant med minst mulig vekt
 som forbinder treet som hittil er bygget med et nytt hjørne.
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-Bruk én og samme vektede graf til to stegserier.
-
-- `figures/grafer/kruskal-steg.svg`: 4--5 små paneler der skogen vokser. Vis minst én kant som avvises fordi den ville danne en sykel.
-- `figures/grafer/prim-steg.svg`: 4--5 små paneler fra et markert starthjørne der ett sammenhengende tre vokser.
-
-Samme graf, samme hjørneplassering og samme vekter i begge serier skal gjøre kontrasten tydelig.
+`figures/grafer/prim-steg.svg`: 4--5 små paneler fra et markert starthjørne der ett sammenhengende tre vokser.
+Bruk samme graf, samme hjørneplassering og samme vekter som i figuren for Kruskal.
 :::
 
 ::: {#exr-kruskal-prim name="Samme problem, to strategier"}
@@ -473,7 +491,7 @@ $$
 |E|\leq 3|V|-6.
 $$
 
-4. Anta nå at $G$ er bipartitt. Hvorfor har ingen flate rand av lengde tre?
+4. Anta nå at $G$ er bipartitt. Hvorfor har ingen flate rand av lengd tre?
 5. Vis i dette tilfellet at
 
 $$
