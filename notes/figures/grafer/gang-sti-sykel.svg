@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Gang, sti og sykel</title>
+  <desc id="desc">Tre paneler bruker den samme underliggende grafen. Første panel viser gangen A-B-D-B-C, der B gjentas og kanten BD brukes to ganger. Andre panel viser stien A-C-D-F-E uten gjentatte hjørner. Tredje panel viser sykelen A-B-C-A.</desc>
+  <style>
+    .edge-muted { stroke: #888; stroke-width: 2.4; fill: none; stroke-linecap: round; }
+    .edge-strong { stroke: #111; stroke-width: 4.8; fill: none; stroke-linecap: round; }
+    .vertex { stroke: #111; stroke-width: 3; fill: #dddddd; }
+    .repeat-ring { stroke: #111; stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
+    .vlabel { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+    .title { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 23px; font-weight: bold; text-anchor: middle; }
+    .route { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 20px; text-anchor: middle; }
+    .note { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 17px; text-anchor: middle; }
+    .twice-bg { fill: #fff; stroke: none; }
+    .twice { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+  </style>
+
+  <defs>
+    <g id="graph-base">
+      <line class="edge-muted" x1="80" y1="80" x2="70" y2="230"/>
+      <line class="edge-muted" x1="80" y1="80" x2="205" y2="80"/>
+      <line class="edge-muted" x1="70" y1="230" x2="205" y2="80"/>
+      <line class="edge-muted" x1="70" y1="230" x2="205" y2="230"/>
+      <line class="edge-muted" x1="205" y1="80" x2="205" y2="230"/>
+      <line class="edge-muted" x1="205" y1="80" x2="340" y2="80"/>
+      <line class="edge-muted" x1="205" y1="230" x2="340" y2="80"/>
+      <line class="edge-muted" x1="205" y1="230" x2="340" y2="230"/>
+      <line class="edge-muted" x1="340" y1="80" x2="340" y2="230"/>
+
+      <circle class="vertex" cx="80" cy="80" r="17"/><text class="vlabel" x="80" y="80">A</text>
+      <circle class="vertex" cx="70" cy="230" r="17"/><text class="vlabel" x="70" y="230">B</text>
+      <circle class="vertex" cx="205" cy="80" r="17"/><text class="vlabel" x="205" y="80">C</text>
+      <circle class="vertex" cx="205" cy="230" r="17"/><text class="vlabel" x="205" y="230">D</text>
+      <circle class="vertex" cx="340" cy="80" r="17"/><text class="vlabel" x="340" y="80">E</text>
+      <circle class="vertex" cx="340" cy="230" r="17"/><text class="vlabel" x="340" y="230">F</text>
+    </g>
+  </defs>
+
+  <g transform="translate(10,35)">
+    <text class="title" x="185" y="0">Gang</text>
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="80" y1="80" x2="70" y2="230"/>
+    <line class="edge-strong" x1="70" y1="230" x2="205" y2="230"/>
+    <line class="edge-strong" x1="70" y1="230" x2="205" y2="80"/>
+    <circle class="repeat-ring" cx="70" cy="230" r="24"/>
+    <circle class="twice-bg" cx="138" cy="230" r="15"/><text class="twice" x="138" y="230">2×</text>
+    <text class="route" x="185" y="310">A–B–D–B–C</text>
+    <text class="note" x="185" y="338">B gjentas; BD brukes to ganger</text>
+  </g>
+
+  <g transform="translate(405,35)">
+    <text class="title" x="185" y="0">Sti</text>
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="80" y1="80" x2="205" y2="80"/>
+    <line class="edge-strong" x1="205" y1="80" x2="205" y2="230"/>
+    <line class="edge-strong" x1="205" y1="230" x2="340" y2="230"/>
+    <line class="edge-strong" x1="340" y1="230" x2="340" y2="80"/>
+    <text class="route" x="185" y="310">A–C–D–F–E</text>
+    <text class="note" x="185" y="338">Ingen hjørner gjentas</text>
+  </g>
+
+  <g transform="translate(800,35)">
+    <text class="title" x="185" y="0">Sykel</text>
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="80" y1="80" x2="70" y2="230"/>
+    <line class="edge-strong" x1="70" y1="230" x2="205" y2="80"/>
+    <line class="edge-strong" x1="205" y1="80" x2="80" y2="80"/>
+    <text class="route" x="185" y="310">A–B–C–A</text>
+    <text class="note" x="185" y="338">Lukket; bare start = slutt</text>
+  </g>
+</svg>
