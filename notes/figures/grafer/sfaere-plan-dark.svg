@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Fra sfæren til planet</title>
+  <desc id="desc">Til venstre er K4 tegnet på en sfære med et punkt p i flaten ABD. Til høyre er samme graf tegnet i planet slik at flaten ABD er den ytre flaten.</desc>
+  <style>
+    .sphere { fill: none; stroke: #999; stroke-width: 3; }
+    .guide { fill: none; stroke: #666; stroke-width: 1.8; stroke-dasharray: 7 7; }
+    .face { fill: #383838; stroke: none; }
+    .edge { stroke: #f2f2f2; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .vertex { fill: #444; stroke: #f2f2f2; stroke-width: 3; }
+    .vlabel { fill: #f2f2f2; font-family: Arial, Helvetica, sans-serif; font-size: 23px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+    .panel { fill: #f2f2f2; font-family: Arial, Helvetica, sans-serif; font-size: 25px; font-weight: bold; text-anchor: middle; }
+    .note { fill: #f2f2f2; font-family: Arial, Helvetica, sans-serif; font-size: 21px; text-anchor: middle; }
+    .small { fill: #f2f2f2; font-family: Arial, Helvetica, sans-serif; font-size: 19px; }
+    .pmark { fill: #f2f2f2; }
+    .arrow { stroke: #aaa; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#aaa"/>
+    </marker>
+  </defs>
+
+  <text class="panel" x="300" y="48">Graf på sfæren</text>
+  <circle class="sphere" cx="300" cy="300" r="215"/>
+  <ellipse class="guide" cx="300" cy="300" rx="215" ry="78"/>
+  <path class="guide" d="M300 85 C220 155 220 445 300 515 C380 445 380 155 300 85"/>
+
+  <path class="face" d="M300 120 L145 365 L300 292 Z"/>
+
+  <line class="edge" x1="300" y1="120" x2="145" y2="365"/>
+  <line class="edge" x1="145" y1="365" x2="455" y2="365"/>
+  <line class="edge" x1="455" y1="365" x2="300" y2="120"/>
+  <line class="edge" x1="300" y1="292" x2="300" y2="120"/>
+  <line class="edge" x1="300" y1="292" x2="145" y2="365"/>
+  <line class="edge" x1="300" y1="292" x2="455" y2="365"/>
+
+  <circle class="vertex" cx="300" cy="120" r="18"/><text class="vlabel" x="300" y="120">A</text>
+  <circle class="vertex" cx="145" cy="365" r="18"/><text class="vlabel" x="145" y="365">B</text>
+  <circle class="vertex" cx="455" cy="365" r="18"/><text class="vlabel" x="455" y="365">C</text>
+  <circle class="vertex" cx="300" cy="292" r="18"/><text class="vlabel" x="300" y="292">D</text>
+
+  <circle class="pmark" cx="225" cy="275" r="6"/>
+  <text class="small" x="237" y="267"><tspan font-style="italic">p</tspan></text>
+  <text class="note" x="220" y="430">valgt flate</text>
+
+  <path class="arrow" d="M545 300 C600 300 610 300 665 300"/>
+  <text class="note" x="605" y="270">fjern <tspan font-style="italic">p</tspan></text>
+  <text class="note" x="605" y="335">og strekk ut</text>
+
+  <text class="panel" x="900" y="48">Samme graf i planet</text>
+
+  <line class="edge" x1="900" y1="115" x2="725" y2="445"/>
+  <line class="edge" x1="725" y1="445" x2="1075" y2="445"/>
+  <line class="edge" x1="1075" y1="445" x2="900" y2="115"/>
+  <line class="edge" x1="900" y1="300" x2="900" y2="115"/>
+  <line class="edge" x1="900" y1="300" x2="725" y2="445"/>
+  <line class="edge" x1="900" y1="300" x2="1075" y2="445"/>
+
+  <circle class="vertex" cx="900" cy="115" r="18"/><text class="vlabel" x="900" y="115">A</text>
+  <circle class="vertex" cx="725" cy="445" r="18"/><text class="vlabel" x="725" y="445">B</text>
+  <circle class="vertex" cx="1075" cy="445" r="18"/><text class="vlabel" x="1075" y="445">D</text>
+  <circle class="vertex" cx="900" cy="300" r="18"/><text class="vlabel" x="900" y="300">C</text>
+
+  <text class="note" x="900" y="525">flaten som inneholdt <tspan font-style="italic">p</tspan> er nå den ytre flaten</text>
+</svg>
