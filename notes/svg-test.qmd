@@ -45,6 +45,16 @@ Denne siden brukes midlertidig til å kontrollere størrelse, linjetykkelse og d
 ![En komplett bipartitt graf med tre hjørner i hver del og en bipartitt graf som ikke er komplett.](figures/grafer/bipartitt-dark.svg){width=100%}
 :::
 
+## To ikke-plane grafer
+
+::: {.light-content}
+![To grafer som brukes som grunnleggende ikke-plane eksempler.](figures/grafer/to-ikkeplane-grafer.svg){width=100%}
+:::
+
+::: {.dark-content}
+![To grafer som brukes som grunnleggende ikke-plane eksempler.](figures/grafer/to-ikkeplane-grafer-dark.svg){width=100%}
+:::
+
 ## Subdivisjon
 
 ::: {.light-content}
