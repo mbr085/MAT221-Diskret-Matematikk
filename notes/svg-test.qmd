@@ -5,10 +5,22 @@ lang: nb
 
 Denne siden brukes midlertidig til å kontrollere størrelse, linjetykkelse og dark-mode-visning av graf-SVG-ene.
 
+## Enkle grafer
+
 ::: {.light-content}
 ![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf.svg){width=100%}
 :::
 
 ::: {.dark-content}
 ![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf-dark.svg){width=100%}
+:::
+
+## Delgrafer
+
+::: {.light-content}
+![Tre delgrafer av den samme plane grafen.](figures/grafer/delgraf.svg){width=100%}
+:::
+
+::: {.dark-content}
+![Tre delgrafer av den samme plane grafen.](figures/grafer/delgraf-dark.svg){width=100%}
 :::
