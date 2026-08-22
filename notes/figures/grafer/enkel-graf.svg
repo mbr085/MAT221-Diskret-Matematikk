@@ -2,41 +2,28 @@
   <title id="title">Tre eksempler på enkle grafer</title>
   <desc id="desc">En komplett graf med fem hjørner, en komplett bipartitt graf med tre pluss tre hjørner, og en enkel plan graf.</desc>
   <style>
-    :root {
-      color-scheme: light dark;
-      --ink: #111;
-      --paper: #fff;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #f2f2f2;
-        --paper: #222;
-      }
-    }
-
     .edge {
-      stroke: var(--ink);
+      stroke: #111;
       stroke-width: 2.5;
       fill: none;
       stroke-linecap: round;
     }
 
     .vertex {
-      stroke: var(--ink);
+      stroke: #111;
       stroke-width: 2.5;
-      fill: var(--paper);
+      fill: #fff;
     }
 
     .caption {
-      fill: var(--ink);
+      fill: #111;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 24px;
       text-anchor: middle;
     }
 
     .label {
-      fill: var(--ink);
+      fill: #111;
       font-family: "Times New Roman", Times, serif;
       font-size: 28px;
       font-style: italic;
