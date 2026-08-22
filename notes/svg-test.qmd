@@ -24,3 +24,13 @@ Denne siden brukes midlertidig til å kontrollere størrelse, linjetykkelse og d
 ::: {.dark-content}
 ![Tre delgrafer av den samme plane grafen.](figures/grafer/delgraf-dark.svg){width=100%}
 :::
+
+## Trær og skoger
+
+::: {.light-content}
+![Et tre, en skog med to komponenter, og det samme treet med én ekstra kant som lager en sykel.](figures/grafer/tre-skog-sykel.svg){width=100%}
+:::
+
+::: {.dark-content}
+![Et tre, en skog med to komponenter, og det samme treet med én ekstra kant som lager en sykel.](figures/grafer/tre-skog-sykel-dark.svg){width=100%}
+:::
