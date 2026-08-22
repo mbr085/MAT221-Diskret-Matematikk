@@ -5,4 +5,10 @@ lang: nb
 
 Denne siden brukes midlertidig til å kontrollere størrelse, linjetykkelse og dark-mode-visning av graf-SVG-ene.
 
-![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf.svg){.graph-svg width=100%}
+::: {.light-content}
+![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf.svg){width=100%}
+:::
+
+::: {.dark-content}
+![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf-dark.svg){width=100%}
+:::
