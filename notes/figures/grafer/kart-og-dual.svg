@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Et skjematisk kart og den tilhørende dualgrafen</title>
+  <desc id="desc">Til venstre er et rektangulært kart med seks regioner A til F. Til høyre er en graf med ett hjørne for hver region og en kant akkurat når to regioner deler en grensestrekning.</desc>
+  <style>
+    .boundary { stroke: #111; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .region1 { fill: #f7f7f7; }
+    .region2 { fill: #ececec; }
+    .rlabel { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 30px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+    .dual-edge { stroke: #2f6fba; stroke-width: 4; fill: none; stroke-linecap: round; }
+    .dual-vertex { fill: #dce9f7; stroke: #2f6fba; stroke-width: 4; }
+    .dual-label { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 27px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+    .heading { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 28px; font-weight: bold; text-anchor: middle; }
+    .note { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 22px; text-anchor: middle; }
+  </style>
+
+  <text class="heading" x="300" y="48">Et lite kart</text>
+  <text class="heading" x="890" y="48">Dualgrafen</text>
+
+  <!-- Seks regioner i kartet. Regioner er naboer bare når de deler en grensestrekning. -->
+  <g id="map">
+    <rect class="region1" x="80" y="90" width="220" height="130"/>
+    <rect class="region2" x="300" y="90" width="220" height="130"/>
+    <rect class="region2" x="80" y="220" width="220" height="120"/>
+    <rect class="region1" x="300" y="220" width="220" height="120"/>
+    <rect class="region1" x="80" y="340" width="220" height="130"/>
+    <rect class="region2" x="300" y="340" width="220" height="130"/>
+
+    <rect class="boundary" x="80" y="90" width="440" height="380"/>
+    <line class="boundary" x1="300" y1="90" x2="300" y2="470"/>
+    <line class="boundary" x1="80" y1="220" x2="520" y2="220"/>
+    <line class="boundary" x1="80" y1="340" x2="520" y2="340"/>
+
+    <text class="rlabel" x="190" y="155">A</text>
+    <text class="rlabel" x="410" y="155">B</text>
+    <text class="rlabel" x="190" y="280">C</text>
+    <text class="rlabel" x="410" y="280">D</text>
+    <text class="rlabel" x="190" y="405">E</text>
+    <text class="rlabel" x="410" y="405">F</text>
+  </g>
+
+  <!-- Dualgraf: én kant for hver delt grensestrekning. -->
+  <g id="dual">
+    <line class="dual-edge" x1="790" y1="155" x2="990" y2="155"/>
+    <line class="dual-edge" x1="790" y1="280" x2="990" y2="280"/>
+    <line class="dual-edge" x1="790" y1="405" x2="990" y2="405"/>
+    <line class="dual-edge" x1="790" y1="155" x2="790" y2="280"/>
+    <line class="dual-edge" x1="790" y1="280" x2="790" y2="405"/>
+    <line class="dual-edge" x1="990" y1="155" x2="990" y2="280"/>
+    <line class="dual-edge" x1="990" y1="280" x2="990" y2="405"/>
+
+    <circle class="dual-vertex" cx="790" cy="155" r="23"/><text class="dual-label" x="790" y="155">A</text>
+    <circle class="dual-vertex" cx="990" cy="155" r="23"/><text class="dual-label" x="990" y="155">B</text>
+    <circle class="dual-vertex" cx="790" cy="280" r="23"/><text class="dual-label" x="790" y="280">C</text>
+    <circle class="dual-vertex" cx="990" cy="280" r="23"/><text class="dual-label" x="990" y="280">D</text>
+    <circle class="dual-vertex" cx="790" cy="405" r="23"/><text class="dual-label" x="790" y="405">E</text>
+    <circle class="dual-vertex" cx="990" cy="405" r="23"/><text class="dual-label" x="990" y="405">F</text>
+  </g>
+
+  <text class="note" x="600" y="525">to regioner deler en grensestrekning  ⇔  de tilsvarende hjørnene er naboer</text>
+</svg>
