@@ -27,18 +27,6 @@ body:has(.quarto-reader-toggle.reader) #reader-mode-exit:hover {
   opacity: 1;
 }
 
-/* Fortell innebygde SVG-bilder hvilken av Quarto-modusene som er aktiv.
-   SVG-ene bruker prefers-color-scheme internt for strek, tekst og hjørnefyll. */
-body.quarto-light,
-body.quarto-light img.graph-svg {
-  color-scheme: light;
-}
-
-body.quarto-dark,
-body.quarto-dark img.graph-svg {
-  color-scheme: dark;
-}
-
 /* Forelesningsvisning. */
 @media (min-width: 992px) {
 
