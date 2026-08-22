@@ -54,15 +54,18 @@ En enkel graf $G=(V,E)$ kalles **endelig** dersom $V$ er endelig.
 
 Siden $\{u,v\}=\{v,u\}$, har kantene ingen retning.
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/enkel-graf.svg`: Tre små grafer ved siden av hverandre.
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf.svg){width=100%}
+:::
 
-- Grafen med fem hjørner der hvert par av forskjellige hjørner er forbundet med en kant.
-- Den bipartitte grafen med tre hjørner i hver del og alle mulige kanter mellom delene.
-- En enkel plan graf som senere kan gjenbrukes i eksempler og figurer.
+::: {.dark-content}
+![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf-dark.svg){width=100%}
+:::
+:::
 
-I den plane grafen merkes ett hjørne $v$, noen naboer til $v$, én kant $e=\{u,v\}$ og endepunktene $u,v$.
-De to første grafene skal tegnes på samme måte som når de dukker opp igjen senere i kapitlet.
+::: {.content-visible when-format="pdf"}
+![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf.svg){width=100%}
 :::
 
 To hjørner er **naboer** dersom de er endepunktene til samme kant.
@@ -78,14 +81,18 @@ $$
 og begge endepunktene til hver kant i $F$ ligger i $W$.
 :::
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/delgraf.svg`: Bruk den plane grafen fra `enkel-graf.svg` og vis tre forskjellige delgrafer:
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![Tre delgrafer av den samme plane grafen.](figures/grafer/delgraf.svg){width=100%}
+:::
 
-1. en delgraf der bare noen kanter er fjernet;
-2. en delgraf der noen hjørner og alle kantene som støter til dem er fjernet;
-3. en delgraf som ikke er av noen av disse to spesielle formene.
+::: {.dark-content}
+![Tre delgrafer av den samme plane grafen.](figures/grafer/delgraf-dark.svg){width=100%}
+:::
+:::
 
-Behold de samme hjørneplasseringene som i originalgrafen.
+::: {.content-visible when-format="pdf"}
+![Tre delgrafer av den samme plane grafen.](figures/grafer/delgraf.svg){width=100%}
 :::
 
 ::: {#exr-handtrykk-oppdag name="Tell endepunkter på to måter"}
@@ -158,12 +165,18 @@ Et **tre** er en sammenhengende graf uten sykler.
 
 En **skog** er en graf uten sykler. Hver sammenhengskomponent i en skog er altså et tre.
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/tre-skog-sykel.svg`: Tre små bilder:
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![Et tre, en skog med to komponenter, og det samme treet med én ekstra kant som lager en sykel.](figures/grafer/tre-skog-sykel.svg){width=100%}
+:::
 
-- et tre;
-- en skog med to komponenter;
-- det samme treet som i første bilde, men med én ekstra kant slik at det oppstår en sykel.
+::: {.dark-content}
+![Et tre, en skog med to komponenter, og det samme treet med én ekstra kant som lager en sykel.](figures/grafer/tre-skog-sykel-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![Et tre, en skog med to komponenter, og det samme treet med én ekstra kant som lager en sykel.](figures/grafer/tre-skog-sykel.svg){width=100%}
 :::
 
 Følgende karakteriseringer er fundamentale og lar oss skifte mellom geometriske,
@@ -397,7 +410,6 @@ $$
 
 der $F$ er antallet flater i den valgte plane innleiringen.
 :::
-
 ::: {.callout-tip title="Et topologisk blikk"}
 En graf på sfæren kan betraktes som $1$-skjelettet i en celleoppdeling av $S^2$:
 hjørnene er $0$-celler, kantene er $1$-celler og flatene er $2$-celler.
@@ -424,11 +436,18 @@ $$
 slik at hver kant har ett endepunkt i $A$ og ett i $B$.
 :::
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/bipartitt.svg`: To bipartitte grafer med delene $A$ og $B$ tegnet som to kolonner.
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![En komplett bipartitt graf med tre hjørner i hver del og en bipartitt graf som ikke er komplett.](figures/grafer/bipartitt.svg){width=100%}
+:::
 
-- Den bipartitte grafen med tre hjørner i hver del og alle mulige kanter mellom delene, tegnet nøyaktig som i `enkel-graf.svg`.
-- En annen bipartitt graf der ikke alle mulige kanter mellom delene er med.
+::: {.dark-content}
+![En komplett bipartitt graf med tre hjørner i hver del og en bipartitt graf som ikke er komplett.](figures/grafer/bipartitt-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![En komplett bipartitt graf med tre hjørner i hver del og en bipartitt graf som ikke er komplett.](figures/grafer/bipartitt.svg){width=100%}
 :::
 
 ::: {#exr-bipartitt-sykler name="Hvor lange kan syklene være?"}
@@ -471,20 +490,36 @@ Bruk @exr-plan-ulikheter til å vise at følgende to grafer ikke er plane:
 Hvorfor trenger vi to forskjellige ulikheter fra @exr-plan-ulikheter for å avsløre de to grafene?
 :::
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/to-ikkeplane-grafer.svg`: Vis de to grafene fra @exr-to-ikkeplane med nøyaktig samme
-hjørneplassering og utforming som i `enkel-graf.svg` og `bipartitt.svg`, slik at de er umiddelbart gjenkjennelige.
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![To grafer som brukes som grunnleggende ikke-plane eksempler.](figures/grafer/to-ikkeplane-grafer.svg){width=100%}
+:::
+
+::: {.dark-content}
+![To grafer som brukes som grunnleggende ikke-plane eksempler.](figures/grafer/to-ikkeplane-grafer-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![To grafer som brukes som grunnleggende ikke-plane eksempler.](figures/grafer/to-ikkeplane-grafer.svg){width=100%}
 :::
 
 ### Hvorfor dukker subdivisjoner opp?
 
 Å **subdividere** en kant betyr å erstatte den med en sti ved å sette inn nye hjørner av grad $2$.
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/subdivisjon.svg`:
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![Subdivisjon av en kant og av en større graf.](figures/grafer/subdivisjon.svg){width=100%}
+:::
 
-- Vis først én kant $u$--$v$ og ved siden av samme kant subdividert med ett nytt hjørne $x$: $u$--$x$--$v$.
-- Vis deretter en liten versjon av den første grafen i @exr-to-ikkeplane der én kant er subdividert.
+::: {.dark-content}
+![Subdivisjon av en kant og av en større graf.](figures/grafer/subdivisjon-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![Subdivisjon av en kant og av en større graf.](figures/grafer/subdivisjon.svg){width=100%}
 :::
 
 ::: {#exr-subdivisjon-plan name="Subdivisjon endrer ikke planaritet"}
