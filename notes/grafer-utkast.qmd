@@ -406,10 +406,18 @@ En graf er **plan** dersom den kan tegnes i planet slik at kanter bare møtes i 
 En bestemt slik tegning kalles en **plan innleiring**. De sammenhengende områdene mellom kantene
 kalles **flater**.
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/plan-tegning.svg`: Vis én og samme plane graf først i en tegning med en unødvendig
-kantkryssing og deretter i en plan innleiring uten kryssinger. Poenget er å skille
-«denne tegningen har en kryssing» fra «grafen er ikke plan».
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![Samme plane graf tegnet med og uten kantkryssing.](figures/grafer/plan-tegning.svg){width=100%}
+:::
+
+::: {.dark-content}
+![Samme plane graf tegnet med og uten kantkryssing.](figures/grafer/plan-tegning-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![Samme plane graf tegnet med og uten kantkryssing.](figures/grafer/plan-tegning.svg){width=100%}
 :::
 
 ::: {#exr-sfaere-plan name="Hvor kommer den ytre flaten fra?"}
