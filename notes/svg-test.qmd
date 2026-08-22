@@ -34,3 +34,13 @@ Denne siden brukes midlertidig til å kontrollere størrelse, linjetykkelse og d
 ::: {.dark-content}
 ![Et tre, en skog med to komponenter, og det samme treet med én ekstra kant som lager en sykel.](figures/grafer/tre-skog-sykel-dark.svg){width=100%}
 :::
+
+## Bipartitte grafer
+
+::: {.light-content}
+![En komplett bipartitt graf med tre hjørner i hver del og en bipartitt graf som ikke er komplett.](figures/grafer/bipartitt.svg){width=100%}
+:::
+
+::: {.dark-content}
+![En komplett bipartitt graf med tre hjørner i hver del og en bipartitt graf som ikke er komplett.](figures/grafer/bipartitt-dark.svg){width=100%}
+:::
