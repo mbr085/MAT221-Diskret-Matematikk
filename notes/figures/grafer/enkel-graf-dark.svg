@@ -3,7 +3,7 @@
   <desc id="desc">En komplett graf med fem hjørner, en komplett bipartitt graf med tre pluss tre hjørner, og en enkel plan graf.</desc>
   <style>
     .edge { stroke: #f2f2f2; stroke-width: 3; fill: none; stroke-linecap: round; }
-    .vertex { stroke: #f2f2f2; stroke-width: 3; fill: #222; }
+    .vertex { stroke: #f2f2f2; stroke-width: 3; fill: #303030; }
     .caption { fill: #f2f2f2; font-family: Arial, Helvetica, sans-serif; font-size: 26px; text-anchor: middle; }
     .label { fill: #f2f2f2; font-family: "Times New Roman", Times, serif; font-size: 30px; font-style: italic; }
   </style>
