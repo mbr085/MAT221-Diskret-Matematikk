@@ -3,15 +3,16 @@ title: "MAT221 uke 35"
 lang: nb
 ---
 
-## Arbeidsøkt 1: Rekursjonsformler
+Materialet er beregnet på to undervisningsganger, med to arbeidsøkter på omtrent 45 minutter hver.
+
+## Arbeidsøkt 1: Rekursjonsformler fra problemer
 
 I denne arbeidsøkten skal vi undersøke hvordan en følge av tall kan beskrives ved hjelp av tidligere tall i følgen.
 
-Vi skal særlig arbeide med tre spørsmål:
+Vi skal særlig arbeide med to spørsmål:
 
 1. Hvordan kan en rekursjonsformel oppstå fra et konkret problem?
-2. Hvordan kan vi gå fra en rekursjonsformel til en formel for det $n$-te leddet?
-3. Hvordan kan kunstig intelligens brukes til å finne, forklare og kontrollere matematiske argumenter?
+2. Hvordan kan kunstig intelligens brukes til å finne, forklare og kontrollere matematiske argumenter?
 
 ::: {.callout-note title="Om KI-oppgavene"}
 Når du bruker KI i denne økten, er målet ikke bare å få et svar.
@@ -195,6 +196,14 @@ Diskuter deretter:
 2. Hva er det i argumentet med dominobrikkene som faktisk viser at følgene fortsetter å være like?
 3. Hvis KI hevder noe du ikke er enig i, avgjør selv hvem som har rett.
 :::
+
+::: {.callout-note title="Pause – 15 minutter"}
+Ta pause før du går videre til eksplisitte formler.
+:::
+
+## Arbeidsøkt 2: Fra rekursjonsformel til eksplisitt formel
+
+Vi skal nå undersøke hvordan vi kan gå fra en rekursjonsformel til en formel for det $n$-te leddet.
 
 ### Hvordan finner vi en eksplisitt formel?
 
@@ -425,9 +434,9 @@ Når du har fått en eksplisitt formel, kontroller den ved å:
 - beregne $a_3$ både fra rekursjonsformelen og fra den eksplisitte formelen.
 :::
 
-### Oppsummering av arbeidsøkt 1
+### Oppsummering av arbeidsøkt 2
 
-Etter denne arbeidsøkten bør du kunne gå begge veier i diagrammet
+Etter de to første arbeidsøktene bør du kunne gå begge veier i diagrammet
 
 $$
 \boxed{
@@ -451,7 +460,7 @@ $$
 r^2-Ar-B=0.
 $$
 
-Når du bruker KI i matematikk, er det ikke nok at svaret ser overbevisende ut. I denne økten har du blant annet brukt tre måter å kontrollere KI på:
+Når du bruker KI i matematikk, er det ikke nok at svaret ser overbevisende ut. I disse arbeidsøktene har du blant annet brukt tre måter å kontrollere KI på:
 
 - sette et foreslått uttrykk inn i en rekursjonsformel;
 - kontrollere initialbetingelser;
@@ -459,16 +468,15 @@ Når du bruker KI i matematikk, er det ikke nok at svaret ser overbevisende ut. 
 
 ---
 
-## Arbeidsøkt 2: Genererende funksjoner, derangements og Catalan-tall
+## Arbeidsøkt 3: Genererende funksjoner
 
-I den første arbeidsøkten brukte vi rekursjonsformler til å beskrive følger og den karakteristiske ligningen til å finne eksplisitte formler. I denne økten skal vi møte et nytt verktøy: **genererende funksjoner**.
+I de to første arbeidsøktene brukte vi rekursjonsformler til å beskrive følger og den karakteristiske ligningen til å finne eksplisitte formler. Nå skal vi møte et nytt verktøy: **genererende funksjoner**.
 
 Vi skal bruke dem til å:
 
 1. pakke en hel følge inn i én potensrekke,
 2. finne eksplisitte formler på en ny måte,
-3. forstå hvorfor produkter av potensrekker gir summer av produkter av koeffisienter,
-4. arbeide med derangements og Catalan-tall.
+3. forstå hvorfor produkter av potensrekker gir summer av produkter av koeffisienter.
 
 ::: {.callout-note title="KI i denne arbeidsøkten"}
 Bruk KI til å fylle inn detaljer som ellers ville tatt mye plass i teksten: algebra, delbrøkoppspalting, bevis og koeffisientutregninger.
@@ -603,7 +611,7 @@ $$
 
 ### Fibonacci på nytt – nå med en genererende funksjon
 
-Vi bruker samme nummerering som i første arbeidsøkt:
+Vi bruker samme nummerering som i de første arbeidsøktene:
 
 $$
 F_1=1,\qquad F_2=2,\qquad F_n=F_{n-1}+F_{n-2}\quad(n\geq3).
@@ -628,7 +636,7 @@ $$
 F(x)=\frac{x+x^2}{1-x-x^2}.
 $$
 
-Be deretter KI om å faktorisere nevneren og gjøre en delbrøkoppspalting. Les av koeffisienten til $x^n$ og sammenlign den eksplisitte formelen med den dere fant i første arbeidsøkt.
+Be deretter KI om å faktorisere nevneren og gjøre en delbrøkoppspalting. Les av koeffisienten til $x^n$ og sammenlign den eksplisitte formelen med den dere fant i arbeidsøkt 2.
 
 **Kontroll:** Regn ut koeffisientene til $x$, $x^2$ og $x^3$ direkte fra svaret og sjekk at de er $1,2,3$.
 :::
@@ -636,6 +644,10 @@ Be deretter KI om å faktorisere nevneren og gjøre en delbrøkoppspalting. Les 
 ::: {.callout-note title="Pause – 15 minutter"}
 Ta pause før du går videre til derangements og Catalan-tall.
 :::
+
+## Arbeidsøkt 4: Derangements og Catalan-tall
+
+I denne arbeidsøkten bruker vi rekursjonsformler og genererende funksjoner på to nye telleproblemer.
 
 ### Derangements
 
@@ -840,9 +852,9 @@ Be KI forklare hvorfor begge problemene teller Catalan-tallet $C_3$. Be den vær
 Hva er det vi faktisk vet på dette tidspunktet?
 :::
 
-### Oppsummering av arbeidsøkt 2
+### Oppsummering av arbeidsøkt 4
 
-I denne arbeidsøkten har vi brukt genererende funksjoner som et algebraisk språk for følger:
+I de to siste arbeidsøktene har vi brukt genererende funksjoner som et algebraisk språk for følger:
 
 $$
 (a_0,a_1,a_2,\ldots)
