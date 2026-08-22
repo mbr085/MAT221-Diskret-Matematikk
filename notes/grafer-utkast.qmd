@@ -435,9 +435,18 @@ Grafen deler sfæren i regioner.
 $S^2\setminus\{p\}\cong\mathbb R^2$ og stereografisk projeksjon.
 :::
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/sfaere-plan.svg`: En todelt figur. Til venstre et enkelt kart/graf på sfæren med ett punkt $p$
-i en region; til høyre den tilsvarende plane tegningen der nettopp denne regionen er den ytre flaten.
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![Fra en graf på sfæren til en plan innleiring der den valgte flaten blir ytre flate.](figures/grafer/sfaere-plan.svg){width=100%}
+:::
+
+::: {.dark-content}
+![Fra en graf på sfæren til en plan innleiring der den valgte flaten blir ytre flate.](figures/grafer/sfaere-plan-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![Fra en graf på sfæren til en plan innleiring der den valgte flaten blir ytre flate.](figures/grafer/sfaere-plan.svg){width=100%}
 :::
 
 ::: {#thm-euler-plan name="Eulers formel"}
