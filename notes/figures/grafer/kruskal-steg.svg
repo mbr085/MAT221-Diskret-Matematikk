@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840" role="img" aria-labelledby="title desc">
+  <title id="title">Kruskals algoritme steg for steg</title>
+  <desc id="desc">Seks paneler viser hvordan Kruskals algoritme bygger et minimum spenntre. Kantene BC, AC, DE og EF velges, AB avvises fordi den ville danne en sykel, og til slutt velges BD.</desc>
+  <style>
+    .edge-muted { stroke: #888; stroke-width: 2.4; fill: none; stroke-linecap: round; }
+    .edge-strong { stroke: #111; stroke-width: 4.5; fill: none; stroke-linecap: round; }
+    .edge-reject { stroke: #111; stroke-width: 4.5; fill: none; stroke-linecap: round; stroke-dasharray: 9 7; }
+    .vertex { stroke: #111; stroke-width: 3; fill: #dddddd; }
+    .vlabel { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+    .wbg { fill: #fff; stroke: none; }
+    .wlabel { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: middle; }
+    .caption { fill: #111; font-family: Arial, Helvetica, sans-serif; font-size: 20px; text-anchor: middle; }
+  </style>
+
+  <defs>
+    <g id="graph-base">
+      <line class="edge-muted" x1="80" y1="80" x2="70" y2="240"/>
+      <line class="edge-muted" x1="80" y1="80" x2="210" y2="90"/>
+      <line class="edge-muted" x1="70" y1="240" x2="210" y2="90"/>
+      <line class="edge-muted" x1="70" y1="240" x2="230" y2="250"/>
+      <line class="edge-muted" x1="210" y1="90" x2="230" y2="250"/>
+      <line class="edge-muted" x1="70" y1="240" x2="380" y2="180"/>
+      <line class="edge-muted" x1="210" y1="90" x2="380" y2="180"/>
+      <line class="edge-muted" x1="230" y1="250" x2="380" y2="180"/>
+      <line class="edge-muted" x1="230" y1="250" x2="380" y2="340"/>
+      <line class="edge-muted" x1="380" y1="180" x2="380" y2="340"/>
+
+      <circle class="wbg" cx="45" cy="160" r="14"/><text class="wlabel" x="45" y="160">4</text>
+      <circle class="wbg" cx="145" cy="65" r="14"/><text class="wlabel" x="145" y="65">2</text>
+      <circle class="wbg" cx="135" cy="168" r="14"/><text class="wlabel" x="135" y="168">1</text>
+      <circle class="wbg" cx="150" cy="265" r="14"/><text class="wlabel" x="150" y="265">5</text>
+      <circle class="wbg" cx="248" cy="165" r="14"/><text class="wlabel" x="248" y="165">8</text>
+      <circle class="wbg" cx="215" cy="205" r="14"/><text class="wlabel" x="215" y="205">7</text>
+      <circle class="wbg" cx="300" cy="120" r="14"/><text class="wlabel" x="300" y="120">10</text>
+      <circle class="wbg" cx="312" cy="208" r="14"/><text class="wlabel" x="312" y="208">2</text>
+      <circle class="wbg" cx="314" cy="305" r="14"/><text class="wlabel" x="314" y="305">6</text>
+      <circle class="wbg" cx="405" cy="260" r="14"/><text class="wlabel" x="405" y="260">3</text>
+
+      <circle class="vertex" cx="80" cy="80" r="17"/><text class="vlabel" x="80" y="80">A</text>
+      <circle class="vertex" cx="70" cy="240" r="17"/><text class="vlabel" x="70" y="240">B</text>
+      <circle class="vertex" cx="210" cy="90" r="17"/><text class="vlabel" x="210" y="90">C</text>
+      <circle class="vertex" cx="230" cy="250" r="17"/><text class="vlabel" x="230" y="250">D</text>
+      <circle class="vertex" cx="380" cy="180" r="17"/><text class="vlabel" x="380" y="180">E</text>
+      <circle class="vertex" cx="380" cy="340" r="17"/><text class="vlabel" x="380" y="340">F</text>
+    </g>
+  </defs>
+
+  <g transform="translate(10,20)">
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="70" y1="240" x2="210" y2="90"/>
+    <text class="caption" x="225" y="395">1. Velg BC</text>
+  </g>
+
+  <g transform="translate(400,20)">
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="70" y1="240" x2="210" y2="90"/>
+    <line class="edge-strong" x1="80" y1="80" x2="210" y2="90"/>
+    <text class="caption" x="225" y="395">2. Velg AC</text>
+  </g>
+
+  <g transform="translate(790,20)">
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="70" y1="240" x2="210" y2="90"/>
+    <line class="edge-strong" x1="80" y1="80" x2="210" y2="90"/>
+    <line class="edge-strong" x1="230" y1="250" x2="380" y2="180"/>
+    <text class="caption" x="225" y="395">3. Velg DE</text>
+  </g>
+
+  <g transform="translate(10,430)">
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="70" y1="240" x2="210" y2="90"/>
+    <line class="edge-strong" x1="80" y1="80" x2="210" y2="90"/>
+    <line class="edge-strong" x1="230" y1="250" x2="380" y2="180"/>
+    <line class="edge-strong" x1="380" y1="180" x2="380" y2="340"/>
+    <text class="caption" x="225" y="395">4. Velg EF</text>
+  </g>
+
+  <g transform="translate(400,430)">
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="70" y1="240" x2="210" y2="90"/>
+    <line class="edge-strong" x1="80" y1="80" x2="210" y2="90"/>
+    <line class="edge-strong" x1="230" y1="250" x2="380" y2="180"/>
+    <line class="edge-strong" x1="380" y1="180" x2="380" y2="340"/>
+    <line class="edge-reject" x1="80" y1="80" x2="70" y2="240"/>
+    <text class="caption" x="225" y="395">5. Avvis AB</text>
+  </g>
+
+  <g transform="translate(790,430)">
+    <use href="#graph-base"/>
+    <line class="edge-strong" x1="70" y1="240" x2="210" y2="90"/>
+    <line class="edge-strong" x1="80" y1="80" x2="210" y2="90"/>
+    <line class="edge-strong" x1="230" y1="250" x2="380" y2="180"/>
+    <line class="edge-strong" x1="380" y1="180" x2="380" y2="340"/>
+    <line class="edge-strong" x1="70" y1="240" x2="230" y2="250"/>
+    <text class="caption" x="225" y="395">6. Velg BD</text>
+  </g>
+</svg>
