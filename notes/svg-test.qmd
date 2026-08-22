@@ -1,8 +1,15 @@
 ---
 title: "SVG-test: grafer"
 lang: nb
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ../styles.css
+    respect-user-color-scheme: true
 ---
 
 Denne siden brukes midlertidig til å kontrollere størrelse, linjetykkelse og dark-mode-visning av graf-SVG-ene.
 
-![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf.svg){width=100%}
+![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf.svg){.graph-svg width=100%}
