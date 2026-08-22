@@ -25,14 +25,19 @@
   <ellipse class="guide" cx="300" cy="300" rx="215" ry="78"/>
   <path class="guide" d="M300 85 C220 155 220 445 300 515 C380 445 380 155 300 85"/>
 
-  <path class="face" d="M300 120 L145 365 L300 292 Z"/>
+  <!-- valgt flate ABD, avgrenset av storsirkelbuer -->
+  <path class="face" d="M300 120
+    C221.82 158.73 150.12 272.07 145 365
+    C181.27 346.71 240.25 318.93 300 292
+    C300 223.39 300 157.14 300 120 Z"/>
 
-  <line class="edge" x1="300" y1="120" x2="145" y2="365"/>
-  <line class="edge" x1="145" y1="365" x2="455" y2="365"/>
-  <line class="edge" x1="455" y1="365" x2="300" y2="120"/>
-  <line class="edge" x1="300" y1="292" x2="300" y2="120"/>
-  <line class="edge" x1="300" y1="292" x2="145" y2="365"/>
-  <line class="edge" x1="300" y1="292" x2="455" y2="365"/>
+  <!-- K4 på sfæren: kantene følger geodetiske storsirkelbuer -->
+  <path class="edge" d="M300 120 C221.82 158.73 150.12 272.07 145 365"/>
+  <path class="edge" d="M145 365 C224.46 403.09 375.54 403.09 455 365"/>
+  <path class="edge" d="M455 365 C449.88 272.07 378.18 158.73 300 120"/>
+  <path class="edge" d="M300 292 C300 223.39 300 157.14 300 120"/>
+  <path class="edge" d="M300 292 C240.25 318.93 181.27 346.71 145 365"/>
+  <path class="edge" d="M300 292 C359.75 318.93 418.73 346.71 455 365"/>
 
   <circle class="vertex" cx="300" cy="120" r="18"/><text class="vlabel" x="300" y="120">A</text>
   <circle class="vertex" cx="145" cy="365" r="18"/><text class="vlabel" x="145" y="365">B</text>
@@ -43,12 +48,14 @@
   <text class="small" x="237" y="267"><tspan font-style="italic">p</tspan></text>
   <text class="note" x="220" y="430">valgt flate</text>
 
+  <!-- overgang -->
   <path class="arrow" d="M545 300 C600 300 610 300 665 300"/>
   <text class="note" x="605" y="270">fjern <tspan font-style="italic">p</tspan></text>
   <text class="note" x="605" y="335">og strekk ut</text>
 
   <text class="panel" x="900" y="48">Samme graf i planet</text>
 
+  <!-- Plan innleiring med ABD som ytre trekant og C inne -->
   <line class="edge" x1="900" y1="115" x2="725" y2="445"/>
   <line class="edge" x1="725" y1="445" x2="1075" y2="445"/>
   <line class="edge" x1="1075" y1="445" x2="900" y2="115"/>
