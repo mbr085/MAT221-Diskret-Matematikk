@@ -270,9 +270,18 @@ og legg til en kant dersom den ikke danner en sykel med kantene som allerede er 
 **Prim:** Start i ett hjørne. Legg gjentatte ganger til en kant med minst mulig vekt
 som forbinder treet som hittil er bygget med et nytt hjørne.
 
-::: {.callout-note title="Figurforslag (SVG)"}
-`figures/grafer/prim-steg.svg`: 4--5 små paneler fra et markert starthjørne der ett sammenhengende tre vokser.
-Bruk samme graf, samme hjørneplassering og samme vekter som i figuren for Kruskal.
+::: {.content-visible when-format="html"}
+::: {.light-content}
+![Prims algoritme steg for steg.](figures/grafer/prim-steg.svg){width=100%}
+:::
+
+::: {.dark-content}
+![Prims algoritme steg for steg.](figures/grafer/prim-steg-dark.svg){width=100%}
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+![Prims algoritme steg for steg.](figures/grafer/prim-steg.svg){width=100%}
 :::
 
 ::: {#exr-kruskal-prim name="Samme problem, to strategier"}
@@ -477,7 +486,6 @@ Følg en sykel i en bipartitt graf og legg merke til at hjørnene annenhver gang
 
 ::: {#exr-plan-ulikheter name="To konsekvenser av Euler"}
 La $G$ være en endelig, sammenhengende enkel plan graf med minst tre hjørner.
-
 1. Forklar hvorfor hver flate har minst tre kantforekomster på randen.
 2. Dobbelttell kantforekomster langs flater og vis at
 
