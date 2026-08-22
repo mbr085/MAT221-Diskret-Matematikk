@@ -1,0 +1,8 @@
+---
+title: "SVG-test: grafer"
+lang: nb
+---
+
+Denne siden brukes midlertidig til å kontrollere størrelse, linjetykkelse og dark-mode-visning av graf-SVG-ene.
+
+![Tre eksempler på enkle grafer.](figures/grafer/enkel-graf.svg){width=100%}
