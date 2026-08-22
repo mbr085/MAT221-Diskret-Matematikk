@@ -64,3 +64,13 @@ Denne siden brukes midlertidig til å kontrollere størrelse, linjetykkelse og d
 ::: {.dark-content}
 ![Subdivisjon av en kant og av en større graf.](figures/grafer/subdivisjon-dark.svg){width=100%}
 :::
+
+## Spenntrær
+
+::: {.light-content}
+![En vektet graf og et minimum spenntre i den samme grafen.](figures/grafer/spenntre.svg){width=100%}
+:::
+
+::: {.dark-content}
+![En vektet graf og et minimum spenntre i den samme grafen.](figures/grafer/spenntre-dark.svg){width=100%}
+:::
