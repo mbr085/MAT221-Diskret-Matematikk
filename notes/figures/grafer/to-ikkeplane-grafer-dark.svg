@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">To ikke-plane grafer</title>
+  <desc id="desc">Grafen med fem hjørner der hvert par er forbundet, og den komplette bipartitte grafen med tre hjørner i hver del.</desc>
+  <style>
+    .edge { stroke: #f2f2f2; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .vertex { stroke: #f2f2f2; stroke-width: 3; fill: #444444; }
+    .caption { fill: #f2f2f2; font-family: Arial, Helvetica, sans-serif; font-size: 26px; text-anchor: middle; }
+  </style>
+
+  <g id="k5">
+    <line class="edge" x1="180" y1="70" x2="90" y2="170"/>
+    <line class="edge" x1="180" y1="70" x2="270" y2="170"/>
+    <line class="edge" x1="180" y1="70" x2="120" y2="310"/>
+    <line class="edge" x1="180" y1="70" x2="240" y2="310"/>
+    <line class="edge" x1="90" y1="170" x2="270" y2="170"/>
+    <line class="edge" x1="90" y1="170" x2="120" y2="310"/>
+    <line class="edge" x1="90" y1="170" x2="240" y2="310"/>
+    <line class="edge" x1="270" y1="170" x2="120" y2="310"/>
+    <line class="edge" x1="270" y1="170" x2="240" y2="310"/>
+    <line class="edge" x1="120" y1="310" x2="240" y2="310"/>
+
+    <circle class="vertex" cx="180" cy="70" r="17"/>
+    <circle class="vertex" cx="90" cy="170" r="17"/>
+    <circle class="vertex" cx="270" cy="170" r="17"/>
+    <circle class="vertex" cx="120" cy="310" r="17"/>
+    <circle class="vertex" cx="240" cy="310" r="17"/>
+
+    <text class="caption" x="180" y="395">Fem hjørner, alle par forbundet</text>
+  </g>
+
+  <g id="k33" transform="translate(360,0)">
+    <line class="edge" x1="140" y1="120" x2="360" y2="120"/>
+    <line class="edge" x1="140" y1="120" x2="360" y2="210"/>
+    <line class="edge" x1="140" y1="120" x2="360" y2="300"/>
+    <line class="edge" x1="140" y1="210" x2="360" y2="120"/>
+    <line class="edge" x1="140" y1="210" x2="360" y2="210"/>
+    <line class="edge" x1="140" y1="210" x2="360" y2="300"/>
+    <line class="edge" x1="140" y1="300" x2="360" y2="120"/>
+    <line class="edge" x1="140" y1="300" x2="360" y2="210"/>
+    <line class="edge" x1="140" y1="300" x2="360" y2="300"/>
+
+    <circle class="vertex" cx="140" cy="120" r="17"/>
+    <circle class="vertex" cx="140" cy="210" r="17"/>
+    <circle class="vertex" cx="140" cy="300" r="17"/>
+    <circle class="vertex" cx="360" cy="120" r="17"/>
+    <circle class="vertex" cx="360" cy="210" r="17"/>
+    <circle class="vertex" cx="360" cy="300" r="17"/>
+
+    <text class="caption" x="250" y="395">Bipartitt graf 3+3</text>
+  </g>
+</svg>
