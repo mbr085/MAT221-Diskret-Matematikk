@@ -4,6 +4,7 @@ lang: nb
 ---
 
 Dette er et arbeidsutkast til undervisningen knyttet til Anderson kapittel 3.
+Materialet er tenkt brukt over to undervisningsganger, med to arbeidsøkter på omtrent 45 minutter hver.
 Målet er å holde hovedteksten kort: fundamentale definisjoner og teoremer står her,
 mens mange forklaringer, bevis og eksempler undersøkes i oppgaver og med KI.
 
@@ -26,6 +27,7 @@ Når du bruker KI, er målet ikke bare å få et svar.
 ::: {.callout-note title="Figurer i dette arbeidsutkastet"}
 Bokser merket **Figurforslag (SVG)** markerer steder der vi ønsker enkel vektorgrafikk.
 De skal erstattes av faktiske SVG-figurer når innhold og rekkefølge er på plass.
+Når samme graf brukes flere steder, bør hjørnene ha samme plassering slik at figuren er lett å kjenne igjen.
 :::
 
 ## Arbeidsøkt 1: Grafer, sammenheng og trær
@@ -53,9 +55,14 @@ En enkel graf $G=(V,E)$ kalles **endelig** dersom $V$ er endelig.
 Siden $\{u,v\}=\{v,u\}$, har kantene ingen retning.
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-En liten enkel graf med 5--6 hjørner. Merk ett hjørne $v$, to naboer til $v$, en kant
-$e=\{u,v\}$ og endepunktene $u,v$. Figuren bør stå rett etter den første grafdefinisjonen.
-Foreslått filnavn: `figures/grafer/enkel-graf.svg`.
+`figures/grafer/enkel-graf.svg`: Tre små grafer ved siden av hverandre.
+
+- Grafen med fem hjørner der hvert par av forskjellige hjørner er forbundet med en kant.
+- Den bipartitte grafen med tre hjørner i hver del og alle mulige kanter mellom delene.
+- En enkel plan graf som senere kan gjenbrukes i eksempler og figurer.
+
+I den plane grafen merkes ett hjørne $v$, noen naboer til $v$, én kant $e=\{u,v\}$ og endepunktene $u,v$.
+De to første grafene skal tegnes på samme måte som når de dukker opp igjen senere i kapitlet.
 :::
 
 To hjørner er **naboer** dersom de er endepunktene til samme kant.
@@ -72,9 +79,13 @@ og begge endepunktene til hver kant i $F$ ligger i $W$.
 :::
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-Vis samme graf som i den første figuren, og ved siden av en delgraf der noen hjørner og kanter
-er beholdt. Bruk samme plassering av hjørnene slik at forholdet er umiddelbart synlig.
-Foreslått filnavn: `figures/grafer/delgraf.svg`.
+`figures/grafer/delgraf.svg`: Bruk den plane grafen fra `enkel-graf.svg` og vis tre forskjellige delgrafer:
+
+1. en delgraf der bare noen kanter er fjernet;
+2. en delgraf der noen hjørner og alle kantene som støter til dem er fjernet;
+3. en delgraf som ikke er av noen av disse to spesielle formene.
+
+Behold de samme hjørneplasseringene som i originalgrafen.
 :::
 
 ::: {#exr-handtrykk-oppdag name="Tell endepunkter på to måter"}
@@ -114,9 +125,13 @@ hjørne er det samme, ikke gjentar hjørner.
 :::
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-Én graf med tre tydelig markerte ruter: en gang som gjentar et hjørne, en sti og en sykel.
-Helst samme underliggende graf i alle tre småpanelene.
-Foreslått filnavn: `figures/grafer/gang-sti-sykel.svg`.
+`figures/grafer/gang-sti-sykel.svg`: Én underliggende graf med tre små paneler som fremhever henholdsvis
+
+- en gang som gjentar et hjørne,
+- en sti,
+- en sykel.
+
+Bruk samme hjørneplassering i alle panelene.
 :::
 
 ::: {#def-sammenheng name="Sammenhengende graf"}
@@ -144,8 +159,11 @@ Et **tre** er en sammenhengende graf uten sykler.
 En **skog** er en graf uten sykler. Hver sammenhengskomponent i en skog er altså et tre.
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-Tre små bilder: et tre, en skog med to komponenter, og det samme treet med én ekstra kant
-slik at det oppstår en sykel. Foreslått filnavn: `figures/grafer/tre-skog-sykel.svg`.
+`figures/grafer/tre-skog-sykel.svg`: Tre små bilder:
+
+- et tre;
+- en skog med to komponenter;
+- det samme treet som i første bilde, men med én ekstra kant slik at det oppstår en sykel.
 :::
 
 Følgende karakteriseringer er fundamentale og lar oss skifte mellom geometriske,
@@ -173,6 +191,16 @@ Målet er ikke å memorere et langt standardbevis, men å forstå hvorfor karakt
 
 ## Arbeidsøkt 2: Spenntrær og algoritmer
 
+### Spenntrær
+
+La $G=(V,E)$ være en sammenhengende enkel graf. Et **spenntre** i $G$ er en delgraf
+
+$$
+T=(V,F)
+$$
+
+som er et tre. Legg merke til at et spenntre inneholder alle hjørnene i $G$.
+
 ### Vektede grafer og minimum spenntrær
 
 En **vektet graf** er en graf $G=(V,E)$ sammen med en funksjon
@@ -184,16 +212,8 @@ $$
 Tallet $w(e)$ kalles **vekten** til kanten $e$. Vekten kan for eksempel representere avstand,
 kostnad eller tid.
 
-La $G=(V,E)$ være en endelig, sammenhengende vektet enkel graf. Et **spenntre** i $G$ er en
-delgraf
-
-$$
-T=(V,F)
-$$
-
-som er et tre. Legg merke til at et spenntre inneholder alle hjørnene i $G$.
-
-Den totale vekten til $T$ er
+La nå $G=(V,E)$ være en **endelig**, sammenhengende vektet enkel graf, og la
+$T=(V,F)$ være et spenntre i $G$. Den **totale vekten** til $T$ er den endelige summen
 
 $$
 w(T)=\sum_{e\in F}w(e).
@@ -202,9 +222,9 @@ $$
 Et **minimum spenntre** (MST) er et spenntre med minst mulig total vekt.
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-En liten vektet graf og samme graf ved siden av med ett spenntre markert. Alle hjørnene skal
-stå på samme sted i begge bilder; bare de valgte kantene fremheves i spenntreet.
-Foreslått filnavn: `figures/grafer/spenntre.svg`.
+`figures/grafer/spenntre.svg`: En liten vektet graf og samme graf ved siden av med ett spenntre markert.
+Alle hjørnene skal stå på samme sted i begge bilder; bare de valgte kantene fremheves i spenntreet.
+Bruk denne samme vektede grafen også i figurene for Kruskal og Prim dersom den egner seg.
 :::
 
 To klassiske algoritmer er:
@@ -218,11 +238,10 @@ som forbinder treet som hittil er bygget med et nytt hjørne.
 ::: {.callout-note title="Figurforslag (SVG)"}
 Bruk én og samme vektede graf til to stegserier.
 
-- **Kruskal:** 4--5 små paneler der skogen vokser. Vis minst én kant som avvises fordi den ville danne en sykel.
-- **Prim:** 4--5 små paneler fra et markert starthjørne der ett sammenhengende tre vokser.
+- `figures/grafer/kruskal-steg.svg`: 4--5 små paneler der skogen vokser. Vis minst én kant som avvises fordi den ville danne en sykel.
+- `figures/grafer/prim-steg.svg`: 4--5 små paneler fra et markert starthjørne der ett sammenhengende tre vokser.
 
-Samme graf og samme vekter i begge serier gjør kontrasten tydelig.
-Foreslåtte filnavn: `figures/grafer/kruskal-steg.svg` og `figures/grafer/prim-steg.svg`.
+Samme graf, samme hjørneplassering og samme vekter i begge serier skal gjøre kontrasten tydelig.
 :::
 
 ::: {#exr-kruskal-prim name="Samme problem, to strategier"}
@@ -310,7 +329,7 @@ Finn ut:
 
 Oppgi lenke til offisiell dokumentasjon eller kildekode. Ikke bruk et KI-svar som eneste kilde.
 
-Til slutt samler klassen resultatene i én tabell og diskuterer hvorfor forskjellige biblioteker
+Til slutt samler klassen resultatene og diskuterer hvorfor forskjellige biblioteker
 kan ha valgt forskjellige algoritmer.
 :::
 
@@ -344,9 +363,9 @@ En bestemt slik tegning kalles en **plan innleiring**. De sammenhengende område
 kalles **flater**.
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-Vis én og samme plane graf først i en tegning med en unødvendig kantkryssing og deretter i en
-plan innleiring uten kryssinger. Poenget er å skille «denne tegningen har en kryssing» fra
-«grafen er ikke plan». Foreslått filnavn: `figures/grafer/plan-tegning.svg`.
+`figures/grafer/plan-tegning.svg`: Vis én og samme plane graf først i en tegning med en unødvendig
+kantkryssing og deretter i en plan innleiring uten kryssinger. Poenget er å skille
+«denne tegningen har en kryssing» fra «grafen er ikke plan».
 :::
 
 ::: {#exr-sfaere-plan name="Hvor kommer den ytre flaten fra?"}
@@ -357,7 +376,7 @@ Grafen deler sfæren i regioner.
 2. Tenk deg at sfæren punkteres i $p$ og strekkes ut til et plan.
 3. Hva skjer med hjørnene og kantene?
 4. Hvilken region blir den ubundne «ytre flaten» i planet?
-5. Endres antall hjørner $V$, kanter $E$ eller flater $F$?
+5. Endres antall hjørner, kanter eller flater?
 6. Hvorfor er det derfor naturlig å telle den ytre flaten i en plan graf?
 
 **KI:** Hvis du ønsker et mer presist topologisk språk, be KI forklare utsagnet
@@ -365,9 +384,8 @@ $S^2\setminus\{p\}\cong\mathbb R^2$ og stereografisk projeksjon.
 :::
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-En todelt figur: til venstre et enkelt kart/graf på sfæren med ett punkt $p$ i en region,
-til høyre den tilsvarende plane tegningen der nettopp denne regionen er den ytre flaten.
-Foreslått filnavn: `figures/grafer/sfaere-plan.svg`.
+`figures/grafer/sfaere-plan.svg`: En todelt figur. Til venstre et enkelt kart/graf på sfæren med ett punkt $p$
+i en region; til høyre den tilsvarende plane tegningen der nettopp denne regionen er den ytre flaten.
 :::
 
 ::: {#thm-euler-plan name="Eulers formel"}
@@ -407,9 +425,10 @@ slik at hver kant har ett endepunkt i $A$ og ett i $B$.
 :::
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-En liten bipartitt graf med $A$ tegnet som én vertikal kolonne og $B$ som en annen.
-Ingen kanter går mellom to hjørner i samme kolonne.
-Foreslått filnavn: `figures/grafer/bipartitt.svg`.
+`figures/grafer/bipartitt.svg`: To bipartitte grafer med delene $A$ og $B$ tegnet som to kolonner.
+
+- Den bipartitte grafen med tre hjørner i hver del og alle mulige kanter mellom delene, tegnet nøyaktig som i `enkel-graf.svg`.
+- En annen bipartitt graf der ikke alle mulige kanter mellom delene er med.
 :::
 
 ::: {#exr-bipartitt-sykler name="Hvor lange kan syklene være?"}
@@ -435,7 +454,7 @@ $$
 |E|\leq 3|V|-6.
 $$
 
-4. Anta nå at $G$ er bipartitt. Bruk @exr-bipartitt-sykler til å forklare hvorfor ingen flate kan ha rand av lengde tre.
+4. Anta nå at $G$ er bipartitt. Hvorfor har ingen flate rand av lengde tre?
 5. Vis i dette tilfellet at
 
 $$
@@ -443,36 +462,29 @@ $$
 $$
 :::
 
-### To grunnleggende hindringer for planaritet
-
-::: {.callout-note title="Figurforslag (SVG)"}
-To figurer side ved side:
-
-1. fem hjørner der hvert par av forskjellige hjørner er forbundet med en kant;
-2. to grupper med tre hjørner, der hvert hjørne i den ene gruppen er forbundet med alle tre i den andre.
-
-Ingen symbolnavn er nødvendig i selve figuren. Foreslått filnavn:
-`figures/grafer/to-ikkeplane-grafer.svg`.
-:::
-
 ::: {#exr-to-ikkeplane name="To grunnleggende hindringer"}
 Bruk @exr-plan-ulikheter til å vise at følgende to grafer ikke er plane:
 
-1. grafen med fem hjørner der hvert par av forskjellige hjørner er forbundet med en kant;
-2. den bipartitte grafen med tre hjørner i hver del, der alle mulige kanter mellom de to delene er med.
+1. Grafen med fem hjørner der hvert par av forskjellige hjørner er forbundet med en kant.
+2. Den bipartitte grafen med tre hjørner i hver del, der alle mulige kanter mellom de to delene er med.
 
-Hvorfor trenger vi to forskjellige ulikheter for å avsløre de to grafene?
+Hvorfor trenger vi to forskjellige ulikheter fra @exr-plan-ulikheter for å avsløre de to grafene?
+:::
+
+::: {.callout-note title="Figurforslag (SVG)"}
+`figures/grafer/to-ikkeplane-grafer.svg`: Vis de to grafene fra @exr-to-ikkeplane med nøyaktig samme
+hjørneplassering og utforming som i `enkel-graf.svg` og `bipartitt.svg`, slik at de er umiddelbart gjenkjennelige.
 :::
 
 ### Hvorfor dukker subdivisjoner opp?
 
-Å **subdividere** en kant betyr å erstatte den med en sti ved å sette inn ett eller flere nye
-hjørner av grad $2$.
+Å **subdividere** en kant betyr å erstatte den med en sti ved å sette inn nye hjørner av grad $2$.
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-Vis én kant $u$--$v$ og ved siden av samme kant subdividert med ett nytt hjørne $x$:
-$u$--$x$--$v$. Legg deretter inn en liten versjon av den første ikke-plane grafen der én kant
-er subdividert. Foreslått filnavn: `figures/grafer/subdivisjon.svg`.
+`figures/grafer/subdivisjon.svg`:
+
+- Vis først én kant $u$--$v$ og ved siden av samme kant subdividert med ett nytt hjørne $x$: $u$--$x$--$v$.
+- Vis deretter en liten versjon av den første grafen i @exr-to-ikkeplane der én kant er subdividert.
 :::
 
 ::: {#exr-subdivisjon-plan name="Subdivisjon endrer ikke planaritet"}
@@ -539,9 +551,8 @@ Den **duale grafen** $G^*$ konstrueres ved å plassere ett nytt hjørne i hver f
 la hver kant i $G$ krysses av én tilsvarende kant i $G^*$.
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-En plan graf og dens dual oppå samme tegning, men visuelt tydelig atskilt. Deretter gjerne et lite
-panel med kube-grafen og oktaeder-grafen som duale.
-Foreslått filnavn: `figures/grafer/dual-graf.svg`.
+`figures/grafer/dual-graf.svg`: En plan graf og dens dual oppå samme tegning, men visuelt tydelig atskilt.
+Figuren skal først og fremst forklare selve dualkonstruksjonen. Vi trenger ikke gjenta kube--oktaeder-dualiteten i denne figuren.
 :::
 
 ::: {#exr-dual name="Bygg dualen"}
@@ -580,21 +591,14 @@ $$
 \text{dodekaeder}\leftrightarrow\text{ikosaeder}.
 $$
 
-::: {.callout-note title="Figurforslag (SVG)"}
-En svært enkel strekfigur av kube og oktaeder side ved side, eventuelt også tetraederet som selvdual.
-Dodekaeder/ikosaeder kan utelates hvis figuren blir for tung.
-Foreslått filnavn: `figures/grafer/polyeder-dualitet.svg`.
-:::
-
 ### Fra kartfarging til graf-farging
 
 Tenk igjen på et kart på jordkloden. To regioner skal ha forskjellige farger dersom de deler
 en grensestrekning.
 
 ::: {.callout-note title="Figurforslag (SVG)"}
-Et lite kunstig kart med 5--6 regioner og den duale grafen ved siden av. Bruk ingen faktisk
-geografi; en ren skjematisk figur er lettere å lese.
-Foreslått filnavn: `figures/grafer/kart-og-dual.svg`.
+`figures/grafer/kart-og-dual.svg`: Et lite kunstig kart med 5--6 regioner og den duale grafen ved siden av.
+Bruk ingen faktisk geografi; en ren skjematisk figur er lettere å lese.
 :::
 
 ::: {#exr-kart-dual name="Gjør kartfarging om til hjørnefarging"}
@@ -605,20 +609,20 @@ Foreslått filnavn: `figures/grafer/kart-og-dual.svg`.
 :::
 
 ::: {#thm-firefarge name="Firefargeteoremet"}
-Hjørnene i enhver endelig enkel plan graf kan fargelegges med høyst fire farger slik at nabohjørner får
+Hjørnene i enhver plan graf kan fargelegges med høyst fire farger slik at nabohjørner får
 forskjellige farger.
 :::
 
 Ved kartfarging er bare grenser mellom to **forskjellige** regioner relevante. Dersom en dualgraf
 får en løkke fordi en kant har samme flate på begge sider, ser vi bort fra denne løkken i
 fargeleggingsproblemet. Med denne forståelsen er @thm-firefarge det klassiske utsagnet om at
-ethvert endelig kart på sfæren eller i planet kan fargelegges med høyst fire farger når regioner som
+ethvert kart på sfæren eller i planet kan fargelegges med høyst fire farger når regioner som
 deler en grensestrekning skal ha ulike farger. Vi skal bruke teoremet, men ikke bevise det.
 
 ::: {#exr-firefarge-refleksjon name="Hva binder kapitlet sammen?"}
 Lag et kort begrepskart som inneholder minst disse ordene:
 
-**graf**, **delgraf**, **sammenheng**, **tre**, **skog**, **spenntre**, **plan graf**, **sfære**, **flate**,
+**graf**, **sammenheng**, **tre**, **spenntre**, **plan graf**, **sfære**, **flate**,
 **Euler**, **Kuratowski**, **dual graf**, **polyeder**, **firefarging**.
 
 Tegn piler mellom begrepene og skriv én kort forklaring på hver pil.
@@ -630,9 +634,9 @@ Du kan bruke KI til å foreslå forbindelser, men fjern alle piler du ikke selv 
 
 Du skal særlig kunne:
 
-- bruke de grunnleggende definisjonene for grafer, delgrafer, stier, sykler, sammenheng og trær,
+- bruke de grunnleggende definisjonene for grafer, delgrafer, stier, sykler, sammenheng, trær og skoger,
 - forklare og anvende sentrale karakteriseringer av trær,
-- forklare hva en vektet graf og et spenntre er,
+- forklare hva et spenntre og et minimum spenntre er,
 - gjennomføre Kruskals og Prims algoritmer og diskutere deres faktiske kostnad,
 - forklare rollen til union--find og forskjellen mellom asymptotisk og praktisk ytelse,
 - bruke Eulers formel og forstå hvorfor en plan graf like naturlig kan tegnes på sfæren,
